@@ -7,13 +7,11 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET,
 });
 
-// Creating Storage for cloudinary and multer with allowed formats like jpeg, png, jpg, pdf, doc, docx, txt, rtf
-
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: 'Finmart',
-    allowedFormats: ['jpeg', 'png', 'jpg', 'pdf', 'doc', 'docx', 'txt', 'rtf'],
+    allowedFormats: ['jpeg', 'png', 'jpg', 'pdf'],
   },
 });
 module.exports = {

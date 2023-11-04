@@ -59,7 +59,7 @@ router.route('/get-AllFaq').get(isAdminLoggedIn, getAllFaqs);
 router.route('/get-blogs').get(isAdminLoggedIn, getAllBlogs);
 router
   .route('/add-blog')
-  .post(isAdminLoggedIn, upload.single('image'), addNewBlog);
+  .post(isAdminLoggedIn, upload.array('images'), addNewBlog);
 router
   .route('/update-blog/:blogId')
   .put(isAdminLoggedIn, upload.single('image'), updateBlog);

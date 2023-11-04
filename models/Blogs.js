@@ -18,13 +18,18 @@ const BlogSchema = new Schema(
       type: String,
       required: true,
     },
-    description: {
+    category: {
       type: String,
       required: true,
     },
+    description: [String],
     author: {
       type: String,
       default: 'Admin',
+    },
+    postingDate: {
+      type: Date,
+      default: Date,
     },
 
     images: [ImageSchema],

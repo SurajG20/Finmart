@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 module.exports.Register = async (req, res) => {
-  console.log(req.body);
   const { firstname, lastname, number, password, email } = req.body;
   try {
     if (!firstname || !lastname || !number || !email || !password) {
@@ -23,7 +22,6 @@ module.exports.Register = async (req, res) => {
 
 module.exports.Login = async (req, res) => {
   try {
-    console.log(req.body);
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
       return res.status(400).json({ message: 'Wrong credentials' });
@@ -40,13 +38,11 @@ module.exports.Login = async (req, res) => {
     req.session.user = user;
     res.redirect('/');
   } catch (error) {
-    // res.status(500).json({ message: 'Server Error' });
     res.redirect('error');
   }
 };
 
-
 module.exports.Logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
-}
+};

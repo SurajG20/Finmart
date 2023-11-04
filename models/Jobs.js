@@ -6,17 +6,6 @@ const FileSchema = new Schema({
   filename: String,
 });
 
-FileSchema.virtual('thumbnail').get(function () {
-  if (
-    this.url.endsWith('.jpg') ||
-    this.url.endsWith('.jpeg') ||
-    this.url.endsWith('.png')
-  ) {
-    return this.url.replace('/upload', '/upload/h_200,w_200');
-  }
-  return this.url;
-});
-
 const opts = { toJSON: { virtuals: true } };
 
 const JobSchema = new Schema(
@@ -25,37 +14,49 @@ const JobSchema = new Schema(
       type: String,
       required: true,
     },
-    city: {
+    category: {
+      type: String,
+      enums: [
+        'Administration',
+        'Asset Management',
+        'Accounts Officer',
+        'Branch Banking',
+        'Technology',
+      ],
+      required: true,
+    },
+    location: {
       type: String,
       required: true,
     },
-    state: {
+    jobPosition: {
       type: String,
       required: true,
     },
-    date: {
+    postedOn: {
       type: Date,
-      default: Date.now,
+      default: Date,
     },
-
     description: {
       type: String,
       required: true,
     },
-    images: [FileSchema],
+    jobType: {
+      type: String,
+      enums: ['Full-time', 'Part-time'],
+      required: true,
+    },
+
+    specifications: [{ type: String }],
 
     applications: [
       {
-        user: {
-          type: Schema.Types.ObjectId,
-          ref: 'User', // reference to the User model
-        },
         firstname: { type: String, required: true },
         lastname: { type: String, required: true },
         message: { type: String, required: true },
         email: { type: String, required: true },
         phone: { type: String, required: true },
-        attachment: [FileSchema],
+        attachment: FileSchema,
       },
     ],
   },

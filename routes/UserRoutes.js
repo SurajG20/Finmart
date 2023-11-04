@@ -17,6 +17,9 @@ const {
   loan,
   login,
   user,
+  renderDocumentUpload,
+  renderLoanDetails,
+  renderPersonalDetails,
   admin,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
@@ -49,19 +52,26 @@ router.route('/contact').get(contact);
 router.route('/job-application/:jobId').get(addJobApplication);
 router.route('/job-post').get(renderJobPost);
 
-router.route('/feedback').post(feedback);
+router.route('/feedback').post(upload.none(), feedback);
 
-router.route('/newsletter').post(newsletter);
+router.route('/newsletter').post(upload.none(), newsletter);
+
+router.route('/applyToJob').post(upload.single('resume'), applyToJob);
 
 router
-  .route('/applyToJob')
-  .post(isLoggedIn, applyToJob, upload.single('resume'));
+  .route('/personal-details')
+  .get(renderPersonalDetails)
+  .post(isLoggedIn, upload.none(), submitPersonalDetails);
 
-router.route('/personal-details').post(isLoggedIn, submitPersonalDetails);
+router
+  .route('/loan-details')
+  .get(renderLoanDetails)
+  .post(isLoggedIn, upload.none(), submitLoanDetails);
 
-router.route('/loan-details').post(isLoggedIn, submitLoanDetails);
-
-router.route('/document-upload').post(isLoggedIn, submitDocumentUpload);
+router
+  .route('/document-upload')
+  .get(renderDocumentUpload)
+  .post(isLoggedIn, upload.array('Documents'), submitDocumentUpload);
 
 router.route('/blog-details/:blogId').get(renderBlogDetails);
 

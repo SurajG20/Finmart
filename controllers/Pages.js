@@ -11,18 +11,22 @@ module.exports.home = async (req, res) => {
   const blogs = await Blogs.find();
   const user = req.session.user;
   const frequently = await Frequently.find();
-  const feedback = await Feedback.find();
-  res.render('index', { blogs, frequently, feedback, user });
+  const feedbacks = await Feedback.find();
+  res.render('index', { blogs, frequently, feedbacks, user });
 };
 // about page
 module.exports.about = (req, res) => {
-  res.render('about');
+  const user = req.session.user;
+  res.render('about', { user });
 };
 module.exports.user = (req, res) => {
-  res.render('user');
+  const user = req.session.user;
+
+  res.render('user', { user });
 };
 module.exports.admin = (req, res) => {
-  res.render('admin');
+  const user = req.session.user;
+  res.render('admin', { user });
 };
 module.exports.login = (req, res) => {
   res.render('login');
@@ -32,90 +36,98 @@ module.exports.register = (req, res) => {
 };
 
 module.exports.newsletter = async (req, res) => {
-  const { email } = req.body;
   try {
+    console.log(req.body);
+
+    const { email } = req.body;
     const subscribedEmail = new Newsletter({ email });
     await subscribedEmail.save();
-    res.status(201).json({ message: 'Subscribed successfully' });
+
+    res.json({ success: true });
   } catch (error) {
     res.status(500).json({ message: 'Error subscribing to the newsletter' });
   }
 };
 //Feedback
 module.exports.feedback = async (req, res) => {
+  console.log(req.body);
   const { fullname, email, message, subject } = req.body;
   try {
     const feedback = new Feedback({ fullname, email, message, subject });
     await feedback.save();
-    res.status(201).json({ message: 'feedback recieved successfully' });
+
+    res.json({ success: true });
   } catch (error) {
-    res.render('error', { error });
+    res.status(500).json({ success: false, error: 'Form submission failed.' });
   }
 };
 
 // loan page
 module.exports.loan = async (req, res) => {
-  res.render('loan');
+  const user = req.session.user;
+  res.render('loan', { user });
 };
 
 // blog page
 module.exports.blog = async (req, res) => {
   const blogs = await Blogs.find();
-  res.render('blog', { blogs });
+  const user = req.session.user;
+  res.render('blog', { blogs, user });
 };
 
 // contact page
 module.exports.contact = async (req, res) => {
   const frequently = await Frequently.find();
-  res.render('contact', { frequently });
+  const user = req.session.user;
+  res.render('contact', { frequently, user });
 };
 
 // rendering job post page
 module.exports.renderJobPost = async (req, res) => {
+  const user = req.session.user;
   const jobs = await Jobs.find();
-  res.render('job-post', { jobs });
+  res.render('job-post', { jobs, user });
 };
 
 // rendering job application page for user to apply
 module.exports.addJobApplication = async (req, res) => {
   try {
     const { jobId } = req.params;
+    const user = req.session.user;
     const singleJob = await Jobs.findById({ _id: jobId });
-    // res.render('job-application');
-    res.status(200).json({ message: 'single job successfully' });
+    res.render('job-application', { singleJob, user });
   } catch (err) {
-    res.status(500).send('Internal Server Error');
+    res.redirect('error', { err });
   }
 };
 
 // apply to job for user
 module.exports.applyToJob = async (req, res) => {
   try {
-    const { userId, jobId, firstname, lastname, message, email, phone } =
-      req.body;
-    console.log(req.body);
+    const { jobId, firstname, lastname, message, email, phone } = req.body;
     const application = {
-      user: userId,
       firstname,
       lastname,
       message,
       email,
       phone,
-      attachment: { url: 'someurl', filename: 'somefilename' },
     };
+    console.log(req.file);
+    if (req.file) {
+      const attachment = {
+        url: req.file.path,
+        filename: req.file.originalname,
+      };
+      application.attachment = attachment;
+    }
 
-    // if (req.file) {
-    //   const resumeURL = req.file.path;
-    //   application.attachment = resumeURL;
-    // }
     const job = await Jobs.findById(jobId);
+    console.log(job);
     job.applications.push(application);
     await job.save();
-    // res.redirect('/jobs');
-    res.status(200).json({ message: 'Job applied successfully' });
+    res.redirect('/job-post');
   } catch (err) {
-    // res.redirect('error', { err });
-    res.status(500).json({ err: err });
+    res.redirect('error', { err });
   }
 };
 
@@ -124,10 +136,10 @@ module.exports.renderBlogDetails = async (req, res) => {
   try {
     const { blogId } = req.params;
     const singleBlog = await Blogs.findById({ _id: blogId });
-    // res.render('blog-details', { singleBlog });
-    res.status(200).json({ message: 'single blog successfully' });
+    const user = req.session.user;
+    res.render('blog-details', { user, singleBlog });
   } catch (err) {
-    res.status(500).send('Internal Server Error');
+    res.redirect('error', { err });
   }
 };
 
@@ -138,18 +150,24 @@ module.exports.errorPage = (req, res) => {
 
 // Handle submission of loan details form
 
+module.exports.renderLoanDetails = async (req, res) => {
+  const user = req.session.user;
+  res.render('loan-details', { user });
+};
+
+module.exports.renderPersonalDetails = async (req, res) => {
+  const user = req.session.user;
+  res.render('personal-details', { user });
+};
+
+module.exports.renderDocumentUpload = async (req, res) => {
+  const user = req.session.user;
+  res.render('document-upload', { user });
+};
+
 module.exports.submitLoanDetails = async (req, res) => {
   try {
-    const { loanType, interestRate, tenureYears, loanAmount, financingType } =
-      req.body;
-    // Collect and validate loan details data from the request
-    const loanDetails = {
-      loanType: loanType,
-      rateOfInterest: interestRate,
-      tenurePeriodInYears: tenureYears,
-      amount: loanAmount,
-      financingType: financingType,
-    };
+    const loanDetails = req.body;
 
     const userId = req.session.user._id;
     let combinedDetails = await CombinedDetails.findOne({ userId });
@@ -164,15 +182,11 @@ module.exports.submitLoanDetails = async (req, res) => {
     } else {
       combinedDetails.loanDetails = loanDetails;
     }
-
-    // Save the combined details data
     await combinedDetails.save();
 
-    // res.redirect('/personal-details');
-    res.status(200).json({ message: 'loan details saved successfully' });
+    res.redirect('/personal-details');
   } catch (error) {
-    res.status(500).json({ error: 'Could not save loan details.' });
-    // res.render('error', { error });
+    res.render('error', { error });
   }
 };
 
@@ -181,8 +195,10 @@ module.exports.submitPersonalDetails = async (req, res) => {
     const {
       firstName,
       lastName,
-      dateOfBirth,
-      maritalStatus,
+      day,
+      month,
+      year,
+      MaritalStatus,
       email,
       mobileNumber,
       presentAddress,
@@ -190,12 +206,12 @@ module.exports.submitPersonalDetails = async (req, res) => {
       city,
       zipCode,
     } = req.body;
-    // Collect and validate personal details data from the request
+    const dateOfBirth = `${day}, ${month}, ${year}`;
     const personalDetails = {
       firstName: firstName,
       lastName: lastName,
       dateOfBirth: dateOfBirth,
-      maritalStatus: maritalStatus,
+      MaritalStatus: MaritalStatus,
       email: email,
       mobileNumber: mobileNumber,
       presentAddress: presentAddress,
@@ -204,7 +220,6 @@ module.exports.submitPersonalDetails = async (req, res) => {
       zipCode: zipCode,
     };
 
-    // Find or create a CombinedDetails document for the user
     const userId = req.session.user._id;
     let combinedDetails = await CombinedDetails.findOne({ userId });
 
@@ -218,50 +233,43 @@ module.exports.submitPersonalDetails = async (req, res) => {
     } else {
       combinedDetails.personalDetails = personalDetails;
     }
-
-    // Save the combined details data
     await combinedDetails.save();
-
-    // Redirect to the next form (e.g., document upload form)
-    // res.redirect('/document-upload');
-    res.status(200).json({ message: 'personal details saved successfully' });
+    res.redirect('/document-upload');
   } catch (error) {
-    // Handle errors, e.g., render an error page
-    // res.render('error', { error });
-    res.status(500).json({ error: 'Could not save personal details.' });
+    res.render('error', { error });
   }
 };
 
-// Handle submission of document upload form
 module.exports.submitDocumentUpload = async (req, res) => {
   try {
-    // const { description, fileUrl } = req.body;
-
-    testingData = {
-      url: 'String',
-      filename: 'ring',
-    };
-    const userId = req.session.user._id;
-    let combinedDetails = await CombinedDetails.findOne({ userId });
-
-    if (!combinedDetails) {
-      combinedDetails = new CombinedDetails({
-        userId,
-        loanDetails: {},
-        personalDetails: {},
-        documentUploads: [{ description, fileUrl }],
+    if (req.files) {
+      const userId = req.session.user._id;
+      const documents = req.files.map((f) => {
+        return {
+          url: f.path,
+          filename: f.filename,
+        };
       });
+
+      let combinedDetails = await CombinedDetails.findOne({ userId });
+
+      if (!combinedDetails) {
+        combinedDetails = new CombinedDetails({
+          userId,
+          loanDetails: {},
+          personalDetails: {},
+          documentUploads: documents,
+        });
+      } else {
+        combinedDetails.documentUploads =
+          combinedDetails.documentUploads.concat(documents);
+      }
+      await combinedDetails.save();
+      res.redirect('/user');
     } else {
-      combinedDetails.documentUploads.push(testingData);
+      res.render('error', { error: 'No files uploaded' });
     }
-
-    // Save the combined details data
-    await combinedDetails.save();
-
-    // res.redirect('/confirmation-page');
-    res.status(200).json({ message: 'document uploaded successfully' });
   } catch (error) {
-    // res.render('error', { error });
-    res.status(500).json({ error: 'Could not save document upload.' });
+    res.render('error', { error });
   }
 };

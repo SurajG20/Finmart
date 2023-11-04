@@ -65,20 +65,9 @@ module.exports.getAllJobs = async (req, res) => {
 // get new job
 module.exports.addNewJob = async (req, res) => {
   try {
-    const { title, description, city, state, image } = req.body;
-    if (title && description && city && state && image) {
-      const newJob = req.body;
-      // console.log(req.files);
-      // if (req.file) {
-      //   newJob.image = {
-      //     url: req.file.path,
-      //     filename: req.file.filename,
-      //   };
-      // }
-      await Jobs.create(newJob);
-      res.status(200).json({ message: 'Job created successfully' });
-      // res.redirect('/admin');
-    }
+    const job = new Jobs(req.body);
+    await job.save();
+    res.status(200).json({ message: 'Job created successfully' });
   } catch (err) {
     // res.redirect('error', { err });
     res.status(500).json({ err: err });
@@ -188,17 +177,19 @@ module.exports.getAllBlogs = async (req, res) => {
 // addNewBLog
 module.exports.addNewBlog = async (req, res) => {
   try {
-    const { title, description, author, image } = req.body;
-    console.log(image);
-    if (title && description && author && image) {
+    console.log(req.body);
+    const { title, description, author, category } = req.body;
+    if (title && description && author && category) {
       const newBlog = req.body;
-      // console.log(req.files);
-      // if (req.file) {
-      //   newBlog.image = {
-      //     url: req.file.path,
-      //     filename: req.file.filename,
-      //   };
-      // }
+      console.log(req.files);
+      if (req.files) {
+        newBlog.images = req.files.map((f) => {
+          return {
+            url: f.path,
+            filename: f.filename,
+          };
+        });
+      }
       await Blogs.create(newBlog);
       res.status(201).json({ message: 'Blog created successfully' });
       // res.redirect('/admin');

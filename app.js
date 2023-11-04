@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const connectDb = require('./db/connect');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -13,13 +12,14 @@ const adminRoute = require('./routes/AdminRoutes');
 const dbUrl = 'mongodb://127.0.0.1:27017/finmart'; //FOR DEVELOPMENT MODE
 // const dbUrl = process.env.DBURL; //FOR PRODUCTION MODE
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-app.use(bodyParser.json());
+
 const secret = process.env.SECRET;
 app.use(
   session({

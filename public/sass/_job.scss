@@ -22,8 +22,8 @@
       }
     }
     &::before {
-      content: "\33";
-      font-family: "ElegantIcons";
+      content: '\33';
+      font-family: 'ElegantIcons';
       font-style: normal;
       font-weight: normal;
       font-variant: normal;
@@ -79,7 +79,7 @@
   border-radius: 6px;
   background-color: #fff;
 
-  .form-check .form-check-input:checked[type="radio"] ~ .form-check-label {
+  .form-check .form-check-input:checked[type='radio'] ~ .form-check-label {
     color: var(--brand_color);
   }
 
@@ -205,8 +205,8 @@
         line-height: 22px;
         position: relative;
         &::before {
-          content: "\4e";
-          font-family: "ElegantIcons";
+          content: '\4e';
+          font-family: 'ElegantIcons';
           font-style: normal;
           font-weight: normal;
           font-variant: normal;
@@ -285,13 +285,11 @@
     }
   }
 }
-
 .job-description-widget {
   .single-description-para {
-    margin-top: 25px;
-
+    margin-top: 25px !important;
     h6 {
-      font-size: 18px;
+      font-size: 22px;
       color: $theme-title-color;
       font-family: $Poppins-font;
       font-weight: 600;
@@ -321,13 +319,13 @@
         line-height: 26px;
 
         &::before {
-          content: "\5e";
+          content: '\5e';
           position: absolute;
           top: 4px;
           left: 0;
           font-size: 16px;
           color: var(--p_color);
-          font-family: "ElegantIcons";
+          font-family: 'ElegantIcons';
           font-style: normal;
           font-weight: normal;
           font-variant: normal;
@@ -518,6 +516,7 @@
     color: var(--brand_color);
   }
   font-size: 14px;
+  text-transform: capitalize;
   color: #787880;
   font-family: $Poppins-font;
   font-weight: 400;
