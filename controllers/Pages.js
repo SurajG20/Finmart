@@ -24,9 +24,12 @@ module.exports.user = (req, res) => {
 
   res.render('user', { user });
 };
-module.exports.admin = (req, res) => {
+module.exports.admin = async (req, res) => {
+  const blogs = await Blogs.find();
   const user = req.session.user;
-  res.render('admin', { user });
+  const newsletter = await Newsletter.find();
+  const allFeedback = await Feedback.find();
+  res.render('admin', { user, allFeedback, newsletter, blogs });
 };
 module.exports.login = (req, res) => {
   res.render('login');

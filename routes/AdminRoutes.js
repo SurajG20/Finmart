@@ -24,8 +24,6 @@ const multer = require('multer');
 const { storage } = require('../cloudinary/index');
 const upload = multer({ storage });
 
-// Feedback
-router.route('/feedback').get(isAdminLoggedIn, getAllFeedback);
 // get all jobs
 router.route('/get-jobs').get(isAdminLoggedIn, getAllJobs);
 // get new job
@@ -41,8 +39,7 @@ router
 router.route('/delete-job/:jobId').delete(isAdminLoggedIn, deleteJob);
 
 // delete feedback
-router.route('/feedback/:feedbackId').delete(isAdminLoggedIn, deleteFeedback);
-
+router.route('/feedback/:feedbackId/delete').delete(isAdminLoggedIn, deleteFeedback);
 // get all subscribed emails
 router.route('/get-newsletter').get(isAdminLoggedIn, getAllNewsletter);
 
@@ -62,7 +59,7 @@ router
   .post(isAdminLoggedIn, upload.array('images'), addNewBlog);
 router
   .route('/update-blog/:blogId')
-  .put(isAdminLoggedIn, upload.single('image'), updateBlog);
-router.route('/delete-blog/:blogId').delete(isAdminLoggedIn, deleteBlog);
+  .put(isAdminLoggedIn, upload.array('images'), updateBlog);
+router.route('/delete-blog/:blogId/delete').delete(isAdminLoggedIn, deleteBlog);
 
 module.exports = router;

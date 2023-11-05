@@ -26,15 +26,13 @@ module.exports.getAllFeedback = async (req, res) => {
     res.redirect('error', { error });
   }
 };
+
 // delete feedback
 module.exports.deleteFeedback = async (req, res) => {
-  const feedbackId = req.params.feedbackId;
-  try {
-    await Feedback.findByIdAndRemove(feedbackId);
-    res.redirect('admin');
-  } catch (error) {
-    res.redirect('error', { error });
-  }
+  const { feedbackId } = req.params;
+  console.log(feedbackId);
+  await Feedback.findByIdAndRemove(feedbackId);
+  // res.redirect('/admin');
 };
 
 // get all data
@@ -190,13 +188,12 @@ module.exports.addNewBlog = async (req, res) => {
           };
         });
       }
+      console.log(newBlog);
       await Blogs.create(newBlog);
-      res.status(201).json({ message: 'Blog created successfully' });
-      // res.redirect('/admin');
+      res.redirect('/admin');
     }
   } catch (err) {
-    res.status(500).json({ err: err });
-    // res.redirect('error', { err });
+    res.redirect('error', { err });
   }
 };
 
@@ -226,10 +223,8 @@ module.exports.deleteBlog = async (req, res) => {
   try {
     const { blogId } = req.params;
     await Blogs.deleteOne({ _id: blogId });
-    // res.redirect('/admin');
-    res.status(200).json({ message: 'Blog deleted successfully' });
+    res.redirect('/admin');
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Internal Server Error');
+    res.redirect('error', { err });
   }
 };
