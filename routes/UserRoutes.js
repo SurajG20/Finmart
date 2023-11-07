@@ -20,7 +20,6 @@ const {
   renderDocumentUpload,
   renderLoanDetails,
   renderPersonalDetails,
-  admin,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
 const { Login, Register, Logout } = require('../controllers/User');
@@ -36,7 +35,6 @@ router.route('/login').get(login);
 router.route('/login').post(Login);
 router.route('/logout').get(Logout);
 router.route('/user').get(user);
-router.route('/admin').get(admin);
 
 router.route('/register').post(Register);
 router.route('/register').get(register);

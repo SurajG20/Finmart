@@ -6,6 +6,15 @@ const FileSchema = new Schema({
   filename: String,
 });
 
+const ImageSchema = new Schema({
+  url: String,
+  filename: String,
+});
+
+ImageSchema.virtual('thumbnail').get(function () {
+  return this.url.replace('/upload', '/upload/h_200,w_200');
+});
+
 const opts = { toJSON: { virtuals: true } };
 
 const JobSchema = new Schema(
@@ -46,13 +55,14 @@ const JobSchema = new Schema(
       enums: ['Full-time', 'Part-time'],
       required: true,
     },
-
-    specifications: [{ type: String }],
-
+    specifications: {
+      type: String,
+      required: true,
+    },
+    images: [ImageSchema],
     applications: [
       {
-        firstname: { type: String, required: true },
-        lastname: { type: String, required: true },
+        fullname: { type: String, required: true },
         message: { type: String, required: true },
         email: { type: String, required: true },
         phone: { type: String, required: true },

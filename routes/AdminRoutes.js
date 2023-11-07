@@ -3,45 +3,42 @@ const router = express.Router();
 const { isAdminLoggedIn } = require('../middlewares/Middlewares');
 const {
   getCombinedDetails,
-  getAllFeedback,
   deleteFeedback,
-  getAllJobs,
-  updateJob,
   addNewJob,
   deleteJob,
   createFaq,
   updateFaqs,
   deleteFaq,
-  getAllFaqs,
   deleteBlog,
   addNewBlog,
   updateBlog,
-  getAllBlogs,
-  getAllNewsletter,
+  deleteNewsletter,
+  addNewLoan,
+  deleteLoan,
+  admin,
+  sendNotification,
 } = require('../controllers/Admin');
 
 const multer = require('multer');
 const { storage } = require('../cloudinary/index');
 const upload = multer({ storage });
+router.route('/').get(isAdminLoggedIn, admin);
 
-// get all jobs
-router.route('/get-jobs').get(isAdminLoggedIn, getAllJobs);
-// get new job
 router
   .route('/add-job')
-  .post(isAdminLoggedIn, upload.single('image'), addNewJob);
-// update job
-router
-  .route('/update-job/:jobId')
-  .put(isAdminLoggedIn, upload.single('image'), updateJob);
+  .post(isAdminLoggedIn, upload.array('images'), addNewJob);
 
 // delete job
-router.route('/delete-job/:jobId').delete(isAdminLoggedIn, deleteJob);
+router.route('/delete-job/:jobId/delete').delete(isAdminLoggedIn, deleteJob);
 
 // delete feedback
-router.route('/feedback/:feedbackId/delete').delete(isAdminLoggedIn, deleteFeedback);
-// get all subscribed emails
-router.route('/get-newsletter').get(isAdminLoggedIn, getAllNewsletter);
+router
+  .route('/feedback/:feedbackId/delete')
+  .delete(isAdminLoggedIn, deleteFeedback);
+// delete feedback
+router
+  .route('/newsletter/:subsId/delete')
+  .delete(isAdminLoggedIn, deleteNewsletter);
 
 // get userLoan details
 router.route('/user-documents').get(isAdminLoggedIn, getCombinedDetails);
@@ -50,10 +47,7 @@ router.route('/user-documents').get(isAdminLoggedIn, getCombinedDetails);
 router.route('/add-faq').post(isAdminLoggedIn, createFaq);
 router.route('/update-faq/:faqId').put(isAdminLoggedIn, updateFaqs);
 router.route('/delete-faq/:faqId').delete(isAdminLoggedIn, deleteFaq);
-router.route('/get-AllFaq').get(isAdminLoggedIn, getAllFaqs);
 
-// Blog add, update, delete, getAll
-router.route('/get-blogs').get(isAdminLoggedIn, getAllBlogs);
 router
   .route('/add-blog')
   .post(isAdminLoggedIn, upload.array('images'), addNewBlog);
@@ -61,5 +55,9 @@ router
   .route('/update-blog/:blogId')
   .put(isAdminLoggedIn, upload.array('images'), updateBlog);
 router.route('/delete-blog/:blogId/delete').delete(isAdminLoggedIn, deleteBlog);
+router.route('/delete-loan/:loanId/delete').delete(isAdminLoggedIn, deleteLoan);
+
+router.route('/add-loan').post(isAdminLoggedIn, upload.none(), addNewLoan);
+router.route('/sent-notification').post(isAdminLoggedIn, sendNotification);
 
 module.exports = router;

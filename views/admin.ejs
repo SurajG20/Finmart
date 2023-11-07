@@ -1,867 +1,576 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Vinayak Finmart Pvt. Ltd.</title>
-    <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
-    <!-- bootstrap link -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <!-- google font icons link -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
-    <!-- font awesome icons link -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-    <!-- dashboard links  start  -->
+<head>
+  <title></title>
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Vinayak Finmart Pvt. Ltd.</title>
+  <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
+  <!-- bootstrap link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <!-- google font icons link -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <!-- font awesome icons link -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-    <!-- Include jQuery -->
-    <!-- Include necessary CSS files -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/devextreme/dist/css/dx.common.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/devextreme/dist/css/dx.light.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Include DevExtreme library -->
-    <script src="https://cdn.jsdelivr.net/npm/devextreme/dist/js/dx.all.js"></script>
+  <!-- dashboard links  start  -->
 
-    <!-- dashboard links  End  -->
+  <!-- Include jQuery -->
+  <!-- Include necessary CSS files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devextreme/dist/css/dx.common.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devextreme/dist/css/dx.light.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include DevExtreme library -->
+  <script src="https://cdn.jsdelivr.net/npm/devextreme/dist/js/dx.all.js"></script>
 
-    <!-- CSS here -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/bootstrap.min.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/elegant-icons.min.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/all.min.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/animate.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/nice-select.css"
-      media="all"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/slick.css" media="all" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/slick-theme.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/default.css"
-      media="all"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/admin.css" media="all" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/responsive.css"
-      media="all"
-    />
-  </head>
+  <!-- dashboard links  End  -->
 
-  <body>
-    <div class="sidebar">
-      <div class="logo-details">
-        <i class="bx bxl-c-plus-plus"></i>
-        <a class="navbar-brand" href="/">
-          <img
-            src="img/Vinayak/7.png"
-            height="100px"
-            srcset="img/Vinayak/7.png 2x"
-            alt="logo"
-          />
-        </a>
-      </div>
-      <nav id="sidebar">
-        <ul class="nav-links" id="sidebar">
-          <!-- Dashboard  -->
-          <li class="active">
-            <a href="#dashboard">
-              <i class="bx bx-grid-alt"></i>
-              <span class="links_name">Dashboard</span>
-            </a>
-          </li>
-          <!-- Notification -->
-          <li>
-            <a href="#notification">
-              <i class="bx bx-book-alt"></i>
-              <span class="links_name">Notification</span>
-            </a>
-          </li>
-          <!-- Jobs  -->
-          <li>
-            <a href="#job">
-              <i class="bx bx-message"></i>
-              <span class="links_name">Job</span>
-            </a>
-          </li>
-          <!-- Blogs  -->
-          <li>
-            <a href="#blog">
-              <i class="bx bx-message"></i>
-              <span class="links_name">Blog</span>
-            </a>
-          </li>
-          <!-- Subscriber  -->
-          <li>
-            <a href="#subscriber">
-              <i class="bx bx-message"></i>
-              <span class="links_name">subscriber</span>
-            </a>
-          </li>
-          <!-- Feedback -->
-          <li>
-            <a href="#feedback">
-              <i class="bx bx-message"></i>
-              <span class="links_name">Feedback</span>
-            </a>
-          </li>
-          <!-- Setting  -->
-          <li>
-            <a href="#setting">
-              <i class="bx bx-message"></i>
-              <span class="links_name">Setting</span>
-            </a>
-          </li>
-          <!-- button  -->
-          <li class="log_out">
-            <a href="/logout" id="logoutBtn">
-              <i class="bx bx-log-out"></i>
-              <span class="links_name">Log out</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+  <!-- CSS here -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/elegant-icons.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/all.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/animate.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/nice-select.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/slick.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/default.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/admin.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all" />
+</head>
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class="bx bxl-c-plus-plus"></i>
+      <a class="navbar-brand" href="/">
+        <img src="img/Vinayak/7.png" height="100px" srcset="img/Vinayak/7.png 2x" alt="logo" />
+      </a>
     </div>
-    <section class="home-section">
-      <nav>
-        <div class="sidebar-button">
-          <i class="bx bx-menu sidebarBtn"></i>
-          <span class="dashboard">Dashboard</span>
-        </div>
-        <div class="search-box">
-          <input type="text" placeholder="Search..." />
-          <i class="bx bx-search"
-            ><iconify-icon icon="bx:search"></iconify-icon
-          ></i>
-        </div>
-        <div class="profile-details">
-          <span class="admin_name">Admin</span>
-        </div>
-        <div class="navbar-btn">
-          <iconify-icon
-            icon="ci:hamburger-md"
-            width="36"
-            height="36"
-          ></iconify-icon>
-        </div>
-      </nav>
+    <nav id="sidebar">
+      <ul class="nav-links" id="sidebar">
+        <!-- Dashboard  -->
+        <li class="active">
+          <a href="#dashboard">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+        </li>
+        <!-- Notification -->
+        <li>
+          <a href="#notification">
+            <i class="bx bx-book-alt"></i>
+            <span class="links_name">Notification</span>
+          </a>
+        </li>
+        <!-- Jobs  -->
+        <li>
+          <a href="#job">
+            <i class="bx bx-message"></i>
+            <span class="links_name">Job</span>
+          </a>
+        </li>
+        <!-- Blogs  -->
+        <li>
+          <a href="#blog">
+            <i class="bx bx-message"></i>
+            <span class="links_name">Blog</span>
+          </a>
+        </li>
+        <!-- Subscriber  -->
+        <li>
+          <a href="#subscriber">
+            <i class="bx bx-message"></i>
+            <span class="links_name">subscriber</span>
+          </a>
+        </li>
+        <!-- Feedback -->
+        <li>
+          <a href="#feedback">
+            <i class="bx bx-message"></i>
+            <span class="links_name">Feedback</span>
+          </a>
+        </li>
+        <!-- Setting  -->
+        <li>
+          <a href="#setting">
+            <i class="bx bx-message"></i>
+            <span class="links_name">Setting</span>
+          </a>
+        </li>
+        <!-- button  -->
+        <li class="log_out">
+          <form action="/logout" method="get">
+            <button class="btn btn-primary mx-1">
+              Logout
+            </button>
+          </form>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class="bx bx-menu sidebarBtn"></i>
+        <span class="dashboard">Dashboard</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search..." />
+        <i class="bx bx-search"><iconify-icon icon="bx:search"></iconify-icon></i>
+      </div>
+      <div class="profile-details">
+        <span class="admin_name">Admin</span>
+      </div>
+      <div class="navbar-btn">
+        <iconify-icon icon="ci:hamburger-md" width="36" height="36"></iconify-icon>
+      </div>
+    </nav>
 
-      <div class="home-content admin">
-        <div class="sales-boxes">
-          <div class="recent-sales box">
-            <div class="sales-details d-block">
-              <!-- Home Dashboard -->
-              <div
-                class="content-section active container-fluid dashboard"
-                id="dashboard"
-              >
-                <div class="d-block justify-content-end my-2">
-                  <!-- Example split danger button -->
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button id="filterBtn" class="btn btn-secondary">
-                      Filters
-                    </button>
-                    <button id="sortAZBtn" class="btn btn-primary">A-Z</button>
-                    <button id="sortDateBtn" class="btn btn-primary">
-                      Date
-                    </button>
-                    <button id="sortAmountBtn" class="btn btn-primary">
-                      Amount
-                    </button>
+    <div class="home-content admin">
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="sales-details d-block">
+            <!-- Home Dashboard -->
+            <div class="content-section active container-fluid dashboard" id="dashboard">
+              <div class="d-block justify-content-end my-2">
+                <!-- Example split danger button -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button id="filterBtn" class="btn btn-secondary">
+                    Filters
+                  </button>
+                  <button id="sortAZBtn" class="btn btn-primary">A-Z</button>
+                  <button id="sortDateBtn" class="btn btn-primary">
+                    Date
+                  </button>
+                  <button id="sortAmountBtn" class="btn btn-primary">
+                    Amount
+                  </button>
+                </div>
+
+                <div class="dx-viewport demo-container content-section active container-fluid d-block my-2"
+                  id="dashboard">
+                  <div id="gridContainer"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Notification -->
+            <div class="content-section notification" id="notification">
+              <div class="d-flex justify-content-between">
+                <h2 class="">Notification</h2>
+                <div class="d-flex gap-3 align-items-center">
+                  <div for="notification_form" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                      </svg>
+                    </span>
+                    <span>Add Notification</span>
                   </div>
-
-                  <div
-                    class="dx-viewport demo-container content-section active container-fluid d-block my-2"
-                    id="dashboard"
-                  >
-                    <div id="gridContainer"></div>
+                  <div for="notification_view" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                      </svg>
+                    </span>
+                    <span>View Notification</span>
                   </div>
                 </div>
               </div>
 
-              <!-- Notification -->
-              <div class="content-section notification" id="notification">
-                <div class="d-flex justify-content-between">
-                  <h2 class="">Notification</h2>
-                  <div class="d-flex gap-3 align-items-center">
-                    <div for="notification_form" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          class="bi bi-plus"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                          />
-                        </svg>
-                      </span>
-                      <span>Add Notification</span>
-                    </div>
-                    <div for="notification_view" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-list"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                          />
-                        </svg>
-                      </span>
-                      <span>View Notification</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!--  Notification  form content -->
-                <div class="container" id="notification_form">
-                  <div class="col-lg-8 offset-lg-1 feedback-form">
-                    <!-- <h3> Notification Form </h3> -->
-                    <div class="contact-form-widget card card-body">
-                      <form action="/admin/blog-data" method="POST">
-                        <div class="row">
-                          <!-- Notification section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="notification">Notification Title</label>
-                            <input
-                              type="text"
-                              id="notification"
-                              name="notification"
-                              class="form-control"
-                              placeholder="What's is Notification Title?"
-                              required
-                            />
-                          </div>
-
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20">
-                            <label for="form-text">Notification Messages</label>
-                            <textarea
-                              cols="30"
-                              rows="5"
-                              name="message"
-                              id="form-text"
-                              class="form-control pt-15"
-                              placeholder="Your message......"
-                              required
-                            ></textarea>
-                          </div>
-                          <!-- button section  -->
-                          <div class="col-12 mt-35">
-                            <button
-                              type="submit"
-                              class="theme-btn theme-btn-lg w-100"
-                            >
-                              Submit Now
-                            </button>
-                          </div>
+              <!--  Notification  form content -->
+              <div class="container" id="notification_form">
+                <div class="col-lg-8 offset-lg-1 feedback-form">
+                  <!-- <h3> Notification Form </h3> -->
+                  <div class="contact-form-widget card card-body">
+                    <form action="/admin/blog-data" method="POST">
+                      <div class="row">
+                        <!-- Notification section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="notification">Notification Title</label>
+                          <input type="text" id="notification" name="notification" class="form-control"
+                            placeholder="What's is Notification Title?" required />
                         </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
 
-                <!-- Notification  View content -->
-                <div class="container" id="notification_view">
-                  <div class="container my-2">
-                    <div
-                      class="dx-viewport demo-container content-section active container-fluid d-block my-2"
-                      id="dashboard d-flex justify-content-between align-items-center"
-                    >
-                      <div
-                        class="btn-group"
-                        role="group"
-                        aria-label="Basic example"
-                      >
-                        <button id="filterBtn" class="btn btn-secondary">
-                          Filters
-                        </button>
-                        <button
-                          id="notificationsortAZBtn"
-                          class="btn btn-primary"
-                        >
-                          A-Z
-                        </button>
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20">
+                          <label for="form-text">Notification Messages</label>
+                          <textarea cols="30" rows="5" name="message" id="form-text" class="form-control pt-15"
+                            placeholder="Your message......" required></textarea>
+                        </div>
+                        <!-- button section  -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
                       </div>
-                      <button class="btn btn-primary" id="sendButton">
-                        Send
-                      </button>
-
-                      <div id="notificationContainer"></div>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
 
-              <!-- Jobs -->
-              <div class="content-section job container-fluid" id="job">
-                <!-- Job navbar section -->
-                <div class="d-flex justify-content-between">
-                  <h2 class="">Job</h2>
-                  <div class="d-flex gap-3 align-items-center">
-                    <div for="job_form" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          class="bi bi-plus"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                          />
-                        </svg>
-                      </span>
-                      <span>Add Job</span>
+              <!-- Notification  View content -->
+              <div class="container" id="notification_view">
+                <div class="container my-2">
+                  <div class="dx-viewport demo-container content-section active container-fluid d-block my-2"
+                    id="dashboard d-flex justify-content-between align-items-center">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                      <button id="filterBtn" class="btn btn-secondary">
+                        Filters
+                      </button>
+                      <button id="notificationsortAZBtn" class="btn btn-primary">
+                        A-Z
+                      </button>
                     </div>
-                    <div for="job_view" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-list"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                          />
-                        </svg>
-                      </span>
-                      <span>View Jobs</span>
-                    </div>
-                    <div for="job_Applicant" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-people-fill"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-                          />
-                        </svg>
-                        <span>View Applicants</span>
-                      </span>
-                    </div>
+                    <button class="btn btn-primary" id="sendButton">
+                      Send
+                    </button>
+
+                    <div id="notificationContainer"></div>
                   </div>
                 </div>
-                <!-- Job form content -->
-                <div class="container" id="job_form">
-                  <div class="col-lg-8 offset-lg-1 feedback-form">
-                    <!-- <h3>Feedback Form</h3> -->
-                    <div class="contact-form-widget card card-body">
-                      <form action="admin/job-data" method="POST">
-                        <div class="row">
-                          <!-- Job section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="job">Job Title</label>
-                            <input
-                              type="text"
-                              id="job"
-                              name="job"
-                              class="form-control"
-                              placeholder="What's is Job Title?"
-                              required
-                            />
-                          </div>
-                          <!-- category section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="category">Category</label>
-                            <input
-                              type="text"
-                              id="category"
-                              name="city"
-                              class="form-control"
-                              placeholder=" Address/City"
-                              required
-                            />
-                          </div>
-                          <!-- category section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="location">Location</label>
-                            <input
-                              type="text"
-                              id="location"
-                              name="subject"
-                              class="form-control"
-                              placeholder="State/Country"
-                              required
-                            />
-                          </div>
-                          <!-- postedOn  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="postedOn">PostedOn</label>
-                            <input
-                              type="text"
-                              id="postedOn"
-                              name="city"
-                              class="form-control"
-                              placeholder=" Address/City"
-                              required
-                            />
-                          </div>
-                          <!-- job-type section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="job-type">Job Type</label>
-                            <input
-                              type="text"
-                              id="job-type"
-                              name="subject"
-                              class="form-control"
-                              placeholder="State/Country"
-                              required
-                            />
-                          </div>
-                          <!-- job-sprecifitions -->
-                          <div class="col-md-12 mt-20 mt-md-0">
-                            <label for="job-sprecifitions"
-                              >Job Specification</label
-                            >
-                            <input
-                              type="text"
-                              id="job-sprecifitions"
-                              name="subject"
-                              class="form-control"
-                              placeholder="State/Country"
-                              required
-                            />
-                          </div>
+              </div>
+            </div>
 
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20">
-                            <label for="form-text">Messages</label>
-                            <textarea
-                              cols="30"
-                              rows="5"
-                              name="message"
-                              id="form-text"
-                              class="form-control pt-15"
-                              placeholder="Your message......"
-                              required
-                            ></textarea>
-                          </div>
-
-                          <!-- images section -->
-                          <div class="col-md-12 mt-20 job-img-uploader">
-                            <label
-                              class="job-picture"
-                              for="job-picture__input"
-                              tabindex="0"
-                            >
-                              <span
-                                class="job-picture__image material-symbols-outlined"
-                              >
-                                add_photo_alternate
-                              </span>
-                              <!-- <span class="job-picture__image">Uploada Image/Docs</span> -->
-                            </label>
-                            <input
-                              type="file"
-                              name="picture__input"
-                              id="job-picture__input"
-                            />
-                          </div>
-
-                          <!-- button section  -->
-                          <div class="col-12 mt-35">
-                            <button
-                              type="submit"
-                              class="theme-btn theme-btn-lg w-100"
-                            >
-                              Submit Now
-                            </button>
-                          </div>
+            <!-- Jobs -->
+            <div class="content-section job container-fluid" id="job">
+              <!-- Job navbar section -->
+              <div class="d-flex justify-content-between">
+                <h2 class="">Job</h2>
+                <div class="d-flex gap-3 align-items-center">
+                  <div for="job_form" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                      </svg>
+                    </span>
+                    <span>Add Job</span>
+                  </div>
+                  <div for="job_view" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                      </svg>
+                    </span>
+                    <span>View Jobs</span>
+                  </div>
+                  <div for="job_Applicant" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                      </svg>
+                      <span>View Applicants</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Job form content -->
+              <div class="container" id="job_form">
+                <div class="col-lg-8 offset-lg-1 feedback-form">
+                  <!-- <h3>Jobs Form</h3> -->
+                  <div class="contact-form-widget card card-body">
+                    <form action="admin/add-job" method="POST" enctype="multipart/form-data">
+                      <div class="row">
+                        <!-- Job section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="job">Job Title</label>
+                          <input type="text" id="job" name="title" class="form-control"
+                            placeholder="What's is Job Title?" required />
                         </div>
-                      </form>
-                    </div>
+                        <!-- category section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="category">Category</label>
+                          <input type="text" id="category" name="category" class="form-control" placeholder=" Category"
+                            required />
+                        </div>
+                        <!-- category section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="location">Location</label>
+                          <input type="text" id="location" name="location" class="form-control"
+                            placeholder="State/Country" required />
+                        </div>
+                        <!-- job-type section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="job-type">Job Type</label>
+                          <select name="jobType" class="form-control" id="job-type">
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                          </select>
+                        </div>
+                        <!-- job-Position section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="job-type">Job-Position</label>
+                          <input type="text" id="job-type" name="jobPosition" class="form-control"
+                            placeholder="Job-Position" required />
+                        </div>
+                        <!-- job-sprecifitions -->
+                        <div class="col-md-12 mt-20 mt-md-0">
+                          <label for="job-sprecifitions">Job Description</label>
+                          <input type="text" id="job-sprecifitions" name="description" class="form-control"
+                            placeholder="Enter Job Description" required />
+                        </div>
+
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20 mt-md-0">
+                          <label for="job-sprecifitions">Job Specifications</label>
+                          <input type="text" id="job-sprecifitions" name="specifications" class="form-control"
+                            placeholder="Enter Job Specifications" required />
+                        </div>
+
+                        <!-- images section -->
+                        <div class="col-md-12 mt-20 job-img-uploader">
+                          <label class="job-picture" for="job-picture__input" tabindex="0">
+                            <span class="job-picture__image material-symbols-outlined">
+                              add_photo_alternate
+                            </span>
+                            <!-- <span class="job-picture__image">Uploada Image/Docs</span> -->
+                          </label>
+                          <input type="file" name="images" id="job-picture__input" />
+                        </div>
+
+                        <!-- button section  -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
-                <!-- Job  View content -->
-                <div class="container" id="job_view">
-                  <!-- card 1 -->
-                  <div
-                    data-view="col-lg-10 list-view mb-2 "
-                    class="download-cards"
-                  >
+              </div>
+              <!-- Job  View content -->
+              <div class="container" id="job_view">
+                <!-- card 1 -->
+                <% jobs.forEach(element=> { %>
+
+                  <div data-view="col-lg-10 list-view mb-2 " class="download-cards">
                     <div class="card mb-3" style="max-width: 100%">
                       <div class="row no-gutters">
                         <div class="col-md-4 object-fit-cover">
-                          <img
-                            width="100%"
-                            height="100%"
-                            src="https://images.unsplash.com/photo-1635350736475-c8cef4b21906?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGpvYnxlbnwwfHwwfHx8MA%3D%3D"
-                            class="card-img"
-                            alt="Job Image"
-                          />
+                          <img width="100%" height="100%" src="<%= element?.images[0]?.url %>" class="card-img"
+                            alt="Job Image" />
                         </div>
                         <div class="col-md-8 object-fit-cover">
-                          <h3>Lorem ipsum, dolor sit amet consectetur</h3>
+                          <h3>
+                            <%= element.title %>
+                          </h3>
                           <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit.
+                            <%= element.description %>
                           </p>
                         </div>
                         <div class="col-md-12">
                           <div class="card-body">
-                            <div
-                              class="card-title d-flex justify-content-between"
-                            >
-                              <p
-                                class="bg-secondary px-2 py-1 rounded text-white font-weight-bold"
-                              >
-                                Category
+                            <div class="card-title d-flex justify-content-between">
+                              <p class="bg-secondary px-2 py-1 rounded text-white font-weight-bold">
+                                <%= element.category %>
                               </p>
-                              <p
-                                class="bg-secondary px-2 py-1 rounded text-white font-weight-bold"
-                              >
-                                Job Position
+                              <p class="bg-secondary px-2 py-1 rounded text-white font-weight-bold">
+                                <%= element.location %>
                               </p>
-                              <p
-                                class="bg-secondary px-2 py-1 rounded text-white font-weight-bold"
-                              >
-                                Job Type
+                              <p class="bg-secondary px-2 py-1 rounded text-white font-weight-bold">
+                                <%= element.postedOn.toLocaleDateString()%>
                               </p>
-                              <p
-                                class="bg-secondary px-2 py-1 rounded text-white font-weight-bold"
-                              >
-                                Job Type
+                              <p class="bg-secondary px-2 py-1 rounded text-white font-weight-bold">
+                                <%= element.jobType %>
                               </p>
                             </div>
-
-                            <p class="card-text">
-                              This is a wider card with supporting text below as
-                              a natural lead-in to additional content. This
-                              content is a little bit longer.
-                            </p>
                           </div>
                           <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary mx-1">Edit</button>
-                            <button class="btn btn-primary mx-1">Delete</button>
+                            <form action="/admin/delete-job/<%= element._id %>/delete?_method=DELETE" method="post">
+                              <button class="btn btn-primary mx-1">
+                                Delete
+                              </button>
+                            </form>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <!-- Job  Applicants content -->
-                <div class="container" id="job_Applicant">
-                  <table class="table align-middle mb-0 bg-white">
-                    <thead class="bg-light">
-                      <tr>
-                        <th>Name</th>
-                        <th>Title</th>
-                        <th>location</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <!-- <div class="" style="width: 45px; height: 45px">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                              style="width: 100%; height: 100%" class="rounded-circle" />
-                          </div> -->
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">John Doe</p>
-                              <p class="text-muted mb-0">john.doe@gmail.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">Software engineer</p>
-                          <p class="text-muted mb-0">IT department</p>
-                        </td>
-                        <td>jabalpur Mp</td>
-                        <td></td>
-                      </tr>
+                  <% }) %>
+              </div>
+              <!-- Job  Applicants content -->
 
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <!-- <div class="" style="width: 45px; height: 45px">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                              style="width: 100%; height: 100%" class="rounded-circle" />
-                          </div> -->
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">John Doe</p>
-                              <p class="text-muted mb-0">john.doe@gmail.com</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">Software engineer</p>
-                          <p class="text-muted mb-0">IT department</p>
-                        </td>
-                        <td>jabalpur Mp</td>
-                        <td></td>
-                      </tr>
+              <div class="container" id="job_Applicant">
 
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <!-- <div class="" style="width: 45px; height: 45px">
-                            <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                              style="width: 100%; height: 100%" class="rounded-circle" />
-                          </div> -->
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">John Doe</p>
-                              <p class="text-muted mb-0">john.doe@gmail.com</p>
-                            </div>
+                <table class="table align-middle mb-0 bg-white">
+
+                  <thead class="bg-light">
+                    <tr>
+                      <th>Name</th>
+                      <th>email</th>
+                      <th>phone</th>
+                      <th>message</th>
+                      <th>resume</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% jobs.forEach(element=> { %>
+                      <% element.applications.forEach(applicant=> { %>
+
+                        <div id="myModal" class="modal-message">
+                          <div class="modal-content-message">
+                            <span class="close-message" id="closeModal">&times;</span>
+                            <!-- Content of the modal -->
+                            <h2>Message</h2>
+                            <p>
+                              <%= applicant.message %>
+                            </p>
                           </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">Software engineer</p>
-                          <p class="text-muted mb-0">IT department</p>
-                        </td>
-                        <td>jabalpur Mp</td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                        </div>
+                        <tr>
+                          <td>
+                            <div class="d-flex align-items-center">
+                              <div class="ms-3">
+                                <p class="fw-bold mb-1">
+                                  <%= applicant.fullname %>
+                                </p>
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            <p class="fw-normal mb-1">
+                              <%= applicant.email %>
+                            </p>
+                          </td>
+                          <td>
+                            <p class="fw-normal mb-1">
+                              <%= applicant.phone %>
+                            </p>
+                          </td>
+                          <td>
+                            <button id="openModalButton">Message</button>
+                          </td>
+                          <td>
+                            <a href="<%= applicant.attachment %>" class="fw-normal mb-1">Resume</a>
+                          </td>
+                        </tr>
+                        <% }) %>
+                          <% }) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Blogs  -->
+            <div class="content-section blog container-fluid" id="blog">
+              <!-- Blog navbar section -->
+              <div class="d-flex justify-content-between">
+                <h2 class="">Blog</h2>
+                <div class="d-flex gap-3 align-items-center">
+                  <div for="blog_form" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                      </svg>
+                    </span>
+                    <span>Add Blog</span>
+                  </div>
+                  <div for="blog_view" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                      </svg>
+                    </span>
+                    <span>View Blog</span>
+                  </div>
                 </div>
               </div>
 
-              <!-- Blogs  -->
-              <div class="content-section blog container-fluid" id="blog">
-                <!-- Blog navbar section -->
-                <div class="d-flex justify-content-between">
-                  <h2 class="">Blog</h2>
-                  <div class="d-flex gap-3 align-items-center">
-                    <div for="blog_form" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          class="bi bi-plus"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                          />
-                        </svg>
-                      </span>
-                      <span>Add Blog</span>
-                    </div>
-                    <div for="blog_view" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-list"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                          />
-                        </svg>
-                      </span>
-                      <span>View Blog</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!--  Blogs  form content -->
-                <div class="container" id="blog_form">
-                  <div
-                    class="col-lg-8 offset-lg-1 feedback-form card card-body"
-                  >
-                    <!-- <h3> jobs Form </h3> -->
-                    <div class="contact-form-widget">
-                      <form
-                        action="/admin/add-blog"
-                        method="POST"
-                        enctype="multipart/form-data"
-                      >
-                        <div class="row">
-                          <!-- Blog section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="blog">Blog Title</label>
-                            <input
-                              type="text"
-                              id="blog"
-                              name="title"
-                              class="form-control"
-                              placeholder="What's is Blog Title?"
-                              required
-                            />
-                          </div>
-                          <div class="col-md-12">
-                            <label for="blog">Category</label>
-                            <input
-                              type="text"
-                              id="blog"
-                              name="category"
-                              class="form-control"
-                              placeholder="Category"
-                              required
-                            />
-                          </div>
-                          <!-- Author section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="author">Author</label>
-                            <input
-                              type="text"
-                              id="author"
-                              name="author"
-                              class="form-control"
-                              placeholder="Author"
-                              required
-                            />
-                          </div>
-
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20">
-                            <label for="form-text">Description</label>
-                            <textarea
-                              cols="30"
-                              rows="5"
-                              name="description"
-                              id="form-text"
-                              class="form-control pt-15"
-                              placeholder="Description"
-                              required
-                            ></textarea>
-                          </div>
-
-                          <!-- images section -->
-                          <div class="col-md-12 mt-20 blog-img-uploader">
-                            <label
-                              class="blog-picture"
-                              for="blog-picture__input"
-                              tabindex="0"
-                            >
-                              <span
-                                class="blog-picture__image material-symbols-outlined"
-                              >
-                                add_photo_alternate
-                              </span>
-                              <span class="job-picture__image"
-                                >Upload Image</span
-                              >
-                            </label>
-                            <input
-                              type="file"
-                              name="images"
-                              id="blog-picture__input"
-                            />
-                          </div>
-
-                          <!-- button section -->
-                          <div class="col-12 mt-35">
-                            <button
-                              type="submit"
-                              class="theme-btn theme-btn-lg w-100"
-                            >
-                              Submit Now
-                            </button>
-                          </div>
+              <!--  Blogs  form content -->
+              <div class="container" id="blog_form">
+                <div class="col-lg-8 offset-lg-1 feedback-form card card-body">
+                  <!-- <h3> jobs Form </h3> -->
+                  <div class="contact-form-widget">
+                    <form action="/admin/add-blog" method="POST" enctype="multipart/form-data">
+                      <div class="row">
+                        <!-- Blog section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="blog">Blog Title</label>
+                          <input type="text" id="blog" name="title" class="form-control"
+                            placeholder="What's is Blog Title?" required />
                         </div>
-                      </form>
-                    </div>
+                        <div class="col-md-12">
+                          <label for="blog">Category</label>
+                          <input type="text" id="blog" name="category" class="form-control" placeholder="Category"
+                            required />
+                        </div>
+                        <!-- Author section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="author">Author</label>
+                          <input type="text" id="author" name="author" class="form-control" placeholder="Author"
+                            required />
+                        </div>
+
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20">
+                          <label for="form-text">Description</label>
+                          <textarea cols="30" rows="5" name="description" id="form-text" class="form-control pt-15"
+                            placeholder="Description" required></textarea>
+                        </div>
+
+                        <!-- images section -->
+                        <div class="col-md-12 mt-20 blog-img-uploader">
+                          <label class="blog-picture" for="blog-picture__input" tabindex="0">
+                            <span class="blog-picture__image material-symbols-outlined">
+                              add_photo_alternate
+                            </span>
+                            <span class="job-picture__image">Upload Image</span>
+                          </label>
+                          <input type="file" name="images" id="blog-picture__input" />
+                        </div>
+
+                        <!-- button section -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
+              </div>
 
-                <!-- Blog  View content -->
-                <div class="container" id="blog_view">
-                  <div
-                    data-view="col-lg-10 list-view mb-2"
-                    class="download-cards"
-                  >
-                    <% blogs.forEach(element=> { %>
+              <!-- Blog  View content -->
+              <div class="container" id="blog_view">
+                <div data-view="col-lg-10 list-view mb-2" class="download-cards">
+                  <% blogs.forEach(element=> { %>
                     <div class="card mb-3" style="max-width: 100%">
                       <div class="row no-gutters">
                         <div class="col-md-4">
-                          <img
-                            src="<%= element.images[0].url %>"
-                            class="card-img"
-                            alt="Job Image"
-                          />
+                          <img src="<%= element?.images[0]?.url %>" class="card-img" alt="Job Image" />
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
-                            <div
-                              class="card-title d-flex justify-content-between"
-                            >
-                              <h5 class="flex-glow"><%= element.title %></h5>
+                            <div class="card-title d-flex justify-content-between">
+                              <h5 class="flex-glow">
+                                <%= element.title %>
+                              </h5>
                               <p class="text-secondary">
                                 <%= element.author %>
                               </p>
@@ -872,11 +581,7 @@
                             </p>
                           </div>
                           <div class="d-flex justify-content-end">
-                            <button class="btn btn-primary mx-1">Edit</button>
-                            <form
-                              action="/admin/delete-blog/<%= element._id %>/delete?_method=DELETE"
-                              method="post"
-                            >
+                            <form action="/admin/delete-blog/<%= element._id %>/delete?_method=DELETE" method="post">
                               <button class="btn btn-primary mx-1">
                                 Delete
                               </button>
@@ -887,27 +592,29 @@
                     </div>
 
                     <% }) %>
-                  </div>
                 </div>
               </div>
+            </div>
 
-              <!-- subscriber -->
-              <div class="content-section subscriber" id="subscriber">
-                <table class="table align-middle mb-0 bg-white">
-                  <thead class="bg-light">
-                    <tr class="row">
-                      <th class="col-4">Email</th>
-                      <th class="col-4">Date</th>
-                      <th class="col-4">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% newsletter.forEach(element=> { %>
+            <!-- subscriber -->
+            <div class="content-section subscriber" id="subscriber">
+              <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                  <tr class="row">
+                    <th class="col-4">Email</th>
+                    <th class="col-4">Date</th>
+                    <th class="col-4">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% newsletter.forEach(element=> { %>
 
                     <tr class="row">
                       <td class="col-4">
                         <div class="d-flex align-items-center">
-                          <p class="fw-bold mb-1"><%= element.email %></p>
+                          <p class="fw-bold mb-1">
+                            <%= element.email %>
+                          </p>
                         </div>
                       </td>
                       <td class="col-4">
@@ -917,10 +624,7 @@
                       </td>
 
                       <td class="col-4">
-                        <form
-                          action="/admin/newsletter/<%= element._id %>/delete?_method=DELETE"
-                          method="post"
-                        >
+                        <form action="/admin/newsletter/<%= element._id %>/delete?_method=DELETE" method="post">
                           <button class="btn btn-primary">Delete</button>
                         </form>
                       </td>
@@ -928,607 +632,441 @@
                     </tr>
 
                     <% }) %>
-                  </tbody>
-                </table>
-              </div>
+                </tbody>
+              </table>
+            </div>
 
-              <!-- feedback -->
-              <div class="content-section feedback" id="feedback">
-                <table class="table align-middle mb-0 bg-white">
-                  <thead class="bg-light">
-                    <tr>
-                      <th>Full Name</th>
-                      <th>Email</th>
-                      <th>Subject</th>
-                      <th>Message</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- feedback 1 -->
-                    <% allFeedback.forEach(element=> { %>
+            <!-- feedback -->
+            <div class="content-section feedback" id="feedback">
+              <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                  <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th>Message</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- feedback 1 -->
+                  <% allFeedback.forEach(element=> { %>
 
                     <tr>
                       <td>
                         <div class="d-flex align-items-center">
-                          <p class="fw-bold mb-1"><%= element.fullname %></p>
+                          <p class="fw-bold mb-1">
+                            <%= element.fullname %>
+                          </p>
                         </div>
                       </td>
                       <td>
-                        <p class="text-muted mb-0"><%= element.email%></p>
+                        <p class="text-muted mb-0">
+                          <%= element.email%>
+                        </p>
                       </td>
                       <td>
-                        <p class="text-muted mb-0"><%= element.subject %></p>
+                        <p class="text-muted mb-0">
+                          <%= element.subject %>
+                        </p>
                       </td>
                       <td>
-                        <p class="text-muted mb-0"><%= element.message %></p>
+                        <p class="text-muted mb-0">
+                          <%= element.message %>
+                        </p>
                       </td>
 
                       <td>
-                        <form
-                          action="/admin/feedback/<%= element._id %>/delete?_method=DELETE"
-                          method="post"
-                        >
+                        <form action="/admin/feedback/<%= element._id %>/delete?_method=DELETE" method="post">
                           <button class="btn btn-primary">Delete</button>
                         </form>
                       </td>
                     </tr>
                     <% }) %>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- setting  -->
+            <div class="content-section setting" id="setting">
+              <div class="d-flex justify-content-between">
+                <h2 class="">Setting</h2>
+                <div class="d-flex gap-3 align-items-center">
+                  <div for="setting_form" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-plus" viewBox="0 0 16 16">
+                        <path
+                          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                      </svg>
+                    </span>
+                    <span>Add Category</span>
+                  </div>
+                  <!-- view All loan Categories and intrest Rate  -->
+                  <div for="setting_view" class="btn btn-primary">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-people-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                      </svg>
+                      <span>View Categories</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Setting form content -->
+              <div class="container" id="setting_form">
+                <div class="col-lg-8 offset-lg-1 setting-form">
+                  <!-- <h3>setting Form</h3> -->
+                  <div class="contact-form-widget card card-body">
+                    <form action="admin/add-loan" method="POST" enctype="multipart/form-data">
+                      <div class="row gap-3">
+                        <!-- setting section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="Category">Loan Type</label>
+                          <input type="text" id="Category" name="category" class="form-control"
+                            placeholder="Loan Category ?" required />
+                        </div>
+
+                        <!-- job-sprecifitions -->
+                        <div class="col-md-12 mt-20 mt-md-0">
+                          <label for="intrestrate">Interest Rate %</label>
+                          <input type="text" id="intrestrate" name="interest" class="form-control"
+                            placeholder="Loan Intrest Rate %" required />
+                        </div>
+                        <div class="col-md-12 mt-20 mt-md-0">
+                          <label for="intrestrate">Document Needed</label>
+                          <input type="text" id="intrestrate" name="documents" class="form-control"
+                            placeholder="Document needed (Comma separated)" required />
+                        </div>
+
+                        <!-- button section  -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Setting  Loan content -->
+              <div class="container" id="setting_view">
+                <table class="table align-middle mb-0 bg-white">
+                  <thead class="bg-light">
+                    <tr>
+                      <th>Category</th>
+                      <th>Interest Rate %</th>
+                      <th>Documents Needed %</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% loans.forEach(element=> { %>
+
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                              <p class="fw-bold mb-1">
+                                <%= element.category %>
+                              </p>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="fw-normal mb-1">
+                            <%= element.interest %>%
+                          </p>
+                        </td>
+                        <td>
+                          <p class="fw-normal mb-1">
+                            <%= element.documents %>
+                          </p>
+                        </td>
+                        <td>
+                          <form action="/admin/delete-loan/<%= element._id %>/delete?_method=DELETE" method="post">
+                            <button class="btn btn-primary mx-1">
+                              Delete
+                            </button>
+                          </form>
+                        </td>
+                      </tr>
+                      <% }) %>
                   </tbody>
                 </table>
               </div>
+            </div>
 
-              <!-- setting  -->
-              <div class="content-section setting" id="setting">
-                <div class="d-flex justify-content-between">
-                  <h2 class="">Setting</h2>
-                  <div class="d-flex gap-3 align-items-center">
-                    <div for="setting_form" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          fill="currentColor"
-                          class="bi bi-plus"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-                          />
-                        </svg>
-                      </span>
-                      <span>Add Category</span>
-                    </div>
-                    <!-- view All loan Categories and intrest Rate  -->
-                    <div for="setting_view" class="btn btn-primary">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          class="bi bi-people-fill"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-                          />
-                        </svg>
-                        <span>View Applicants</span>
-                      </span>
-                    </div>
-                  </div>
+            <!-- User Details  -->
+            <div class="content-section userDetial" id="userDetail">
+              <div class="d-flex justify-content-end align-items-center gap-5">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-primary" id="personalDetailBtn">
+                    Personal Detail
+                  </button>
+                  <button type="button" class="btn btn-primary" id="loanDetailBtn">
+                    Loan Detail
+                  </button>
                 </div>
-                <!-- Setting form content -->
-                <div class="container" id="setting_form">
-                  <div class="col-lg-8 offset-lg-1 setting-form">
-                    <!-- <h3>setting Form</h3> -->
-                    <div class="contact-form-widget card card-body">
-                      <form action="admin/setting-data" class="" method="POST">
-                        <div class="row gap-5">
-                          <!-- Job section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="Category">Loan Category</label>
-                            <input
-                              type="text"
-                              id="Category"
-                              name="Category"
-                              class="form-control"
-                              placeholder="Loan Category ?"
-                              required
-                            />
-                          </div>
-
-                          <!-- job-sprecifitions -->
-                          <div class="col-md-12 mt-20 mt-md-0">
-                            <label for="intrestrate">Loan Intrest Rate %</label>
-                            <input
-                              type="number"
-                              id="intrestrate"
-                              name="intrestrate"
-                              class="form-control"
-                              placeholder="Loan Intrest Rate %"
-                              required
-                            />
-                          </div>
-
-                          <!-- button section  -->
-                          <div class="col-12 mt-35">
-                            <button
-                              type="submit"
-                              class="theme-btn theme-btn-lg w-100"
-                            >
-                              Submit Now
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-                <!-- Setting  Loan content -->
-                <div class="container" id="setting_view">
-                  <table class="table align-middle mb-0 bg-white">
-                    <thead class="bg-light">
-                      <tr>
-                        <th>Category</th>
-                        <th>Intrest Rate %</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- Home Loan  -->
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">Home</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">12.5 %</p>
-                        </td>
-                        <td><button class="btn btn-primary">Delete</button></td>
-                        <td></td>
-                      </tr>
-                      <!-- Education Loan  -->
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">Education Loan</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">11.5 %</p>
-                        </td>
-                        <td><button class="btn btn-primary">Delete</button></td>
-                        <td></td>
-                      </tr>
-                      <!-- Car Loan  -->
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">Car Loan</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">6.85 %</p>
-                        </td>
-                        <td><button class="btn btn-primary">Delete</button></td>
-                        <td></td>
-                      </tr>
-                      <!-- Peronal Loan  -->
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">Personal Loan</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">9.85 %</p>
-                        </td>
-                        <td><button class="btn btn-primary">Delete</button></td>
-                        <td></td>
-                      </tr>
-                      <!-- Gold Loan  -->
-                      <tr>
-                        <td>
-                          <div class="d-flex align-items-center">
-                            <div class="ms-3">
-                              <p class="fw-bold mb-1">Gold Loan</p>
-                            </div>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="fw-normal mb-1">6.5 %</p>
-                        </td>
-                        <td><button class="btn btn-primary">Delete</button></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button type="button" class="btn btn-primary" id="applicationDetailBtn">
+                    Application Status
+                  </button>
+                  <button type="button" class="btn btn-primary" id="documentDetailBtn">
+                    Document
+                  </button>
                 </div>
               </div>
+              <div class="container-fluid my-5">
+                <!-- Personal details -->
+                <div class="personaldetail" id="personalDetail">
+                  <form>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <a class="btn btn-primary btn-sm me-2 save-button">Save</a>
+                        <a class="btn btn-secondary btn-sm me-2 cancel-button">Cancel</a>
+                        <a class="btn btn-success btn-sm edit-button">Edit</a>
+                      </div>
+                    </div>
 
-              <!-- User Details  -->
-              <div class="content-section userDetial" id="userDetail">
-                <div
-                  class="d-flex justify-content-end align-items-center gap-5"
-                >
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="personalDetailBtn"
-                    >
-                      Personal Detail
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="loanDetailBtn"
-                    >
-                      Loan Detail
-                    </button>
-                  </div>
-                  <div
-                    class="btn-group"
-                    role="group"
-                    aria-label="Basic example"
-                  >
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="applicationDetailBtn"
-                    >
-                      Application Status
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      id="documentDetailBtn"
-                    >
-                      Document
-                    </button>
-                  </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="username" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="username" placeholder="Jhon Doe" />
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label for="contact" class="form-label">Contact</label>
+                        <input type="number" maxlength="10" minlength="10" class="form-control" id="contact"
+                          placeholder="+91 9896XXXXXXX" />
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputLabel3" class="form-label">Email Address</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="inputLabel3" placeholder="JhonDoe@gmail" />
+                          <span class="input-group-text">.com</span>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col">
+                          <label for="email" class="form-label">Permanent Address</label>
+                          <input type="email" class="form-control" id="email"
+                            placeholder="H-36 Block B Gandhi Nagar New Delhi" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="selectBox" class="form-label">Application Status</label>
+                        <select class="form-select" id="selectBox">
+                          <option value="husker">Pending</option>
+                          <option value="starbuck">Approved</option>
+                          <option value="hotdog">Rejected</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label>Check these out</label>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="checkbox1" />
+                          <label class="form-check-label" for="checkbox1">Checkbox 1</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="checkbox2" />
+                          <label class="form-check-label" for="checkbox2">Checkbox 2</label>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                <div class="container-fluid my-5">
-                  <!-- Personal details -->
-                  <div class="personaldetail" id="personalDetail">
-                    <form>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <a class="btn btn-primary btn-sm me-2 save-button"
-                            >Save</a
-                          >
-                          <a class="btn btn-secondary btn-sm me-2 cancel-button"
-                            >Cancel</a
-                          >
-                          <a class="btn btn-success btn-sm edit-button">Edit</a>
-                        </div>
-                      </div>
+                <!-- Loan Details  -->
+                <div class="loandetail" id="loanDetail">Loan Details</div>
 
-                      <div class="row mb-3">
-                        <div class="col">
-                          <label for="username" class="form-label"
-                            >Full Name</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="username"
-                            placeholder="Jhon Doe"
-                          />
-                        </div>
+                <!-- Documents Detials  -->
+                <div class="document" id="documentDetail">
+                  <div class="images d-flex gap-5 flex-wrap bg-light">
+                    <!-- doc-1  -->
+                    <div class="document-item">
+                      <div class="object-fit-cover" style="cursor: pointer" width="25" height="25">
+                        <img height="100%" width="100%" src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
+                          alt="Folder" width="300" height="200" class="download-image"
+                          data-src="path/to/your/aadhar_card_pdf_1.pdf" />
                       </div>
-
-                      <div class="row mb-3">
-                        <div class="col-md-6">
-                          <label for="contact" class="form-label"
-                            >Contact</label
-                          >
-                          <input
-                            type="number"
-                            maxlength="10"
-                            minlength="10"
-                            class="form-control"
-                            id="contact"
-                            placeholder="+91 9896XXXXXXX"
-                          />
-                        </div>
-                        <div class="col-md-6">
-                          <label for="inputLabel3" class="form-label"
-                            >Email Address</label
-                          >
-                          <div class="input-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="inputLabel3"
-                              placeholder="JhonDoe@gmail"
-                            />
-                            <span class="input-group-text">.com</span>
-                          </div>
-                        </div>
-                        <div class="row mb-3">
-                          <div class="col">
-                            <label for="email" class="form-label"
-                              >Permanent Address</label
-                            >
-                            <input
-                              type="email"
-                              class="form-control"
-                              id="email"
-                              placeholder="H-36 Block B Gandhi Nagar New Delhi"
-                            />
-                          </div>
-                        </div>
+                      <p class="text-center">aadhar card</p>
+                    </div>
+                    <!-- doc-2  -->
+                    <div class="document-item">
+                      <div class="object-fit-cover" style="cursor: pointer" width="25" height="25">
+                        <img height="100%" width="100%" src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
+                          alt="Folder" width="300" height="200" class="download-image"
+                          data-src="path/to/your/aadhar_card_pdf_1.pdf" />
                       </div>
-
-                      <div class="row mb-3">
-                        <div class="col">
-                          <label for="selectBox" class="form-label"
-                            >Application Status</label
-                          >
-                          <select class="form-select" id="selectBox">
-                            <option value="husker">Pending</option>
-                            <option value="starbuck">Approved</option>
-                            <option value="hotdog">Rejected</option>
-                          </select>
-                        </div>
+                      <p class="text-center">aadhar card</p>
+                    </div>
+                    <!-- doc-3  -->
+                    <div class="document-item">
+                      <div class="object-fit-cover" style="cursor: pointer" width="25" height="25">
+                        <img height="100%" width="100%" src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
+                          alt="Folder" class="download-image" data-src="path/to/your/aadhar_card_pdf_1.pdf" />
                       </div>
-
-                      <div class="row mb-3">
-                        <div class="col-md-6">
-                          <label>Check these out</label>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="checkbox1"
-                            />
-                            <label class="form-check-label" for="checkbox1"
-                              >Checkbox 1</label
-                            >
-                          </div>
-                          <div class="form-check">
-                            <input
-                              class="form-check-input"
-                              type="checkbox"
-                              id="checkbox2"
-                            />
-                            <label class="form-check-label" for="checkbox2"
-                              >Checkbox 2</label
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- Loan Details  -->
-                  <div class="loandetail" id="loanDetail">Loan Details</div>
-
-                  <!-- Documents Detials  -->
-                  <div class="document" id="documentDetail">
-                    <div class="images d-flex gap-5 flex-wrap bg-light">
-                      <!-- doc-1  -->
-                      <div class="document-item">
-                        <div
-                          class="object-fit-cover"
-                          style="cursor: pointer"
-                          width="25"
-                          height="25"
-                        >
-                          <img
-                            height="100%"
-                            width="100%"
-                            src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
-                            alt="Folder"
-                            width="300"
-                            height="200"
-                            class="download-image"
-                            data-src="path/to/your/aadhar_card_pdf_1.pdf"
-                          />
-                        </div>
-                        <p class="text-center">aadhar card</p>
-                      </div>
-                      <!-- doc-2  -->
-                      <div class="document-item">
-                        <div
-                          class="object-fit-cover"
-                          style="cursor: pointer"
-                          width="25"
-                          height="25"
-                        >
-                          <img
-                            height="100%"
-                            width="100%"
-                            src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
-                            alt="Folder"
-                            width="300"
-                            height="200"
-                            class="download-image"
-                            data-src="path/to/your/aadhar_card_pdf_1.pdf"
-                          />
-                        </div>
-                        <p class="text-center">aadhar card</p>
-                      </div>
-                      <!-- doc-3  -->
-                      <div class="document-item">
-                        <div
-                          class="object-fit-cover"
-                          style="cursor: pointer"
-                          width="25"
-                          height="25"
-                        >
-                          <img
-                            height="100%"
-                            width="100%"
-                            src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
-                            alt="Folder"
-                            class="download-image"
-                            data-src="path/to/your/aadhar_card_pdf_1.pdf"
-                          />
-                        </div>
-                        <p class="text-center">aadhar card</p>
-                      </div>
+                      <p class="text-center">aadhar card</p>
                     </div>
                   </div>
                 </div>
-                <!-- Application Detials  -->
-                <div class="applicationstatus" id="applicationDetail">
-                  <div class="card card-body shadow p-3 mb-5 bg-white rounded">
-                    <form action="/admin/application-detail">
-                      <div class="d-flex flex-column gap-3">
-                        <div class="d-flex align-items-center">
-                          <h4 class="text-center flex-grow-1">Loan Status</h4>
-                          <div class="ml-auto">
-                            <div class="dropdown">
-                              <button
-                                class="btn btn-primary dropdown-toggle"
-                                type="button"
-                                id="dropdownMenuButton"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                              >
-                                Loan Status
-                              </button>
-                              <div
-                                class="dropdown-menu"
-                                aria-labelledby="dropdownMenuButton"
-                              >
-                                <a class="dropdown-item" href="#">Approved</a>
-                                <a class="dropdown-item" href="#"
-                                  >Pending</a
-                                >
-                                <a class="dropdown-item" href="#"
-                                  >Rejected</a
-                                >
-                              </div>
+              </div>
+              <!-- Application Detials  -->
+              <div class="applicationstatus" id="applicationDetail">
+                <div class="card card-body shadow p-3 mb-5 bg-white rounded">
+                  <form action="/admin/application-detail">
+                    <div class="d-flex flex-column gap-3">
+                      <div class="d-flex align-items-center">
+                        <h4 class="text-center flex-grow-1">Loan Status</h4>
+                        <div class="ml-auto">
+                          <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Loan Status
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="#">Approved</a>
+                              <a class="dropdown-item" href="#">Pending</a>
+                              <a class="dropdown-item" href="#">Rejected</a>
                             </div>
                           </div>
-                        </div>
-
-                        <!-- Perosnla details  -->
-                        <div>
-                          <h5 class="text-secondary">Personal Detail</h5>
-                          <div class="d-flex gap-5">
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Name :</span>
-                              <span>Jhon Doe</span>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Email :</span>
-                              <span>JhonDoe@gmail.com</span>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Contact No :</span>
-                              <div>
-                                <span class="text-secondary">+91</span>
-                                <span>9896XXXXXXX</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Loan details  -->
-                        <div>
-                          <h5 class="text-secondary">Loan Detail</h5>
-                          <div class="d-flex gap-5">
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Loan Type :</span>
-                              <span>Education Loan</span>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Loan Amount :</span>
-                              <div>
-                                <span class="text-secondary">₹</span>
-                                <span>25000</span>
-                              </div>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary"
-                                >Emi Per Month :</span
-                              >
-                              <div>
-                                <span class="text-secondary">₹</span>
-                                <span>1250</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Loan status  -->
-                        <div>
-                          <h5 class="text-secondary">Loan statu</h5>
-                          <div class="d-flex gap-5">
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Loan Type :</span>
-                              <span>Education Loan</span>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Loan Amount :</span>
-                              <div>
-                                <span class="text-secondary">₹</span>
-                                <span>25000</span>
-                              </div>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary"
-                                >Emi Per Month :</span
-                              >
-                              <div>
-                                <span class="text-secondary">₹</span>
-                                <span>1250</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-end align-items-center">
-                          <button class="btn btn-primary">Submit</button>
                         </div>
                       </div>
-                    </form>
-                  </div>
+
+                      <!-- Perosnla details  -->
+                      <div>
+                        <h5 class="text-secondary">Personal Detail</h5>
+                        <div class="d-flex gap-5">
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Name :</span>
+                            <span>Jhon Doe</span>
+                          </div>
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Email :</span>
+                            <span>JhonDoe@gmail.com</span>
+                          </div>
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Contact No :</span>
+                            <div>
+                              <span class="text-secondary">+91</span>
+                              <span>9896XXXXXXX</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Loan details  -->
+                      <div>
+                        <h5 class="text-secondary">Loan Detail</h5>
+                        <div class="d-flex gap-5">
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Loan Type :</span>
+                            <span>Education Loan</span>
+                          </div>
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Loan Amount :</span>
+                            <div>
+                              <span class="text-secondary">₹</span>
+                              <span>25000</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Emi Per Month :</span>
+                            <div>
+                              <span class="text-secondary">₹</span>
+                              <span>1250</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Loan status  -->
+                      <div>
+                        <h5 class="text-secondary">Loan statu</h5>
+                        <div class="d-flex gap-5">
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Loan Type :</span>
+                            <span>Education Loan</span>
+                          </div>
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Loan Amount :</span>
+                            <div>
+                              <span class="text-secondary">₹</span>
+                              <span>25000</span>
+                            </div>
+                          </div>
+                          <div class="d-flex gap-2 align-items-center">
+                            <span class="text-secondary">Emi Per Month :</span>
+                            <div>
+                              <span class="text-secondary">₹</span>
+                              <span>1250</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-end align-items-center">
+                        <button class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- <div class="button">
+        <!-- <div class="button">
               <a href="#">See All</a>
             </div> -->
-        </div>
       </div>
-    </section>
-    <script>
-      let sidebar = document.querySelector(".sidebar");
-      let sidebarBtn = document.querySelector(".sidebarBtn");
-      sidebarBtn.onclick = function () {
-        sidebar.classList.toggle("active");
-        if (sidebar.classList.contains("active")) {
-          sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-        } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-      };
-    </script>
-    <!-- bootstrap link  -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/admin.js"></script>
-  </body>
+    </div>
+  </section>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function () {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    };
+  </script>
+  <script>
+    // JavaScript to handle modal behavior
+    const openModalButton = document.getElementById('openModalButton');
+    const modal = document.getElementById('myModal');
+    const closeModal = document.getElementById('closeModal');
+
+    openModalButton.addEventListener('click', function () {
+      modal.style.display = 'block';
+    });
+
+    closeModal.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+
+    // Close the modal when clicking outside the modal content
+    window.addEventListener('click', function (event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  <!-- bootstrap link  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="/js/admin.js"></script>
+</body>
+
 </html>

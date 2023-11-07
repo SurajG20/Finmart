@@ -35,8 +35,16 @@ module.exports.Login = async (req, res) => {
     if (!isPasswordMatched) {
       return res.redirect('error');
     }
+
     req.session.user = user;
-    res.redirect('/');
+
+    if (user.isAdmin) {
+      res.redirect('/admin');
+    } else if (user.isLoanTaken) {
+      res.redirect('/user');
+    } else {
+      res.redirect('/loan');
+    }
   } catch (error) {
     res.redirect('error');
   }

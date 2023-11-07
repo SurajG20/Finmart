@@ -1,38 +1,33 @@
+const User = require('../models/User');
 const Feedback = require('../models/Feedback');
 const Blogs = require('../models/Blogs');
+const Loans = require('../models/LoanType');
 const Frequently = require('../models/Frequently');
 const CombinedDetails = require('../models/CombinedDetails');
 const Jobs = require('../models/Jobs');
 const Newsletter = require('../models/Newsletter');
 
-// get all subscribed emails
-module.exports.getAllNewsletter = async (req, res) => {
-  try {
-    const subscribedEmails = await Newsletter.find();
-    // res.render('admin', { subscribedEmails });
-    res.status(200).json({ subscribedEmails });
-  } catch (error) {
-    res.render('error');
-  }
+module.exports.admin = async (req, res) => {
+  const jobs = await Jobs.find();
+  const blogs = await Blogs.find();
+  const loans = await Loans.find();
+  const user = req.session.user;
+  const newsletter = await Newsletter.find();
+  const allFeedback = await Feedback.find();
+  res.render('admin', { user, allFeedback, newsletter, blogs, jobs, loans });
 };
-
-// get all feedback
-module.exports.getAllFeedback = async (req, res) => {
-  try {
-    const allFeedback = await Feedback.find();
-    // res.redirect('admin', { allFeedback });
-    res.status(200).json({ allFeedback });
-  } catch (error) {
-    res.redirect('error', { error });
-  }
-};
-
 // delete feedback
 module.exports.deleteFeedback = async (req, res) => {
   const { feedbackId } = req.params;
   console.log(feedbackId);
   await Feedback.findByIdAndRemove(feedbackId);
-  // res.redirect('/admin');
+  res.redirect('/admin');
+};
+// delete feedback
+module.exports.deleteNewsletter = async (req, res) => {
+  const { subsId } = req.params;
+  await Newsletter.findByIdAndRemove(subsId);
+  res.redirect('/admin');
 };
 
 // get all data
@@ -49,26 +44,51 @@ module.exports.getCombinedDetails = async (req, res) => {
   }
 };
 
-// get all jobs
-module.exports.getAllJobs = async (req, res) => {
-  try {
-    const jobs = await Jobs.find();
-    // res.render('admin', { jobs });
-    res.status(200).json({ jobs });
-  } catch (error) {
-    res.status(500).json({ error: 'Could not fetch personal details.' });
-  }
-};
-
 // get new job
 module.exports.addNewJob = async (req, res) => {
+  console.log(req.body);
   try {
-    const job = new Jobs(req.body);
-    await job.save();
-    res.status(200).json({ message: 'Job created successfully' });
+    const {
+      title,
+      category,
+      location,
+      jobPosition,
+      jobType,
+      description,
+      specifications,
+    } = req.body;
+    if (
+      title &&
+      description &&
+      location &&
+      category &&
+      jobPosition &&
+      jobType &&
+      specifications
+    ) {
+      const newJob = {
+        title,
+        category,
+        location,
+        jobPosition,
+        jobType,
+        description,
+        specifications,
+      };
+
+      if (req.files) {
+        newJob.images = req.files.map((f) => {
+          return {
+            url: f.path,
+            filename: f.filename,
+          };
+        });
+      }
+      await Jobs.create(newJob);
+      res.redirect('/admin');
+    }
   } catch (err) {
-    // res.redirect('error', { err });
-    res.status(500).json({ err: err });
+    res.redirect('error', { err });
   }
 };
 
@@ -98,10 +118,8 @@ module.exports.deleteJob = async (req, res) => {
   try {
     const jobId = req.params.jobId;
     await Jobs.deleteOne({ _id: jobId });
-    // res.redirect('/admin');
-    res.status(200).json({ message: 'Job deleted successfully' });
+    res.redirect('/admin');
   } catch (err) {
-    console.error(err);
     res.status(500).send('Internal Server Error');
   }
 };
@@ -116,17 +134,6 @@ module.exports.createFaq = async (req, res) => {
     // res.redirect('admin');
   } catch (error) {
     res.status(500).json({ message: 'Error creating FAQ' });
-  }
-};
-
-// get all FAQs
-module.exports.getAllFaqs = async (req, res) => {
-  try {
-    const faqs = await Frequently.find();
-    // res.redirect('admin', { faqs });
-    res.status(200).json({ faqs });
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching FAQs' });
   }
 };
 
@@ -161,25 +168,12 @@ module.exports.deleteFaq = async (req, res) => {
   }
 };
 
-// getAllBlog
-module.exports.getAllBlogs = async (req, res) => {
-  try {
-    const blogs = await Blogs.find();
-    res.status(200).json({ blogs });
-    // res.render('admin', { blogs });
-  } catch (error) {
-    res.status(500).json({ error: 'Could not fetch personal details.' });
-  }
-};
-
 // addNewBLog
 module.exports.addNewBlog = async (req, res) => {
   try {
-    console.log(req.body);
     const { title, description, author, category } = req.body;
     if (title && description && author && category) {
-      const newBlog = req.body;
-      console.log(req.files);
+      const newBlog = { title, description, author, category };
       if (req.files) {
         newBlog.images = req.files.map((f) => {
           return {
@@ -188,7 +182,6 @@ module.exports.addNewBlog = async (req, res) => {
           };
         });
       }
-      console.log(newBlog);
       await Blogs.create(newBlog);
       res.redirect('/admin');
     }
@@ -226,5 +219,50 @@ module.exports.deleteBlog = async (req, res) => {
     res.redirect('/admin');
   } catch (err) {
     res.redirect('error', { err });
+  }
+};
+module.exports.deleteLoan = async (req, res) => {
+  try {
+    const { loanId } = req.params;
+    await Loans.deleteOne({ _id: loanId });
+    res.redirect('/admin');
+  } catch (err) {
+    res.redirect('error', { err });
+  }
+};
+
+module.exports.addNewLoan = async (req, res) => {
+  try {
+    const { interest, documents, category } = req.body;
+    if (interest && documents && category) {
+      const newLoan = { interest, documents, category };
+      await Loans.create(newLoan);
+      res.redirect('/admin');
+    }
+  } catch (err) {
+    res.redirect('error', { err });
+  }
+};
+
+
+
+module.exports.sendNotification = async (req, res) => {
+  console.log(req.body)
+  const { userIds,title, message } = req.body;
+  try {
+    for (const userId of userIds) {
+      const user = await User.findById(userId);
+      if (!user) {
+        console.error(`User with ID ${userId} not found`);
+        continue;
+      }
+      user.notifications.push({title, message });
+      await user.save();
+    }
+
+    return res.status(200).json({ message: 'Notifications sent successfully' });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 };

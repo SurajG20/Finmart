@@ -7,8 +7,7 @@ const documentSchema = new mongoose.Schema({
 
 const combinedDetailsSchema = new mongoose.Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId, // Reference to the user who owns these details
-    ref: 'User', // Reference the User model
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
   loanDetails: {
@@ -38,6 +37,11 @@ const combinedDetailsSchema = new mongoose.Schema({
     required: true,
   },
   documentUploads: [documentSchema],
+  ApplicationStatus: {
+    type: String,
+    enums: ['Pending', 'Approved', 'Rejected'],
+    default: 'Pending',
+  },
 });
 
 const CombinedDetails = mongoose.model(

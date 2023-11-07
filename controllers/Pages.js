@@ -2,7 +2,7 @@ const Feedback = require('../models/Feedback');
 const Blogs = require('../models/Blogs');
 const Frequently = require('../models/Frequently');
 const Jobs = require('../models/Jobs');
-const { cloudinary } = require('../cloudinary');
+const Loans = require('../models/LoanType');
 const Newsletter = require('../models/Newsletter');
 const CombinedDetails = require('../models/CombinedDetails');
 
@@ -21,16 +21,9 @@ module.exports.about = (req, res) => {
 };
 module.exports.user = (req, res) => {
   const user = req.session.user;
-
   res.render('user', { user });
 };
-module.exports.admin = async (req, res) => {
-  const blogs = await Blogs.find();
-  const user = req.session.user;
-  const newsletter = await Newsletter.find();
-  const allFeedback = await Feedback.find();
-  res.render('admin', { user, allFeedback, newsletter, blogs });
-};
+
 module.exports.login = (req, res) => {
   res.render('login');
 };
@@ -107,15 +100,13 @@ module.exports.addJobApplication = async (req, res) => {
 // apply to job for user
 module.exports.applyToJob = async (req, res) => {
   try {
-    const { jobId, firstname, lastname, message, email, phone } = req.body;
+    const { jobId, fullname, message, email, phone } = req.body;
     const application = {
-      firstname,
-      lastname,
+      fullname,
       message,
       email,
       phone,
     };
-    console.log(req.file);
     if (req.file) {
       const attachment = {
         url: req.file.path,
@@ -125,7 +116,6 @@ module.exports.applyToJob = async (req, res) => {
     }
 
     const job = await Jobs.findById(jobId);
-    console.log(job);
     job.applications.push(application);
     await job.save();
     res.redirect('/job-post');
@@ -187,7 +177,7 @@ module.exports.submitLoanDetails = async (req, res) => {
     }
     await combinedDetails.save();
 
-    res.redirect('/personal-details');
+    res.redirect('/document-upload');
   } catch (error) {
     res.render('error', { error });
   }
@@ -237,7 +227,7 @@ module.exports.submitPersonalDetails = async (req, res) => {
       combinedDetails.personalDetails = personalDetails;
     }
     await combinedDetails.save();
-    res.redirect('/document-upload');
+    res.redirect('/loan-details');
   } catch (error) {
     res.render('error', { error });
   }

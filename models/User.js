@@ -1,6 +1,20 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+const NotificationSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 const UserSchema = new Schema(
   {
     username: {
@@ -19,6 +33,11 @@ const UserSchema = new Schema(
     isAdmin: {
       type: Boolean,
       required: true,
+      default: false,
+    },
+    notifications: [NotificationSchema],
+    isLoanTaken: {
+      type: Boolean,
       default: false,
     },
   },
