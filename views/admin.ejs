@@ -12,6 +12,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Vinayak Finmart Pvt. Ltd.</title>
     <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
+    <!-- bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <!-- google font icons link -->
     <link
       rel="stylesheet"
@@ -1313,9 +1320,11 @@
                   </div>
                   <!-- Loan Details  -->
                   <div class="loandetail" id="loanDetail">Loan Details</div>
+
                   <!-- Documents Detials  -->
                   <div class="document" id="documentDetail">
                     <div class="images d-flex gap-5 flex-wrap bg-light">
+                      <!-- doc-1  -->
                       <div class="document-item">
                         <div
                           class="object-fit-cover"
@@ -1326,7 +1335,7 @@
                           <img
                             height="100%"
                             width="100%"
-                            src="https://static.vecteezy.com/system/resources/thumbnails/000/421/699/small/Web__2835_29.jpg"
+                            src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
                             alt="Folder"
                             width="300"
                             height="200"
@@ -1336,18 +1345,42 @@
                         </div>
                         <p class="text-center">aadhar card</p>
                       </div>
-
+                      <!-- doc-2  -->
                       <div class="document-item">
-                        <div class="object-fit-cover" width="25" height="25">
+                        <div
+                          class="object-fit-cover"
+                          style="cursor: pointer"
+                          width="25"
+                          height="25"
+                        >
                           <img
                             height="100%"
                             width="100%"
-                            src="https://static.vecteezy.com/system/resources/thumbnails/000/421/699/small/Web__2835_29.jpg"
+                            src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
                             alt="Folder"
                             width="300"
                             height="200"
                             class="download-image"
-                            data-src="path/to/your/aadhar_card_pdf_2.pdf"
+                            data-src="path/to/your/aadhar_card_pdf_1.pdf"
+                          />
+                        </div>
+                        <p class="text-center">aadhar card</p>
+                      </div>
+                      <!-- doc-3  -->
+                      <div class="document-item">
+                        <div
+                          class="object-fit-cover"
+                          style="cursor: pointer"
+                          width="25"
+                          height="25"
+                        >
+                          <img
+                            height="100%"
+                            width="100%"
+                            src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
+                            alt="Folder"
+                            class="download-image"
+                            data-src="path/to/your/aadhar_card_pdf_1.pdf"
                           />
                         </div>
                         <p class="text-center">aadhar card</p>
@@ -1357,11 +1390,42 @@
                 </div>
                 <!-- Application Detials  -->
                 <div class="applicationstatus" id="applicationDetail">
-                  <div class="card card-body">
-                    <form action="">
+                  <div class="card card-body shadow p-3 mb-5 bg-white rounded">
+                    <form action="/admin/application-detail">
                       <div class="d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center">
+                          <h4 class="text-center flex-grow-1">Loan Status</h4>
+                          <div class="ml-auto">
+                            <div class="dropdown">
+                              <button
+                                class="btn btn-primary dropdown-toggle"
+                                type="button"
+                                id="dropdownMenuButton"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                              >
+                                Loan Status
+                              </button>
+                              <div
+                                class="dropdown-menu"
+                                aria-labelledby="dropdownMenuButton"
+                              >
+                                <a class="dropdown-item" href="#">Approved</a>
+                                <a class="dropdown-item" href="#"
+                                  >Pending</a
+                                >
+                                <a class="dropdown-item" href="#"
+                                  >Rejected</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Perosnla details  -->
                         <div>
-                          <h4>Personal Details</h4>
+                          <h5 class="text-secondary">Personal Detail</h5>
                           <div class="d-flex gap-5">
                             <div class="d-flex gap-2 align-items-center">
                               <span class="text-secondary">Name :</span>
@@ -1380,25 +1444,60 @@
                             </div>
                           </div>
                         </div>
+                        <!-- Loan details  -->
                         <div>
-                          <h4>Loan Details</h4>
+                          <h5 class="text-secondary">Loan Detail</h5>
                           <div class="d-flex gap-5">
                             <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Name :</span>
-                              <span>Jhon Doe</span>
+                              <span class="text-secondary">Loan Type :</span>
+                              <span>Education Loan</span>
                             </div>
                             <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Email :</span>
-                              <span>JhonDoe@gmail.com</span>
-                            </div>
-                            <div class="d-flex gap-2 align-items-center">
-                              <span class="text-secondary">Contact No :</span>
+                              <span class="text-secondary">Loan Amount :</span>
                               <div>
-                                <span class="text-secondary">+91</span>
-                                <span>9896XXXXXXX</span>
+                                <span class="text-secondary">₹</span>
+                                <span>25000</span>
+                              </div>
+                            </div>
+                            <div class="d-flex gap-2 align-items-center">
+                              <span class="text-secondary"
+                                >Emi Per Month :</span
+                              >
+                              <div>
+                                <span class="text-secondary">₹</span>
+                                <span>1250</span>
                               </div>
                             </div>
                           </div>
+                        </div>
+                        <!-- Loan status  -->
+                        <div>
+                          <h5 class="text-secondary">Loan statu</h5>
+                          <div class="d-flex gap-5">
+                            <div class="d-flex gap-2 align-items-center">
+                              <span class="text-secondary">Loan Type :</span>
+                              <span>Education Loan</span>
+                            </div>
+                            <div class="d-flex gap-2 align-items-center">
+                              <span class="text-secondary">Loan Amount :</span>
+                              <div>
+                                <span class="text-secondary">₹</span>
+                                <span>25000</span>
+                              </div>
+                            </div>
+                            <div class="d-flex gap-2 align-items-center">
+                              <span class="text-secondary"
+                                >Emi Per Month :</span
+                              >
+                              <div>
+                                <span class="text-secondary">₹</span>
+                                <span>1250</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="d-flex justify-content-end align-items-center">
+                          <button class="btn btn-primary">Submit</button>
                         </div>
                       </div>
                     </form>
@@ -1424,6 +1523,12 @@
         } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
       };
     </script>
+    <!-- bootstrap link  -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <script src="/js/admin.js"></script>
   </body>
 </html>

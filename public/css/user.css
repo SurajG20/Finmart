@@ -42,6 +42,7 @@
 
 .user #sidebar {
     position: sticky;
+    
     background: #7386d5;
     color: #fff;
     transition: all 0.3s;
@@ -300,11 +301,11 @@
 
 /*------------- text  ----------- */
 .user .container .wrapper #content .document p {
-    position: absolute;
+    /* position: absolute; */
     left: 124px;
     top: 75px;
     margin: 0%;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 1rem;
     color: white;
 }

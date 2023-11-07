@@ -1,4 +1,4 @@
-function Sidebar(){
+function Sidebar() {
   document.addEventListener("DOMContentLoaded", function () {
     // Get all content sections
     var contentSections = document.querySelectorAll(".content-section");
@@ -29,41 +29,49 @@ function Sidebar(){
     });
   });
 }
-Sidebar()
+Sidebar();
 
+// Notification js file code
 
-// Notification js file code 
-document.addEventListener("DOMContentLoaded", function () {
-  // Get button and container elements
-  var allBtn = document.getElementById("notificationAllBtn");
-  var unreadBtn = document.getElementById("notificationUnreadBtn");
-  var readBtn = document.getElementById("notificationRead");
-  var allContainer = document.getElementById("notificationAllContainer");
-  var unreadContainer = document.getElementById("notificationUnreadContainer");
-  var readContainer = document.getElementById("notificationReadContainer");
+function Notification() {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get button and container elements
+    var allBtn = document.getElementById("notificationAllBtn");
+    var unreadBtn = document.getElementById("notificationUnreadBtn");
+    var readBtn = document.getElementById("notificationRead");
+    var allContainer = document.getElementById("notificationAllContainer");
+    var unreadContainer = document.getElementById(
+      "notificationUnreadContainer"
+    );
+    var readContainer = document.getElementById("notificationReadContainer");
 
-  // Show the default container (notificationAllContainer)
-  allContainer.style.display = "block";
-  unreadContainer.style.display = "none";
-  readContainer.style.display = "none";
-
-  // Add click event listeners to buttons
-  allBtn.addEventListener("click", function () {
+    // Show the default container (notificationAllContainer)
     allContainer.style.display = "block";
     unreadContainer.style.display = "none";
     readContainer.style.display = "none";
-  });
 
-  unreadBtn.addEventListener("click", function () {
-    allContainer.style.display = "none";
-    unreadContainer.style.display = "block";
-    readContainer.style.display = "none";
-  });
+    // Add click event listeners to buttons
+    allBtn.addEventListener("click", function () {
+      allContainer.style.display = "block";
+      unreadContainer.style.display = "none";
+      readContainer.style.display = "none";
+    });
 
-  readBtn.addEventListener("click", function () {
-    allContainer.style.display = "none";
-    unreadContainer.style.display = "none";
-    readContainer.style.display = "block";
+    unreadBtn.addEventListener("click", function () {
+      allContainer.style.display = "none";
+      unreadContainer.style.display = "block";
+      readContainer.style.display = "none";
+    });
+
+    readBtn.addEventListener("click", function () {
+      allContainer.style.display = "none";
+      unreadContainer.style.display = "none";
+      readContainer.style.display = "block";
+    });
   });
-});
+}
+Notification();
+
+// user document insert js code
+
 
