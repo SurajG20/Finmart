@@ -1,53 +1,92 @@
 <!DOCTYPE html>
 <html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Vinayak Finmart Pvt. Ltd.</title>
+    <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Vinayak Finmart Pvt. Ltd.</title>
-  <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
+    <!-- CSS here -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/bootstrap.min.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/elegant-icons.min.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/all.min.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/animate.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/nice-select.css"
+      media="all"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/slick.css" media="all" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/slick-theme.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/default.css"
+      media="all"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/responsive.css"
+      media="all"
+    />
+  </head>
 
-  <!-- CSS here -->
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/elegant-icons.min.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/all.min.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/animate.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/nice-select.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/slick.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/default.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all" />
-</head>
-
-<body>
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="ctn-preloader" class="ctn-preloader">
-      <div class="round_spinner">
-        <div class="spinner"></div>
-        <div class="text">
-          <img src="img/Vinayak/9.jpg" height="100px" alt="" />
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="ctn-preloader" class="ctn-preloader">
+        <div class="round_spinner">
+          <div class="spinner"></div>
+          <div class="text">
+            <img src="img/Vinayak/9.jpg" height="100px" alt="" />
+          </div>
         </div>
+        <h2 class="head">Did You Know?</h2>
+        <p></p>
       </div>
-      <h2 class="head">Did You Know?</h2>
-      <p></p>
     </div>
-  </div>
- <!-- Header -->
+    <!-- Header -->
     <header class="header">
       <div class="header-top py-2">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-5">
               <div class="header-info-left">
-                <div class="language-list">
+                <!-- <div class="language-list">
                   <select name="page-language-list" id="select-lang">
                     <option value="English">English</option>
                     <option value="Hindi">Hindi</option>
                   </select>
-                </div>
+                </div> -->
 
                 <div class="timestamp ms-4">
                   <i class="icon_clock_alt"></i> Mon - Fri 10:00-18:00
@@ -115,14 +154,25 @@
                 <li class="nav-item dropdown submenu">
                   <a
                     href="/"
-                    class="nav-link dropdown-toggle "
+                    class="nav-link dropdown-toggle"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
                     >Home</a
                   >
-                 
+                </li>
+                <li class="nav-item dropdown submenu">
+                  <a
+                    class="nav-link dropdown-toggle active"
+                    href="/about"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    About Us
+                  </a>
                 </li>
                 <li class="nav-item dropdown submenu">
                   <a
@@ -148,18 +198,7 @@
                     Jobs
                   </a>
                 </li>
-                <li class="nav-item dropdown submenu">
-                  <a
-                    class="nav-link dropdown-toggle active"
-                    href="/about"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    About Us
-                  </a>
-                </li>
+
                 <li class="nav-item dropdown submenu">
                   <a
                     class="nav-link dropdown-toggle"
@@ -184,50 +223,35 @@
                     Blog
                   </a>
                 </li>
-                <li class="nav-item dropdown submenu">
-                  <% if (user) { %> <% if (user.isAdmin) { %>
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="/admin"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Dashboard
-                  </a>
-                  <% } else { %>
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="/user"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Dashboard
-                  </a>
-                  <% } %> <% } else { %>
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="/login"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Dashboard
-                  </a>
-                  <% } %>
-
-                </li>
+                <!-- <li class="nav-item dropdown submenu">
+                <% if (user) { %>
+                  <% if (user.isAdmin) { %>
+                    <a class="nav-link dropdown-toggle" href="/admin" role="button" data-bs-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      Dashboard
+                    </a>
+                    <% } else { %>
+                      <a class="nav-link dropdown-toggle" href="/user" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Dashboard
+                      </a>
+                      <% } %>
+                        <% } else { %>
+                          <a class="nav-link dropdown-toggle" href="/login" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Dashboard
+                          </a>
+                          <% } %>
+              </li> -->
               </ul>
               <% if (user) { %>
               <a class="theme-btn theme-btn-outlined" href="/logout">
-                Logout
+                Dashboard
               </a>
               <% } else { %>
-              <a class="theme-btn theme-btn-outlined" href="/login"> Login </a>
+              <a class="theme-btn theme-btn-outlined" href="/login">
+                Dashboard
+              </a>
               <% } %>
 
               <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
@@ -252,441 +276,603 @@
     </header>
     <!-- Header end-->
 
-  <main>
-    <!-- Banner start -->
-    <section class="banner-area-2 pt-145" style="background-image: url(img/banner/about-bg.png)">
-      <div class="container">
-        <div class="row align-items-center pt-130 pb-140">
-          <div class="col-xl-6 col-lg-8">
-            <div class="banner-content py-5">
-              <div class="section-title text-start">
-                <span class="short-title wow fadeInUp">ABOUT US</span>
-                <h1 class="wow fadeInUp mb-0" data-wow-delay="0.2s">
-                  Believing, banking and achieving different
-                </h1>
-              </div>
-              <a class="theme-btn-2 theme-btn-primary mt-45 wow fadeInUp" data-wow-delay="0.4s" href="#">
-                <span class="arrow">
-                  <span class="horizontal-line"></span> </span>View our 2019 Annual Report
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Banner end -->
-
-    <section class="bg_white pt-90 pb-160">
-      <div class="container">
-        <div class="description-widget">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="desc-title text-end bg_primary">
-                <h2>Let's dive into the brief of Vinayak Finmart</h2>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="desc-text pl-lg-10">
-                <p>
-                  At Vinayak Finmart, with over 25 years of industry
-                  expertise, we stand as a beacon of financial empowerment.
-                  Our association with 50+ esteemed financial institutions,
-                  disbursing over ₹3000 crore, reflects our commitment. With a
-                  100% loan approval success rate, we offer transparency,
-                  competitive rates, and personalized negotiation.
-                </p>
-                <p class="mt-20">
-                  Our mission is clear: to provide unwavering support and
-                  guidance, shaping thriving businesses and individual
-                  aspirations. Join us in our journey of turning financial
-                  dreams into reality.
-                </p>
+    <main>
+      <!-- Banner start -->
+      <section
+        class="banner-area-2 pt-145"
+        style="background-image: url(img/banner/about-bg.png)"
+      >
+        <div class="container">
+          <div class="row align-items-center pt-130 pb-140">
+            <div class="col-xl-6 col-lg-8">
+              <div class="banner-content py-5">
+                <div class="section-title text-start">
+                  <span class="short-title wow fadeInUp">ABOUT US</span>
+                  <h1 class="wow fadeInUp mb-0" data-wow-delay="0.2s">
+                    Believing, banking and achieving different
+                  </h1>
+                </div>
+                <a
+                  class="theme-btn-2 theme-btn-primary mt-45 wow fadeInUp"
+                  data-wow-delay="0.4s"
+                  href="#"
+                >
+                  <span class="arrow">
+                    <span class="horizontal-line"></span> </span
+                  >View our 2019 Annual Report
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <!-- Banner end -->
 
-    <!-- Statistics start -->
-    <section class="statistics-area pt-135 pb-140 bg_disable">
-      <div class="container">
-        <div class="row gy-lg-0 gy-4">
-          <div class="col-lg-7">
-            <div class="statistics-widget-2 wow fadeInUp">
-              <div class="row gx-0">
-                <div class="col-7">
-                  <div class="statistics-slider h-100">
-                    <div class="widget-content widget-1">
-                      <h1 class="stat-counter">15,000</h1>
-                      <!-- <p>We employ 15,000 people around the world</p> -->
+      <section class="bg_white pt-90 pb-160">
+        <div class="container">
+          <div class="description-widget">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="desc-title text-end bg_primary">
+                  <h2>Let's dive into the brief of Vinayak Finmart</h2>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="desc-text pl-lg-10">
+                  <p>
+                    At Vinayak Finmart, with over 25 years of industry
+                    expertise, we stand as a beacon of financial empowerment.
+                    Our association with 50+ esteemed financial institutions,
+                    disbursing over ₹3000 crore, reflects our commitment. With a
+                    100% loan approval success rate, we offer transparency,
+                    competitive rates, and personalized negotiation.
+                  </p>
+                  <p class="mt-20">
+                    Our mission is clear: to provide unwavering support and
+                    guidance, shaping thriving businesses and individual
+                    aspirations. Join us in our journey of turning financial
+                    dreams into reality.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics start -->
+      <section class="statistics-area pt-135 pb-140 bg_disable">
+        <div class="container">
+          <div class="row gy-lg-0 gy-4">
+            <div class="col-lg-7">
+              <div class="statistics-widget-2 wow fadeInUp">
+                <div class="row gx-0">
+                  <div class="col-7">
+                    <div class="statistics-slider h-100">
+                      <div class="widget-content widget-1">
+                        <h1 class="stat-counter">15,000</h1>
+                        <!-- <p>We employ 15,000 people around the world</p> -->
+                      </div>
+                      <div class="widget-content widget-1">
+                        <h1 class="stat-counter">10,000</h1>
+                        <!-- <p>We employ 15,000 people around the world</p> -->
+                      </div>
+                      <div class="widget-content widget-1">
+                        <h1 class="stat-counter">25,000</h1>
+                        <!-- <p>We employ 15,000 people around the world</p> -->
+                      </div>
                     </div>
-                    <div class="widget-content widget-1">
-                      <h1 class="stat-counter">10,000</h1>
-                      <!-- <p>We employ 15,000 people around the world</p> -->
-                    </div>
-                    <div class="widget-content widget-1">
-                      <h1 class="stat-counter">25,000</h1>
-                      <!-- <p>We employ 15,000 people around the world</p> -->
+                  </div>
+                  <div class="col-5">
+                    <img
+                      class="img-fluid"
+                      src="img/statistics/img-7.png"
+                      alt="img"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div
+                class="statistics-widget-2 wow fadeInUp"
+                data-wow-delay="0.2s"
+              >
+                <div class="widget-content widget-2">
+                  <h1 class="stat-counter">125</h1>
+                  <!-- <p>Our colleagues come from 125 different countries</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-30 pb-30 gy-4 gy-lg-0">
+            <div class="col-lg-7">
+              <div class="row gy-4 gy-lg-0">
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    class="statistics-widget-2 wow fadeInRight"
+                    data-wow-delay="0.1s"
+                  >
+                    <div class="widget-content widget-3">
+                      <h1 class="stat-counter">75</h1>
+                      <!-- <p>More than 75 years in business</p> -->
                     </div>
                   </div>
                 </div>
-                <div class="col-5">
-                  <img class="img-fluid" src="img/statistics/img-7.png" alt="img" />
+                <div class="col-lg-4 col-md-6">
+                  <div
+                    class="statistics-widget-2 wow fadeInRight"
+                    data-wow-delay="0.3s"
+                  >
+                    <div class="widget-content widget-4">
+                      <h1 class="stat-counter">450</h1>
+                      <!-- <p>450 branches worldwide</p> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div
+                    class="statistics-widget-2 wow fadeInRight"
+                    data-wow-delay="0.5s"
+                  >
+                    <div class="widget-content widget-5">
+                      <h1 class="stat-counter">25</h1>
+                      <!-- <p>We are present in 25 markets</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div
+                class="statistics-widget-2 wow fadeInRight"
+                data-wow-delay="0.7s"
+              >
+                <div
+                  class="widget-content widget-6"
+                  style="background-image: url(img/statistics/img-2.png)"
+                >
+                  <h2>Best Consumer Digital Bank</h2>
+                  <p>Global Finance 2020</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-5">
-            <div class="statistics-widget-2 wow fadeInUp" data-wow-delay="0.2s">
-              <div class="widget-content widget-2">
-                <h1 class="stat-counter">125</h1>
-                <!-- <p>Our colleagues come from 125 different countries</p> -->
+          <div class="row gy-4 gy-md-0">
+            <div class="col-md-5">
+              <div
+                class="statistics-widget-2 wow fadeInLeft"
+                data-wow-delay="0.1s"
+              >
+                <div
+                  class="widget-content widget-7"
+                  style="background-image: url(img/statistics/img-3.png)"
+                >
+                  <h1 class="stat-counter">35</h1>
+                  <p>Global Finance 2020</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div
+                class="statistics-widget-2 wow fadeInLeft"
+                data-wow-delay="0.3s"
+              >
+                <div class="row gx-0">
+                  <div class="col-5">
+                    <img
+                      class="img-fluid"
+                      src="img/statistics/img-6.png"
+                      alt="img"
+                    />
+                  </div>
+                  <div class="col-7">
+                    <div
+                      class="widget-content widget-8"
+                      style="background-image: url(img/statistics/img-4.png)"
+                    >
+                      <h1 class="stat-counter">2</h1>
+                      <p>
+                        We’re listed on two of Asia’s largest stock exchanges
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row pt-30 pb-30 gy-4 gy-lg-0">
-          <div class="col-lg-7">
+      </section>
+      <!-- Statistics end -->
+
+      <!-- Recgnition start -->
+      <section class="recognition-area bg_white pt-135 pb-140">
+        <div class="container">
+          <div class="section-title text-start">
+            <span class="short-title mt-0 wow fadeInUp"> Recognition </span>
+            <h2 class="mb-0 wow fadeInUp" data-wow-delay="0.2s">Milestones</h2>
+          </div>
+
+          <div class="recognition-widget pt-70">
             <div class="row gy-4 gy-lg-0">
-              <div class="col-lg-4 col-md-6">
-                <div class="statistics-widget-2 wow fadeInRight" data-wow-delay="0.1s">
-                  <div class="widget-content widget-3">
-                    <h1 class="stat-counter">75</h1>
-                    <!-- <p>More than 75 years in business</p> -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6">
-                <div class="statistics-widget-2 wow fadeInRight" data-wow-delay="0.3s">
-                  <div class="widget-content widget-4">
-                    <h1 class="stat-counter">450</h1>
-                    <!-- <p>450 branches worldwide</p> -->
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="statistics-widget-2 wow fadeInRight" data-wow-delay="0.5s">
-                  <div class="widget-content widget-5">
-                    <h1 class="stat-counter">25</h1>
-                    <!-- <p>We are present in 25 markets</p> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5">
-            <div class="statistics-widget-2 wow fadeInRight" data-wow-delay="0.7s">
-              <div class="widget-content widget-6" style="background-image: url(img/statistics/img-2.png)">
-                <h2>Best Consumer Digital Bank</h2>
-                <p>Global Finance 2020</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row gy-4 gy-md-0">
-          <div class="col-md-5">
-            <div class="statistics-widget-2 wow fadeInLeft" data-wow-delay="0.1s">
-              <div class="widget-content widget-7" style="background-image: url(img/statistics/img-3.png)">
-                <h1 class="stat-counter">35</h1>
-                <p>Global Finance 2020</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-7">
-            <div class="statistics-widget-2 wow fadeInLeft" data-wow-delay="0.3s">
-              <div class="row gx-0">
-                <div class="col-5">
-                  <img class="img-fluid" src="img/statistics/img-6.png" alt="img" />
-                </div>
-                <div class="col-7">
-                  <div class="widget-content widget-8" style="background-image: url(img/statistics/img-4.png)">
-                    <h1 class="stat-counter">2</h1>
-                    <p>
-                      We’re listed on two of Asia’s largest stock exchanges
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Statistics end -->
-
-    <!-- Recgnition start -->
-    <section class="recognition-area bg_white pt-135 pb-140">
-      <div class="container">
-        <div class="section-title text-start">
-          <span class="short-title mt-0 wow fadeInUp"> Recognition </span>
-          <h2 class="mb-0 wow fadeInUp" data-wow-delay="0.2s">Milestones</h2>
-        </div>
-
-        <div class="recognition-widget pt-70">
-          <div class="row gy-4 gy-lg-0">
-            <div class="col-lg-3 col-5">
-              <div class="widget-navigation wow fadeInUp pe-lg-4" data-wow-delay="0.1s">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="2020-tab" data-bs-toggle="tab" href="#twenty" role="tab"
-                      aria-controls="twenty" aria-selected="true">2020</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="2019-tab" data-bs-toggle="tab" href="#nineteen" role="tab"
-                      aria-controls="nineteen" aria-selected="false">2019</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="2018-tab" data-bs-toggle="tab" href="#eighteen" role="tab"
-                      aria-controls="eighteen" aria-selected="false">2018</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="2017-tab" data-bs-toggle="tab" href="#seventeen" role="tab"
-                      aria-controls="seventeen" aria-selected="false">2017</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="2016-tab" data-bs-toggle="tab" href="#sixteen" role="tab"
-                      aria-controls="sixteen" aria-selected="false">2016</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="2015-tab" data-bs-toggle="tab" href="#fifteen" role="tab"
-                      aria-controls="fifteen" aria-selected="false">2015</a>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="2014-tab" data-bs-toggle="tab" href="#lessfifteen" role="tab"
-                      aria-controls="lessfifteen" aria-selected="false">2014 and before</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-4 col-7">
-              <div class="tab-content wow fadeInUp" data-wow-delay="0.3s" id="myTabContent">
-                <div class="tab-pane fade show active" id="twenty" role="tabpanel" aria-labelledby="2020-tab">
-                  <h3>2020</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
-                </div>
-                <div class="tab-pane fade" id="nineteen" role="tabpanel" aria-labelledby="2019-tab">
-                  <h3>2019</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
-                </div>
-                <div class="tab-pane fade" id="eighteen" role="tabpanel" aria-labelledby="2018-tab">
-                  <h3>2018</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
-                </div>
-                <div class="tab-pane fade" id="seventeen" role="tabpanel" aria-labelledby="2017-tab">
-                  <h3>2017</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
-                </div>
-                <div class="tab-pane fade" id="sixteen" role="tabpanel" aria-labelledby="2016-tab">
-                  <h3>2016</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
-                </div>
-                <div class="tab-pane fade" id="fifteen" role="tabpanel" aria-labelledby="2015-tab">
-                  <h3>2015</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
-                </div>
-                <div class="tab-pane fade" id="lessfifteen" role="tabpanel" aria-labelledby="2014-tab">
-                  <h3>2014 and before</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <p>
-                    Instant account opening with a Customer On-boarding App
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Minus facere quae similique.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-lg-5 offset-xl-1 pr-lg-35 pl-lg-35">
-              <div class="accolades-widget wow fadeInUp" data-wow-delay="0.5s">
-                <div class="accolades-header d-flex justify-content-between align-items-end">
-                  <h2>Awards</h2>
-                  <img src="img/recognition/icon.svg" alt="icon" />
-                </div>
-                <div class="accolades-content">
-                  <ul>
-                    <li class="">
-                      <p class="subtitle">CITI BANK</p>
-                      <p class="text">
-                        Straight-Through processing (STP) Excellence Award
-                      </p>
+              <div class="col-lg-3 col-5">
+                <div
+                  class="widget-navigation wow fadeInUp pe-lg-4"
+                  data-wow-delay="0.1s"
+                >
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link active"
+                        id="2020-tab"
+                        data-bs-toggle="tab"
+                        href="#twenty"
+                        role="tab"
+                        aria-controls="twenty"
+                        aria-selected="true"
+                        >2020</a
+                      >
                     </li>
-                    <li class="mt-3">
-                      <p class="subtitle">MARCOM AWARDS</p>
-                      <p class="text">
-                        Platinum Winner for ‘The Believers’ Campaign
-                      </p>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link"
+                        id="2019-tab"
+                        data-bs-toggle="tab"
+                        href="#nineteen"
+                        role="tab"
+                        aria-controls="nineteen"
+                        aria-selected="false"
+                        >2019</a
+                      >
                     </li>
-                    <li class="mt-3">
-                      <p class="subtitle">BURJ CEO AWARDS</p>
-                      <p class="text">Most Innovative Bank in Mauritius</p>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link"
+                        id="2018-tab"
+                        data-bs-toggle="tab"
+                        href="#eighteen"
+                        role="tab"
+                        aria-controls="eighteen"
+                        aria-selected="false"
+                        >2018</a
+                      >
                     </li>
-                    <li class="mt-3">
-                      <p class="subtitle">GLOBAL BRANDS MAGAZINE</p>
-                      <p class="text">Most Innovative Treasury Services</p>
-                      <p class="text">Best Banking Brand in Mauritius</p>
-                      <p class="text">Best Credit Card Rewards Program</p>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link"
+                        id="2017-tab"
+                        data-bs-toggle="tab"
+                        href="#seventeen"
+                        role="tab"
+                        aria-controls="seventeen"
+                        aria-selected="false"
+                        >2017</a
+                      >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link"
+                        id="2016-tab"
+                        data-bs-toggle="tab"
+                        href="#sixteen"
+                        role="tab"
+                        aria-controls="sixteen"
+                        aria-selected="false"
+                        >2016</a
+                      >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link"
+                        id="2015-tab"
+                        data-bs-toggle="tab"
+                        href="#fifteen"
+                        role="tab"
+                        aria-controls="fifteen"
+                        aria-selected="false"
+                        >2015</a
+                      >
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a
+                        class="nav-link"
+                        id="2014-tab"
+                        data-bs-toggle="tab"
+                        href="#lessfifteen"
+                        role="tab"
+                        aria-controls="lessfifteen"
+                        aria-selected="false"
+                        >2014 and before</a
+                      >
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Recgnition end -->
-
-    <!-- Leadership Team start -->
-    <section class="leadership-area pt-135 pb-140 bg_disable">
-      <div class="container">
-        <div class="row align-items-end">
-          <div class="col-sm-8">
-            <div class="section-title text-start wow fadeInRight">
-              <span class="short-title mt-0">Leadership</span>
-              <h2 class="mb-0">Meet our leadership team</h2>
-            </div>
-          </div>
-          <div class="col-sm-4 text-end">
-            <a href="#" class="theme-btn theme-btn-outlined wow fadeInLeft">
-              see more <i class="arrow_carrot-right"></i></a>
-          </div>
-        </div>
-
-        <div class="row pt-65 gy-md-0 gy-4">
-          <div class="col-lg-4">
-            <div class="single-leadership-widget wow fadeInUp" data-wow-delay="0.1s">
-              <a href="#">
-                <img src="img/leadership/img-7.png" alt="leader-1" />
-                <div class="leader-info">
-                  <h5>Eldridge Robles</h5>
-                  <p>Co-Founder, Conis</p>
+              <div class="col-lg-4 col-7">
+                <div
+                  class="tab-content wow fadeInUp"
+                  data-wow-delay="0.3s"
+                  id="myTabContent"
+                >
+                  <div
+                    class="tab-pane fade show active"
+                    id="twenty"
+                    role="tabpanel"
+                    aria-labelledby="2020-tab"
+                  >
+                    <h3>2020</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="nineteen"
+                    role="tabpanel"
+                    aria-labelledby="2019-tab"
+                  >
+                    <h3>2019</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="eighteen"
+                    role="tabpanel"
+                    aria-labelledby="2018-tab"
+                  >
+                    <h3>2018</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="seventeen"
+                    role="tabpanel"
+                    aria-labelledby="2017-tab"
+                  >
+                    <h3>2017</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="sixteen"
+                    role="tabpanel"
+                    aria-labelledby="2016-tab"
+                  >
+                    <h3>2016</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="fifteen"
+                    role="tabpanel"
+                    aria-labelledby="2015-tab"
+                  >
+                    <h3>2015</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <!-- <p>Instant account opening with a Customer On-boarding App</p> -->
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="lessfifteen"
+                    role="tabpanel"
+                    aria-labelledby="2014-tab"
+                  >
+                    <h3>2014 and before</h3>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <p>
+                      Instant account opening with a Customer On-boarding App
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Minus facere quae similique.
+                    </p>
+                  </div>
                 </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="single-leadership-widget wow fadeInUp" data-wow-delay="0.3s">
-              <a href="#">
-                <img src="img/leadership/img-2.png" alt="leader-2" />
-                <div class="leader-info">
-                  <h5>Eldridge Robles</h5>
-                  <p>Co-Founder, Conis</p>
+              </div>
+              <div class="col-xl-4 col-lg-5 offset-xl-1 pr-lg-35 pl-lg-35">
+                <div
+                  class="accolades-widget wow fadeInUp"
+                  data-wow-delay="0.5s"
+                >
+                  <div
+                    class="accolades-header d-flex justify-content-between align-items-end"
+                  >
+                    <h2>Awards</h2>
+                    <img src="img/recognition/icon.svg" alt="icon" />
+                  </div>
+                  <div class="accolades-content">
+                    <ul>
+                      <li class="">
+                        <p class="subtitle">CITI BANK</p>
+                        <p class="text">
+                          Straight-Through processing (STP) Excellence Award
+                        </p>
+                      </li>
+                      <li class="mt-3">
+                        <p class="subtitle">MARCOM AWARDS</p>
+                        <p class="text">
+                          Platinum Winner for ‘The Believers’ Campaign
+                        </p>
+                      </li>
+                      <li class="mt-3">
+                        <p class="subtitle">BURJ CEO AWARDS</p>
+                        <p class="text">Most Innovative Bank in Mauritius</p>
+                      </li>
+                      <li class="mt-3">
+                        <p class="subtitle">GLOBAL BRANDS MAGAZINE</p>
+                        <p class="text">Most Innovative Treasury Services</p>
+                        <p class="text">Best Banking Brand in Mauritius</p>
+                        <p class="text">Best Credit Card Rewards Program</p>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="single-leadership-widget wow fadeInUp" data-wow-delay="0.5s">
-              <a href="#">
-                <img src="img/leadership/img-3.png" alt="leader-3" />
-                <div class="leader-info">
-                  <h5>Eldridge Robles</h5>
-                  <p>Co-Founder, Conis</p>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Leadership Team end -->
+      </section>
+      <!-- Recgnition end -->
 
-    <!-- Call To Action start -->
-    <section class="cta-area-2 pt-80 pb-80">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="cta-content text-black wow fadeInRight">
-              <h2>Read our latest articles</h2>
-              <p>Let's have a deep insight over helpful financial articles</p>
+      <!-- Leadership Team start -->
+      <section class="leadership-area pt-135 pb-140 bg_disable">
+        <div class="container">
+          <div class="row align-items-end">
+            <div class="col-sm-8">
+              <div class="section-title text-start wow fadeInRight">
+                <span class="short-title mt-0">Leadership</span>
+                <h2 class="mb-0">Meet our leadership team</h2>
+              </div>
+            </div>
+            <div class="col-sm-4 text-end">
+              <a href="#" class="theme-btn theme-btn-outlined wow fadeInLeft">
+                see more <i class="arrow_carrot-right"></i
+              ></a>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="cta-content mt-3 mt-sm-0 text-sm-end text-center">
-              <a href="/blog" class="theme-btn wow fadeInLeft">Read More</a>
+
+          <div class="row pt-65 gy-md-0 gy-4">
+            <div class="col-lg-4">
+              <div
+                class="single-leadership-widget wow fadeInUp"
+                data-wow-delay="0.1s"
+              >
+                <a href="#">
+                  <img src="img/leadership/img-7.png" alt="leader-1" />
+                  <div class="leader-info">
+                    <h5>Eldridge Robles</h5>
+                    <p>Co-Founder, Conis</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div
+                class="single-leadership-widget wow fadeInUp"
+                data-wow-delay="0.3s"
+              >
+                <a href="#">
+                  <img src="img/leadership/img-2.png" alt="leader-2" />
+                  <div class="leader-info">
+                    <h5>Eldridge Robles</h5>
+                    <p>Co-Founder, Conis</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div
+                class="single-leadership-widget wow fadeInUp"
+                data-wow-delay="0.5s"
+              >
+                <a href="#">
+                  <img src="img/leadership/img-3.png" alt="leader-3" />
+                  <div class="leader-info">
+                    <h5>Eldridge Robles</h5>
+                    <p>Co-Founder, Conis</p>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Call To Action end -->
-  </main>
+      </section>
+      <!-- Leadership Team end -->
 
-  <!-- footer -->
-
-  <footer class="footer footer-3">
-    <div class="footer-top pt-lg-130 pb-lg-115 pt-105 pb-105">
-      <div class="container">
-        <div class="row gx-0">
-          <div class="col-lg-4 col-sm-6 text-center text-sm-start ms-0">
-            <div class="footer-widget mb-30 wow fadeInLeft">
-              <div class="footer-text mb-20">
-                <p>
-                  Vinayak Finmart is a leading bank in the worldzone and a
-                  prominent international banking institution
-                </p>
+      <!-- Call To Action start -->
+      <section class="cta-area-2 pt-80 pb-80">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="cta-content text-black wow fadeInRight">
+                <h2>Read our latest articles</h2>
+                <p>Let's have a deep insight over helpful financial articles</p>
               </div>
-
-              <span class="overline">Disbursed</span>
-
-              <div class="footer-bold">
-                <span class="counter">&#8377;<span>3000</span> </span>
-                <span class="counter">Cr</span>
-              </div>
-              <p class="time">2021-01-05 14:00 (INTERNATIONAL TIME)</p>
             </div>
-          </div>
-
-          <div class="col-lg-2 col-sm-6 text-center text-sm-start ms-lg-5">
-            <div class="footer-widget mb-30 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="f-widget-title">
-                <h5>Vinayak Finmart at a Glance</h5>
-              </div>
-              <div class="footer-link">
-                <ul>
-                  <li><a href="about.html"> About Us </a></li>
-                  <li><a href="contact.html"> Contact Us</a></li>
-                  <li><a href="job-post.html"> Jobs</a></li>
-                  <li><a href="blog.html"> Our Blogs</a></li>
-                </ul>
+            <div class="col-md-6">
+              <div class="cta-content mt-3 mt-sm-0 text-sm-end text-center">
+                <a href="/blog" class="theme-btn wow fadeInLeft">Read More</a>
               </div>
             </div>
           </div>
-          <!-- <div class="col-lg-2  col-sm-6 text-center text-sm-start ms-lg-5">
+        </div>
+      </section>
+      <!-- Call To Action end -->
+    </main>
+
+    <!-- footer -->
+
+    <footer class="footer footer-3">
+      <div class="footer-top pt-lg-130 pb-lg-115 pt-105 pb-105">
+        <div class="container">
+          <div class="row gx-0">
+            <div class="col-lg-4 col-sm-6 text-center text-sm-start ms-0">
+              <div class="footer-widget mb-30 wow fadeInLeft">
+                <div class="footer-text mb-20">
+                  <p>
+                    Vinayak Finmart is a leading bank in the worldzone and a
+                    prominent international banking institution
+                  </p>
+                </div>
+
+                <span class="overline">Disbursed</span>
+
+                <div class="footer-bold">
+                  <span class="counter">&#8377;<span>3000</span> </span>
+                  <span class="counter">Cr</span>
+                </div>
+                <p class="time">2021-01-05 14:00 (INTERNATIONAL TIME)</p>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-sm-6 text-center text-sm-start ms-lg-5">
+              <div
+                class="footer-widget mb-30 wow fadeInUp"
+                data-wow-delay="0.1s"
+              >
+                <div class="f-widget-title">
+                  <h5>Vinayak Finmart at a Glance</h5>
+                </div>
+                <div class="footer-link">
+                  <ul>
+                    <li><a href="about.html"> About Us </a></li>
+                    <li><a href="contact.html"> Contact Us</a></li>
+                    <li><a href="job-post.html"> Jobs</a></li>
+                    <li><a href="blog.html"> Our Blogs</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-lg-2  col-sm-6 text-center text-sm-start ms-lg-5">
                         <div class="footer-widget mb-30 wow fadeInUp" data-wow-delay="0.3s">
                             <div class="f-widget-title">
                                 <h5>Publications</h5>
@@ -717,55 +903,59 @@
                             </div>
                         </div>
                     </div> -->
-        </div>
-      </div>
-    </div>
-    <!-- copyright area -->
-    <div class="copyright pt-25 pb-25">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-3 text-center text-lg-start">
-            <a href="index.html" class="p-0 m-0"><img src="img/Vinayak/17.png" height="100px" alt="logo" /></a>
-          </div>
-          <div class="col-lg-5 text-center my-3 my-sm-0">
-            <div class="copyright-text">
-              <p>
-                Copyright &copy; 2023 Vinayak Finmart Pvt Ltd
-                <br class="d-sm-none" />
-                <a class="ms-2" href="#">Privacy</a> |
-                <a class="ms-0" href="#">Terms of Use</a>
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 text-center text-lg-end">
-            <div class="social-button">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-pinterest-p"></i></a>
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <!-- footer end -->
+      <!-- copyright area -->
+      <div class="copyright pt-25 pb-25">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3 text-center text-lg-start">
+              <a href="index.html" class="p-0 m-0"
+                ><img src="img/Vinayak/17.png" height="100px" alt="logo"
+              /></a>
+            </div>
+            <div class="col-lg-5 text-center my-3 my-sm-0">
+              <div class="copyright-text">
+                <p>
+                  Copyright &copy; 2023 Vinayak Finmart Pvt Ltd
+                  <br class="d-sm-none" />
+                  <a class="ms-2" href="#">Privacy</a> |
+                  <a class="ms-0" href="#">Terms of Use</a>
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+              <div class="social-button">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer end -->
 
-  <!-- Back to top button -->
-  <a id="back-to-top" title="Back to Top"></a>
+    <!-- Back to top button -->
+    <a id="back-to-top" title="Back to Top"></a>
 
-  <!-- JS here -->
-  <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
-  <script type="text/javascript" src="/js/preloader.js"></script>
-  <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.smoothscroll.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.counterup.min.js"></script>
-  <script type="text/javascript" src="/js/jquery.nice-select.min.js"></script>
-  <script type="text/javascript" src="/js/slick.min.js"></script>
-  <script type="text/javascript" src="/js/wow.min.js"></script>
-  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-  <script type="text/javascript" src="/js/custom.js"></script>
-</body>
-
+    <!-- JS here -->
+    <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/js/preloader.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="text/javascript"
+      src="/js/jquery.smoothscroll.min.js"
+    ></script>
+    <script type="text/javascript" src="/js/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.counterup.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="/js/slick.min.js"></script>
+    <script type="text/javascript" src="/js/wow.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+  </body>
 </html>

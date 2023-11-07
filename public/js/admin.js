@@ -1,48 +1,11 @@
 //**************************************  sidebar toggler js start *************************************
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Get all content sections
-//   var contentSections = document.querySelectorAll(".content-section");
 
-//   // Hide all content sections except the active one
-//   contentSections.forEach(function (section) {
-//     if (!section.classList.contains("active")) {
-//       section.style.display = "none";
-//     }
-//   });
-
-//   // Get the id parameter from the URL
-//   var urlParams = new URLSearchParams(window.location.search);
-//   var idParam = urlParams.get("id");
-
-//   // Show the userDetail div if id is '2'
-//   if (idParam === "2") {
-//     var userDetailDiv = document.getElementById("userDetail");
-//     userDetailDiv.style.display = "block";
-//   }
-
-//   // Handle sidebar link clicks
-//   var sidebarLinks = document.querySelectorAll("#sidebar a");
-//   sidebarLinks.forEach(function (link) {
-//     link.addEventListener("click", function (event) {
-//       event.preventDefault();
-
-//       // Hide all content sections
-//       contentSections.forEach(function (section) {
-//         section.style.display = "none";
-//       });
-
-//       // Show the clicked content section
-//       var targetId = link.getAttribute("href").substring(1);
-//       var targetSection = document.getElementById(targetId);
-//       targetSection.style.display = "block";
-//     });
-//   });
-// });
-
-// new Code
 
 document.addEventListener("DOMContentLoaded", function () {
   // Get the id parameter from the URL
+    var dashboard = document.querySelectorAll("#dashboard");
+
+
   var urlParams = new URLSearchParams(window.location.search);
   var idParam = urlParams.get("id");
 
@@ -85,6 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+// dashboard;
 
 //**************************************  sidebar togggler js end ***************************************
 
@@ -226,9 +192,8 @@ $(function () {
   });
 });
 
-//****************************** dashboard  Toggler js end ******************************
+//****************************** job Toggler js start ******************************
 
-//************************************** */ Job Toogler js start *****************************************
 document.addEventListener("DOMContentLoaded", function () {
   const jobFormContainer = document.getElementById("job_form");
   const jobViewContainer = document.getElementById("job_view");
@@ -322,6 +287,46 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //************************************** */ Blog js End *****************************************
+
+//************************************** */ Loan setting start *******************************************
+document.addEventListener("DOMContentLoaded", function () {
+  const setting_FormContainer = document.getElementById("setting_form");
+  const setting_formViewContainer = document.getElementById("setting_view");
+
+  // Initially, show job_view and hide job_form and job_Applicant
+  setting_FormContainer.style.display = "none";
+  setting_formViewContainer.style.display = "block";
+
+
+  // Update the buttons' event listeners
+  const setting_formFormButton = document.querySelector('[for="setting_form"]');
+  const setting_formViewButton = document.querySelector('[for="setting_view"]');
+
+  setting_formFormButton.addEventListener("click", function () {
+    setting_FormContainer.style.display = "block";
+    setting_formViewContainer.style.display = "none";
+  });
+
+
+  setting_formViewButton.addEventListener("click", function () {
+    setting_formViewContainer.style.display = "block";
+    setting_FormContainer.style.display = "none";
+  });
+});
+
+
+
+//************************************** */ Loan setting End *******************************************
+
+
+
+
+
+
+
+
+
+
 
 //************************************** */ User js start ***************************************
 document.addEventListener("DOMContentLoaded", function () {
@@ -467,12 +472,14 @@ function userDoc() {
 userDoc();
 
 //********************* Notification  Toggler js start ******************************
+var selectedUserIDs = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   const jobFormButton = document.querySelector('[for="notification_form"]');
   const jobViewButton = document.querySelector('[for="notification_view"]');
   const jobFormContainer = document.getElementById("notification_form");
   const jobViewContainer = document.getElementById("notification_view");
+  jobFormContainer.style.display = "none";
 
   // Show job_form and hide job_view when jobFormButton is clicked
   jobFormButton.addEventListener("click", function () {
@@ -487,79 +494,177 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+var notificationCustomer = [
+  {
+    ID: 1,
+    fullName: "Test2",
+    contact: "(800) 555-1212",
+    email: "test@gmail.com",
+  },
+  {
+    ID: 2,
+    fullName: "Test1",
+    contact: "(800) 555-1212",
+    email: "test@gmail.com",
+  },
+  {
+    ID: 3,
+    fullName: "Test3",
+    contact: "(800) 555-1243",
+    email: "JhonDoe@gmail.com",
+  },
+  {
+    ID: 4,
+    fullName: "Test4",
+    contact: "(800) 555-8787",
+    email: "dummy@gmail.com",
+  },
+  {
+    ID: 5,
+    fullName: "Test6",
+    contact: "(800) 555-9323",
+    amount: "₹ 120000",
+    email: "test2@gmail.com",
+  },
+];
+
+$(function () {
+  var grid = $("#notificationContainer")
+    .dxDataGrid({
+      dataSource: notificationCustomer,
+      filterRow: {
+        visible: true,
+      },
+      selection: {
+        mode: "multiple",
+        showCheckBoxesMode: "always",
+      },
+      columns: ["fullName", "contact", "email"],
+      showBorders: true,
+      sorting: {
+        mode: "multiple",
+      },
+    })
+    .dxDataGrid("instance");
+  grid.option("onSelectionChanged", function (selectedItems) {
+    selectedUserIDs = selectedItems.selectedRowsData.map(function (item) {
+      return item.ID;
+    });
+  });
+
+  $("#sendButton").on("click", function () {
+    if (selectedUserIDs.length > 0) {
+      // Send the selected user IDs to the server or perform any other action
+      
+      // Reset the selectedUserIDs array if needed
+      selectedUserIDs = [];
+
+      const jobFormButton = document.querySelector('[for="notification_form"]');
+      const jobViewButton = document.querySelector('[for="notification_view"]');
+      const jobFormContainer = document.getElementById("notification_form");
+      const jobViewContainer = document.getElementById("notification_view");
+
+      // Redirect to the desired URL if needed
+      jobViewContainer.style.display = "block";
+      jobFormContainer.style.display = "none";
+      console.log("Selected User IDs: " + selectedUserIDs.join(","));
+    } else {
+      // Show an alert or handle the case where no checkboxes are selected
+      alert("Please select at least one user.");
+    }
+  });
+
+  $("#notificationsortAZBtn").on("click", function () {
+    grid.option(
+      "dataSource",
+      notificationCustomer
+        .slice()
+        .sort((a, b) => a.fullName.localeCompare(b.fullName))
+    );
+  });
+
+  $("#notificationsortStatusBtn").on("click", function () {
+    grid.option(
+      "dataSource",
+      notificationCustomer
+        .slice()
+        .sort((a, b) => a.status.localeCompare(b.status))
+    );
+  });
+});
+
 // notification table
 
-function NotificatoinTable() {
-  var customers = [
-    {
-      name: "Jhon Doe",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, omnis?",
-    },
-    {
-      name: "Kunal",
-      message:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id reprehenderit laudantium suscipit?",
-    },
-    {
-      name: "Harry",
-      message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-    },
-  ];
+// function NotificatoinTable() {
+//   var customers = [
+//     {
+//       name: "Jhon Doe",
+//       message:
+//         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, omnis?",
+//     },
+//     {
+//       name: "Kunal",
+//       message:
+//         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id reprehenderit laudantium suscipit?",
+//     },
+//     {
+//       name: "Harry",
+//       message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+//     },
+//   ];
 
-  var tableContainer = document.getElementById("tableContainer");
+//   var tableContainer = document.getElementById("tableContainer");
 
-  var table = document.createElement("table");
-  table.className = "table table-bordered";
+//   var table = document.createElement("table");
+//   table.className = "table table-bordered";
 
-  var thead = document.createElement("thead");
-  var headerRow = document.createElement("tr");
-  var headers = ["Customer", "Notification Message"];
+//   var thead = document.createElement("thead");
+//   var headerRow = document.createElement("tr");
+//   var headers = ["Customer", "Notification Message"];
 
-  headers.forEach(function (headerText) {
-    var th = document.createElement("th");
-    th.appendChild(document.createTextNode(headerText));
-    headerRow.appendChild(th);
-  });
+//   headers.forEach(function (headerText) {
+//     var th = document.createElement("th");
+//     th.appendChild(document.createTextNode(headerText));
+//     headerRow.appendChild(th);
+//   });
 
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
+//   thead.appendChild(headerRow);
+//   table.appendChild(thead);
 
-  var tbody = document.createElement("tbody");
-  customers.forEach(function (customer) {
-    var row = document.createElement("tr");
+//   var tbody = document.createElement("tbody");
+//   customers.forEach(function (customer) {
+//     var row = document.createElement("tr");
 
-    var nameCell = document.createElement("td");
-    var checkboxDiv = document.createElement("div");
-    checkboxDiv.className = "custom-control custom-checkbox";
+//     var nameCell = document.createElement("td");
+//     var checkboxDiv = document.createElement("div");
+//     checkboxDiv.className = "custom-control custom-checkbox";
 
-    var checkboxInput = document.createElement("input");
-    checkboxInput.type = "checkbox";
-    checkboxInput.className = "custom-control-input";
-    checkboxInput.id = "customCheck" + (customers.indexOf(customer) + 1);
-    checkboxDiv.appendChild(checkboxInput);
+//     var checkboxInput = document.createElement("input");
+//     checkboxInput.type = "checkbox";
+//     checkboxInput.className = "custom-control-input";
+//     checkboxInput.id = "customCheck" + (customers.indexOf(customer) + 1);
+//     checkboxDiv.appendChild(checkboxInput);
 
-    var checkboxLabel = document.createElement("label");
-    checkboxLabel.className = "custom-control-label";
-    checkboxLabel.setAttribute("for", checkboxInput.id);
-    checkboxLabel.appendChild(document.createTextNode(customer.name));
-    checkboxDiv.appendChild(checkboxLabel);
+//     var checkboxLabel = document.createElement("label");
+//     checkboxLabel.className = "custom-control-label";
+//     checkboxLabel.setAttribute("for", checkboxInput.id);
+//     checkboxLabel.appendChild(document.createTextNode(customer.name));
+//     checkboxDiv.appendChild(checkboxLabel);
 
-    nameCell.appendChild(checkboxDiv);
-    row.appendChild(nameCell);
+//     nameCell.appendChild(checkboxDiv);
+//     row.appendChild(nameCell);
 
-    var messageCell = document.createElement("td");
-    messageCell.appendChild(document.createTextNode(customer.message));
-    row.appendChild(messageCell);
+//     var messageCell = document.createElement("td");
+//     messageCell.appendChild(document.createTextNode(customer.message));
+//     row.appendChild(messageCell);
 
-    tbody.appendChild(row);
-  });
+//     tbody.appendChild(row);
+//   });
 
-  table.appendChild(tbody);
-  tableContainer.appendChild(table);
-}
-
-NotificatoinTable();
+//   table.appendChild(tbody);
+//   tableContainer.appendChild(table);
+// }
+// NotificatoinTable();
 
 //********************** */  Image downlaoder start ****************************
 

@@ -23,38 +23,120 @@
 
 <body class="register">
   <div class="container">
-    <div class="form-container" id="login-form">
       <div class="logo">
-        <a class="navbar-brand sticky_logo" href="/">
-          <img class="sticky" src="img/Vinayak/7.png" height="130px" srcset="img/Vinayak/7.png 2x" alt="logo" />
-        </a>
+          <div
+            class="bg"
+            style="background: #ffa800; border-radius: 9999px"
+          ></div>
+          <div class="content">
+          <div class="d-flex flex-column justify-content-center align-items-center gap-3"> 
+              <h2><a href="/" class="text-light">Finmart</a></h2>
+              <a href="/login" style="width: 150px; height: 50px; border-radius: 100px; border: 3px white solid" class="d-flex justify-content-center align-items-center">
+              <div style="color: white; font-size: 18px; font-family: Helvetica; font-weight: 400; word-wrap: break-word">Log-In</div>
+            </a>
+          </div>
+          <div class="img">
+            <img src="/img/login/login_person.png" alt="person_image" />
+          </div>
+        </div>
       </div>
-      <form method="post" action="/register">
-        <div class="name">
-          <input type="text" id="firstname" placeholder=" First Name" name="firstname" required />
-          <input type="text" id="lastname" placeholder=" Last Name" name="lastname" required />
+      <div class="login-form d-flex justify-content-center">
+        <form
+          action="/register"
+          class="text-center d-flex flex-column gap-3 h-min justify-content-center"
+        >
+          <div
+            style="
+              color: black;
+              font-size: 36px;
+              font-family: Helvetica;
+              font-weight: 400;
+              word-wrap: break-word;
+            "
+          >
+            Register
+          </div>
+          <!-- Enter Full Name  -->
+          <input
+            placeholder="Enter Your Full Name"
+            type="text"
+            required
+            class="text-center border-0"
+            name="name"
+            style="
+              width: 360px;
+              height: 50px;
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: 100px;
+            "
+          />
+          <!-- Email Address -->
+          <div class="d-flex gap-2">
+            <!-- Email -->
+            <input type="email" required placeholder="Enter Email" class="border-0 text-center" style="width: 175px; height: 50px; background: rgba(0, 0, 0, 0.20); border-radius: 100px"></>
+            <!-- Number  -->
+            <input type="number" required placeholder="Contact Number" maxlength="10" minlength="10" class="border-0 text-center" style="width: 175px; height: 50px; background: rgba(0, 0, 0, 0.20); border-radius: 100px"></>
+          </div>
+          <!-- Password -->
+          <input
+            placeholder="Password"
+            required
+            type="password"
+            class="text-center border-0"
+            name="password"
+            style="
+              width: 360px;
+              height: 50px;
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: 100px;
+            "
+          />
+          <!--Confirm password -->
+          <input
+            placeholder="Confirm Password"
+            class="text-center border-0"
+            name="text"
+            style="
+              width: 360px;
+              height: 50px;
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: 100px;
+            "
+          />
+          <!-- submit button  -->
+          <button
+            type="button"
+            class="mx-auto"
+            style="
+              width: 150px;
+              height: 50px;
+              background: #ffa800;
+              border-radius: 100px;
+            "
+          >
+            <div
+              style="
+                color: black;
+                font-size: 18px;
+                font-family: Helvetica;
+                font-weight: 700;
+                word-wrap: break-word;
+              "
+            >
+              Register
+            </div>
+          </button>
+        </form>
+        <div class="my-2 d-flex gap-3">
+          <div>Sign-Up with Google</div>
+          <div style="cursor: pointer;">>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+            </svg>
+          </div>
         </div>
-        <div class="email">
-          <input type="text" id="email" placeholder="Email" name="email" required />
-        </div>
-        <div class="number">
-          <input type="text" id="number" placeholder="Phone Number" name="number" required />
-        </div>
-        <div class="password">
-          <input type="password" id="password" placeholder="Password" name="password" required />
-        </div>
-        <div class="password">
-          <input type="password" id="confirm-password" placeholder="Confirm Password" name="confirm-password"
-            required />
-        </div>
-
-        <button type="submit">Register</button>
-      </form>
-      <p>
-        Don't have an account?
-        <a href="/login" id="signup-link">Login</a>
-      </p>
-    </div>
+        
+      </div>
   </div>
   <!-- JS here -->
   <script src="/js/jquery-3.6.0.min.js"></script>

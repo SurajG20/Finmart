@@ -12235,8 +12235,82 @@ body {
 }
 
 /* login form  csss */
+/* new login  page code  */
+.login{
+  padding: 0px;
+  margin: 0px;
+  height: 100vh !important;
+  overflow: hidden;
+}
+.login .container{
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  ;
+}
 
-.login {
+.login .logo{
+  position: relative;
+}
+
+.login .logo .bg{
+    
+    width: 200%;
+    height: 200%;
+    flex-shrink: 0;
+    margin-left: -500px;
+    margin-top: -550px;
+}
+
+@media (max-width:596px) {
+  .login .logo .bg {
+      display: none;
+    }
+}
+
+.login .logo{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px;
+
+
+}
+
+.login .logo .content{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+}
+
+/* .login .logo img{
+  position: absolute;
+  bottom:0px;
+  left:0px
+} */
+
+.login .login-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px;
+
+}
+
+
+/* old code  */
+
+/* .login {
   font-family: 'Open Sans', sans-serif;
   background-color: #222;
   color: white;
@@ -12343,10 +12417,86 @@ body {
 .login p {
   text-align: center;
   margin: 8px;
-}
+} */
 
 /* Register page css  */
+/* new code  */
 
+.register {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh !important;
+  overflow: hidden;
+}
+
+.register .container {
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  ;
+}
+
+.register .logo {
+  position: relative;
+}
+
+.register .logo .bg {
+
+  width: 200%;
+  height: 200%;
+  flex-shrink: 0;
+  margin-left: -500px;
+  margin-top: -550px;
+}
+
+@media (max-width:596px) {
+  .register .logo .bg {
+    display: none;
+  }
+}
+
+.register .logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px;
+
+
+}
+
+.register .logo .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+}
+
+/* .login .logo img{
+  position: absolute;
+  bottom:0px;
+  left:0px
+} */
+
+.register .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px;
+
+}
+
+
+/* old code  */
+/* 
 .register {
   font-family: 'Open Sans', sans-serif;
   background-color: #222;
@@ -12490,7 +12640,7 @@ body {
 .register p {
   text-align: center;
   margin: 8px;
-}
+} */
 
 /* feedback from css  */
 
