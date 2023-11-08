@@ -34,7 +34,7 @@ router.route('/login').get(login);
 
 router.route('/login').post(Login);
 router.route('/logout').get(Logout);
-router.route('/user').get(user);
+router.route('/user').get(isLoggedIn,user);
 
 router.route('/register').post(Register);
 router.route('/register').get(register);
