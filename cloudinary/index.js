@@ -12,6 +12,8 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'Finmart',
     allowedFormats: ['jpeg', 'png', 'jpg', 'pdf'],
+    use_filename: true,
+    unique_filename: false,
   },
 });
 module.exports = {

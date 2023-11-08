@@ -19,10 +19,11 @@ module.exports.about = (req, res) => {
   const user = req.session.user;
   res.render('about', { user });
 };
-module.exports.user =async (req, res) => {
+module.exports.user = async (req, res) => {
   const user = req.session.user;
   const userData = await CombinedDetails.findOne({ userId: user._id });
-  res.render('user', { user,userData });
+  console.log(user);
+  res.render('user', { user, userData });
 };
 
 module.exports.login = (req, res) => {
