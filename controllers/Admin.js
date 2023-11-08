@@ -14,7 +14,16 @@ module.exports.admin = async (req, res) => {
   const user = req.session.user;
   const newsletter = await Newsletter.find();
   const allFeedback = await Feedback.find();
-  res.render('admin', { user, allFeedback, newsletter, blogs, jobs, loans });
+  const allUsers = await CombinedDetails.find();
+  res.render('admin', {
+    user,
+    allFeedback,
+    newsletter,
+    blogs,
+    jobs,
+    loans,
+    allUsers,
+  });
 };
 // delete feedback
 module.exports.deleteFeedback = async (req, res) => {
@@ -244,11 +253,9 @@ module.exports.addNewLoan = async (req, res) => {
   }
 };
 
-
-
 module.exports.sendNotification = async (req, res) => {
-  console.log(req.body)
-  const { userIds,title, message } = req.body;
+  console.log(req.body);
+  const { userIds, title, message } = req.body;
   try {
     for (const userId of userIds) {
       const user = await User.findById(userId);
@@ -256,7 +263,7 @@ module.exports.sendNotification = async (req, res) => {
         console.error(`User with ID ${userId} not found`);
         continue;
       }
-      user.notifications.push({title, message });
+      user.notifications.push({ title, message });
       await user.save();
     }
 

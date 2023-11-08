@@ -103,7 +103,7 @@
         min-height: 100vh;
         width: 100%;
         transition: all 0.5s ease;
-    }   
+    }
 }
 
 .sidebar.active~.home-section {
@@ -192,7 +192,7 @@ nav .search-box .bx-search {
     height: 50px;
     min-width: 190px;
     padding: 0 15px 0 2px;
-   
+
 }
 
 
@@ -202,7 +202,7 @@ nav .profile-details .admin_name {
     color: #333;
     margin: 0 10px;
     white-space: nowrap;
-    font-size:large;
+    font-size: large;
     font-weight: bold;
     color: gray;
 }
@@ -213,16 +213,17 @@ nav .profile-details i {
 }
 
 @media (max-width: 786px) {
-    .home-section .profile-details{
+    .home-section .profile-details {
         display: none !important;
     }
-    
+
 }
+
 @media (min-width: 786px) {
-    .home-section .navbar-btn{
+    .home-section .navbar-btn {
         display: none !important;
     }
-    
+
 }
 
 
@@ -230,7 +231,7 @@ nav .profile-details i {
     position: relative;
     padding-top: 104px;
     height: 100%;
-    
+
 }
 
 .home-content .overview-boxes {
@@ -338,7 +339,7 @@ nav .profile-details i {
     margin: 0 20px;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    
+
 }
 
 /* Home page table css start  */
@@ -502,7 +503,7 @@ nav .profile-details i {
 @media (max-width: 796px) {
 
     nav .sidebar-button .dashboard,
-    nav .profile-details{
+    nav .profile-details {
         display: none;
     }
 
@@ -574,6 +575,7 @@ nav .profile-details i {
 .content-section.active {
     display: block;
 }
+
 /* dashboard css  */
 #gridContainer {
     height: 440px;
@@ -677,7 +679,7 @@ nav .profile-details i {
 
 
 
-.userDetial .personaldetail {
+.userDetail .personaldetail {
     display: none;
 }
 

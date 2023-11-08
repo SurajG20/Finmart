@@ -105,17 +105,10 @@
         </li>
         <!-- button  -->
         <li class="log_out d-flex justify-content-between align-items-center text-center">
-          <form class="m-auto " action="/logout" method="get">
+          <form class="m-auto" action="/logout" method="get">
             <button class="btn px-4 btn-danger d-flex justify-content-between align-items-center gap-2">
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
-                </svg>
-              </span>
-            
-              Log-out
+              LOGOUT
             </button>
-           
           </form>
         </li>
       </ul>
@@ -145,55 +138,54 @@
           <div class="sales-details d-block">
             <!-- Home Dashboard -->
             <div class="content-section active container-fluid dashboard" id="dashboard">
-              <div class="dx-viewport demo-container content-section active   my-2 d-flex justify-content-between align-items-center gap-3"
-                    id="dashboard">
-                    <input id="dashboard_search" type="text" class="form-control"  placeholder="Search for name , contact and email......">
-                     
-                  </div>
-                  <!-- <form id="notification_form" action=""> -->
-                  <table class="dashboard_table table">
-                    <thead>
-                      
-                      <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Contact</th>
-                        <th>Loan-Type</th>
-                        <th>Amount</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table">
-                      
-                      <tr>             
-                        <td>Smith</td>
-                        <td>smith@example.com</td>
-                        <td>6732XXXXXX</td>
-                        <td>Car Loan</td>
-                        <td><span>₹</span><span>9000</span></td>
-                        <td><a href="/admin?id=2"><button id="dashboard_sendBtn" class="btn btn-primary">view</button></a></td>
-                      </tr>
-                 
-                      <tr>             
-                        <td>Jhon</td>
-                        <td>jhon@example.com</td>
-                        <td>8871XXXXXX</td>
-                        <td>Home Loan</td>
-                        <td><span>₹</span><span>195000</span></td>
-                        <td><a href="/admin?id=3"><button id="dashboard_sendBtn" class="btn btn-primary">view</button></a></td>
-                      </tr>
-                 
-                      <tr>             
-                        <td>Harry</td>
-                        <td>harry@example.com</td>
-                        <td>1243XXXXXX</td>
-                        <td>Peronal Loan</td>
-                        <td><span>₹</span><span>12000</span></td>
-                        <td><a href="/admin?id=4"><button id="dashboard_sendBtn" class="btn btn-primary">view</button></a></td>
-                      </tr>
-                 
-                    </tbody>
-                  </table>
+              <div
+                class="dx-viewport demo-container content-section active my-2 d-flex justify-content-between align-items-center gap-3"
+                id="dashboard">
+                <input id="dashboard_search" type="text" class="form-control"
+                  placeholder="Search for name , contact and email......" />
+              </div>
+              <!-- <form id="notification_form" action=""> -->
+              <table class="dashboard_table table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Loan-Type</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="table">
+                  <% allUsers.forEach(element=> { %>
+                    <tr>
+                      <td>
+                        <%= `${element?.personalDetails?.firstName} ${element?.personalDetails?.lastName}` %>
+
+                      </td>
+                      <td>
+                        <%= element?.personalDetails?.email %>
+                      </td>
+                      <td>
+                        <%= element?.personalDetails?.mobileNumber %>
+                      </td>
+                      <td>
+                        <%= element?.loanDetails?.['select-loan-type'] %>
+                      </td>
+                      <td><span>₹</span><span>
+                          <%= element?.loanDetails?.loanAmount %>
+                        </span></td>
+                      <td>
+                        <a href="/admin?id=<%= element.userId %>"><button id="dashboard_sendBtn"
+                            class="btn btn-primary">
+                            view
+                          </button></a>
+                      </td>
+                    </tr>
+                    <% }) %>
+
+                </tbody>
+              </table>
             </div>
 
             <!-- Notification -->
@@ -260,17 +252,20 @@
               <!-- Notification  View content -->
               <div class="container" id="notification_view">
                 <div class="container my-2">
-                  <div class="dx-viewport demo-container content-section active   my-2 d-flex justify-content-between align-items-center gap-3"
+                  <div
+                    class="dx-viewport demo-container content-section active my-2 d-flex justify-content-between align-items-center gap-3"
                     id="dashboard">
-                    <input id="notification_search" type="text" class="form-control"  placeholder="Search for name , contact and email......">
-                     
+                    <input id="notification_search" type="text" class="form-control"
+                      placeholder="Search for name , contact and email......" />
                   </div>
                   <!-- <form id="notification_form" action=""> -->
                   <table class="notification_table table">
                     <thead>
-                      
                       <tr>
-                        <th><input id="notification_select_all_btn" type="checkbox"/> All</th>
+                        <th>
+                          <input id="notification_select_all_btn" type="checkbox" />
+                          All
+                        </th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Contact No</th>
@@ -278,17 +273,27 @@
                       </tr>
                     </thead>
                     <tbody id="table">
+                      <% allUsers.forEach(element=> { %>
+                        <tr>
+                          <td><input name="Erik" type="checkbox" /></td>
+                          <td>
+                            <%= `${element?.personalDetails?.firstName} ${element?.personalDetails?.lastName}` %> %>
+                          </td>
+                          <td>
+                            <%= element?.personalDetails?.email %>
+                          </td>
+                          <td>
+                            <%= element?.personalDetails?.mobileNumber %>
+                          </td>
+                          <td>
+                            <button id="notification_sendBtn" class="btn btn-primary">
+                              Send
+                            </button>
+                          </td>
+                        </tr>
 
-                      <%  %>
-                      
-                      <tr>
-                        <td><input name="Erik" type="checkbox"/></td>
-                        <td>Erik</td>
-                        <td>erik@example.com</td>
-                        <td>9685XXXXXX</td>
-                        <td><button id="notification_sendBtn" class="btn btn-primary">Send</button></td>
-                      </tr>
-                 
+                        <% }) %>
+
                     </tbody>
                   </table>
                   <!-- </form> -->
@@ -463,9 +468,7 @@
               <!-- Job  Applicants content -->
 
               <div class="container" id="job_Applicant">
-
                 <table class="table align-middle mb-0 bg-white">
-
                   <thead class="bg-light">
                     <tr>
                       <th>Name</th>
@@ -476,8 +479,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% jobs.forEach(element=> { %>
-                      <% element.applications.forEach(applicant=> { %>
+                    <% jobs.forEach(element=> { %> <% element.applications.forEach(applicant=> { %>
 
                         <div id="myModal" class="modal-message">
                           <div class="modal-content-message">
@@ -841,9 +843,7 @@
                         </td>
                         <td>
                           <form action="/admin/delete-loan/<%= element._id %>/delete?_method=DELETE" method="post">
-                            <button class="btn btn-primary mx-1">
-                              Delete
-                            </button>
+                            <button class="btn btn-primary mx-1">Delete</button>
                           </form>
                         </td>
                       </tr>
@@ -854,7 +854,7 @@
             </div>
 
             <!-- User Details  -->
-            <div class="content-section userDetial" id="userDetail">
+            <div class="content-section userDetail" id="userDetail">
               <div class="d-flex justify-content-end align-items-center gap-5">
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <button type="button" class="btn btn-primary" id="personalDetailBtn">
@@ -1076,21 +1076,17 @@
             </div>
           </div>
         </div>
-
-        <!-- <div class="button">
-              <a href="#">See All</a>
-            </div> -->
       </div>
     </div>
   </section>
   <script>
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".sidebarBtn");
+    let sidebar = document.querySelector('.sidebar');
+    let sidebarBtn = document.querySelector('.sidebarBtn');
     sidebarBtn.onclick = function () {
-      sidebar.classList.toggle("active");
-      if (sidebar.classList.contains("active")) {
-        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-      } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      sidebar.classList.toggle('active');
+      if (sidebar.classList.contains('active')) {
+        sidebarBtn.classList.replace('bx-menu', 'bx-menu-alt-right');
+      } else sidebarBtn.classList.replace('bx-menu-alt-right', 'bx-menu');
     };
   </script>
   <script>
@@ -1114,6 +1110,7 @@
       }
     });
   </script>
+
   <!-- bootstrap link  -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
