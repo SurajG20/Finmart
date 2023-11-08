@@ -1,16 +1,14 @@
 module.exports.isLoggedIn = (req, res, next) => {
-  if (!req.session.user) {
+  if (!req.isAuthenticated()) {
     return res.redirect('/login');
   }
   next();
 };
 
 module.exports.isAdminLoggedIn = (req, res, next) => {
-  if (req.session && req.session.user && req.session.user.isAdmin === true) {
-    // User is an admin, allow the request to continue
+  if (req.isAuthenticated() && req.user.isAdmin === true) {
     next();
   } else {
-    // User is not an admin or the session/user object is not defined, redirect to an error page
-    res.redirect('error');
+    res.redirect('/error');
   }
 };

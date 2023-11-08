@@ -7,6 +7,7 @@ const MongoStore = require('connect-mongo');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const path = require('path');
+const passport = require('passport');
 const userRoute = require('./routes/UserRoutes');
 const adminRoute = require('./routes/AdminRoutes');
 const dbUrl = 'mongodb://127.0.0.1:27017/finmart'; //FOR DEVELOPMENT MODE
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 // const secret = process.env.SECRET;
-const secret = "finmart";
+const secret = 'finmart';
 app.use(
   session({
     secret,
@@ -35,6 +36,10 @@ app.use(
     }),
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
+require('./config/passportConfig')(passport);
 
 app.use('/', userRoute);
 app.use('/admin', adminRoute);

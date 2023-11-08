@@ -11,7 +11,7 @@ module.exports.admin = async (req, res) => {
   const jobs = await Jobs.find();
   const blogs = await Blogs.find();
   const loans = await Loans.find();
-  const user = req.session.user;
+  const user = req.session?.passport.user;
   const newsletter = await Newsletter.find();
   const allFeedback = await Feedback.find();
   const allUsers = await CombinedDetails.find();

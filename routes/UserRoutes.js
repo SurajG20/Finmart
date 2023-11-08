@@ -22,8 +22,9 @@ const {
   renderPersonalDetails,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
-const { Login, Register, Logout } = require('../controllers/User');
-
+// const { Login, Register, Logout } = require('../controllers/oldUser');
+const { Login, Register,Logout } = require('../controllers/User');
+const passport = require('passport');
 const multer = require('multer');
 const { storage } = require('../cloudinary/index');
 const { register } = require('../controllers/Pages');
@@ -33,11 +34,11 @@ router.route('/').get(home);
 router.route('/login').get(login);
 
 router.route('/login').post(Login);
-router.route('/logout').get(Logout);
-router.route('/user').get(isLoggedIn,user);
-
 router.route('/register').post(Register);
+router.route('/logout').get(Logout);
+
 router.route('/register').get(register);
+router.route('/user').get(isLoggedIn, user);
 
 router.route('/loan').get(loan);
 

@@ -1,217 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Vinayak Finmart Pvt. Ltd.</title>
-    <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
 
-    <!-- CSS here -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/bootstrap.min.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/elegant-icons.min.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/all.min.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/animate.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/nice-select.css"
-      media="all"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/slick.css" media="all" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/slick-theme.css"
-      media="all"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/default.css"
-      media="all"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/css/responsive.css"
-      media="all"
-    />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Vinayak Finmart Pvt. Ltd.</title>
+  <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
 
-  <body class="login" style="background-color: white !important">
-    <div class="container">
-      <div class="logo">
-        <div class="bg" style="background: black; border-radius: 9999px"></div>
-        <div class="content">
-          <div
-            class="d-flex flex-column justify-content-center align-items-center gap-3"
-          >
-            <h2><a href="/" class="text-light">Vinayak Finmart</a></h2>
-            <a
-              href="/register"
-              style="
+  <!-- CSS here -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/elegant-icons.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/all.min.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/animate.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/nice-select.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/slick.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/default.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all" />
+</head>
+
+<body class="login" style="background-color: white !important">
+  <div class="container">
+    <div class="logo">
+      <div class="bg" style="background: black; border-radius: 9999px"></div>
+      <div class="content">
+        <div class="d-flex flex-column justify-content-center align-items-center gap-3">
+          <h2><a href="/" class="text-light">Vinayak Finmart</a></h2>
+          <a href="/register" style="
                 width: 150px;
                 height: 50px;
                 border-radius: 100px;
                 border: 3px white solid;
-              "
-              class="d-flex justify-content-center align-items-center"
-            >
-              <div
-                style="
+              " class="d-flex justify-content-center align-items-center">
+            <div style="
                   color: white;
                   font-size: 18px;
                   font-family: Helvetica;
                   font-weight: 400;
                   word-wrap: break-word;
-                "
-              >
-                Sign-up
-              </div>
-            </a>
-          </div>
-          <div class="img">
-            <img src="/img/login/login_person.png" alt="person_image" />
-          </div>
+                ">
+              Sign-up
+            </div>
+          </a>
+        </div>
+        <div class="img">
+          <img src="/img/login/login_person.png" alt="person_image" />
         </div>
       </div>
-      <div class="login-form d-flex justify-content-center">
-        <form
-          action="/login"
-          method="post"
-          class="text-center d-flex flex-column gap-3 h-min justify-content-center"
-        >
-          <div
-            style="
+    </div>
+    <div class="login-form d-flex justify-content-center">
+      <form action="/login" method="post" class="text-center d-flex flex-column gap-3 h-min justify-content-center">
+        <div style="
               color: black;
               font-size: 36px;
               font-family: Helvetica;
               font-weight: 400;
               word-wrap: break-word;
-            "
-          >
-            Log-in
-          </div>
-          <input
-            placeholder="Enter Your E-mail"
-            class="text-center border-0"
-            name="email"
-            type="email"
-            required
-            style="
+            ">
+          Log-in
+        </div>
+        <input placeholder="Email/Phone Number" class="text-center border-0" name="username" type="text" required style="
               width: 360px;
               height: 50px;
               background: rgba(0, 0, 0, 0.2);
               border-radius: 100px;
-            "
-          />
+            " />
 
-          <input
-            placeholder="Enter Password"
-            class="text-center border-0"
-            required
-            name="password"
-            type="password"
-            style="
+        <input placeholder="Enter Password" class="text-center border-0" required name="password" type="password" style="
               width: 360px;
               height: 50px;
               background: rgba(0, 0, 0, 0.2);
               border-radius: 100px;
-            "
-          />
-          <div
-            style="
+            " />
+        <div style="
               font-size: 15px;
               font-family: Helvetica;
               font-weight: 400;
               word-wrap: break-word;
               margin-left: 20px;
               cursor: pointer;
-            "
-            class="text-start text-primary"
-          >
-            Forgot Password?
-          </div>
-          <button
-            type="submit"
-            class="mx-auto"
-            style="
+            " class="text-start text-primary">
+          Forgot Password?
+        </div>
+        <button type="submit" class="mx-auto" style="
               width: 150px;
               height: 50px;
               background: black;
               border-radius: 100px;
-            "
-          >
-            <div
-              style="
+            ">
+          <div style="
                 color: white;
                 font-size: 18px;
                 font-family: Helvetica;
                 font-weight: 700;
                 word-wrap: break-word;
-              "
-            >
-              Log-in
-            </div>
-          </button>
-        </form>
-        <div class="my-3 d-flex gap-3">
-          <button class="d-flex gap-2 justify-content-center align-items-center btn btn-primary">
-            <div class="text-light">Log-In with Google</div>
-            <div style="cursor: pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                class="bi bi-google"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"
-                />
-              </svg>
-            </div>
-          </button>
-        </div>
+              ">
+            Log-in
+          </div>
+        </button>
+      </form>
+      <div class="my-3 d-flex gap-3">
+        <button class="d-flex gap-2 justify-content-center align-items-center btn btn-primary">
+          <div class="text-light">Log-In with Google</div>
+          <div style="cursor: pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-google"
+              viewBox="0 0 16 16">
+              <path
+                d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+            </svg>
+          </div>
+        </button>
       </div>
     </div>
-    <!-- JS here -->
-    <script src="/js/jquery-3.6.0.min.js"></script>
-    <script src="/js/preloader.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/jquery.smoothscroll.min.js"></script>
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <script src="/js/jquery.counterup.min.js"></script>
-    <script src="/js/jquery.nice-select.min.js"></script>
-    <script src="/js/slick.min.js"></script>
-    <script src="/js/parallax.js"></script>
-    <script src="/js/jquery.parallax-scroll.js"></script>
-    <script src="/js/wow.min.js"></script>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    <script src="/js/custom.js"></script>
-    <script src="/js/index.js"></script>
-  </body>
+  </div>
+  <!-- JS here -->
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script src="/js/preloader.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/jquery.smoothscroll.min.js"></script>
+  <script src="/js/jquery.waypoints.min.js"></script>
+  <script src="/js/jquery.counterup.min.js"></script>
+  <script src="/js/jquery.nice-select.min.js"></script>
+  <script src="/js/slick.min.js"></script>
+  <script src="/js/parallax.js"></script>
+  <script src="/js/jquery.parallax-scroll.js"></script>
+  <script src="/js/wow.min.js"></script>
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+  <script src="/js/custom.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+
 </html>
