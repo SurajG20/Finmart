@@ -125,7 +125,7 @@
                 src="img/Vinayak/7.png"
                 height="100px"
                 srcset="img/Vinayak/7.png 2x"
-                alt="logo"
+                alt="Vinayak-Image"
               />
             </a>
             <button
@@ -155,7 +155,7 @@
                 <li class="nav-item dropdown submenu">
                   <a
                     href="/"
-                    class="nav-link dropdown-toggle"
+                    class="nav-link dropdown-toggle "
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
@@ -177,7 +177,7 @@
                 </li>
                 <li class="nav-item dropdown submenu">
                   <a
-                    class="nav-link dropdown-toggle"
+                    class="nav-link dropdown-toggle active"
                     href="/loan"
                     role="button"
                     data-bs-toggle="dropdown"
@@ -224,32 +224,17 @@
                     Blog
                   </a>
                 </li>
-                <!-- <li class="nav-item dropdown submenu">
-                <% if (user) { %>
-                  <% if (user.isAdmin) { %>
-                    <a class="nav-link dropdown-toggle" href="/admin" role="button" data-bs-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      Dashboard
-                    </a>
-                    <% } else { %>
-                      <a class="nav-link dropdown-toggle" href="/user" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Dashboard
-                      </a>
-                      <% } %>
-                        <% } else { %>
-                          <a class="nav-link dropdown-toggle" href="/login" role="button" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Dashboard
-                          </a>
-                          <% } %>
-              </li> -->
               </ul>
-              <% if (user) { %>
-              <a class="theme-btn theme-btn-outlined" href="/logout">
+              <!-- dashboard button -->
+              <% if (user && user.isAdmin) { %>
+              <a class="theme-btn theme-btn-outlined" href="/admin">
                 Dashboard
               </a>
-              <% } else { %>
+              <% } else if (user && !user.isAdmin){ %>
+              <a class="theme-btn theme-btn-outlined" href="/user">
+                Dashboard
+              </a>
+              <% } else{ %>
               <a class="theme-btn theme-btn-outlined" href="/login">
                 Dashboard
               </a>

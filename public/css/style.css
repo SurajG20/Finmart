@@ -12008,6 +12008,7 @@ body.body_dark {
   --sec-bg-color: #131417 !important;
   color: #c3c3c3 !important;
   background: var(--sec-bg-color);
+  
 }
 
 body.body_dark .bg-white,

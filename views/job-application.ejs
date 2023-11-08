@@ -75,7 +75,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href="/">
-            <img src="img/Vinayak/7.png" height="100px" srcset="img/Vinayak/7.png 2x" alt="logo" />
+            <img src="img/Vinayak/7.png" height="100px" srcset="img/Vinayak/7.png 2x" alt="Vinayak-Image" />
           </a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -96,7 +96,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav menu ms-auto">
               <li class="nav-item dropdown submenu">
-                <a href="/" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                <a href="/" class="nav-link dropdown-toggle " role="button" data-bs-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">Home</a>
               </li>
               <li class="nav-item dropdown submenu">
@@ -130,47 +130,32 @@
                   Blog
                 </a>
               </li>
-              <!-- <li class="nav-item dropdown submenu">
-                <% if (user) { %>
-                  <% if (user.isAdmin) { %>
-                    <a class="nav-link dropdown-toggle" href="/admin" role="button" data-bs-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      Dashboard
-                    </a>
-                    <% } else { %>
-                      <a class="nav-link dropdown-toggle" href="/user" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        Dashboard
-                      </a>
-                      <% } %>
-                        <% } else { %>
-                          <a class="nav-link dropdown-toggle" href="/login" role="button" data-bs-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Dashboard
-                          </a>
-                          <% } %>
-              </li> -->
             </ul>
-            <% if (user) { %>
-              <a class="theme-btn theme-btn-outlined" href="/logout">
+            <!-- dashboard button -->
+            <% if (user && user.isAdmin) { %>
+              <a class="theme-btn theme-btn-outlined" href="/admin">
                 Dashboard
               </a>
-              <% } else { %>
-                <a class="theme-btn theme-btn-outlined" href="/login">
+              <% } else if (user && !user.isAdmin){ %>
+                <a class="theme-btn theme-btn-outlined" href="/user">
                   Dashboard
                 </a>
-                <% } %>
+                <% } else{ %>
+                  <a class="theme-btn theme-btn-outlined" href="/login">
+                    Dashboard
+                  </a>
+                  <% } %>
 
-                  <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
-                    <label for="something" class="tab-btn tab-btns">
-                      <ion-icon name="moon"></ion-icon>
-                    </label>
-                    <label for="something" class="tab-btn">
-                      <ion-icon name="sunny"></ion-icon>
-                    </label>
-                    <label class="ball" for="something"></label>
-                    <input type="checkbox" name="something" id="something" class="dark_mode_switcher" />
-                  </div>
+                    <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
+                      <label for="something" class="tab-btn tab-btns">
+                        <ion-icon name="moon"></ion-icon>
+                      </label>
+                      <label for="something" class="tab-btn">
+                        <ion-icon name="sunny"></ion-icon>
+                      </label>
+                      <label class="ball" for="something"></label>
+                      <input type="checkbox" name="something" id="something" class="dark_mode_switcher" />
+                    </div>
           </div>
         </div>
       </nav>

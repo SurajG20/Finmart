@@ -1,10 +1,8 @@
 //**************************************  sidebar toggler js start *************************************
 
-
 document.addEventListener("DOMContentLoaded", function () {
   // Get the id parameter from the URL
-    var dashboard = document.querySelectorAll("#dashboard");
-
+  var dashboard = document.querySelectorAll("#dashboard");
 
   var urlParams = new URLSearchParams(window.location.search);
   var idParam = urlParams.get("id");
@@ -49,146 +47,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
 // dashboard;
 
 //**************************************  sidebar togggler js end ***************************************
 
 //****************************** dashboard  Toggler js start ******************************
 
-var customers = [
-  {
-    ID: 1,
-    fullName: "Test1",
-    contact: "(800) 555-2797",
-    amount: "₹ 890000",
-    loanType: "Personal Loan",
-    date: "19/12/2020",
-    status: "Active",
-  },
-  {
-    ID: 2,
-
-    fullName: "Test2",
-    contact: "(800) 555-1212",
-    amount: "₹ 670000",
-    loanType: "Home Loan",
-    date: "16/12/2020",
-    status: "Pending",
-  },
-  {
-    ID: 3,
-
-    fullName: "Test3",
-    contact: "(800) 555-1243",
-    amount: "₹ 600000",
-    loanType: "Education Loan",
-    date: "18/12/2020",
-    status: "Active",
-  },
-  {
-    ID: 4,
-    fullName: "Test4",
-    contact: "(800) 555-8787",
-    amount: "₹ 150000",
-    loanType: "Car Loan",
-    date: "11/12/2020",
-    status: "Failed",
-  },
-  {
-    ID: 5,
-
-    fullName: "Test6",
-    contact: "(800) 555-9323",
-    amount: "₹ 120000",
-    loanType: "Home Loan",
-    date: "13/12/2020",
-    status: "Active",
-  },
-];
-
-$(function () {
-  var grid = $("#gridContainer")
-    .dxDataGrid({
-      dataSource: customers,
-      filterRow: {
-        visible: true,
-      },
-      columns: [
-        "fullName",
-        "contact",
-        "amount",
-        "loanType",
-        "date",
-        "status",
-        {
-          caption: "Actions",
-          cellTemplate: function (container, options) {
-            $("<button>")
-              .addClass("btn btn-primary")
-              .text("View")
-              .on("click", function () {
-                // Generate the URL based on the ID and navigate to the link
-                var customerId = options.data.ID;
-                var url = "/admin?id=" + customerId; // Modify the URL structure as per your requirements
-                window.location.href = url; // Navigate to the URL
-              })
-              .appendTo(container);
-          },
-        },
-      ],
-      showBorders: true,
-      sorting: {
-        mode: "multiple",
-      },
-    })
-    .dxDataGrid("instance");
-
-  $("#sortAZBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      customers.slice().sort((a, b) => a.fullName.localeCompare(b.fullName))
-    );
-  });
-
-  $("#sortDateBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      customers
-        .slice()
-        .sort(
-          (a, b) =>
-            new Date(a.date.split("/").reverse().join("-")) -
-            new Date(b.date.split("/").reverse().join("-"))
-        )
-    );
-  });
-
-  $("#sortLoanTypeBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      customers.slice().sort((a, b) => a.loanType.localeCompare(b.loanType))
-    );
-  });
-
-  $("#sortAmountBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      customers
-        .slice()
-        .sort(
-          (a, b) =>
-            parseInt(a.amount.replace(/\D/g, "")) -
-            parseInt(b.amount.replace(/\D/g, ""))
-        )
-    );
-  });
-
-  $("#sortStatusBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      customers.slice().sort((a, b) => a.status.localeCompare(b.status))
-    );
+// dashboard search js start
+$(document).ready(function () {
+  $("#dashboard_search").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $(".dashboard_table tbody tr").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    });
   });
 });
 
@@ -297,7 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setting_FormContainer.style.display = "none";
   setting_formViewContainer.style.display = "block";
 
-
   // Update the buttons' event listeners
   const setting_formFormButton = document.querySelector('[for="setting_form"]');
   const setting_formViewButton = document.querySelector('[for="setting_view"]');
@@ -307,26 +177,13 @@ document.addEventListener("DOMContentLoaded", function () {
     setting_formViewContainer.style.display = "none";
   });
 
-
   setting_formViewButton.addEventListener("click", function () {
     setting_formViewContainer.style.display = "block";
     setting_FormContainer.style.display = "none";
   });
 });
 
-
-
 //************************************** */ Loan setting End *******************************************
-
-
-
-
-
-
-
-
-
-
 
 //************************************** */ User js start ***************************************
 document.addEventListener("DOMContentLoaded", function () {
@@ -472,126 +329,60 @@ function userDoc() {
 userDoc();
 
 //********************* Notification  Toggler js start ******************************
-var selectedUserIDs = [];
 
 document.addEventListener("DOMContentLoaded", function () {
-  const jobFormButton = document.querySelector('[for="notification_form"]');
-  const jobViewButton = document.querySelector('[for="notification_view"]');
-  const jobFormContainer = document.getElementById("notification_form");
-  const jobViewContainer = document.getElementById("notification_view");
-  jobFormContainer.style.display = "none";
+  const notificationFormButton = document.querySelector('[for="notification_form"]');
+  const notificationViewButton = document.querySelector(
+    '[for="notification_view"]'
+  );
+  const notification_sendBtn = document.getElementById("notification_sendBtn");
+  const notificationFormContainer =
+    document.getElementById("notification_form");
+  const notificationViewContainer =
+    document.getElementById("notification_view");
+  notificationFormContainer.style.display = "none";
 
   // Show job_form and hide job_view when jobFormButton is clicked
-  jobFormButton.addEventListener("click", function () {
-    jobFormContainer.style.display = "block";
-    jobViewContainer.style.display = "none";
+  notificationFormButton.addEventListener("click", function () {
+    notificationFormContainer.style.display = "block";
+    notificationViewContainer.style.display = "none";
   });
 
   // Show job_view and hide job_form when jobViewButton is clicked
-  jobViewButton.addEventListener("click", function () {
-    jobViewContainer.style.display = "block";
-    jobFormContainer.style.display = "none";
+  notificationViewButton.addEventListener("click", function () {
+    notificationViewContainer.style.display = "block";
+    notificationFormContainer.style.display = "none";
   });
+  notification_sendBtn.addEventListener("click", function () {
+    notificationViewContainer.style.display = "none";
+    notificationFormContainer.style.display = "block";
+  });
+
+
 });
 
-var notificationCustomer = [
-  {
-    ID: 1,
-    fullName: "Test2",
-    contact: "(800) 555-1212",
-    email: "test@gmail.com",
-  },
-  {
-    ID: 2,
-    fullName: "Test1",
-    contact: "(800) 555-1212",
-    email: "test@gmail.com",
-  },
-  {
-    ID: 3,
-    fullName: "Test3",
-    contact: "(800) 555-1243",
-    email: "JhonDoe@gmail.com",
-  },
-  {
-    ID: 4,
-    fullName: "Test4",
-    contact: "(800) 555-8787",
-    email: "dummy@gmail.com",
-  },
-  {
-    ID: 5,
-    fullName: "Test6",
-    contact: "(800) 555-9323",
-    amount: "₹ 120000",
-    email: "test2@gmail.com",
-  },
-];
-
-$(function () {
-  var grid = $("#notificationContainer")
-    .dxDataGrid({
-      dataSource: notificationCustomer,
-      filterRow: {
-        visible: true,
-      },
-      selection: {
-        mode: "multiple",
-        showCheckBoxesMode: "always",
-      },
-      columns: ["fullName", "contact", "email"],
-      showBorders: true,
-      sorting: {
-        mode: "multiple",
-      },
-    })
-    .dxDataGrid("instance");
-  grid.option("onSelectionChanged", function (selectedItems) {
-    selectedUserIDs = selectedItems.selectedRowsData.map(function (item) {
-      return item.ID;
+// Notification seaching js
+$(document).ready(function () {
+  $("#notification_search").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $(".notification_table tbody tr").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
   });
+});
 
-  $("#sendButton").on("click", function () {
-    if (selectedUserIDs.length > 0) {
-      // Send the selected user IDs to the server or perform any other action
-      
-      // Reset the selectedUserIDs array if needed
-      selectedUserIDs = [];
-
-      const jobFormButton = document.querySelector('[for="notification_form"]');
-      const jobViewButton = document.querySelector('[for="notification_view"]');
-      const jobFormContainer = document.getElementById("notification_form");
-      const jobViewContainer = document.getElementById("notification_view");
-
-      // Redirect to the desired URL if needed
-      jobViewContainer.style.display = "block";
-      jobFormContainer.style.display = "none";
-      console.log("Selected User IDs: " + selectedUserIDs.join(","));
-    } else {
-      // Show an alert or handle the case where no checkboxes are selected
-      alert("Please select at least one user.");
-    }
-  });
-
-  $("#notificationsortAZBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      notificationCustomer
-        .slice()
-        .sort((a, b) => a.fullName.localeCompare(b.fullName))
-    );
-  });
-
-  $("#notificationsortStatusBtn").on("click", function () {
-    grid.option(
-      "dataSource",
-      notificationCustomer
-        .slice()
-        .sort((a, b) => a.status.localeCompare(b.status))
+// checkbox js
+$(document).ready(function () {
+  // Check/uncheck all checkboxes when "Select All" checkbox is clicked
+  $("#notification_select_all_btn").change(function () {
+    var isChecked = $(this).prop("checked");
+    $(".notification_table tbody input[type='checkbox']").prop(
+      "checked",
+      isChecked
     );
   });
 });
+
 
 // notification table
 

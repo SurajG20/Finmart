@@ -104,11 +104,18 @@
           </a>
         </li>
         <!-- button  -->
-        <li class="log_out">
-          <form action="/logout" method="get">
-            <button class="btn btn-primary mx-1">
-              Logout
+        <li class="log_out d-flex justify-content-between align-items-center text-center">
+          <form class="m-auto " action="/logout" method="get">
+            <button class="btn px-4 btn-danger d-flex justify-content-between align-items-center gap-2">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                </svg>
+              </span>
+            
+              Log-out
             </button>
+           
           </form>
         </li>
       </ul>
@@ -138,26 +145,55 @@
           <div class="sales-details d-block">
             <!-- Home Dashboard -->
             <div class="content-section active container-fluid dashboard" id="dashboard">
-              <div class="d-block justify-content-end my-2">
-                <!-- Example split danger button -->
-                <div class="btn-group" role="group" aria-label="Basic example">
-                  <button id="filterBtn" class="btn btn-secondary">
-                    Filters
-                  </button>
-                  <button id="sortAZBtn" class="btn btn-primary">A-Z</button>
-                  <button id="sortDateBtn" class="btn btn-primary">
-                    Date
-                  </button>
-                  <button id="sortAmountBtn" class="btn btn-primary">
-                    Amount
-                  </button>
-                </div>
-
-                <div class="dx-viewport demo-container content-section active container-fluid d-block my-2"
-                  id="dashboard">
-                  <div id="gridContainer"></div>
-                </div>
-              </div>
+              <div class="dx-viewport demo-container content-section active   my-2 d-flex justify-content-between align-items-center gap-3"
+                    id="dashboard">
+                    <input id="dashboard_search" type="text" class="form-control"  placeholder="Search for name , contact and email......">
+                     
+                  </div>
+                  <!-- <form id="notification_form" action=""> -->
+                  <table class="dashboard_table table">
+                    <thead>
+                      
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Loan-Type</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table">
+                      
+                      <tr>             
+                        <td>Smith</td>
+                        <td>smith@example.com</td>
+                        <td>6732XXXXXX</td>
+                        <td>Car Loan</td>
+                        <td><span>₹</span><span>9000</span></td>
+                        <td><a href="/admin?id=2"><button id="dashboard_sendBtn" class="btn btn-primary">view</button></a></td>
+                      </tr>
+                 
+                      <tr>             
+                        <td>Jhon</td>
+                        <td>jhon@example.com</td>
+                        <td>8871XXXXXX</td>
+                        <td>Home Loan</td>
+                        <td><span>₹</span><span>195000</span></td>
+                        <td><a href="/admin?id=3"><button id="dashboard_sendBtn" class="btn btn-primary">view</button></a></td>
+                      </tr>
+                 
+                      <tr>             
+                        <td>Harry</td>
+                        <td>harry@example.com</td>
+                        <td>1243XXXXXX</td>
+                        <td>Peronal Loan</td>
+                        <td><span>₹</span><span>12000</span></td>
+                        <td><a href="/admin?id=4"><button id="dashboard_sendBtn" class="btn btn-primary">view</button></a></td>
+                      </tr>
+                 
+                    </tbody>
+                  </table>
             </div>
 
             <!-- Notification -->
@@ -224,22 +260,38 @@
               <!-- Notification  View content -->
               <div class="container" id="notification_view">
                 <div class="container my-2">
-                  <div class="dx-viewport demo-container content-section active container-fluid d-block my-2"
-                    id="dashboard d-flex justify-content-between align-items-center">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                      <button id="filterBtn" class="btn btn-secondary">
-                        Filters
-                      </button>
-                      <button id="notificationsortAZBtn" class="btn btn-primary">
-                        A-Z
-                      </button>
-                    </div>
-                    <button class="btn btn-primary" id="sendButton">
-                      Send
-                    </button>
-
-                    <div id="notificationContainer"></div>
+                  <div class="dx-viewport demo-container content-section active   my-2 d-flex justify-content-between align-items-center gap-3"
+                    id="dashboard">
+                    <input id="notification_search" type="text" class="form-control"  placeholder="Search for name , contact and email......">
+                     
                   </div>
+                  <!-- <form id="notification_form" action=""> -->
+                  <table class="notification_table table">
+                    <thead>
+                      
+                      <tr>
+                        <th><input id="notification_select_all_btn" type="checkbox"/> All</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact No</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table">
+
+                      <%  %>
+                      
+                      <tr>
+                        <td><input name="Erik" type="checkbox"/></td>
+                        <td>Erik</td>
+                        <td>erik@example.com</td>
+                        <td>9685XXXXXX</td>
+                        <td><button id="notification_sendBtn" class="btn btn-primary">Send</button></td>
+                      </tr>
+                 
+                    </tbody>
+                  </table>
+                  <!-- </form> -->
                 </div>
               </div>
             </div>
@@ -1067,6 +1119,8 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script src="/js/admin.js"></script>
+  <!-- jquery link  -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

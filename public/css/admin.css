@@ -647,7 +647,7 @@ nav .profile-details i {
 /*======================*/
 #notification #grid-dt {
     display: grid;
-    grid-templates-column: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
         "dt dt description-dt"
 }
