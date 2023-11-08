@@ -2,310 +2,229 @@
 
 @import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
 
-.user {
-    font-family: 'Poppins', sans-serif;
-    /* background: #fafafa; */
+.user .header{
+    font-family: 'Poppins', sans-serif;    
 }
 
-.user p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
+/************************** user Explore css ****************************** */
+/*   Loan Details Widget CSS
+/*----------------------------------------*/
+.user-loan-details {
+    padding: 50px 53px;
+    box-shadow: var(--theme-dropshadow);
+    border-radius: 10px;
+    padding-bottom: 100px;
+    background: var(--bs-white);
 }
 
-.user a,
-.user a:hover,
-.user a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
+.user-loan-details .select-loan-type-radio {
+    display: none;
 }
 
-.user .line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
+.user-loan-details .select-loan-type-radio:checked~.loan-type {
+    background-color: var(--brand_color);
+    cursor: pointer;
 }
 
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-
-.user .wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
-
-.user #sidebar {
-    position: sticky;
-    
-    background: #7386d5;
+.user-loan-details .select-loan-type-radio:checked~.loan-type span {
     color: #fff;
-    transition: all 0.3s;
-    
 }
 
-.user #sidebar.active {
-    margin-left: -250px;
+.user-loan-details .select-loan-type-radio:checked~.loan-type img {
+    display: none;
 }
 
-.user #sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
+.user-loan-details .select-loan-type-radio:checked~.loan-type img+img {
+    display: inline-block;
 }
 
-.user #sidebar div.components {
-    margin: 0px 20px;
-    display: flex;
-    justify-content: end;
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-}
-
-.user #sidebar div p {
-    color: #fff;
-    padding: 10px;
-}
-
-.user #sidebar div div a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-
-.user #sidebar div div a:hover {
-    color: #7386d5;
-    background: #fff;
-}
-
-.user #sidebar div div.active>a,
-.user a[aria-expanded='true'] {
-    color: #fff;
-    background: #6d7fcc;
-}
-
-.user a[data-toggle='collapse'] {
-    position: relative;
-}
-
-.user .dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
-.user div div a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-.user div.CTAs {
-    padding: 20px;
-}
-
-.user div.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
+.user-loan-details .loan-type {
+    background-color: rgba(0, 80, 178, 0.05);
     border-radius: 5px;
-    margin-bottom: 5px;
-}
-
-.user a.download {
-    background: #fff;
-    color: #7386d5;
-}
-
-.user a.article,
-.user a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-
-.user #content {
-    width: 100%;
+    text-align: center;
     padding: 20px;
-    min-height: 100vh;
-    transition: all 0.3s;
+    transition: all 0.3s ease-out;
+    display: block;
 }
 
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-
-    #sidebar.active {
-        margin-left: 0;
-    }
-
-    #sidebarCollapse span {
-        display: none;
-    }
-}
-
-/* {
-  
-} */
-
-/* user notification css */
-
-/* body {
-  background-color: rgb(10, 30, 10);
-  color: white;
-  font-family: sans-serif;
-} */
-
-.user .container .wrapper #content .notification .notification-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.user .container .wrapper #content .notification .notification-nav-btn {
-    display: flex;
-    column-gap: 10px;
-    background-color: rgb(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgb(1, 1, 1, 0.1);
+.user-loan-details .loan-type:hover {
+    background-color: var(--brand_color);
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.user .container .wrapper #content .notification .notification-nav-btn div:hover {
-    color: white;
+.user-loan-details .loan-type:hover span {
+    color: #fff;
 }
 
-.user .container .wrapper #content .notification .notification-nav-btn:hover {
-    background-color: rgb(255, 255, 255, 0.2);
+.user-loan-details .loan-type:hover img {
+    display: none;
 }
 
-.user .container .wrapper #content .notification .copy-container {
-    display: flex;
-    position: relative;
-    background-color: rgb(60, 60, 60, 0.4);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgb(1, 1, 1, 0.1);
-    color: white;
-    margin-bottom: 20px;
-    font-family: sans-serif;
+.user-loan-details .loan-type:hover img+img {
+    display: inline-block;
+}
+
+.user-loan-details .loan-type span {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: var(--secondary_color);
     font-size: 16px;
-    transition: border 0.2s;
+    margin-top: 14px;
+    text-transform: capitalize;
 }
 
-.user .container .wrapper #content .notification .copy-container:hover {
-    border: 1px solid #7386d5;
-    /* background: #7386D5; */
-}
-
-.user .container .wrapper #content .notification .copy-button {
-    border-radius: 0px 10px 00px 0px;
-    position: absolute;
-    top: 0px;
-    right: 0;
+.user-loan-details .loan-type img+img {
     display: none;
-    cursor: pointer;
-    background-color: rgb(255, 255, 255, 0.1);
-    color: white;
-    padding: 0px 5px 0px 5px;
 }
 
-.user .container .wrapper #content .notification .container {
-    /* margin-left: 20%; */
-    /* margin-right: 20%; */
-    padding: 10px;
+.user-loan-details .label {
+    font-size: 16px;
+    color: var(--secondary_color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
 }
 
-.user .container .wrapper #content .notification .toaster {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4caf50;
-    color: white;
-    padding: 16px;
-    border-radius: 4px;
-    display: none;
-    z-index: 1000;
+.user-loan-details .form-check .form-check-label {
+    color: #9199a1;
 }
 
-/*------------- folder box----------- */
-.user .container .wrapper #content .document .folder {
-    width: 150px;
-    height: 105px;
-    margin: 50px 50px;
-    float: left;
+.user-loan-details .form-check .form-check-input:checked[type='radio']~.form-check-label {
+    color: #6a737c;
+}
+
+.user-loan-details .form-control {
+    border-color: #dcdee0;
+    height: 45px;
+    color: #9199a1;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.user-loan-details .form-control::placeholder {
+    color: #9199a1;
+}
+
+.user-loan-details .form-control:focus {
+    border-color: var(--brand_color);
+    box-shadow: none;
+}
+
+.user-loan-details .input-field {
     position: relative;
-    background: rgb(110, 166, 239);
-    background: linear-gradient(183deg,
-            rgba(110, 166, 239, 1) 11%,
-            rgba(30, 92, 172, 1) 100%);
-    border-radius: 0 6px 6px 6px;
-    transition: 0.1s ease-out;
-    cursor: pointer;
 }
 
-.user .container .wrapper #content .document .folder p {
-    font-size: small;
-}
-
-/*-------------folder box----x------- */
-.user .container .wrapper #content .document .folder:hover {
-    transform: scale(1.2);
-}
-
-/*-------------file opener----------- */
-.user .container .wrapper #content .document .folder:before {
-    content: '';
-    width: 46%;
-    height: 21px;
-    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    border-radius: 4px 0px 0 0;
-    background-color: #1e5cac;
+.user-loan-details .input-field span {
     position: absolute;
-    top: -10.3px;
-    left: 0px;
+    display: inline-block;
+    top: 12px;
+    left: 15px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #a8a8b2;
 }
 
-/*-------------file opener----x------- */
-
-/*------------- Document ----------- */
-.user .container .wrapper #content .document .folder:after {
-    content: '';
-    width: 29%;
-    height: 5px;
-    border-radius: 2px 2px 0 0;
-    background-color: #ffffff;
-    position: absolute;
-    top: 5.6px;
-    left: 4px;
+.user-loan-details .input-field .form-control {
+    padding-left: 30px;
 }
 
-/*-------------Document ----x------- */
+.user-loan-details .iti {
+    width: 100%;
+}
 
-/*------------- text  ----------- */
-.user .container .wrapper #content .document p {
-    /* position: absolute; */
-    left: 124px;
-    top: 75px;
-    margin: 0%;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    color: white;
+.user-loan-details .nice-select {
+    height: 45px;
+    border-color: #dcdee0;
+    display: inline-block;
+    float: inherit;
+}
+
+.user-loan-details .nice-select:focus {
+    border-color: var(--brand_color);
+}
+
+.user-loan-details .nice-select .current {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #9199a1;
+}
+
+.user-loan-details .nice-select .list {
+    width: 100%;
+}
+
+.user-loan-details .dob .nice-select {
+    margin-right: 15px;
+    width: 100%;
+}
+
+.user-loan-details .dob .nice-select .list {
+    max-height: 350px;
+    overflow-y: scroll;
+    scrollbar-color: rgba(222, 222, 222, 0.9058823529) rgba(241, 241, 241, 0.8549019608);
+    scrollbar-width: thin;
+    /* Track */
+    /* Handle */
+}
+
+.user-loan-details .dob .nice-select .list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.user-loan-details .dob .nice-select .list::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0.8549019608);
+}
+
+.user-loan-details .dob .nice-select .list::-webkit-scrollbar-thumb {
+    background: rgba(222, 222, 222, 0.9058823529);
+    border-radius: 5px;
+}
+
+.user-loan-details .nav-btn a,
+.user-loan-details .nav-btn button {
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--p_color);
+}
+
+.user-loan-details .nav-btn a i,
+.user-loan-details .nav-btn button i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 2px;
+}
+
+.user-loan-details .nav-btn a.prev-btn i,
+.user-loan-details .nav-btn button.prev-btn i {
+    margin-right: 5px;
+    margin-left: 0px;
+}
+
+.user-loan-details .doc-info {
+    display: flex;
+}
+
+.user-loan-details .doc-info span {
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--secondary_color);
+    margin-right: 15px;
+}
+
+.user-loan-details .doc-info p {
+    display: inline-block;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--p_color);
 }
