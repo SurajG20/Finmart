@@ -6,7 +6,27 @@ const Loans = require('../models/LoanType');
 const Newsletter = require('../models/Newsletter');
 const CombinedDetails = require('../models/CombinedDetails');
 
-// homepage
+// Function to calculate EMI
+function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
+  const principal = parseFloat(principalStr);
+  const annualInterestRate = parseFloat(annualInterestRateStr);
+  const tenureInYears = parseFloat(tenureInYearsStr);
+  if (isNaN(principal) || isNaN(annualInterestRate) || isNaN(tenureInYears)) {
+    throw new Error(
+      'Invalid input values. Please provide valid numeric values for principal, interest rate, and tenure.'
+    );
+  }
+  const monthlyInterestRate = annualInterestRate / 12 / 100;
+  const numberOfMonths = tenureInYears * 12;
+  const emi =
+    (principal *
+      monthlyInterestRate *
+      Math.pow(1 + monthlyInterestRate, numberOfMonths)) /
+    (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+  return emi.toFixed(2);
+}
+
+// home page
 module.exports.home = async (req, res) => {
   const blogs = await Blogs.find();
   const user = req.session.user;
@@ -14,6 +34,7 @@ module.exports.home = async (req, res) => {
   const feedbacks = await Feedback.find();
   res.render('index', { blogs, frequently, feedbacks, user });
 };
+
 // about page
 module.exports.about = (req, res) => {
   const user = req.session.user;
@@ -22,8 +43,11 @@ module.exports.about = (req, res) => {
 module.exports.user = async (req, res) => {
   const user = req.session.user;
   const userData = await CombinedDetails.findOne({ userId: user._id });
-  console.log(user);
-  res.render('user', { user, userData });
+  const principal = userData.loanDetails.loanAmount;
+  const rate = userData.loanDetails.rateOfInterest;
+  const tenure = userData.loanDetails.tenureDuration;
+  const emi = calculateEMI(principal, rate, tenure);
+  res.render('user', { user, userData, emi });
 };
 
 module.exports.login = (req, res) => {

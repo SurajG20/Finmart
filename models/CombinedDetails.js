@@ -13,7 +13,7 @@ const combinedDetailsSchema = new mongoose.Schema({
   loanDetails: {
     type: {
       'select-loan-type': String,
-      // rateOfInterest: mongoose.Schema.Types.Decimal128,
+      rateOfInterest: String,
       tenureDuration: String,
       loanAmount: String,
       financingType: String,
