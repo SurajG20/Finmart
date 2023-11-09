@@ -38,10 +38,13 @@ module.exports.about = (req, res) => {
 module.exports.user = async (req, res) => {
   const user = req.session?.passport?.user;
   const userData = await CombinedDetails.findOne({ userId: user._id });
+  const loanType = userData?.loanDetails?.['select-loan-type'];
+  const rateNew = await Loans.findOne({ category: loanType }).select(
+    'interest'
+  );
   const principal = userData?.loanDetails?.loanAmount;
-  const rate = userData?.loanDetails?.rateOfInterest;
   const tenure = userData?.loanDetails?.tenureDuration;
-  const emi = calculateEMI(principal, rate, tenure);
+  const emi = calculateEMI(principal, rateNew?.interest, tenure);
   res.render('user', { user, userData, emi });
 };
 
@@ -163,7 +166,9 @@ module.exports.errorPage = (req, res) => {
 
 module.exports.renderLoanDetails = async (req, res) => {
   const user = req.session?.passport?.user;
-  res.render('loan-details', { user });
+  const loans = await Loans.find();
+  console.log(loans);
+  res.render('loan-details', { user, loans });
 };
 
 module.exports.renderPersonalDetails = async (req, res) => {
@@ -173,7 +178,17 @@ module.exports.renderPersonalDetails = async (req, res) => {
 
 module.exports.renderDocumentUpload = async (req, res) => {
   const user = req.session?.passport?.user;
-  res.render('document-upload', { user });
+  const userData = await CombinedDetails.findOne({ userId: user._id });
+  const loanType = userData?.loanDetails?.['select-loan-type'];
+  const documentsRequired = await Loans.findOne({ category: loanType }).select(
+    'documents'
+  );
+  const documentArray = documentsRequired?.documents
+    ? documentsRequired.documents.split(',').map((item) => item.trim())
+    : [];
+
+  console.log(documentArray);
+  res.render('document-upload', { user, documentArray });
 };
 
 module.exports.submitLoanDetails = async (req, res) => {
