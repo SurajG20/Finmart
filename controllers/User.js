@@ -47,6 +47,7 @@ module.exports.Register = async (req, res) => {
 };
 
 module.exports.Logout = (req, res) => {
-  req.logout();
-  res.redirect('/');
+  req.session.destroy(function (err) {
+    res.redirect('/');
+  });
 };

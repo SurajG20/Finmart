@@ -177,11 +177,11 @@
               </li>
             </ul>
             <!-- dashboard button -->
-            <% if (user && user.isAdmin) { %>
+            <% if (user && user?.isAdmin) { %>
               <a class="theme-btn theme-btn-outlined" href="/admin">
                 Dashboard
               </a>
-              <% } else if (user && !user.isAdmin){ %>
+              <% } else if (user && !user?.isAdmin){ %>
                 <a class="theme-btn theme-btn-outlined" href="/user">
                   Dashboard
                 </a>
@@ -190,7 +190,6 @@
                     Dashboard
                   </a>
                   <% } %>
-
                     <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
                       <label for="something" class="tab-btn tab-btns">
                         <ion-icon name="moon"></ion-icon>

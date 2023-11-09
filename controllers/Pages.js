@@ -11,11 +11,8 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const principal = parseFloat(principalStr);
   const annualInterestRate = parseFloat(annualInterestRateStr);
   const tenureInYears = parseFloat(tenureInYearsStr);
-  if (isNaN(principal) || isNaN(annualInterestRate) || isNaN(tenureInYears)) {
-    throw new Error(
-      'Invalid input values. Please provide valid numeric values for principal, interest rate, and tenure.'
-    );
-  }
+
+  console.log(principal, annualInterestRate, tenureInYears);
   const monthlyInterestRate = annualInterestRate / 12 / 100;
   const numberOfMonths = tenureInYears * 12;
   const emi =
@@ -29,7 +26,7 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
 // home page
 module.exports.home = async (req, res) => {
   const blogs = await Blogs.find();
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   const frequently = await Frequently.find();
   const feedbacks = await Feedback.find();
   res.render('index', { blogs, frequently, feedbacks, user });
@@ -37,21 +34,17 @@ module.exports.home = async (req, res) => {
 
 // about page
 module.exports.about = (req, res) => {
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   res.render('about', { user });
 };
 module.exports.user = async (req, res) => {
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   console.log('user', user);
   const userData = await CombinedDetails.findOne({ userId: user._id });
   console.log(userData);
   const principal = userData?.loanDetails?.loanAmount;
   const rate = userData?.loanDetails?.rateOfInterest;
   const tenure = userData?.loanDetails?.tenureDuration;
-  if (!principal || !rate || !tenure) {
-    res.redirect('/loan');
-    return;
-  }
   const emi = calculateEMI(principal, rate, tenure);
   res.render('user', { user, userData, emi });
 };
@@ -92,27 +85,27 @@ module.exports.feedback = async (req, res) => {
 
 // loan page
 module.exports.loan = async (req, res) => {
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   res.render('loan', { user });
 };
 
 // blog page
 module.exports.blog = async (req, res) => {
   const blogs = await Blogs.find();
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   res.render('blog', { blogs, user });
 };
 
 // contact page
 module.exports.contact = async (req, res) => {
   const frequently = await Frequently.find();
-  const user = req.session?.passport.user;
+ const user = req.session?.passport?.user;
   res.render('contact', { frequently, user });
 };
 
 // rendering job post page
 module.exports.renderJobPost = async (req, res) => {
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   const jobs = await Jobs.find();
   res.render('job-post', { jobs, user });
 };
@@ -121,7 +114,7 @@ module.exports.renderJobPost = async (req, res) => {
 module.exports.addJobApplication = async (req, res) => {
   try {
     const { jobId } = req.params;
-    const user = req.session?.passport.user;
+    const user = req.session?.passport?.user;
     const singleJob = await Jobs.findById({ _id: jobId });
     res.render('job-application', { singleJob, user });
   } catch (err) {
@@ -161,7 +154,7 @@ module.exports.renderBlogDetails = async (req, res) => {
   try {
     const { blogId } = req.params;
     const singleBlog = await Blogs.findById({ _id: blogId });
-    const user = req.session?.passport.user;
+    const user = req.session?.passport?.user;
     res.render('blog-details', { user, singleBlog });
   } catch (err) {
     res.redirect('error', { err });
@@ -176,17 +169,17 @@ module.exports.errorPage = (req, res) => {
 // Handle submission of loan details form
 
 module.exports.renderLoanDetails = async (req, res) => {
-  const user = req.session?.passport.user;
+const user = req.session?.passport?.user;
   res.render('loan-details', { user });
 };
 
 module.exports.renderPersonalDetails = async (req, res) => {
-  const user = req.session?.passport.user;
+  const user = req.session?.passport?.user;
   res.render('personal-details', { user });
 };
 
 module.exports.renderDocumentUpload = async (req, res) => {
-  const user = req.session?.passport.user;
+ const user = req.session?.passport?.user;
   res.render('document-upload', { user });
 };
 
@@ -194,7 +187,8 @@ module.exports.submitLoanDetails = async (req, res) => {
   try {
     const loanDetails = req.body;
 
-    const userId = req.session.user._id;
+    const userId = req.session.passport.user._id;
+
     let combinedDetails = await CombinedDetails.findOne({ userId });
 
     if (!combinedDetails) {
@@ -216,6 +210,7 @@ module.exports.submitLoanDetails = async (req, res) => {
 };
 
 module.exports.submitPersonalDetails = async (req, res) => {
+  console.log(req.body);
   try {
     const {
       firstName,
@@ -245,7 +240,7 @@ module.exports.submitPersonalDetails = async (req, res) => {
       zipCode: zipCode,
     };
 
-    const userId = req.session.user._id;
+    const userId = req.session.passport.user._id;
     let combinedDetails = await CombinedDetails.findOne({ userId });
 
     if (!combinedDetails) {
@@ -268,7 +263,8 @@ module.exports.submitPersonalDetails = async (req, res) => {
 module.exports.submitDocumentUpload = async (req, res) => {
   try {
     if (req.files) {
-      const userId = req.session.user._id;
+      const userId = req.session.passport.user._id;
+
       const documents = req.files.map((f) => {
         return {
           url: f.path,
