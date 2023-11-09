@@ -7,11 +7,9 @@ const {
   addNewJob,
   deleteJob,
   createFaq,
-  updateFaqs,
   deleteFaq,
   deleteBlog,
   addNewBlog,
-  updateBlog,
   deleteNewsletter,
   addNewLoan,
   deleteLoan,
@@ -19,13 +17,20 @@ const {
   sendNotification,
   userDetails,
   updateStatus,
+  sendNotificationToUser,
+  sendNotificationToAll,
+  deleteNotification,
+  deleteNotificationAdmin,
 } = require('../controllers/Admin');
 
 const multer = require('multer');
 const { storage } = require('../cloudinary/index');
 const upload = multer({ storage });
 router.route('/').get(isAdminLoggedIn, admin);
-router.route('/user-details/:singleUserId').post(isAdminLoggedIn, userDetails);
+router
+  .route('/user-details/:singleUserId')
+  .get(isAdminLoggedIn, userDetails)
+  .post(isAdminLoggedIn, userDetails);
 router
   .route('/user-details/updateStatus/:singleUserId')
   .post(isAdminLoggedIn, updateStatus);
@@ -50,20 +55,30 @@ router
 router.route('/user-documents').get(isAdminLoggedIn, getCombinedDetails);
 
 // Faq add, update, delete, getAll
-router.route('/add-faq').post(isAdminLoggedIn, createFaq);
-router.route('/update-faq/:faqId').put(isAdminLoggedIn, updateFaqs);
-router.route('/delete-faq/:faqId').delete(isAdminLoggedIn, deleteFaq);
+router.route('/add-faq').post(isAdminLoggedIn, upload.none(), createFaq);
+router.route('/delete-faq/:faqId/delete').delete(isAdminLoggedIn, deleteFaq);
 
 router
   .route('/add-blog')
   .post(isAdminLoggedIn, upload.array('images'), addNewBlog);
-router
-  .route('/update-blog/:blogId')
-  .put(isAdminLoggedIn, upload.array('images'), updateBlog);
+
 router.route('/delete-blog/:blogId/delete').delete(isAdminLoggedIn, deleteBlog);
 router.route('/delete-loan/:loanId/delete').delete(isAdminLoggedIn, deleteLoan);
 
 router.route('/add-loan').post(isAdminLoggedIn, upload.none(), addNewLoan);
-router.route('/sent-notification').post(isAdminLoggedIn, sendNotification);
+
+router
+  .route('/send-notification/:userId')
+  .post(isAdminLoggedIn, sendNotificationToUser);
+router
+  .route('/send-notificationAll')
+  .post(isAdminLoggedIn, sendNotificationToAll);
+
+router
+  .route('/delete-notification/:notificationId/delete')
+  .delete(isAdminLoggedIn, deleteNotification);
+router
+  .route('/delete-notificationAdmin/:notificationId/delete')
+  .delete(isAdminLoggedIn, deleteNotificationAdmin);
 
 module.exports = router;

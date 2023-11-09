@@ -29,13 +29,18 @@ module.exports.admin = async (req, res) => {
   const user = req.session?.passport?.user;
   const newsletter = await Newsletter.find();
   const allFeedback = await Feedback.find();
-  const allUsers = await CombinedDetails.find();
+  const allUsersDetails = await CombinedDetails.find({});
+  const allUsers = await User.find({ isAdmin: false });
+  const faqs = await Frequently.find();
+  console.log(allUsers);
   res.render('admin', {
     user,
     allFeedback,
     newsletter,
+    faqs,
     blogs,
     jobs,
+    allUsersDetails,
     loans,
     allUsers,
   });
@@ -47,11 +52,13 @@ module.exports.userDetails = async (req, res) => {
   const singleUserData = await CombinedDetails.findOne({
     userId: singleUserId,
   });
+  const user = await User.findOne({ _id: singleUserId });
+  const allNotifications = user?.notifications;
   const principal = singleUserData?.loanDetails?.loanAmount;
   const rate = singleUserData?.loanDetails?.rateOfInterest;
   const tenure = singleUserData?.loanDetails?.tenureDuration;
   const emi = calculateEMI(principal, rate, tenure);
-  res.render('userDetails', { singleUserData, emi });
+  res.render('userDetails', { singleUserData, emi, allNotifications });
 };
 
 module.exports.updateStatus = async (req, res) => {
@@ -66,7 +73,7 @@ module.exports.updateStatus = async (req, res) => {
     if (!updatedUser) {
       return res.status(404).send('User not found');
     }
-    res.redirect(`/admin`);
+    res.redirect('/admin/user-details/' + singleUserId);
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');
@@ -184,27 +191,9 @@ module.exports.createFaq = async (req, res) => {
   try {
     const faq = new Frequently({ question, answer });
     await faq.save();
-    res.status(201).json({ message: 'FAQ created successfully' });
-    // res.redirect('admin');
+    res.redirect('/admin');
   } catch (error) {
-    res.status(500).json({ message: 'Error creating FAQ' });
-  }
-};
-
-// update faq
-module.exports.updateFaqs = async (req, res) => {
-  const { question, answer } = req.body;
-  const faqId = req.params.faqId;
-  try {
-    const updatedFAQ = await Frequently.findByIdAndUpdate(
-      faqId,
-      { question, answer },
-      { new: true }
-    );
-    // res.redirect('admin', { updatedFAQ });
-    res.status(200).json({ message: 'FAQ updated successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Error updating FAQ' });
+    res.redirect('error', { error });
   }
 };
 
@@ -213,10 +202,9 @@ module.exports.deleteFaq = async (req, res) => {
   const faqId = req.params.faqId;
   try {
     await Frequently.findByIdAndRemove(faqId);
-    // res.redirect('admin');
-    res.status(200).json({ message: 'FAQ deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Error deleting FAQ' });
+    res.redirect('/admin');
+  } catch (err) {
+    res.redirect('error', { err });
   }
 };
 
@@ -296,22 +284,75 @@ module.exports.addNewLoan = async (req, res) => {
   }
 };
 
-module.exports.sendNotification = async (req, res) => {
-  console.log(req.body);
-  const { userIds, title, message } = req.body;
+module.exports.sendNotificationToUser = async (req, res) => {
+  const { userId } = req.params;
+  const { title, message } = req.body;
+
   try {
-    for (const userId of userIds) {
-      const user = await User.findById(userId);
-      if (!user) {
-        console.error(`User with ID ${userId} not found`);
-        continue;
-      }
+    const user = await User.findById(userId);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: `User with ID ${userId} not found` });
+    }
+
+    user.notifications.push({ title, message });
+    await user.save();
+
+    res.redirect('/admin/user-details/' + userId);
+  } catch (err) {
+    res.redirect('error', { err });
+  }
+};
+
+module.exports.sendNotificationToAll = async (req, res) => {
+  const { title, message } = req.body;
+  try {
+    const users = await User.find();
+    for (const user of users) {
       user.notifications.push({ title, message });
       await user.save();
     }
-
-    return res.status(200).json({ message: 'Notifications sent successfully' });
+    res.redirect('/admin');
   } catch (err) {
-    return res.status(500).json({ message: 'Internal Server Error' });
+    res.redirect('error', { err });
+  }
+};
+
+module.exports.deleteNotification = async (req, res) => {
+  const { notificationId } = req.params;
+
+  try {
+    const user = await User.findOneAndUpdate(
+      { 'notifications._id': notificationId },
+      { $pull: { notifications: { _id: notificationId } } },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.redirect('error', { err });
+    }
+
+    res.redirect('/admin/user-details/' + user._id);
+  } catch (err) {
+    res.redirect('error', { err });
+  }
+};
+module.exports.deleteNotificationAdmin = async (req, res) => {
+  const { notificationId } = req.params;
+
+  try {
+    const user = await User.findOneAndUpdate(
+      { 'notifications._id': notificationId },
+      { $pull: { notifications: { _id: notificationId } } },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.redirect('error', { err });
+    }
+    res.redirect('/admin');
+  } catch (err) {
+    res.redirect('error', { err });
   }
 };
