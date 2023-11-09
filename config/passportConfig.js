@@ -7,7 +7,6 @@ module.exports = function (passport) {
   passport.use(
     new localStrategy(async (username, password, done) => {
       try {
-        // Check if the input is an email or phone number
         let user;
         if (username.includes('@')) {
           user = await UserModel.findOne({ email: username });
@@ -16,7 +15,7 @@ module.exports = function (passport) {
         }
 
         if (!user) {
-          return done(null, false); // User not found
+          return done(null, false); 
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password);

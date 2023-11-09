@@ -22,7 +22,6 @@ const {
   renderPersonalDetails,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
-// const { Login, Register, Logout } = require('../controllers/oldUser');
 const {
   Login,
   Register,
