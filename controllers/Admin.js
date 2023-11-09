@@ -7,6 +7,21 @@ const CombinedDetails = require('../models/CombinedDetails');
 const Jobs = require('../models/Jobs');
 const Newsletter = require('../models/Newsletter');
 
+// Function to calculate EMI
+function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
+  const principal = parseFloat(principalStr);
+  const annualInterestRate = parseFloat(annualInterestRateStr);
+  const tenureInYears = parseFloat(tenureInYearsStr);
+  const monthlyInterestRate = annualInterestRate / 12 / 100;
+  const numberOfMonths = tenureInYears * 12;
+  const emi =
+    (principal *
+      monthlyInterestRate *
+      Math.pow(1 + monthlyInterestRate, numberOfMonths)) /
+    (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+  return emi.toFixed(2);
+}
+
 module.exports.admin = async (req, res) => {
   const jobs = await Jobs.find();
   const blogs = await Blogs.find();
@@ -26,6 +41,37 @@ module.exports.admin = async (req, res) => {
   });
 };
 // delete feedback
+
+module.exports.userDetails = async (req, res) => {
+  const { singleUserId } = req.params;
+  const singleUserData = await CombinedDetails.findOne({
+    userId: singleUserId,
+  });
+  const principal = singleUserData?.loanDetails?.loanAmount;
+  const rate = singleUserData?.loanDetails?.rateOfInterest;
+  const tenure = singleUserData?.loanDetails?.tenureDuration;
+  const emi = calculateEMI(principal, rate, tenure);
+  res.render('userDetails', { singleUserData, emi });
+};
+
+module.exports.updateStatus = async (req, res) => {
+  const singleUserId = req.params.singleUserId;
+  const newLoanStatus = req.body.loanStatus;
+  try {
+    const updatedUser = await CombinedDetails.findOneAndUpdate(
+      { userId: singleUserId },
+      { $set: { ApplicationStatus: newLoanStatus } },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res.status(404).send('User not found');
+    }
+    res.redirect(`/admin`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+};
 module.exports.deleteFeedback = async (req, res) => {
   const { feedbackId } = req.params;
   console.log(feedbackId);
@@ -55,7 +101,6 @@ module.exports.getCombinedDetails = async (req, res) => {
 
 // get new job
 module.exports.addNewJob = async (req, res) => {
-  console.log(req.body);
   try {
     const {
       title,
@@ -150,7 +195,6 @@ module.exports.createFaq = async (req, res) => {
 module.exports.updateFaqs = async (req, res) => {
   const { question, answer } = req.body;
   const faqId = req.params.faqId;
-  console.log(faqId);
   try {
     const updatedFAQ = await Frequently.findByIdAndUpdate(
       faqId,
@@ -167,7 +211,6 @@ module.exports.updateFaqs = async (req, res) => {
 // deletefaq
 module.exports.deleteFaq = async (req, res) => {
   const faqId = req.params.faqId;
-  console.log(faqId);
   try {
     await Frequently.findByIdAndRemove(faqId);
     // res.redirect('admin');
@@ -269,7 +312,6 @@ module.exports.sendNotification = async (req, res) => {
 
     return res.status(200).json({ message: 'Notifications sent successfully' });
   } catch (err) {
-    console.error(err);
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 };

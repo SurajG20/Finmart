@@ -38,7 +38,6 @@ module.exports = function (passport) {
         callbackURL: 'http://localhost:8000/google/callback',
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
         try {
           let user = await UserModel.findOne({ googleId: profile.id });
 
@@ -52,7 +51,6 @@ module.exports = function (passport) {
 
             user = await newUser.save();
           }
-          console.log(user);
           return done(null, user);
         } catch (err) {
           return done(err);

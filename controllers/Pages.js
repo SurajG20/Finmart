@@ -11,8 +11,6 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const principal = parseFloat(principalStr);
   const annualInterestRate = parseFloat(annualInterestRateStr);
   const tenureInYears = parseFloat(tenureInYearsStr);
-
-  console.log(principal, annualInterestRate, tenureInYears);
   const monthlyInterestRate = annualInterestRate / 12 / 100;
   const numberOfMonths = tenureInYears * 12;
   const emi =
@@ -29,7 +27,6 @@ module.exports.home = async (req, res) => {
   const user = req.session?.passport?.user;
   const frequently = await Frequently.find();
   const feedbacks = await Feedback.find();
-  console.log(req.session);
   res.render('index', { blogs, frequently, feedbacks, user });
 };
 
@@ -40,9 +37,7 @@ module.exports.about = (req, res) => {
 };
 module.exports.user = async (req, res) => {
   const user = req.session?.passport?.user;
-  console.log('user', user);
   const userData = await CombinedDetails.findOne({ userId: user._id });
-  console.log(userData);
   const principal = userData?.loanDetails?.loanAmount;
   const rate = userData?.loanDetails?.rateOfInterest;
   const tenure = userData?.loanDetails?.tenureDuration;
@@ -59,8 +54,6 @@ module.exports.register = (req, res) => {
 
 module.exports.newsletter = async (req, res) => {
   try {
-    console.log(req.body);
-
     const { email } = req.body;
     const subscribedEmail = new Newsletter({ email });
     await subscribedEmail.save();
@@ -72,7 +65,6 @@ module.exports.newsletter = async (req, res) => {
 };
 //Feedback
 module.exports.feedback = async (req, res) => {
-  console.log(req.body);
   const { fullname, email, message, subject } = req.body;
   try {
     const feedback = new Feedback({ fullname, email, message, subject });
@@ -176,7 +168,6 @@ module.exports.renderLoanDetails = async (req, res) => {
 
 module.exports.renderPersonalDetails = async (req, res) => {
   const user = req.session?.passport?.user;
-  console.log(user);
   res.render('personal-details', { user });
 };
 
@@ -212,7 +203,6 @@ module.exports.submitLoanDetails = async (req, res) => {
 };
 
 module.exports.submitPersonalDetails = async (req, res) => {
-  console.log(req.body);
   try {
     const {
       firstName,

@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   typeOfLoanSelect.addEventListener('change', function () {
     const selectedLoanType = typeOfLoanSelect.value;
-    console.log(selectedLoanType);
     if (interestRates[selectedLoanType]) {
       rateOfInterestInput.value = interestRates[selectedLoanType];
     }

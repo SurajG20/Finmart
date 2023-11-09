@@ -17,12 +17,18 @@ const {
   deleteLoan,
   admin,
   sendNotification,
+  userDetails,
+  updateStatus,
 } = require('../controllers/Admin');
 
 const multer = require('multer');
 const { storage } = require('../cloudinary/index');
 const upload = multer({ storage });
 router.route('/').get(isAdminLoggedIn, admin);
+router.route('/user-details/:singleUserId').post(isAdminLoggedIn, userDetails);
+router
+  .route('/user-details/updateStatus/:singleUserId')
+  .post(isAdminLoggedIn, updateStatus);
 
 router
   .route('/add-job')
