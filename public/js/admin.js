@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
 //************************************** */ Job Toogler js end *****************************************
 
 // Blog Toogler js
+
+
 //************************************** */ blog Toogler js start *****************************************
 // blog image handler
 document.addEventListener('DOMContentLoaded', function () {
@@ -154,6 +156,30 @@ document.addEventListener('DOMContentLoaded', function () {
   jobViewButton.addEventListener('click', function () {
     jobViewContainer.style.display = 'block';
     jobFormContainer.style.display = 'none';
+  });
+});
+
+//************************************** */ Blog js End *****************************************
+//************************************** */ faqs Toogler js start *****************************************
+
+// Faqswitch handler
+document.addEventListener("DOMContentLoaded", function () {
+  const faqsFormButton = document.querySelector('[for="faqs_form"]');
+  const faqsViewButton = document.querySelector('[for="faqs_view"]');
+  const faqsFormContainer = document.getElementById("faqs_form");
+  const faqsViewContainer = document.getElementById("faqs_view");
+  faqsFormContainer.style.display = "none";
+
+  // Show job_form and hide job_view when jobFormButton is clicked
+  faqsFormButton.addEventListener("click", function () {
+    faqsFormContainer.style.display = "block";
+    faqsViewContainer.style.display = "none";
+  });
+
+  // Show job_view and hide job_form when jobViewButton is clicked
+  faqsViewButton.addEventListener("click", function () {
+    faqsViewContainer.style.display = "block";
+    faqsFormContainer.style.display = "none";
   });
 });
 
@@ -338,6 +364,8 @@ document.addEventListener('DOMContentLoaded', function () {
     '[for="notification_view"]'
   );
   const notification_sendBtn = document.getElementById('notification_sendBtn');
+  const sendallnotification = document.getElementById("send-all-notification");
+
   const notificationFormContainer =
     document.getElementById('notification_form');
   const notificationViewContainer =
@@ -350,15 +378,23 @@ document.addEventListener('DOMContentLoaded', function () {
     notificationViewContainer.style.display = 'none';
   });
 
+
+
   // Show job_view and hide job_form when jobViewButton is clicked
   notificationViewButton.addEventListener('click', function () {
     notificationViewContainer.style.display = 'block';
     notificationFormContainer.style.display = 'none';
   });
+
   notification_sendBtn.addEventListener('click', function () {
     notificationViewContainer.style.display = 'none';
     notificationFormContainer.style.display = 'block';
   });
+
+    sendallnotification.addEventListener("click", function () {
+      notificationFormContainer.style.display = "block";
+      notificationViewContainer.style.display = "none";
+    });
 });
 
 // Notification seaching js

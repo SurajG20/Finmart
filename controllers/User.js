@@ -21,7 +21,7 @@ module.exports.Login = (req, res, next) => {
 };
 
 module.exports.Register = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const existingUser = await UserModel.findOne({
       $or: [{ email: req.body.email }, { phoneNumber: req.body.phoneNumber }],

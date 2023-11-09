@@ -143,182 +143,183 @@
     <section class="pt-140 get-touch-area mt-50 user user">
       <div class="container">
         <div class="wrapper">
-          <div id="content">
-            <!-- dashboard -->
-            < <div class="content-section active dashboard" id="dashboard">
-              <!-- Loan Message -->
-              <% if (userData?.applicationStatus==='Approved' ) { %>
+          
+        <div id="content  mt-50 mb-50">  
+          <!-- dashboard -->          
+          <div class="content-section active dashboard" id="dashboard">
+            <!-- Loan Message -->
+            <% if (userData?.applicationStatus==='Approved' ) { %>
+              <div class="status text-center p-3 border border-primary">
+                <div class="alert alert-success" role="alert">
+                  Congratulations, your loan is approved!
+                </div>
+              </div>
+              <% } else if (userData?.applicationStatus==='Rejected' ) { %>
                 <div class="status text-center p-3 border border-primary">
-                  <div class="alert alert-success" role="alert">
-                    Congratulations, your loan is approved!
+                  <div class="alert alert-danger" role="alert">
+                    Sorry, your loan application has been rejected.
                   </div>
                 </div>
-                <% } else if (userData?.applicationStatus==='Rejected' ) { %>
+                <% } else { %>
                   <div class="status text-center p-3 border border-primary">
-                    <div class="alert alert-danger" role="alert">
-                      Sorry, your loan application has been rejected.
+                    <div class="alert alert-info" role="alert">
+                      Your loan application is pending review. Please wait for further updates.
                     </div>
                   </div>
-                  <% } else { %>
-                    <div class="status text-center p-3 border border-primary">
-                      <div class="alert alert-info" role="alert">
-                        Your loan application is pending review. Please wait for further updates.
+
+                  <% } %>
+
+                    <div class="row my-5">
+                      <div class="col-lg-6 col-md-12">
+                        <div class="loan-details-widget">
+                          <!-- Personal Details -->
+                          <div class="personal-details">
+                            <div class="row mb-2">
+                              <div class="col">
+                                <label for="username" class="form-label">Full Name</label>
+                                <div type="text" class="form-control d-flex align-items-center" id="username">
+                                  <%= `${userData?.personalDetails?.firstName}
+                                    ${userData?.personalDetails?.lastName}`%>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row mb-2">
+                              <div class="col-md-6">
+                                <label for="contact" class="form-label">Contact</label>
+                                <div type="text" class="form-control d-flex align-items-center" id="username">
+                                  +91 <%= userData?.personalDetails?.mobileNumber %>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <label for="contact" class="form-label">DOB</label>
+                                <div class="form-control d-flex align-items-center" id="username">
+                                  <%= userData?.personalDetails?.dateOfBirth %>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <label for="inputLabel3" class="form-label">Email Address</label>
+                              <div class="input-group">
+                                <div class="form-control d-flex align-items-center" id="email">
+                                  <%= userData?.personalDetails?.email %>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row mb-2">
+                              <div class="col">
+                                <label for="email" class="form-label">Permanent Address</label>
+                                <div type="text" class="form-control d-flex align-items-center" id="username">
+                                  <%= userData?.personalDetails?.presentAddress %>
+                                </div>
+
+                              </div>
+                            </div>
+                            <div class="row mb-2">
+                              <div class="col">
+                                <label for="email" class="form-label"> City</label>
+                                <div type="text" class="form-control d-flex align-items-center" id="username">
+                                  <%= `${userData?.personalDetails?.city}, ${userData?.personalDetails?.zipCode}`%>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                        <div class="user-loan-details">
+                          <!-- Loan details -->
+                          <div class="loan-details">
+                            <div class="row mb-35 gy-4">
+                              <h2 class="text-center">
+                                <%= userData?.loanDetails?.['select-loan-type'] %>
+                              </h2>
+
+                            </div>
+                            <div class="row gy-4">
+                              <div class="col-md-6">
+                                <div class="label" for="loan-amount">
+                                  Financing Type
+                                </div>
+
+                                <div class="input-field">
+                                  <div id="loan-amount"
+                                    class="form-control d-flex align-items-center justify-content-between">
+                                    <%= userData?.loanDetails?.financingType %>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="label" for="loan-amount">
+                                  Bank Service
+                                </div>
+
+                                <div class="input-field">
+                                  <div id="loan-amount"
+                                    class="form-control d-flex align-items-center justify-content-between">
+                                    <%= userData?.loanDetails?.bankService %>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="label" for="loan-amount">
+                                  loan amount
+                                </div>
+
+                                <div class="input-field">
+                                  <div id="loan-amount"
+                                    class="form-control d-flex align-items-center justify-content-between">
+                                    ₹ <%= userData?.loanDetails?.loanAmount %>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <label class="label ">Loan duration</label>
+                                <p style="font-weight: 700;">
+                                  <%= userData?.loanDetails?.tenureDuration %>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-
-                    <% } %>
-
-                      <div class="row my-5">
-                        <div class="col-lg-6 col-md-12">
-                          <div class="loan-details-widget">
-                            <!-- Personal Details -->
-                            <div class="personal-details">
-                              <div class="row mb-2">
-                                <div class="col">
-                                  <label for="username" class="form-label">Full Name</label>
-                                  <div type="text" class="form-control d-flex align-items-center" id="username">
-                                    <%= `${userData?.personalDetails?.firstName}
-                                      ${userData?.personalDetails?.lastName}`%>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="row mb-2">
-                                <div class="col-md-6">
-                                  <label for="contact" class="form-label">Contact</label>
-                                  <div type="text" class="form-control d-flex align-items-center" id="username">
-                                    +91 <%= userData?.personalDetails?.mobileNumber %>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <label for="contact" class="form-label">DOB</label>
-                                  <div class="form-control d-flex align-items-center" id="username">
-                                    <%= userData?.personalDetails?.dateOfBirth %>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row mb-2">
-                                <label for="inputLabel3" class="form-label">Email Address</label>
-                                <div class="input-group">
-                                  <div class="form-control d-flex align-items-center" id="email">
-                                    <%= userData?.personalDetails?.email %>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="row mb-2">
-                                <div class="col">
-                                  <label for="email" class="form-label">Permanent Address</label>
-                                  <div type="text" class="form-control d-flex align-items-center" id="username">
-                                    <%= userData?.personalDetails?.presentAddress %>
-                                  </div>
-
-                                </div>
-                              </div>
-                              <div class="row mb-2">
-                                <div class="col">
-                                  <label for="email" class="form-label"> City</label>
-                                  <div type="text" class="form-control d-flex align-items-center" id="username">
-                                    <%= `${userData?.personalDetails?.city}, ${userData?.personalDetails?.zipCode}`%>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                    <!-- Loan Calculation -->
+                    <div class="border border-light p-5 w-full">
+                      <div class="d-flex flex-column gap-3">
+                        <div class="d-flex gap-3 align-items-center">
+                          <span>
+                            <h5 class="">Loan Amount</h5>
+                          </span>
+                          <span>₹ <%= userData?.loanDetails?.loanAmount %></span>
                         </div>
-                        <div class="col-lg-6 col-md-12">
-                          <div class="user-loan-details">
-                            <!-- Loan details -->
-                            <div class="loan-details">
-                              <div class="row mb-35 gy-4">
-                                <h2 class="text-center">
-                                  <%= userData?.loanDetails?.['select-loan-type'] %>
-                                </h2>
-
-                              </div>
-                              <div class="row gy-4">
-                                <div class="col-md-6">
-                                  <div class="label" for="loan-amount">
-                                    Financing Type
-                                  </div>
-
-                                  <div class="input-field">
-                                    <div id="loan-amount"
-                                      class="form-control d-flex align-items-center justify-content-between">
-                                      <%= userData?.loanDetails?.financingType %>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="label" for="loan-amount">
-                                    Bank Service
-                                  </div>
-
-                                  <div class="input-field">
-                                    <div id="loan-amount"
-                                      class="form-control d-flex align-items-center justify-content-between">
-                                      <%= userData?.loanDetails?.bankService %>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-6">
-                                  <div class="label" for="loan-amount">
-                                    loan amount
-                                  </div>
-
-                                  <div class="input-field">
-                                    <div id="loan-amount"
-                                      class="form-control d-flex align-items-center justify-content-between">
-                                      ₹ <%= userData?.loanDetails?.loanAmount %>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-md-12">
-                                  <label class="label ">Loan duration</label>
-                                  <p style="font-weight: 700;">
-                                    <%= userData?.loanDetails?.tenureDuration %>
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="d-flex gap-3 align-items-center">
+                          <span>
+                            <h5 class="">EMI Amount</h5>
+                          </span>
+                          <span>
+                            ₹ <%= emi ? emi : "Na" %>
+                          </span>
+                        </div>
+                        <div class="d-flex gap-3 align-items-center">
+                          <span>
+                            <h5 class="">Loan Status</h5>
+                          </span>
+                          <span><button class="btn btn-success " disabled>
+                              <%= userData?.ApplicationStatus %>
+                            </button></span>
                         </div>
                       </div>
-                      <!-- Loan Calculation -->
-                      <div class="border border-light p-5 w-full">
-                        <div class="d-flex flex-column gap-3">
-                          <div class="d-flex gap-3 align-items-center">
-                            <span>
-                              <h5 class="">Loan Amount</h5>
-                            </span>
-                            <span>₹ <%= userData?.loanDetails?.loanAmount %></span>
-                          </div>
-                          <div class="d-flex gap-3 align-items-center">
-                            <span>
-                              <h5 class="">EMI Amount</h5>
-                            </span>
-                            <span>
-                              ₹ <%= emi ? emi : "Na" %>
-                            </span>
-                          </div>
-                          <div class="d-flex gap-3 align-items-center">
-                            <span>
-                              <h5 class="">Loan Status</h5>
-                            </span>
-                            <span><button class="btn btn-success " disabled>
-                                <%= userData?.ApplicationStatus %>
-                              </button></span>
-                          </div>
-                        </div>
-                      </div>
+                    </div>
           </div>
 
           <!-- Documents -->
-          <div class="content-section document " id="document">
-            <div class="d-flex justify-content-between">
+          <div class="content-section document mt-50 mb-50" id="document">
+            <div class="d-flex justify-content-between mt-50 mb-50">
               <h2>Document</h2>
             </div>
-            <div class="d-flex flex-wrap gap-5">
+            <div class="d-flex flex-wrap gap-5 ">
               <!-- Document Item  -->
               <% userData?.documentUploads?.forEach(element=> { %>
                 <div class="item">
@@ -336,7 +337,7 @@
                   <!-- upload document form  -->
                   <div class="">
                     <form action="/document-upload" id="doc-form-upload" method="post" enctype="multipart/form-data">
-                      <div class="mb-3">
+                      <div class="mb-3 d-flex justify-content-center">
                         <input id="upload-doc" name="Documents" type="file" style="display: none;">
                         <label for="upload-doc" style="height: 100px; width: 100px;cursor: pointer;"
                           class="obejct-fit-cover border border-light rounded d-flex justify-content-center align-items-center">
@@ -356,7 +357,7 @@
           </div>
 
           <!-- Notifications -->
-          <div class="content-section notification" id="notification">
+          <div class="content-section notification mt-50 mb-50" id="notification">
             <h2 class="text-center mt-50 mb-50">Notifications</h2>
             <div class="d-flex flex-column gap-10">
               <!-- Single Notification -->
@@ -460,17 +461,19 @@
           <div class="col-lg-3 text-center text-lg-start">
             <a href="index.html" class="p-0 m-0"><img src="img/Vinayak/17.png" height="100px" alt="logo" /></a>
           </div>
-          <div class="col-lg-5 text-center my-3 my-sm-0">
+          <div class="col-lg-6 text-center my-3 my-sm-0">
             <div class="copyright-text">
-              <p>
-                Copyright &copy; 2023 Vinayak Finmart Pvt Ltd
-                <br class="d-sm-none" />
-                <a class="ms-2" href="#">Privacy</a> |
-                <a class="ms-0" href="#">Terms of Use</a>
-              </p>
+              <div class="d-flex gap-3">
+                <div>Copyright &copy; 2023</div>
+                <div class="border "></div>
+                <div>Vinayak Finmart Pvt. Ltd</div>
+                <div class="border "></div>
+                <div>Privacy Terms of Use</div>
+
+              </div>
             </div>
           </div>
-          <div class="col-lg-4 text-center text-lg-end">
+          <div class="col-lg-3 text-center text-lg-end">
             <div class="social-button">
               <a href="#"><i class="fab fa-facebook-f"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>

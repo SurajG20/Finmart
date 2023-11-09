@@ -117,93 +117,146 @@
         </div>
       </div>
       <div class="header-menu header-menu-2 bg_white" id="sticky">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <a class="navbar-brand" href="/">
-            <img src="img/Vinayak/7.png" height="100px" srcset="img/Vinayak/7.png 2x" alt="Vinayak-Image" />
-          </a>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="menu_toggle">
-              <span class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <a class="navbar-brand" href="/">
+              <img
+                src="img/Vinayak/7.png"
+                height="100px"
+                srcset="img/Vinayak/7.png 2x"
+                alt="Vinayak-Image"
+              />
+            </a>
+            <button
+              class="navbar-toggler collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="menu_toggle">
+                <span class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+                <span class="hamburger-cross">
+                  <span></span>
+                  <span></span>
+                </span>
               </span>
-              <span class="hamburger-cross">
-                <span></span>
-                <span></span>
-              </span>
-            </span>
-          </button>
+            </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav menu ms-auto">
-              <li class="nav-item dropdown submenu">
-                <a href="/" class="nav-link dropdown-toggle " role="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">Home</a>
-              </li>
-              <li class="nav-item dropdown submenu">
-                <a class="nav-link dropdown-toggle active" href="/about" role="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  About Us
-                </a>
-              </li>
-              <li class="nav-item dropdown submenu">
-                <a class="nav-link dropdown-toggle" href="/loan" role="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Loan
-                </a>
-              </li>
-              <li class="nav-item dropdown submenu">
-                <a class="nav-link dropdown-toggle" href="/job-post" role="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Jobs
-                </a>
-              </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav menu ms-auto">
+                <li class="nav-item dropdown submenu">
+                  <a
+                    href="/"
+                    class="nav-link dropdown-toggle"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item dropdown submenu">
+                  <a
+                    class="nav-link dropdown-toggle active"
+                    href="/about"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li class="nav-item dropdown submenu">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="/loan"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Loan
+                  </a>
+                </li>
+                <li class="nav-item dropdown submenu">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="/job-post"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Jobs
+                  </a>
+                </li>
 
-              <li class="nav-item dropdown submenu">
-                <a class="nav-link dropdown-toggle" href="/contact" role="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Contact Us
-                </a>
-              </li>
-              <li class="nav-item dropdown submenu">
-                <a class="nav-link dropdown-toggle" href="/blog" role="button" data-bs-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  Blog
-                </a>
-              </li>
-            </ul>
-            <!-- dashboard button -->
-            <% if (user && user?.isAdmin) { %>
+                <li class="nav-item dropdown submenu">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="/contact"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+                <li class="nav-item dropdown submenu">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="/blog"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Blog
+                  </a>
+                </li>
+              </ul>
+              <!-- dashboard button -->
+              <% if (user && user?.isAdmin) { %>
               <a class="theme-btn theme-btn-outlined" href="/admin">
                 Dashboard
               </a>
               <% } else if (user && !user?.isAdmin){ %>
-                <a class="theme-btn theme-btn-outlined" href="/user">
-                  Dashboard
-                </a>
-                <% } else{ %>
-                  <a class="theme-btn theme-btn-outlined" href="/login">
-                    Dashboard
-                  </a>
-                  <% } %>
-                    <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
-                      <label for="something" class="tab-btn tab-btns">
-                        <ion-icon name="moon"></ion-icon>
-                      </label>
-                      <label for="something" class="tab-btn">
-                        <ion-icon name="sunny"></ion-icon>
-                      </label>
-                      <label class="ball" for="something"></label>
-                      <input type="checkbox" name="something" id="something" class="dark_mode_switcher" />
-                    </div>
+              <a class="theme-btn theme-btn-outlined" href="/user">
+                Dashboard
+              </a>
+              <% } else{ %>
+              <a class="theme-btn theme-btn-outlined" href="/login">
+                Dashboard
+              </a>
+              <% } %>
+              <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
+                <label for="something" class="tab-btn tab-btns">
+                  <ion-icon name="moon"></ion-icon>
+                </label>
+                <label for="something" class="tab-btn">
+                  <ion-icon name="sunny"></ion-icon>
+                </label>
+                <label class="ball" for="something"></label>
+                <input
+                  type="checkbox"
+                  name="something"
+                  id="something"
+                  class="dark_mode_switcher"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
     </header>
     <!-- Header end-->
 
@@ -211,15 +264,24 @@
       <!-- Banner start -->
       <section
         class="banner-area-2 pt-145"
-        style="background-size:cover;background-position: center; background-image: url(https://media.istockphoto.com/id/1425429861/photo/contact-us-customer-support-inquiry-hotline-concept-contact-us-hand-of-businessman-holding.jpg?s=612x612&w=0&k=20&c=eWqbbmo8fK35lq5IaBMBd-3NOWTBZpO-3nYfvNga2F0=)"
+        style="
+          background-size: cover;
+          background-position: center;
+          background-image: url(https://media.istockphoto.com/id/1425429861/photo/contact-us-customer-support-inquiry-hotline-concept-contact-us-hand-of-businessman-holding.jpg?s=612x612&w=0&k=20&c=eWqbbmo8fK35lq5IaBMBd-3NOWTBZpO-3nYfvNga2F0=);
+        "
       >
         <div class="container">
           <div class="row align-items-center pt-130 pb-140">
             <div class="col-xl-6 col-lg-8">
               <div class="banner-content py-5">
                 <div class="section-title text-start">
-                  <span class="short-title wow fadeInUp text-primary fs-lg">ABOUT US</span>
-                  <h1 class="wow fadeInUp mb-0 text-light" data-wow-delay="0.2s">
+                  <span class="short-title wow fadeInUp text-primary fs-lg"
+                    >ABOUT US</span
+                  >
+                  <h1
+                    class="wow fadeInUp mb-0 text-light"
+                    data-wow-delay="0.2s"
+                  >
                     Believing, banking and achieving different
                   </h1>
                 </div>
@@ -228,8 +290,8 @@
                   data-wow-delay="0.4s"
                   href="#"
                 >
-                  <span class="arrow" >
-                    <span class="horizontal-line"></span> </span 
+                  <span class="arrow">
+                    <span class="horizontal-line"></span> </span
                   >View our 2019 Annual Report
                 </a>
               </div>
@@ -849,17 +911,18 @@
                 ><img src="img/Vinayak/17.png" height="100px" alt="logo"
               /></a>
             </div>
-            <div class="col-lg-5 text-center my-3 my-sm-0">
+            <div class="col-lg-6 text-center my-3 my-sm-0">
               <div class="copyright-text">
-                <p>
-                  Copyright &copy; 2023 Vinayak Finmart Pvt Ltd
-                  <br class="d-sm-none" />
-                  <a class="ms-2" href="#">Privacy</a> |
-                  <a class="ms-0" href="#">Terms of Use</a>
-                </p>
+                <div class="d-flex gap-3">
+                  <div>Copyright &copy; 2023</div>
+                  <div class="border"></div>
+                  <div>Vinayak Finmart Pvt. Ltd</div>
+                  <div class="border"></div>
+                  <div>Privacy Terms of Use</div>
+                </div>
               </div>
             </div>
-            <div class="col-lg-4 text-center text-lg-end">
+            <div class="col-lg-3 text-center text-lg-end">
               <div class="social-button">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>

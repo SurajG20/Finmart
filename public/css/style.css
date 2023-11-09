@@ -12031,7 +12031,7 @@ body.body_dark .banner-saas-area {
   background: var(--sec-bg-color) !important;
 }
 
-body.body_dark .banner-area-2,
+/* body.body_dark .banner-area-2, */
 body.body_dark .loan-slider .single-slide,
 body.body_dark .loan-slider .slick-arrow {
   background-image: linear-gradient(180deg,
@@ -12648,6 +12648,7 @@ body {
 /* .feedback-form */
 
 .feedback-form {
+  height: 100%;
   border: 1px solid white;
   border-radius: 10px;
   padding: 20px;
