@@ -51,3 +51,17 @@ module.exports.Logout = (req, res) => {
     res.redirect('/');
   });
 };
+
+module.exports.GoogleCallback = (req, res) => {
+  passport.authenticate('google', { failureRedirect: '/login' })(
+    req,
+    res,
+    () => {
+      res.redirect('/');
+    }
+  );
+};
+
+module.exports.GoogleLogin = passport.authenticate('google', {
+  scope: ['profile', 'email'],
+});

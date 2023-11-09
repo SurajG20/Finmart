@@ -23,7 +23,13 @@ const {
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
 // const { Login, Register, Logout } = require('../controllers/oldUser');
-const { Login, Register,Logout } = require('../controllers/User');
+const {
+  Login,
+  Register,
+  Logout,
+  GoogleLogin,
+  GoogleCallback,
+} = require('../controllers/User');
 const passport = require('passport');
 const multer = require('multer');
 const { storage } = require('../cloudinary/index');
@@ -36,6 +42,9 @@ router.route('/login').get(login);
 router.route('/login').post(Login);
 router.route('/register').post(Register);
 router.route('/logout').get(Logout);
+
+router.route('/auth/google').get(GoogleLogin);
+router.route('/google/callback').get(GoogleCallback);
 
 router.route('/register').get(register);
 router.route('/user').get(isLoggedIn, user);

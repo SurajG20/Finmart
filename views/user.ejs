@@ -147,13 +147,13 @@
             <!-- dashboard -->
             < <div class="content-section active dashboard" id="dashboard">
               <!-- Loan Message -->
-              <% if (userData.applicationStatus==='Approved' ) { %>
+              <% if (userData?.applicationStatus==='Approved' ) { %>
                 <div class="status text-center p-3 border border-primary">
                   <div class="alert alert-success" role="alert">
                     Congratulations, your loan is approved!
                   </div>
                 </div>
-                <% } else if (userData.applicationStatus==='Rejected' ) { %>
+                <% } else if (userData?.applicationStatus==='Rejected' ) { %>
                   <div class="status text-center p-3 border border-primary">
                     <div class="alert alert-danger" role="alert">
                       Sorry, your loan application has been rejected.

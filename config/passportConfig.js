@@ -1,6 +1,7 @@
 const UserModel = require('../models/User');
 const bcrypt = require('bcrypt');
 const localStrategy = require('passport-local').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 module.exports = function (passport) {
   passport.use(
@@ -30,6 +31,37 @@ module.exports = function (passport) {
     })
   );
 
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: 'http://localhost:8000/google/callback',
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        console.log(profile);
+        try {
+          let user = await UserModel.findOne({ googleId: profile.id });
+
+          if (!user) {
+            const newUser = new UserModel({
+              username: profile.displayName,
+              email: profile.emails[0].value,
+              phoneNumber: '',
+              googleId: profile.id,
+            });
+
+            user = await newUser.save();
+          }
+          console.log(user);
+          return done(null, user);
+        } catch (err) {
+          return done(err);
+        }
+      }
+    )
+  );
+
   passport.serializeUser((user, cb) => {
     cb(null, user);
   });
@@ -38,10 +70,9 @@ module.exports = function (passport) {
     try {
       const user = await UserModel.findOne({ _id: id });
       if (!user) {
-        return cb(null, null); // User not found
+        return cb(null, null);
       }
-
-      cb(null, user); // Pass the entire user object
+      cb(null, user);
     } catch (err) {
       return cb(err);
     }

@@ -29,6 +29,7 @@ module.exports.home = async (req, res) => {
   const user = req.session?.passport?.user;
   const frequently = await Frequently.find();
   const feedbacks = await Feedback.find();
+  console.log(req.session);
   res.render('index', { blogs, frequently, feedbacks, user });
 };
 
@@ -99,7 +100,7 @@ module.exports.blog = async (req, res) => {
 // contact page
 module.exports.contact = async (req, res) => {
   const frequently = await Frequently.find();
- const user = req.session?.passport?.user;
+  const user = req.session?.passport?.user;
   res.render('contact', { frequently, user });
 };
 
@@ -169,17 +170,18 @@ module.exports.errorPage = (req, res) => {
 // Handle submission of loan details form
 
 module.exports.renderLoanDetails = async (req, res) => {
-const user = req.session?.passport?.user;
+  const user = req.session?.passport?.user;
   res.render('loan-details', { user });
 };
 
 module.exports.renderPersonalDetails = async (req, res) => {
   const user = req.session?.passport?.user;
+  console.log(user);
   res.render('personal-details', { user });
 };
 
 module.exports.renderDocumentUpload = async (req, res) => {
- const user = req.session?.passport?.user;
+  const user = req.session?.passport?.user;
   res.render('document-upload', { user });
 };
 
