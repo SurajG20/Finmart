@@ -167,7 +167,6 @@ module.exports.errorPage = (req, res) => {
 module.exports.renderLoanDetails = async (req, res) => {
   const user = req.session?.passport?.user;
   const loans = await Loans.find();
-  console.log(loans);
   res.render('loan-details', { user, loans });
 };
 
@@ -187,7 +186,6 @@ module.exports.renderDocumentUpload = async (req, res) => {
     ? documentsRequired.documents.split(',').map((item) => item.trim())
     : [];
 
-  console.log(documentArray);
   res.render('document-upload', { user, documentArray });
 };
 

@@ -32,7 +32,6 @@ module.exports.admin = async (req, res) => {
   const allUsersDetails = await CombinedDetails.find({});
   const allUsers = await User.find({ isAdmin: false });
   const faqs = await Frequently.find();
-  console.log(allUsers);
   res.render('admin', {
     user,
     allFeedback,
@@ -75,13 +74,11 @@ module.exports.updateStatus = async (req, res) => {
     }
     res.redirect('/admin/user-details/' + singleUserId);
   } catch (error) {
-    console.error(error);
     res.status(500).send('Internal Server Error');
   }
 };
 module.exports.deleteFeedback = async (req, res) => {
   const { feedbackId } = req.params;
-  console.log(feedbackId);
   await Feedback.findByIdAndRemove(feedbackId);
   res.redirect('/admin');
 };
