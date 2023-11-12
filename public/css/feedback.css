@@ -20,8 +20,8 @@
 
 /* Styles for .popup-container */
 .lightbox .popup-container {
-    height:100%;
-    width: 600px;
+    height:min-content;
+    width: 500px;
     border: 1px solid black;
     background-color: white;
     position: absolute;
@@ -31,6 +31,24 @@
     z-index: 2;
 }
 
+
+@media(max-width: 596px) {
+    .lightbox .popup-container {
+        height: min-content;
+        width: 90%;
+        border: 1px solid black;
+        background-color: white;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+    
+}
+
+
+
 /* Styles for h3 and p inside .popup-container */
 .lightbox .popup-container h3,
 .lightbox .popup-container p {
@@ -39,7 +57,7 @@
 }
 
 /* Styles for .close-btn inside .popup-container */
-.lightbox .popup-container .close-btn {
+/* .lightbox .popup-container .close-btn {
     transition: background-color 0.2s ease;
     background-color: var(--medium-green);
     border-color: var(--medium-green);
@@ -51,7 +69,7 @@
         background-color: var(--dark-green);
         border-color: var(--dark-green);
     }
-}
+} */
 
 
 

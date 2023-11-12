@@ -668,11 +668,243 @@ nav .profile-details i {
 }
 
 
+.notification-form-widget{
+    margin: 1.5rem auto ;
+    border: 1px solid lightgray ;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.notification-form-widget label {
+    font-size: 16px;
+    color: var(--secondary_color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.notification-form-widget .form-control {
+    background-color: transparent;
+    height: 45px;
+    color: #9199a1;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--black_50);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.notification-form-widget .form-control::placeholder {
+    color: #9199a1;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.notification-form-widget .form-control:focus {
+    border-color: var(--brand_color);
+    box-shadow: none;
+}
+
+.notification-form-widget textarea.form-control {
+    height: inherit;
+}
+
+.notification-form-widget .policy-text {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--p_color);
+    line-height: 22px;
+}
+
+/* Notification css end  */
+
+/* Job section css end  */
+/* job section css start  */
+.job-form-widget{
+    margin: 1.5rem auto ;
+    border: 1px solid lightgray ;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.job-form-widget label {
+    font-size: 16px;
+    color: var(--secondary_color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.job-form-widget .form-control {
+    background-color: transparent;
+    height: 45px;
+    color: #9199a1;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--black_50);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.job-form-widget .form-control::placeholder {
+    color: #9199a1;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.job-form-widget .form-control:focus {
+    border-color: var(--brand_color);
+    box-shadow: none;
+}
+
+.job-form-widget textarea.form-control {
+    height: inherit;
+}
+
+.job-form-widget .policy-text {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--p_color);
+    line-height: 22px;
+}
 
 
-/* Notication section css End */
+
+/* Job section css end  */
+
+/* blog section start  */
+
+/* blog form  Admin  */
+
+.blog-form-widget{
+    margin: 1.5rem auto ;
+    border: 1px solid lightgray ;
+    border-radius: 10px;
+    padding: 25px;
+}
 
 
+
+
+.blog-form-widget label {
+    font-size: 16px;
+    color: var(--secondary_color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.blog-form-widget .form-control {
+    background-color: transparent;
+    height: 45px;
+    color: #9199a1;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--black_50);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.blog-form-widget .form-control::placeholder {
+    color: #9199a1;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.blog-form-widget .form-control:focus {
+    border-color: var(--brand_color);
+    box-shadow: none;
+}
+
+.blog-form-widget textarea.form-control {
+    height: inherit;
+}
+
+.blog-form-widget .policy-text {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--p_color);
+    line-height: 22px;
+}
+
+.blog-form-widget .blog-img-uploader {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Faqs form  Admin  */
+
+.faqs-form-widget{
+    margin: 1.5rem auto ;
+    border: 1px solid lightgray ;
+    border-radius: 10px;
+    padding: 25px;
+}
+
+
+
+
+.faqs-form-widget label {
+    font-size: 16px;
+    color: var(--secondary_color);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.faqs-form-widget .form-control {
+    background-color: transparent;
+    height: 45px;
+    color: #9199a1;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    border: 1px solid var(--black_50);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.faqs-form-widget .form-control::placeholder {
+    color: #9199a1;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.faqs-form-widget .form-control:focus {
+    border-color: var(--brand_color);
+    box-shadow: none;
+}
+
+.faqs-form-widget textarea.form-control {
+    height: inherit;
+}
+
+.faqs-form-widget .policy-text {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: var(--p_color);
+    line-height: 22px;
+}
+
+
+
+/* blog section end  */
 
 
 
