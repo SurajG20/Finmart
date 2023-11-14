@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const Feedback = require('../models/Feedback');
+const Contact = require('../models/ContactUs');
 const Blogs = require('../models/Blogs');
 const Loans = require('../models/LoanType');
 const Frequently = require('../models/Frequently');
@@ -32,6 +33,8 @@ module.exports.admin = async (req, res) => {
   const allUsersDetails = await CombinedDetails.find({});
   const allUsers = await User.find({ isAdmin: false });
   const faqs = await Frequently.find();
+  const contacts = await Contact.find();
+  console.log(contacts)
   res.render('admin', {
     user,
     allFeedback,
@@ -42,6 +45,7 @@ module.exports.admin = async (req, res) => {
     allUsersDetails,
     loans,
     allUsers,
+    contacts,
   });
 };
 // delete feedback
