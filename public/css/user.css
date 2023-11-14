@@ -15,6 +15,7 @@
     border-radius: 10px;
     padding-bottom: 100px;
     background: var(--bs-white);
+    height: 100%;
 }
 
 .user-loan-details .select-loan-type-radio {
@@ -159,12 +160,12 @@
 }
 
 .user-loan-details .dob .nice-select {
-    margin-right: 15px;
+    margin-right: 0.9375rem;
     width: 100%;
 }
 
 .user-loan-details .dob .nice-select .list {
-    max-height: 350px;
+    max-height: 21.875rem;
     overflow-y: scroll;
     scrollbar-color: rgba(222, 222, 222, 0.9058823529) rgba(241, 241, 241, 0.8549019608);
     scrollbar-width: thin;
@@ -213,18 +214,73 @@
 
 .user-loan-details .doc-info span {
     display: inline-block;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: var(--secondary_color);
-    margin-right: 15px;
+    margin-right: 0.9375rem;
 }
 
 .user-loan-details .doc-info p {
     display: inline-block;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     color: var(--p_color);
+}
+
+
+
+.user-loan-calculator {
+    padding: 50px 53px;
+    box-shadow: var(--theme-dropshadow);
+    border-radius: 10px;
+    padding-bottom: 100px;
+    background: var(--bs-white);
+    /* margin: 6.25rem 0px; */
+}
+
+
+/* Logout button section  */
+
+.user .frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.user .frame button {
+    margin: 20px;
+}
+
+.user .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
+}
+
+/* 1 */
+.user .btn-1 {
+    background: rgb(6, 14, 131);
+    background: linear-gradient(0deg, rgba(6, 14, 131, 1) 0%, rgba(12, 25, 180, 1) 100%);
+    border: none;
+}
+
+.user .btn-1:hover {
+    background: rgb(0, 3, 255);
+    background: linear-gradient(0deg, rgba(0, 3, 255, 1) 0%, rgba(2, 126, 251, 1) 100%);
 }

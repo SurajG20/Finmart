@@ -1064,7 +1064,7 @@
                 </div>
 
                 <h6 class="more-contact">
-                  Have more question ? <a href="/contact.html">Contact Us</a>
+                  Have more question ? <a href="/contact">Contact Us</a>
                 </h6>
               </div>
             </div>
@@ -1089,25 +1089,23 @@
               Testimonials Unleashed: Hear Our Customers Speak.
             </p>
           </div>
+
           <div class="client-slider-2">
             <% feedbacks.forEach((feedback, index)=> { %>
             <div
               class="single-client wow fadeInUp"
               data-wow-delay="<%= (index % 3) * 0.2 %>s"
             >
-              <div class="rating">
+              <!-- star section  To be added later -->
+              <!-- <div class="rating">
                 <% for (let i=0; i < 5; i++) { %>
                 <a href="#"><i class="icon_star"></i></a>
                 <% } %>
-              </div>
+              </div> -->
               <p class="quote"><%= feedback.message %></p>
 
               <div class="client-info">
-                <img
-                  class="img-fluid rounded-circle"
-                  src="img/home-4/client-rev-2.png"
-                  alt="client-Image"
-                />
+              
 
                 <div>
                   <p><%= feedback.fullname %></p>
@@ -1119,7 +1117,7 @@
           </div>
 
           <!-- pop-up html code -->
-          <div class="lightbox" id="lightbox">
+          <div class="lightbox " id="lightbox">
             <div class="popup-container ">
               <div class="text-dark d-flex justify-content-end">
                 <button type="button" class="close close-btn border border-secondary p-1" aria-label="Close">
@@ -1127,7 +1125,7 @@
                 </button>
               </div>
 
-              <form id="feedback-form" class="feedback-form-widget">
+              <form id="feedback-form" onsubmit="reloadPage()" class="feedback-form-widget">
                 <h3 class="text-dark">Feedback Form</h3>
                 <div class="row">
                   <div class="col-md-6 feedback-field">
@@ -1153,11 +1151,12 @@
                     />
                   </div>
                   <div class="col-md-12 mt-md-0 feedback-field">
-                    <label for="subject">Subject</label>
+                    <label for="subject">Subject(50 Character Max)</label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
+                      maxlength="50"
                       class="form-control"
                       placeholder="Enter Subject"
                       required
@@ -1187,7 +1186,10 @@
               </form>
             </div>
           </div>
+          <!-- pop-up feedback code -->
+          <div class=" d-flex justify-content-center m-5 ">
           <button class="pop-btn btn btn-primary">Add Feedback</button>
+          </div>
         </div>
       </section>
       <!-- what client says section end -->

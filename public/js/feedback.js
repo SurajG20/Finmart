@@ -17,3 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
     lightbox.style.display = "none";
   });
 });
+
+
+  function reloadPage() {
+    // This function is called when the form is submitted
+    // You can add any additional processing here if needed
+
+    // Reload the page
+    location.reload();
+  }
+
+
