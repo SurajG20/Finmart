@@ -12303,13 +12303,15 @@ body {
 }
 
 .partners .slide {
+  font-family: Roboto, sans-serif;
   height: 100px;
   width: 250px;
   object-fit: cover;
-}
-.partners .slide img{
-  height: 100%;
   width: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
 }
 
 /* login form  csss */

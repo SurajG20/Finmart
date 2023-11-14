@@ -106,6 +106,13 @@
               <span class="links_name">FAQs</span>
             </a>
           </li>
+          <!-- Contact -->
+          <li>
+            <a href="#contact">
+              <i class="bx bx-message"></i>
+              <span class="links_name">Contact</span>
+            </a>
+          </li>
           <!-- Setting  -->
           <li>
             <a href="#setting">
@@ -148,7 +155,7 @@
         <div class="sales-boxes">
           <div class="recent-sales box">
             <div class="sales-details d-block">
-              <!-- Home Dashboard -->
+              <!-- Home Dashboard section-->
               <div class="content-section active container-fluid dashboard" id="dashboard">
                 <div
                   class="dx-viewport demo-container content-section active my-2 d-flex justify-content-between align-items-center gap-3"
@@ -204,7 +211,7 @@
                 </table>
               </div>
 
-              <!-- Notification -->
+              <!-- Notification section-->
               <div class="content-section notification" id="notification">
                 <div class="d-flex justify-content-between">
                   <h2 class="">Notification</h2>
@@ -271,9 +278,10 @@
                     <!-- <form id="notification_form" action=""> -->
                     <div class="d-flex flex-column " style="overflow-y: scroll">
                       <% allUsers.forEach(user=> { %>
-                        <h3>
+                    
+                        <h5>
                           <%= user.username %>
-                        </h3>
+                        </h5>
                         <% user.notifications.forEach(notification=> { %>
                           <div class="p-3 rounded text-sm d-flex justify-content-between mb-2" style=" background-color:
                             lightgray; height: min-content; ">
@@ -281,7 +289,9 @@
                               <p class=" fw-bold ">
                                 <%= notification.title %>
                               </p>
-                              <%= notification.message %>
+                              <p class="fs">
+                                <%= notification.message %>
+                              </p>
                             </div>
                             <form action=" /admin/delete-notificationAdmin/<%=notification._id %>/delete?_method=DELETE"
                               method="post">
@@ -291,7 +301,8 @@
                             </form>
                           </div>
                           <% }) %>
-                            <% }) %>
+                        <% }) %>
+                     
                     </div>
 
                     <!-- </form> -->
@@ -299,7 +310,7 @@
                 </div>
               </div>
 
-              <!-- Jobs -->
+              <!-- Jobs section-->
               <div class="content-section job container-fluid" id="job">
                 <!-- Job navbar section -->
                 <div class="d-flex justify-content-between">
@@ -523,7 +534,7 @@
                 </div>
               </div>
 
-              <!-- Blogs  -->
+              <!-- Blogs section -->
               <div class="content-section blog container-fluid" id="blog">
                 <!-- Blog navbar section -->
 
@@ -647,7 +658,7 @@
                 </div>
               </div>
 
-              <!-- Subscriber -->
+              <!-- Subscriber section-->
               <div class="content-section subscriber" id="subscriber">
                 <table class="table align-middle mb-0 bg-white">
                   <thead class="bg-light">
@@ -687,7 +698,64 @@
                 </table>
               </div>
 
-              <!-- feedback -->
+              <!-- contact section -->
+              <div class="content-section contact" id="contact">
+                <table class="table align-middle mb-0 bg-white">
+                  <thead class="bg-light">
+                    <tr class="row">
+                      <th class="col-2">UserName</th>
+                      <th class="col-2">Email</th>
+                      <th class="col-2">Contact</th>
+                      <th class="col-2">Date</th>
+                      <th class="col-2">Message</th>
+                      <th class="col-2">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+              
+
+                      <tr class="row">
+                        <td class="col-2">
+                          <div class="d-flex align-items-center">
+                            <p class="fw-bold mb-1">
+                             Lorem ipsum dolor sit amet.
+                            </p>
+                          </div>
+                        </td>
+                        <td class="col-2">
+                          <p class="text-muted mb-0">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </td>
+                        <td class="col-2">
+                          <p class="text-muted mb-0">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </td>
+                        <td class="col-2">
+                          <p class="text-muted mb-0">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </td>
+                        <td class="col-2">
+                          <p class="text-muted mb-0">
+                            Lorem ipsum dolor sit amet.
+                          </p>
+                        </td>
+                        <td class="col-2">
+                          <form action="">
+                            <button class="btn btn-primary">Delete</button>
+                          </form>
+                        </td>
+
+                      </tr>
+
+                     
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- feedback section-->
               <div class="content-section feedback" id="feedback">
                 <table class="table align-middle mb-0 bg-white">
                   <thead class="bg-light">
@@ -738,7 +806,7 @@
                 </table>
               </div>
          
-              <!-- FAQs -->
+              <!-- FAQs section -->
               <div class="content-section faqs" id="faqs">
                 <!-- FAQ navbar section -->
                 <div class="d-flex justify-content-between mt-20 mb-20">
@@ -835,7 +903,7 @@
                 </div>
               </div>
 
-              <!-- setting  -->
+              <!-- setting  section-->
               <div class="content-section setting" id="setting">
                 <div class="d-flex justify-content-between">
                   <h2 class="">Setting</h2>
