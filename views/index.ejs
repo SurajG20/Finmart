@@ -265,7 +265,8 @@
               </a>
               <% } %>
 
-              <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
+              <li class="nav-item dropdown submenu">
+                <div class="px-2 js-darkmode-btn" title="Toggle dark mode">
                 <label for="something" class="tab-btn tab-btns">
                   <ion-icon name="moon"></ion-icon>
                 </label>
@@ -280,6 +281,10 @@
                   class="dark_mode_switcher"
                 />
               </div>
+
+              </li>
+
+              
             </div>
           </div>
         </nav>
@@ -357,7 +362,7 @@
                 data-wow-delay="0.1s"
               >
                 <img class="shape" src="img/home-4/shape-7.png" alt="" />
-                <h6>Loan calculator</h6>
+                <h4 class="text-center">Loan calculator</h4>
                 <form action="loan" method="get" class="d-flex flex-column">
                   <div class="mb-3">
                     <label class="label" for="loandetails">Type of Loan</label>
@@ -397,10 +402,14 @@
                         placeholder="Tenure Period"
                         class="form-control"
                       />
-                      <select class="w-100" id="loandetails01">
-                        <option value="">Year</option>
-                        <option value="Month">Months</option>
-                      </select>
+
+                        <select class="w-100" id="loandetails">
+                          <option value="">Year</option>
+                          <option value="month">Month</option>
+                         
+                        </select>
+            
+
                     </div>
                   </div>
                   <!-- Rate of Intrest -->
@@ -475,7 +484,7 @@
                   /> -->
                 </div>
                 <div class="slide">
-                  <h6>Bob Bank</h6>
+                  <h6>Bank of Baroda</h6>
                   <!-- <img
                     src="/img/bank/bob.png"
                     height="100"
@@ -485,7 +494,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>Bom Bank</h6>
+                  <h6>Bank of Maharashtra</h6>
                   <!-- <img
                     src="/img/bank/bom.png"
                     height="100"
@@ -505,7 +514,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>Centralbank Bank</h6>
+                  <h6>Central Bank</h6>
                   <!-- <img
                     src="/img/bank/centralbank.png"
                     height="100"
@@ -535,7 +544,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>Hdfc Bank</h6>
+                  <h6>HDFC Bank</h6>
                   <!-- <img
                     src="/img/bank/hdfc.png"
                     height="100"
@@ -575,7 +584,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>INDIAN Bank</h6>
+                  <h6>Indian Bank</h6>
                   <!-- <img
                     src="/img/bank/indian.png"
                     height="100"
@@ -585,7 +594,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>Indusind Bank</h6>
+                  <h6>IndusInd Bank</h6>
                   <!-- <img
                     src="/img/bank/indusind.png"
                     height="100"
@@ -595,7 +604,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>KOTAK Bank</h6>
+                  <h6>Kotak Mahindra Bank</h6>
                   <!-- <img
                     src="/img/bank/kotak.png"
                     height="100"
@@ -605,7 +614,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>Pnb Bank</h6>
+                  <h6>Punjab National Bank</h6>
                   <!-- <img
                     src="/img/bank/pnb.png"
                     height="100"
@@ -615,7 +624,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>Rbl Bank</h6>
+                  <h6>RBL Bank</h6>
                   <!-- <img
                     src="/img/bank/rbl.png"
                     height="100"
@@ -625,7 +634,7 @@
                 </div>
                 <!-- new bank  -->
                 <div class="slide">
-                  <h6>SBI Bank</h6>
+                  <h6>State Bank of India</h6>
                   <!-- <img
                     src="/img/bank/sbi.png"
                     height="100"

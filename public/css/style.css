@@ -12182,6 +12182,7 @@ body.body_dark .header-menu.header-menu-2 .menu>.nav-item>.nav-link {
   padding: 0 5px;
   margin-left: 15px;
   height: 26px;
+  width: fit-content;
 }
 
 .js-darkmode-btn label {
