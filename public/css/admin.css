@@ -947,29 +947,23 @@ nav .profile-details i {
 background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
 }
 
-
-
-
-
-
-
 .userDetail .personaldetail {
     display: none;
 }
 
 
-.userDetia #documentDetail img {
+.userDetail #documentDetail img {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.userDetia #documentDetail img:hover {
+.userDetail #documentDetail img:hover {
     opacity: 0.7;
 }
 
 /* The Modal (background) */
-.userDetia #documentDetail #image-viewer {
+.userDetail #documentDetail #image-viewer {
     display: none;
     position: fixed;
     z-index: 1;
@@ -983,14 +977,14 @@ background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-.userDetia #documentDetail .modal-content {
+.userDetail #documentDetail .modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
 }
 
-.userDetia #documentDetail .modal-content {
+.userDetail #documentDetail .modal-content {
     animation-name: zoom;
     animation-duration: 0.6s;
 }
@@ -1005,7 +999,7 @@ background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
     }
 }
 
-.userDetia #documentDetail #image-viewer .close {
+.userDetail #documentDetail #image-viewer .close {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -1015,15 +1009,15 @@ background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
     transition: 0.3s;
 }
 
-.userDetia #documentDetail #image-viewer .close:hover,
-.userDetia #documentDetail #image-viewer .close:focus {
+.userDetail #documentDetail #image-viewer .close:hover,
+.userDetail #documentDetail #image-viewer .close:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
 }
 
 @media only screen and (max-width: 700px) {
-    .userDetia #documentDetail .modal-content {
+    .userDetail #documentDetail .modal-content {
         width: 100%;
     }
 }
