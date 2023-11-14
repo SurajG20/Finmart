@@ -202,7 +202,7 @@
                 <li class="nav-item dropdown submenu">
                   <a
                     class="nav-link dropdown-toggle"
-                    href="/user"
+                    href="#privacy-policy"
                     role="button"
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
@@ -423,33 +423,31 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12 ">
-                    
-                      <div class="d-flex  flex-column gap-3 user-loan-calculator ">
-                        <div class="d-flex gap-3 align-items-center">
-                          <span>
-                            <h5 class="">Loan Amount</h5>
-                          </span>
-                          <span>₹ <%= userData?.loanDetails?.loanAmount %></span>
-                        </div>
-                        <div class="d-flex gap-3 align-items-center">
-                          <span>
-                            <h5 class="">EMI Amount</h5>
-                          </span>
-                          <span> ₹ <%= emi ? emi : "Na" %> </span>
-                        </div>
-                        <div class="d-flex gap-3 align-items-center">
-                          <span>
-                            <h5 class="">Loan Status</h5>
-                          </span>
-                          <span
-                            ><button class="btn btn-success" disabled>
-                              <%= userData?.ApplicationStatus %>
-                            </button></span
-                          >
-                        </div>
+                  <div class="col-md-12">
+                    <div class="d-flex flex-column gap-3 user-loan-calculator">
+                      <div class="d-flex gap-3 align-items-center">
+                        <span>
+                          <h5 class="">Loan Amount</h5>
+                        </span>
+                        <span>₹ <%= userData?.loanDetails?.loanAmount %></span>
                       </div>
-                   
+                      <div class="d-flex gap-3 align-items-center">
+                        <span>
+                          <h5 class="">EMI Amount</h5>
+                        </span>
+                        <span> ₹ <%= emi ? emi : "Na" %> </span>
+                      </div>
+                      <div class="d-flex gap-3 align-items-center">
+                        <span>
+                          <h5 class="">Loan Status</h5>
+                        </span>
+                        <span
+                          ><button class="btn btn-success" disabled>
+                            <%= userData?.ApplicationStatus %>
+                          </button></span
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!-- Loan Calculation -->
@@ -539,6 +537,74 @@
                     <p><%= notification.message %></p>
                   </div>
                   <% }) %>
+                </div>
+              </div>
+
+              <!-- privacy-policy -->
+              <div
+                class="content-section privacy-policy mt-50 mb-50"
+                id="privacy-policy"
+              >
+                <h2 class="text-center mt-50 mb-50">Privacy Policy</h2>
+                <div class="d-flex gap-10 justify-content-center">
+                  <div class="col-lg-8 col-md-12">
+                    <div class="user-loan-details">
+                      <h5 class="text-center">
+                        At Vinayak Finmart, we are committed to ensuring the
+                        privacy and security of your personal information. This
+                        Privacy Policy outlines how we collect, use, and protect
+                        your data.
+                      </h5>
+                      <br />
+                      <div>
+                        <b>Information We Collect: </b>
+                        We may collect personal
+                        information such as your name, contact details,
+                        financial data, and other relevant details necessary for
+                        our services.
+                      </div>
+                      <br />
+                      <div>
+                        <b>
+                        How We Use Your Information: </b>Your information is used
+                        for processing loan applications, providing financial
+                        services, and improving our offerings. We do not share
+                        your data with third parties without your consent.
+                      </div>
+                      <br />
+                      <div>
+                        <b>
+                        Security Measures:  </b>Vinayak Finmart employs advanced
+                        encryption and security protocols to safeguard your data
+                        from unauthorized access or misuse. Our commitment is to
+                        ensure the confidentiality and integrity of your
+                        information.
+                      </div>
+                      <br />
+                      <div>
+                        <b>
+                        Cookies: </b>We may use cookies to enhance your browsing
+                        experience on our website. You can adjust your browser
+                        settings to control cookie preferences.
+                      </div>
+                      <br />
+                      <div>
+                        <b>
+                        Third-Party Links: </b>Our website may contain links to
+                        third-party sites. Please be aware that we are not
+                        responsible for the privacy practices of such sites. We
+                        encourage users to review the privacy policies of
+                        external websites.
+                      </div>
+                      <br />
+                      <div>
+                        <b>
+                        Updates to Privacy Policy: </b>Vinayak Finmart reserves the
+                        right to update this Privacy Policy periodically. We
+                        recommend reviewing this page for any changes.
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
