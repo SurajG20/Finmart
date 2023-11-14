@@ -27,6 +27,7 @@ const BlogSchema = new Schema(
       type: String,
       default: 'Admin',
     },
+    tags: [String],
     postingDate: {
       type: Date,
       default: Date,

@@ -1,38 +1,37 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('feedback-form');
-  const formMessage = document.getElementById('form-message');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const form = document.getElementById('feedback-form');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+//   form.addEventListener('submit', function (e) {
+//     e.preventDefault();
 
-    // Get the form data
-    const formData = new FormData(form);
-    // You can use the Fetch API to send the form data to your server
-    fetch('/feedback', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Check the response from the server for success or error
-        if (data.success) {
-          // Display a success message
-          formMessage.textContent = 'Form submitted successfully!';
-          formMessage.className = 'text-success';
+//     // Get the form data
+//     const formData = new FormData(form);
+//     // You can use the Fetch API to send the form data to your server
+//     fetch('/feedback', {
+//       method: 'POST',
+//       body: formData,
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         // Check the response from the server for success or error
+//         if (data.success) {
+//           // Display a success message
+//           formMessage.textContent = 'Form submitted successfully!';
+//           formMessage.className = 'text-success';
 
-          // Clear the form data
-          form.reset();
-        } else {
-          // Display an error message
-          formMessage.textContent = 'Form submission failed. Please try again.';
-          formMessage.className = 'text-danger';
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  });
-});
+//           // Clear the form data
+//           form.reset();
+//         } else {
+//           // Display an error message
+//           formMessage.textContent = 'Form submission failed. Please try again.';
+//           formMessage.className = 'text-danger';
+//         }
+//       })
+//       .catch((error) => {
+//         console.error('Error:', error);
+//       });
+//   });
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('subscribe-form');
@@ -85,38 +84,38 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// homepage calculator data getting
-document
-  .getElementById('calculatorForm')
-  .addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+// // homepage calculator data getting
+// document
+//   .getElementById('calculatorForm')
+//   .addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent the default form submission behavior
 
-    // Get user inputs from the form
-    const loanType = document.getElementById('loandetails').value;
-    const loanAmount = document.getElementById('loan-amount').value;
-    const tenurePeriod = document.getElementById('loan-time').value;
-    const rateOfInterest = document.getElementById('rate-interest').value;
+//     // Get user inputs from the form
+//     const loanType = document.getElementById('loandetails').value;
+//     const loanAmount = document.getElementById('loan-amount').value;
+//     const tenurePeriod = document.getElementById('loan-time').value;
+//     const rateOfInterest = document.getElementById('rate-interest').value;
 
-    // Construct the URL with the data as parameters
-    const url = `loan?loanType=${loanType}&loanAmount=${loanAmount}&tenurePeriod=${tenurePeriod}&rateOfInterest=${rateOfInterest}`;
+//     // Construct the URL with the data as parameters
+//     const url = `loan?loanType=${loanType}&loanAmount=${loanAmount}&tenurePeriod=${tenurePeriod}&rateOfInterest=${rateOfInterest}`;
 
-    // Redirect to the loan page with the data
-    window.location.href = url;
-  });
+//     // Redirect to the loan page with the data
+//     window.location.href = url;
+//   });
 
-function getUrlParameter(name) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(name);
-}
+// function getUrlParameter(name) {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   return urlParams.get(name);
+// }
 
-// Retrieve the URL parameters
-const loanType = getUrlParameter('loanType');
-const loanAmount = getUrlParameter('loanAmount');
-const tenurePeriod = getUrlParameter('tenurePeriod');
-const rateOfInterest = getUrlParameter('rateOfInterest');
+// // Retrieve the URL parameters
+// const loanType = getUrlParameter('loanType');
+// const loanAmount = getUrlParameter('loanAmount');
+// const tenurePeriod = getUrlParameter('tenurePeriod');
+// const rateOfInterest = getUrlParameter('rateOfInterest');
 
-// Populate the Emi Calculator form fields
-document.getElementById('loandetails').value = loanType;
-document.getElementById('SetRange').value = loanAmount;
-document.getElementById('loan-time').value = tenurePeriod;
-document.getElementById('rate-interest').value = rateOfInterest;
+// // Populate the Emi Calculator form fields
+// document.getElementById('loandetails').value = loanType;
+// document.getElementById('SetRange').value = loanAmount;
+// document.getElementById('loan-time').value = tenurePeriod;
+// document.getElementById('rate-interest').value = rateOfInterest;

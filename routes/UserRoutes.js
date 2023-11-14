@@ -20,6 +20,7 @@ const {
   renderDocumentUpload,
   renderLoanDetails,
   renderPersonalDetails,
+  contactus,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
 const {
@@ -60,6 +61,7 @@ router.route('/job-application/:jobId').get(addJobApplication);
 router.route('/job-post').get(renderJobPost);
 
 router.route('/feedback').post(upload.none(), feedback);
+router.route('/contact').post(upload.none(), contactus);
 
 router.route('/newsletter').post(upload.none(), newsletter);
 

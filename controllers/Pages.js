@@ -1,4 +1,5 @@
 const Feedback = require('../models/Feedback');
+const Contact = require('../models/ContactUs');
 const Blogs = require('../models/Blogs');
 const Frequently = require('../models/Frequently');
 const Jobs = require('../models/Jobs');
@@ -73,9 +74,27 @@ module.exports.feedback = async (req, res) => {
     const feedback = new Feedback({ fullname, email, message, subject });
     await feedback.save();
 
-    res.json({ success: true });
+    res.redirect('/');
   } catch (error) {
-    res.status(500).json({ success: false, error: 'Form submission failed.' });
+    res.render('error', { error });
+  }
+};
+module.exports.contactus = async (req, res) => {
+  const { fullname, email, message, subject, phone } = req.body;
+  console.log(req.body);
+  try {
+    const contactData = new Contact({
+      fullname,
+      email,
+      message,
+      phone,
+      subject,
+    });
+    await contactData.save();
+
+    res.redirect('/contact');
+  } catch (error) {
+    res.render('error', { error });
   }
 };
 
@@ -88,8 +107,25 @@ module.exports.loan = async (req, res) => {
 // blog page
 module.exports.blog = async (req, res) => {
   const blogs = await Blogs.find();
+  const allCategories = await Blogs.find().distinct('category');
+  const allTags = await Blogs.find().distinct('tags');
   const user = req.session?.passport?.user;
-  res.render('blog', { blogs, user });
+  if (req.query.search) {
+    const searchBlogs = await Blogs.find({
+      $or: [
+        { title: { $regex: req.query.search, $options: 'i' } },
+        { description: { $regex: req.query.search, $options: 'i' } },
+      ],
+    });
+    return res.render('blog', {
+      blogs: searchBlogs,
+      user,
+      allCategories,
+      allTags,
+      search: req.query.search,
+    });
+  }
+  res.render('blog', { blogs, user, allCategories, allTags, search: '' });
 };
 
 // contact page
@@ -101,9 +137,23 @@ module.exports.contact = async (req, res) => {
 
 // rendering job post page
 module.exports.renderJobPost = async (req, res) => {
-  const user = req.session?.passport?.user;
   const jobs = await Jobs.find();
-  res.render('job-post', { jobs, user });
+  const user = req.session?.passport?.user;
+  if (req.query.search) {
+    const searchJobs = await Jobs.find({
+      $or: [
+        { title: { $regex: req.query.search, $options: 'i' } },
+        { description: { $regex: req.query.search, $options: 'i' } },
+      ],
+    });
+    console.log(searchJobs);
+    return res.render('job-post', {
+      jobs: searchJobs,
+      user,
+      search: req.query.search,
+    });
+  }
+  res.render('job-post', { jobs, user, search: '' });
 };
 
 // rendering job application page for user to apply
@@ -150,8 +200,11 @@ module.exports.renderBlogDetails = async (req, res) => {
   try {
     const { blogId } = req.params;
     const singleBlog = await Blogs.findById({ _id: blogId });
+    const allCategories = await Blogs.find().distinct('category');
+    const allTags = await Blogs.find().distinct('tags');
+
     const user = req.session?.passport?.user;
-    res.render('blog-details', { user, singleBlog });
+    res.render('blog-details', { user, singleBlog, allCategories, allTags });
   } catch (err) {
     res.redirect('error', { err });
   }

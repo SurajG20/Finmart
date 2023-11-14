@@ -115,13 +115,13 @@
           </li>
           <!-- button  -->
           <li class="log_out d-flex justify-content-between align-items-center text-center frame">
-            
+
             <form class="m-auto" action="/logout" method="get">
               <button class=" d-flex justify-content-between align-items-center gap-2 custom-btn btn-1">
                 LOGOUT
               </button>
             </form>
-        
+
           </li>
         </ul>
       </nav>
@@ -235,33 +235,33 @@
                 <!--  Notification  form content -->
                 <div class="container" id="notification_form">
                   <!-- <div class="col-lg-12 offset-lg-1 "> -->
-                    <!-- <h3> Notification Form </h3> -->
-                    <div class="col-lg-8 offset-lg-1 notification-form-widget ">
-                      <form action="/admin/send-notificationAll" method="POST">
-                        <div class="row">
-                          <!-- Notification section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="notification">Notification Title</label>
-                            <input type="text" id="notification" name="title" class="form-control"
-                              placeholder="What's is Notification Title?" required />
-                          </div>
-
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20">
-                            <label for="form-text">Notification Messages</label>
-                            <textarea cols="30" rows="5" name="message" id="form-text" class="form-control pt-15"
-                              placeholder="Your message......" required></textarea>
-                          </div>
-                          <!-- button section  -->
-                          <div class="col-12 mt-35">
-                            <button type="submit" class="theme-btn theme-btn-lg w-100">
-                              Submit Now
-                            </button>
-                          </div>
+                  <!-- <h3> Notification Form </h3> -->
+                  <div class="col-lg-8 offset-lg-1 notification-form-widget ">
+                    <form action="/admin/send-notificationAll" method="POST">
+                      <div class="row">
+                        <!-- Notification section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="notification">Notification Title</label>
+                          <input type="text" id="notification" name="title" class="form-control"
+                            placeholder="What's is Notification Title?" required />
                         </div>
-                      </form>
-                    </div>
+
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20">
+                          <label for="form-text">Notification Messages</label>
+                          <textarea cols="30" rows="5" name="message" id="form-text" class="form-control pt-15"
+                            placeholder="Your message......" required></textarea>
+                        </div>
+                        <!-- button section  -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                   <!-- </div> -->
                 </div>
 
@@ -272,7 +272,7 @@
                     <div class="d-flex flex-column " style="overflow-y: scroll">
                       <% allUsers.forEach(user=> { %>
                         <h3>
-                            <%= user.username %>
+                          <%= user.username %>
                         </h3>
                         <% user.notifications.forEach(notification=> { %>
                           <div class="p-3 rounded text-sm d-flex justify-content-between mb-2" style=" background-color:
@@ -339,79 +339,79 @@
                 </div>
                 <!-- Job form content -->
                 <div class="container" id="job_form">
-                
-                    <!-- <h3>Jobs Form</h3> -->
-                    <div class="col-lg-8 offset-lg-1 job-form-widget">
-                      <form action="admin/add-job" method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                          <!-- Job section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="job">Job Title</label>
-                            <input type="text" id="job" name="title" class="form-control"
-                              placeholder="What's is Job Title?" required />
-                          </div>
-                          <!-- category section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="category">Category</label>
-                            <input type="text" id="category" name="category" class="form-control" placeholder=" Category"
-                              required />
-                          </div>
-                          <!-- category section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="location">Location</label>
-                            <input type="text" id="location" name="location" class="form-control"
-                              placeholder="State/Country" required />
-                          </div>
-                          <!-- job-type section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="job-type">Job Type</label>
-                            <select name="jobType" class="form-control" id="job-type">
-                              <option value="Full-time">Full-time</option>
-                              <option value="Part-time">Part-time</option>
-                            </select>
-                          </div>
-                          <!-- job-Position section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="job-type">Job-Position</label>
-                            <input type="text" id="job-type" name="jobPosition" class="form-control"
-                              placeholder="Job-Position" required />
-                          </div>
-                          <!-- job-sprecifitions -->
-                          <div class="col-md-12 mt-20 mt-md-0">
-                            <label for="job-sprecifitions">Job Description</label>
-                            <input type="text" id="job-sprecifitions" name="description" class="form-control"
-                              placeholder="Enter Job Description" required />
-                          </div>
 
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20 mt-md-0">
-                            <label for="job-sprecifitions">Job Specifications</label>
-                            <input type="text" id="job-sprecifitions" name="specifications" class="form-control"
-                              placeholder="Enter Job Specifications" required />
-                          </div>
-
-                          <!-- images section -->
-                          <div class="col-md-12 mt-20 job-img-uploader">
-                            <label class="job-picture" for="job-picture__input" tabindex="0">
-                              <span class="job-picture__image material-symbols-outlined">
-                                add_photo_alternate
-                              </span>
-                              <!-- <span class="job-picture__image">Uploada Image/Docs</span> -->
-                            </label>
-                            <input type="file" name="images" id="job-picture__input" />
-                          </div>
-
-                          <!-- button section  -->
-                          <div class="col-12 mt-35">
-                            <button type="submit" class="theme-btn theme-btn-lg w-100">
-                              Submit Now
-                            </button>
-                          </div>
+                  <!-- <h3>Jobs Form</h3> -->
+                  <div class="col-lg-8 offset-lg-1 job-form-widget">
+                    <form action="admin/add-job" method="POST" enctype="multipart/form-data">
+                      <div class="row">
+                        <!-- Job section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="job">Job Title</label>
+                          <input type="text" id="job" name="title" class="form-control"
+                            placeholder="What's is Job Title?" required />
                         </div>
-                      </form>
-                    </div>
-                
+                        <!-- category section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="category">Category</label>
+                          <input type="text" id="category" name="category" class="form-control" placeholder=" Category"
+                            required />
+                        </div>
+                        <!-- category section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="location">Location</label>
+                          <input type="text" id="location" name="location" class="form-control"
+                            placeholder="State/Country" required />
+                        </div>
+                        <!-- job-type section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="job-type">Job Type</label>
+                          <select name="jobType" class="form-control" id="job-type">
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                          </select>
+                        </div>
+                        <!-- job-Position section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="job-type">Job-Position</label>
+                          <input type="text" id="job-type" name="jobPosition" class="form-control"
+                            placeholder="Job-Position" required />
+                        </div>
+                        <!-- job-sprecifitions -->
+                        <div class="col-md-12 mt-20 mt-md-0">
+                          <label for="job-sprecifitions">Job Description</label>
+                          <input type="text" id="job-sprecifitions" name="description" class="form-control"
+                            placeholder="Enter Job Description" required />
+                        </div>
+
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20 mt-md-0">
+                          <label for="job-sprecifitions">Job Specifications</label>
+                          <input type="text" id="job-sprecifitions" name="specifications" class="form-control"
+                            placeholder="Enter Job Specifications" required />
+                        </div>
+
+                        <!-- images section -->
+                        <div class="col-md-12 mt-20 job-img-uploader">
+                          <label class="job-picture" for="job-picture__input" tabindex="0">
+                            <span class="job-picture__image material-symbols-outlined">
+                              add_photo_alternate
+                            </span>
+                            <!-- <span class="job-picture__image">Uploada Image/Docs</span> -->
+                          </label>
+                          <input type="file" name="images" id="job-picture__input" />
+                        </div>
+
+                        <!-- button section  -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
                 </div>
                 <!-- Job  View content -->
                 <div class="container" id="job_view">
@@ -556,55 +556,55 @@
 
                 <!--  Blogs  form content -->
                 <div class="container " id="blog_form">
-                    <div class="col-lg-8 offset-lg-1  blog-form-widget">
-                      <form action="/admin/add-blog" method="POST" enctype="multipart/form-data">
-                        <div class="row p-4 ">
-                          <!-- Blog section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="blog">Blog Title</label>
-                            <input type="text" id="blog" name="title" class="form-control"
-                              placeholder="What's is Blog Title?" required />
-                          </div>
-                          <div class="col-md-12">
-                            <label for="blog">Category</label>
-                            <input type="text" id="blog" name="category" class="form-control" placeholder="Category"
-                              required />
-                          </div>
-                          <!-- Author section  -->
-                          <div class="col-md-6 mt-20 mt-md-0">
-                            <label for="author">Author</label>
-                            <input type="text" id="author" name="author" class="form-control" placeholder="Author"
-                              required />
-                          </div>
-
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20">
-                            <label for="form-text">Description</label>
-                            <textarea cols="30" rows="5" name="description" id="form-text" class="form-control pt-15"
-                              placeholder="Description" required></textarea>
-                          </div>
-
-                          <!-- images section -->
-                          <div class="col-md-12 mt-20 blog-img-uploader">
-                            <label class="blog-picture" for="blog-picture__input" tabindex="0">
-                              <span class="blog-picture__image material-symbols-outlined">
-                                add_photo_alternate
-                              </span>
-                              <span class="job-picture__image">Upload Image</span>
-                            </label>
-                            <input type="file" name="images" id="blog-picture__input" />
-                          </div>
-
-                          <!-- button section -->
-                          <div class="col-12 mt-35">
-                            <button type="submit" class="theme-btn theme-btn-lg w-100">
-                              Submit Now
-                            </button>
-                          </div>
+                  <div class="col-lg-8 offset-lg-1  blog-form-widget">
+                    <form action="/admin/add-blog" method="POST" enctype="multipart/form-data">
+                      <div class="row p-4 ">
+                        <!-- Blog section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="blog">Blog Title</label>
+                          <input type="text" id="blog" name="title" class="form-control"
+                            placeholder="What's is Blog Title?" required />
                         </div>
-                      </form>
-                    </div>
+                        <div class="col-md-12">
+                          <label for="blog">Category</label>
+                          <input type="text" id="blog" name="category" class="form-control" placeholder="Category"
+                            required />
+                        </div>
+                        <!-- Author section  -->
+                        <div class="col-md-6 mt-20 mt-md-0">
+                          <label for="author">Author</label>
+                          <input type="text" id="author" name="author" class="form-control" placeholder="Author"
+                            required />
+                        </div>
+
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20">
+                          <label for="form-text">Description</label>
+                          <textarea cols="30" rows="5" name="description" id="form-text" class="form-control pt-15"
+                            placeholder="Description" required></textarea>
+                        </div>
+
+                        <!-- images section -->
+                        <div class="col-md-12 mt-20 blog-img-uploader">
+                          <label class="blog-picture" for="blog-picture__input" tabindex="0">
+                            <span class="blog-picture__image material-symbols-outlined">
+                              add_photo_alternate
+                            </span>
+                            <span class="job-picture__image">Upload Image</span>
+                          </label>
+                          <input type="file" name="images" id="blog-picture__input" />
+                        </div>
+
+                        <!-- button section -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
 
                 <!-- Blog  View content -->
@@ -737,7 +737,7 @@
                   </tbody>
                 </table>
               </div>
-
+         
               <!-- FAQs -->
               <div class="content-section faqs" id="faqs">
                 <!-- FAQ navbar section -->
@@ -769,66 +769,67 @@
 
                 <!--  FAQs  form content -->
                 <div class="container" id="faqs_form">
-                    <div class="col-lg-8 offset-lg-1 faqs-form-widget">
-                      <form action="/admin/add-faq" method="POST" enctype="multipart/form-data">
-                        <div class="row">
-                          <!-- Blog section -->
-                          <!-- Title -->
-                          <div class="col-md-12">
-                            <label for="blog">Question</label>
-                            <input type="text" id="blog" name="question" class="form-control"
-                              placeholder="What's is FAQ question?" required />
-                          </div>
-
-                          <!-- message  section -->
-                          <div class="col-md-12 mt-20">
-                            <label for="form-text">Answer</label>
-                            <textarea name="answer" cols="30" rows="5" name="description" id="form-text"
-                              class="form-control pt-15" placeholder="Type a Answer here ...." required></textarea>
-                          </div>
-
-                          <!-- button section -->
-                          <div class="col-12 mt-35">
-                            <button type="submit" class="theme-btn theme-btn-lg w-100">
-                              Submit Now
-                            </button>
-                          </div>
+                  <div class="col-lg-8 offset-lg-1 faqs-form-widget">
+                    <form action="/admin/add-faq" method="POST" enctype="multipart/form-data">
+                      <div class="row">
+                        <!-- Blog section -->
+                        <!-- Title -->
+                        <div class="col-md-12">
+                          <label for="blog">Question</label>
+                          <input type="text" id="blog" name="question" class="form-control"
+                            placeholder="What's is FAQ question?" required />
                         </div>
-                      </form>
-                    </div>
-              
+
+                        <!-- message  section -->
+                        <div class="col-md-12 mt-20">
+                          <label for="form-text">Answer</label>
+                          <textarea name="answer" cols="30" rows="5" name="description" id="form-text"
+                            class="form-control pt-15" placeholder="Type a Answer here ...." required></textarea>
+                        </div>
+
+                        <!-- button section -->
+                        <div class="col-12 mt-35">
+                          <button type="submit" class="theme-btn theme-btn-lg w-100">
+                            Submit Now
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
                 </div>
 
                 <!-- FAQs  View content -->
                 <div class="container" id="faqs_view">
-                  <div data-view="col-lg-10 list-view mb-2" >
+                  <div data-view="col-lg-10 list-view mb-2">
                     <div class="d-flex flex-column gap-3">
-                    <% faqs.forEach(element=> { %>
-                      <div class="card card-body" >
-                        <div class="w-100">
-                          <div class="faq-header" id="headingOne">
-                            <h5 class="mb-2 font-weight-bold">
-                              <span class="fw-bold">Q.</span> <%= element.question %>
-                            </h5>
-                          </div>
-                          <div>
-                            <div class="faq-body pr-lg-130">
-                              <p class="text-secondary">
-                                <span class="fw-bold font-weight-bold">Ans.</span>
-                                <%= element.answer %>
-                              </p>
+                      <% faqs.forEach(element=> { %>
+                        <div class="card card-body">
+                          <div class="w-100">
+                            <div class="faq-header" id="headingOne">
+                              <h5 class="mb-2 font-weight-bold">
+                                <span class="fw-bold">Q.</span>
+                                <%= element.question %>
+                              </h5>
+                            </div>
+                            <div>
+                              <div class="faq-body pr-lg-130">
+                                <p class="text-secondary">
+                                  <span class="fw-bold font-weight-bold">Ans.</span>
+                                  <%= element.answer %>
+                                </p>
+                              </div>
                             </div>
                           </div>
+                          <div class="d-flex justify-content-start">
+                            <form action="/admin/delete-faq/<%= element._id %>/delete?_method=DELETE" method="post">
+                              <button class="btn btn-primary mx-1">
+                                Delete
+                              </button>
+                            </form>
+                          </div>
                         </div>
-                        <div class="d-flex justify-content-start">
-                          <form action="/admin/delete-faq/<%= element._id %>/delete?_method=DELETE" method="post">
-                            <button class="btn btn-primary mx-1">
-                              Delete
-                            </button>
-                          </form>
-                        </div>
-                      </div>
-                      <% }) %>
+                        <% }) %>
                     </div>
                   </div>
                 </div>
