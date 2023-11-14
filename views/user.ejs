@@ -424,30 +424,32 @@
                     </div>
                   </div>
                   <div class="col-md-12 ">
-                    <div class="d-flex flex-column gap-3 user-loan-calculator">
-                      <div class="d-flex gap-3 align-items-center">
-                        <span>
-                          <h5 class="">Loan Amount</h5>
-                        </span>
-                        <span>₹ <%= userData?.loanDetails?.loanAmount %></span>
+                    
+                      <div class="d-flex  flex-column gap-3 user-loan-calculator ">
+                        <div class="d-flex gap-3 align-items-center">
+                          <span>
+                            <h5 class="">Loan Amount</h5>
+                          </span>
+                          <span>₹ <%= userData?.loanDetails?.loanAmount %></span>
+                        </div>
+                        <div class="d-flex gap-3 align-items-center">
+                          <span>
+                            <h5 class="">EMI Amount</h5>
+                          </span>
+                          <span> ₹ <%= emi ? emi : "Na" %> </span>
+                        </div>
+                        <div class="d-flex gap-3 align-items-center">
+                          <span>
+                            <h5 class="">Loan Status</h5>
+                          </span>
+                          <span
+                            ><button class="btn btn-success" disabled>
+                              <%= userData?.ApplicationStatus %>
+                            </button></span
+                          >
+                        </div>
                       </div>
-                      <div class="d-flex gap-3 align-items-center">
-                        <span>
-                          <h5 class="">EMI Amount</h5>
-                        </span>
-                        <span> ₹ <%= emi ? emi : "Na" %> </span>
-                      </div>
-                      <div class="d-flex gap-3 align-items-center">
-                        <span>
-                          <h5 class="">Loan Status</h5>
-                        </span>
-                        <span
-                          ><button class="btn btn-success" disabled>
-                            <%= userData?.ApplicationStatus %>
-                          </button></span
-                        >
-                      </div>
-                    </div>
+                   
                   </div>
                 </div>
                 <!-- Loan Calculation -->
