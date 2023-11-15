@@ -43,6 +43,12 @@ require('./config/passportConfig')(passport);
 
 app.use('/', userRoute);
 app.use('/admin', adminRoute);
+app.get('/loan', (req, res) => {
+  const { loandetails, loanamount, loantime } = req.query; // Get values from query parameters
+  
+  // Render 'loan' page with received data
+  res.render('loan', { loandetails, loanamount, loantime });
+});
 
 app.use('*', (req, res) => {
   res.render('error');

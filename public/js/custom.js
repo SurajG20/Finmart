@@ -503,6 +503,7 @@
         format: wNumb({
           decimals: 0,
         }),
+        step: 6,
         pips: {
           mode: "values",
           density: 100,
@@ -704,90 +705,72 @@
     }
 
     function CalculateAmount() {
+      const getTimeRate = (time, values) => {
+        let rate = 0;
+        for (let i = 0; i < values.length; i++) {
+          if (time >= values[i].threshold) {
+            rate = values[i].interestRate;
+            break;
+          }
+        }
+        return rate;
+      };
+    
+      const getAmountRate = (amount, values) => {
+        let rate = 0;
+        for (let i = 0; i < values.length; i++) {
+          if (amount >= values[i].threshold) {
+            rate = values[i].interestRate;
+            break;
+          }
+        }
+        return rate;
+      };
+    
+      let RateOfInterestTime = 0;
+      let RateOfInterestAmount = 0;
       if (selectedTime.type === "month") {
-        var LoanTime = selectedTime.value;
-        switch (true) {
-          case LoanTime >= 48:
-            RateOfInterestTime = 2.4;
-            break;
-          case LoanTime >= 42:
-            RateOfInterestTime = 2.55;
-            break;
-          case LoanTime >= 32:
-            RateOfInterestTime = 2.7;
-            break;
-          case LoanTime >= 25:
-            RateOfInterestTime = 2.9;
-            break;
-          case LoanTime >= 20:
-            RateOfInterestTime = 3;
-            break;
-          case LoanTime >= 12:
-            RateOfInterestTime = 3.15;
-            break;
-          default:
-            RateOfInterestTime = 0;
-        }
+        const LoanTime = selectedTime.value;
+        const timeValues = [
+          { threshold: 48, interestRate: 2.4 },
+          { threshold: 42, interestRate: 2.55 },
+          { threshold: 32, interestRate: 2.7 },
+          { threshold: 25, interestRate: 2.9 },
+          { threshold: 20, interestRate: 3 },
+          { threshold: 12, interestRate: 3.15 },
+        ];
+        RateOfInterestTime = getTimeRate(LoanTime, timeValues);
       }
+    
       if (selectedTime.type === "year") {
-        var LoanTime = selectedTime.value;
-        switch (true) {
-          case LoanTime >= 8:
-            RateOfInterestTime = 2;
-            break;
-          case LoanTime >= 7:
-            RateOfInterestTime = 2.2;
-            break;
-          case LoanTime >= 6:
-            RateOfInterestTime = 2.3;
-            break;
-          case LoanTime >= 5:
-            RateOfInterestTime = 2.5;
-            break;
-          case LoanTime >= 4:
-            RateOfInterestTime = 2.7;
-            break;
-          case LoanTime >= 3:
-            RateOfInterestTime = 2.9;
-            break;
-          case LoanTime >= 2:
-            RateOfInterestTime = 3.1;
-            break;
-
-          default:
-            RateOfInterestTime = 0;
-        }
+        const LoanTime = selectedTime.value;
+        const timeValues = [
+          { threshold: 8, interestRate: 2 },
+          { threshold: 7, interestRate: 2.2 },
+            { threshold: 6, interestRate: 2.3 },
+            { threshold: 5, interestRate: 2.5 },
+            { threshold: 4, interestRate: 2.7 },
+            { threshold: 3, interestRate: 2.9 },
+            { threshold: 2, interestRate: 3.1 },
+    
+        ];
+        RateOfInterestTime = getTimeRate(LoanTime, timeValues);
       }
       if (typeof SelectedAmount === "number") {
-        var LoanAmount = SelectedAmount;
-        switch (true) {
-          case LoanAmount >= 13e4:
-            RateOfInterestAmount = 2.9;
-            break;
-          case LoanAmount >= 115e3:
-            RateOfInterestAmount = 3.1;
-            break;
-          case LoanAmount >= 1e5:
-            RateOfInterestAmount = 3.3;
-            break;
-          case LoanAmount >= 8e4:
-            RateOfInterestAmount = 3.5;
-            break;
-          case LoanAmount >= 65e3:
-            RateOfInterestAmount = 3.7;
-            break;
-          case LoanAmount >= 5e4:
-            RateOfInterestAmount = 3.8;
-            break;
-          case LoanAmount >= 25e3:
-            RateOfInterestAmount = 3.95;
-            break;
-          case LoanAmount >= 1e4:
-            RateOfInterestAmount = 4;
-            break;
-          default:
-            RateOfInterestAmount = 4.09;
-        }
+        const LoanAmount = SelectedAmount;
+        const amountValues = [
+          { threshold: 13e4, interestRate: 2.9 },
+          { threshold: 115e3, interestRate: 3.1 },
+            { threshold: 1e5, interestRate: 3.3 },
+            { threshold: 8e4, interestRate: 3.5 },
+            { threshold: 65e3, interestRate: 3.7 },
+            { threshold: 5e4, interestRate: 3.8 },
+            { threshold: 25e3, interestRate: 3.95 },
+            { threshold: 1e4, interestRate: 4 },
+            { threshold: 0, interestRate: 4.09 },
+    
+        ];
+        RateOfInterestAmount = getAmountRate(LoanAmount, amountValues);
       }
 
       var TotalRateOfInterest = SelectedRoi

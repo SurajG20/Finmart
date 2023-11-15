@@ -49,7 +49,7 @@ router.route('/google/callback').get(GoogleCallback);
 router.route('/register').get(register);
 router.route('/user').get(isLoggedIn, user);
 
-router.route('/loan').get(loan);
+// router.route('/loan').get(loan);
 
 router.route('/about').get(about);
 
@@ -83,5 +83,13 @@ router
   .post(isLoggedIn, upload.array('Documents'), submitDocumentUpload);
 
 router.route('/blog-details/:blogId').get(renderBlogDetails);
+
+router.get('/loan', (req, res) => {
+  const { loandetails, loanamount, loantime, rateinterest } = req.query;
+  console.log("hello");
+  console.log(loandetails, loanamount, loantime, rateinterest); // Add this line to check if values are received
+  res.render('loan', { loandetails, loanamount, loantime, rateinterest });
+});
+
 
 module.exports = router;
