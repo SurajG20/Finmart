@@ -139,6 +139,16 @@ module.exports.contact = async (req, res) => {
 module.exports.renderJobPost = async (req, res) => {
   const jobs = await Jobs.find();
   const user = req.session?.passport?.user;
+  if (req.query.jobSchedule) {
+    const searchJobs = await Jobs.find({
+      jobType: req.query.jobSchedule,
+    });
+    return res.render('job-post', {
+      jobs: searchJobs,
+      user,
+      search: req.query.jobSchedule,
+    });
+  }
   if (req.query.search) {
     const searchJobs = await Jobs.find({
       $or: [
@@ -146,7 +156,6 @@ module.exports.renderJobPost = async (req, res) => {
         { description: { $regex: req.query.search, $options: 'i' } },
       ],
     });
-    console.log(searchJobs);
     return res.render('job-post', {
       jobs: searchJobs,
       user,
@@ -243,6 +252,7 @@ module.exports.renderDocumentUpload = async (req, res) => {
 };
 
 module.exports.submitLoanDetails = async (req, res) => {
+  console.log(req.body);
   try {
     const loanDetails = req.body;
 
