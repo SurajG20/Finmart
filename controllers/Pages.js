@@ -366,7 +366,9 @@ module.exports.submitDocumentUpload = async (req, res) => {
           combinedDetails.documentUploads.concat(documents);
       }
       await combinedDetails.save();
+      await User.findByIdAndUpdate(userId, { isLoanTaken: true });
       res.redirect('/user');
+      
     } else {
       res.render('error', { error: 'No files uploaded' });
     }
