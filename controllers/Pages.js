@@ -22,12 +22,15 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   return emi.toFixed(2);
 }
 
+
 // home page
 module.exports.home = async (req, res) => {
   const blogs = await Blogs.find();
   const user = req.session?.passport?.user;
   const frequently = await Frequently.find();
   const feedbacks = await Feedback.find();
+  console.log(req.session);
+
   res.render('index', { blogs, frequently, feedbacks, user });
 };
 
@@ -93,7 +96,6 @@ module.exports.feedback = async (req, res) => {
 };
 module.exports.contactus = async (req, res) => {
   const { fullname, email, message, subject, phone } = req.body;
-  console.log(req.body);
   try {
     const contactData = new Contact({
       fullname,
@@ -264,7 +266,6 @@ module.exports.renderDocumentUpload = async (req, res) => {
 };
 
 module.exports.submitLoanDetails = async (req, res) => {
-  console.log(req.body);
   try {
     const loanDetails = req.body;
 

@@ -34,7 +34,6 @@ module.exports.admin = async (req, res) => {
   const allUsers = await User.find({ isAdmin: false });
   const faqs = await Frequently.find();
   const contacts = await Contact.find();
-  console.log(contacts)
   res.render('admin', {
     user,
     allFeedback,
