@@ -29,7 +29,6 @@ module.exports.home = async (req, res) => {
   const user = req.session?.passport?.user;
   const frequently = await Frequently.find();
   const feedbacks = await Feedback.find();
-  console.log(req.session);
 
   res.render('index', { blogs, frequently, feedbacks, user });
 };
