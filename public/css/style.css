@@ -12820,3 +12820,15 @@ body {
   color: #856404;
   background-color: transparent;
 }
+
+
+/* privacy page css  */
+
+.privacy-details-widget {
+  padding: 50px 53px;
+  box-shadow: var(--theme-dropshadow);
+  border-radius: 10px;
+  padding-bottom: 100px;
+  background: var(--bs-white);
+  font-family: 'Roboto', sans-serif;
+}

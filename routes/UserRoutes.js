@@ -21,7 +21,8 @@ const {
   renderLoanDetails,
   renderPersonalDetails,
   contactus,
-} = require('../controllers/Pages');
+  privacyPolicy,
+} = require("../controllers/Pages");
 const { isLoggedIn } = require('../middlewares/Middlewares');
 const {
   Login,
@@ -54,6 +55,8 @@ router.route('/loan').get(loan);
 router.route('/about').get(about);
 
 router.route('/blog').get(blog);
+
+router.route("/privacy-policy").get(privacyPolicy);
 
 router.route('/contact').get(contact);
 

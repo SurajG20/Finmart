@@ -55,6 +55,9 @@ module.exports.login = (req, res) => {
 module.exports.register = (req, res) => {
   res.render('register');
 };
+module.exports.privacyPolicy = (req, res) => {
+  res.render("privacy-policy");
+};
 
 module.exports.newsletter = async (req, res) => {
   try {
