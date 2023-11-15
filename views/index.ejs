@@ -20,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
   <link rel="stylesheet" type="text/css" href="/css/feedback.css" media="all" />
   <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="/css/modal.css" media="all" />
 
   <link rel="stylesheet" type="text/css" href="/css/ourpartner.css" media="all" />
 
@@ -217,7 +218,7 @@
             <div class="basic-loan-calculator wow fadeInLeft" data-wow-delay="0.1s">
               <img class="shape" src="img/home-4/shape-7.png" alt="" />
               <h4 class="text-center">Loan calculator</h4>
-              <form action="loan" method="get" class="d-flex flex-column">
+              <form class="d-flex flex-column">
                 <div class="mb-3">
                   <label class="label" for="loandetails">Type of Loan</label>
                   <select class="w-100" id="loandetails">
@@ -261,12 +262,22 @@
                   </div>
                 </div>
 
-                <button type="submit" class="theme-btn w-100" id="calculateButton">
+                <button type="button" class="theme-btn w-100" id="calculateButton">
                   Calculate
                 </button>
               </form>
             </div>
           </div>
+          <!-- Modal -->
+          <div id="loanResultModal" class="modal homepage">
+            <div class="modal-content homepage">
+              <span class="close homepage" id="closeModal">&times;</span>
+              <h2>Loan Calculation Result</h2>
+              <p id="loanResult"></p>
+              <a href="loan" class="theme-btn w-100">Apply Now</a>
+            </div>
+          </div>
+
         </div>
       </div>
       <!-- partners -->
@@ -1068,48 +1079,40 @@
     </div>
     <!-- copyright area -->
     <div class="copyright pt-25 pb-25">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-3 text-center text-lg-start">
-              <a href="/" class="p-0 m-0"
-                ><img src="img/Vinayak/17.png" height="100px" alt="logo"
-              /></a>
-            </div>
-            <div class="col-lg-6 text-center my-3 my-sm-0">
-              <div class="copyright-text">
-                <div class="d-flex gap-3 align-items-center">
-                  <div>Copyright &copy; 2023</div>
-                  <div class="border" style="height: 25px;"></div>
-                  <div>Vinayak Finmart Pvt. Ltd</div>
-                  <div class="border" style="height: 25px;"></div>
-                  <div><a href="/privacy-policy">Privacy Terms of Use</a></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 text-center text-lg-end">
-              <div class="social-button">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-twitter-x"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"
-                    />
-                  </svg>
-                </a>
-                <a href="https://instagram.com/vinayakfinmart?igshid=NzZlODBkYWE4Ng=="><i class="fab fa-instagram"></i></a>
-
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-3 text-center text-lg-start">
+            <a href="/" class="p-0 m-0"><img src="img/Vinayak/17.png" height="100px" alt="logo" /></a>
+          </div>
+          <div class="col-lg-6 text-center my-3 my-sm-0">
+            <div class="copyright-text">
+              <div class="d-flex gap-3 align-items-center">
+                <div>Copyright &copy; 2023</div>
+                <div class="border" style="height: 25px;"></div>
+                <div>Vinayak Finmart Pvt. Ltd</div>
+                <div class="border" style="height: 25px;"></div>
+                <div><a href="/privacy-policy">Privacy Terms of Use</a></div>
               </div>
             </div>
           </div>
+          <div class="col-lg-3 text-center text-lg-end">
+            <div class="social-button">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-twitter-x" viewBox="0 0 16 16">
+                  <path
+                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+                </svg>
+              </a>
+              <a href="https://instagram.com/vinayakfinmart?igshid=NzZlODBkYWE4Ng=="><i
+                  class="fab fa-instagram"></i></a>
+
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
   </footer>
   <!-- footer end -->
@@ -1118,7 +1121,10 @@
   <a id="back-to-top" title="Back to Top"></a>
 
   <!-- JS here -->
+
+
   <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/modal.js"></script>
   <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="/js/preloader.js"></script>
   <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
@@ -1134,6 +1140,7 @@
   <script type="text/javascript" src="/js/custom.js"></script>
   <script type="text/javascript" src="/js/index.js"></script>
   <script type="text/javascript" src="/js/feedback.js"></script>
+
 </body>
 
 </html>
