@@ -22,7 +22,9 @@ const {
   renderPersonalDetails,
   contactus,
   privacyPolicy,
-} = require("../controllers/Pages");
+  forgetPassword,
+  resetPassword,
+} = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
 const {
   Login,
@@ -30,11 +32,14 @@ const {
   Logout,
   GoogleLogin,
   GoogleCallback,
+  ForgetPassword,
+  ResetPassword,
 } = require('../controllers/User');
 const passport = require('passport');
 const multer = require('multer');
 const { storage } = require('../cloudinary/index');
 const { register } = require('../controllers/Pages');
+const { reset } = require('nodemon');
 const upload = multer({ storage });
 
 router.route('/').get(home);
@@ -42,8 +47,10 @@ router.route('/login').get(login);
 
 router.route('/login').post(Login);
 router.route('/register').post(Register);
-router.route('/logout').get(Logout);
 
+router.route('/logout').get(Logout);
+router.route('/forget-password').get(forgetPassword).post(ForgetPassword);
+router.route('/reset-password').get(resetPassword).post(ResetPassword);
 router.route('/auth/google').get(GoogleLogin);
 router.route('/google/callback').get(GoogleCallback);
 
@@ -56,7 +63,7 @@ router.route('/about').get(about);
 
 router.route('/blog').get(blog);
 
-router.route("/privacy-policy").get(privacyPolicy);
+router.route('/privacy-policy').get(privacyPolicy);
 
 router.route('/contact').get(contact);
 

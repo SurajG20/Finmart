@@ -6,7 +6,7 @@ const Jobs = require('../models/Jobs');
 const Loans = require('../models/LoanType');
 const Newsletter = require('../models/Newsletter');
 const CombinedDetails = require('../models/CombinedDetails');
-
+const User = require('../models/User');
 // Function to calculate EMI
 function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const principal = parseFloat(principalStr);
@@ -55,9 +55,17 @@ module.exports.login = (req, res) => {
 module.exports.register = (req, res) => {
   res.render('register');
 };
+module.exports.forgetPassword = (req, res) => {
+  res.render('forget-password');
+};
+module.exports.resetPassword = async (req, res) => {
+  const token = req.query.token;
+  const currentUser = await User.findOne({ token: token });
+  res.render('reset-password', { currentUser });
+};
 module.exports.privacyPolicy = (req, res) => {
   const user = req.session?.passport?.user;
-  res.render("privacy-policy", { user });
+  res.render('privacy-policy', { user });
 };
 
 module.exports.newsletter = async (req, res) => {
