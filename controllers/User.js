@@ -37,7 +37,7 @@ const sendResetPasswordMail = async (name, email, token) => {
 module.exports.Login = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) throw err;
-    if (!user) res.redirect('/login');
+    if (!user) { return res.render('login', { error: 'Invalid username or password' }) }
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
@@ -59,7 +59,7 @@ module.exports.Register = async (req, res) => {
     });
 
     if (existingUser) {
-      req.redirect('/login');
+      return res.render('register', { error: 'User already exists' });
     } else {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
@@ -73,7 +73,7 @@ module.exports.Register = async (req, res) => {
       res.redirect('/login');
     }
   } catch (err) {
-    res.redirect('/error');
+    res.redirect('/error', { message: 'Something went wrong' });
   }
 };
 
@@ -104,7 +104,9 @@ module.exports.ForgetPassword = async (req, res) => {
       $or: [{ email: username }, { phoneNumber: username }],
     });
     if (!existingUser) {
-      res.status(400).send({ success: true, message: "User doesn't exist" });
+      return res.render('forget-password', {
+        error: 'User with this email or phone number does not exist',
+      });
     } else {
       const randomToken = randomString.generate();
       await UserModel.updateOne(
@@ -116,7 +118,7 @@ module.exports.ForgetPassword = async (req, res) => {
         existingUser.email,
         randomToken
       );
-      res.redirect('/login', {
+      res.render('forget-password', {
         message: 'Reset Password Link Sent to your Email',
       });
     }

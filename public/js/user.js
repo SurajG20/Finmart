@@ -31,4 +31,9 @@ function Sidebar() {
 }
 Sidebar();
 
-
+$(document).ready(function () {
+  $('.navbar-nav .submenu a').on('click', function () {
+    // Close the mobile navigation menu
+    $('#navbarSupportedContent').collapse('hide');
+  });
+});
