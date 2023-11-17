@@ -45,11 +45,15 @@
     
 }
 .emi-calculator .breakup{
-  background-color: rgba(0, 0, 0, 0.38);
+  background-color: var(--bs-dark);
 }
 
 
 
+
+.emi-calculator .detail-text{
+  color: gray;
+}
 .emi-calculator .details input {
   width: 100%; 
 }
