@@ -1,0 +1,196 @@
+.emi-calculator .container {
+  margin: auto;
+  height: auto;
+  width: 100%;
+  border-radius: 20px;
+  padding: 20px;
+    background: var(--bs-white);
+}
+
+.header h2{
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: var(--bs-white);
+    
+}
+
+.emi-calculator .sub-container {
+  display: grid;
+  width: 100%;
+  gap: 50px;
+  height: max-content;
+  margin: 100px auto;
+  grid-template-columns: 3fr 2fr;
+}
+
+@media(max-width: 768px) {
+  .emi-calculator .sub-container {
+    display: grid;
+    width: 100%;
+    row-gap: 50px;
+    height: max-content;
+    margin: 100px auto;
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+
+
+.emi-calculator .view,
+.emi-calculator .breakup {
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    padding: 1rem;
+    
+}
+.emi-calculator .breakup{
+  background-color: rgba(0, 0, 0, 0.38);
+}
+
+
+
+.emi-calculator .details input {
+  width: 100%; 
+}
+.emi-calculator .details .details-div{
+  margin: 1rem auto; 
+}
+
+.emi-calculator .detail {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.emi-calculator .footer {
+    margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+/*----- Styling the sliders ----*/
+.emi-calculator input[type="range"] {
+  -webkit-appearance: none;
+  height: 20px;
+  border-radius: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.emi-calculator input[type="range"]:focus {
+  outline: none;
+}
+
+.emi-calculator input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #9088d2;
+  border-radius: 10px;
+}
+
+.emi-calculator input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 2px 2px 5px #b3b3b3, -1px -1px 3px grey;
+  border: 5px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #9088d2;
+  cursor: pointer;
+  margin-top: -6px;
+  -webkit-appearance: none;
+}
+
+.emi-calculator input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #b3b3b3;
+}
+
+.emi-calculator input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #9088d2;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+  border-radius: 10px;
+}
+
+.emi-calculator .input[type="range"]::-moz-range-thumb {
+  box-shadow: 2px 2px 5px #b3b3b3, -1px -1px 3px grey;
+  border: 5px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #9088d2;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+.emi-calculator input[type="range"]::-ms-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #9088d2;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+  border-radius: 10px;
+}
+
+.emi-calculator input[type="range"]::-ms-fill-lower {
+  background: #9088d2;
+  border-radius: 5px;
+}
+
+.emi-calculator input[type="range"]::-ms-fill-upper {
+  background: #9088d2;
+  border-radius: 5px;
+}
+
+.emi-calculator input[type="range"]::-ms-thumb {
+  box-shadow: 2px 2px 5px #b3b3b3, -1px -1px 3px grey;
+  border: 5px solid #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #9088d2;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+.emi-calculator input[type="range"]:focus::-ms-fill-lower {
+  background: #9088d2;
+}
+
+.emi-calculator input[type="range"]:focus::-ms-fill-upper {
+  background: #9088d2;
+}
+
+/*-------------------------------------*/
+.emi-calculator #price {
+  color: #130f31;
+  font-size: 25px;
+}
+
+.emi-calculator .loan-details {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.emi-calculator #price-container {
+  color: #9088d2;
+  margin-top: 50px;
+}
+
+.emi-calculator #price-container::before {
+  content: "Monthly Payable:";
+  font-size: 12px;
+  display: block;
+}
