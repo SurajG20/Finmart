@@ -1,32 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
   var P, R, N, pie, line;
+
+  var loan_amt_input = document.getElementById("loan-amt-text");
+  var int_rate_input = document.getElementById("interest-rate-text");
+  var loan_period_input = document.getElementById("loan-period-text");
   var loan_amt_slider = document.getElementById("loan-amount");
   var int_rate_slider = document.getElementById("interest-rate");
   var loan_period_slider = document.getElementById("loan-period");
 
+  // Update loan amount from input field
+  loan_amt_input.addEventListener("input", (self) => {
+    loan_amt_slider.value = parseInt(self.target.value.replace(/,/g, ""));
+    P = parseFloat(loan_amt_slider.value);
+    displayDetails();
+  });
 
-  
+  // Update interest rate from input field
+  int_rate_input.addEventListener("input", (self) => {
+    int_rate_slider.value = parseFloat(self.target.value);
+    R = parseFloat(int_rate_slider.value);
+    displayDetails();
+  });
 
-  // update loan amount
+  // Update loan period from input field
+  loan_period_input.addEventListener("input", (self) => {
+    loan_period_slider.value = parseFloat(self.target.value);
+    N = parseFloat(loan_period_slider.value);
+    displayDetails();
+  });
+
+  // Update loan amount from slider
   loan_amt_slider.addEventListener("input", (self) => {
-    document.querySelector("#loan-amt-text").value =
-      parseInt(self.target.value).toLocaleString("en-IN") + "₹";
+    loan_amt_input.value = parseInt(self.target.value).toLocaleString("en-IN");
     P = parseFloat(self.target.value);
     displayDetails();
   });
 
-  // update Rate of Interest
+  // Update interest rate from slider
   int_rate_slider.addEventListener("input", (self) => {
-    document.querySelector("#interest-rate-text").value =
-      self.target.value + "%";
+    int_rate_input.value = self.target.value + "%";
     R = parseFloat(self.target.value);
     displayDetails();
   });
 
-  // update loan period
+  // Update loan period from slider
   loan_period_slider.addEventListener("input", (self) => {
-    document.querySelector("#loan-period-text").value =
-      self.target.value + " years";
+    loan_period_input.value = self.target.value + " years";
     N = parseFloat(self.target.value);
     displayDetails();
   });
@@ -89,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ) + "₹";
 
     document.querySelector("#price").innerText =
-      (emi/10).toLocaleString("en-IN", opts) + "₹";
+      (emi / 10).toLocaleString("en-IN", opts) + "₹";
 
     pie.data.datasets[0].data[0] = P;
     pie.data.datasets[0].data[1] = payabaleInterest;
