@@ -11308,11 +11308,29 @@ blockquote .author span {
 /*----------------------------------------*/
 /* Error Area CSS
 /*----------------------------------------*/
-.error_area {
+
+.error-page{
+  height: 100vh !important;
+  width: 100vw;
+  overflow-y: hidden;
+}
+
+
+/* .error_area {
   display: flex;
   position: relative;
   z-index: 1;
   min-height: 620px;
+} */
+
+@media(max-width:586px){
+  .error_area{
+    width: 100vw;
+    margin-top: 150px;
+    padding: auto 0px !important;
+    overflow-x: hidden !important;
+  }
+
 }
 
 .error_dot {
@@ -11324,14 +11342,14 @@ blockquote .author span {
   width: 8px;
   height: 8px;
   background: var(--brand_color);
-  left: 325px;
-  top: 120px;
+  left: 20.3125rem;
+  top: 7.5rem;
   animation: spin2 2s infinite alternate;
 }
 
 .error_dot.two {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   background: #f99e43;
   left: 170px;
   bottom: 260px;
@@ -11357,18 +11375,28 @@ blockquote .author span {
 }
 
 .error_content_two {
-  max-width: 970px;
+  /* max-width: 970px; */
   margin: 0 auto;
 }
 
 .error_content_two h2 {
-  font-size: 36px;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
+@media(max-width:586px){
+  .error_content_two h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+}
+
+
 .error_content_two p {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #82879c;
 }
 
@@ -12305,6 +12333,19 @@ body {
 }
 
 .partners .slide {
+  font-family: Roboto, sans-serif;
+  height: 100px;
+  width: 250px;
+  object-fit: cover;
+  width: 16rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 20px;
+}
+.partners .slide:hover {
+  background-color: var(--brand_color);
+  transition: all 0.3s ease-in-out;
   font-family: Roboto, sans-serif;
   height: 100px;
   width: 250px;

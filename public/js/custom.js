@@ -790,6 +790,8 @@
         }
       }
 
+      
+
       var TotalRateOfInterest = SelectedRoi
         ? SelectedRoi / 100
         : (RateOfInterestAmount + RateOfInterestTime) / 100;
