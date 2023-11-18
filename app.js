@@ -10,8 +10,8 @@ const path = require('path');
 const passport = require('passport');
 const userRoute = require('./routes/UserRoutes');
 const adminRoute = require('./routes/AdminRoutes');
-const dbUrl = 'mongodb://127.0.0.1:27017/finmart'; //FOR DEVELOPMENT MODE
-// const dbUrl = process.env.DBURL; //FOR PRODUCTION MODE
+// const dbUrl = 'mongodb://127.0.0.1:27017/finmart'; //FOR DEVELOPMENT MODE
+const dbUrl = process.env.DBURL; //FOR PRODUCTION MODE
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -48,7 +48,7 @@ app.use('*', (req, res) => {
   res.render('error');
 });
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 
 const start = async () => {
   try {
