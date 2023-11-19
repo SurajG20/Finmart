@@ -22,7 +22,6 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   return emi.toFixed(2);
 }
 
-
 // home page
 module.exports.home = async (req, res) => {
   const blogs = await Blogs.find();
@@ -45,10 +44,12 @@ module.exports.user = async (req, res) => {
   const rateNew = await Loans.findOne({ category: loanType }).select(
     'interest'
   );
+  const notifications = await User.findById(user._id).select('notifications');
   const principal = userData?.loanDetails?.loanAmount;
   const tenure = userData?.loanDetails?.tenureDuration;
   const emi = calculateEMI(principal, rateNew?.interest, tenure);
-  res.render('user', { user, userData, emi });
+  const Notifications = notifications?.notifications;
+  res.render('user', { user, userData, emi, Notifications });
 };
 
 module.exports.login = (req, res) => {
@@ -368,7 +369,6 @@ module.exports.submitDocumentUpload = async (req, res) => {
       await combinedDetails.save();
       await User.findByIdAndUpdate(userId, { isLoanTaken: true });
       res.redirect('/user');
-      
     } else {
       res.render('error', { error: 'No files uploaded' });
     }

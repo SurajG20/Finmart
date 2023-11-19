@@ -161,13 +161,13 @@
             <!-- dashboard -->
             <div class="content-section active dashboard" id="dashboard">
               <!-- Loan Message -->
-              <% if (userData?.applicationStatus==='Approved' ) { %>
+              <% if (userData?.ApplicationStatus==='Approved' ) { %>
                 <div class="status text-center p-3 border border-primary">
                   <div class="alert alert-success" role="alert">
                     Congratulations, your loan is approved!
                   </div>
                 </div>
-                <% } else if (userData?.applicationStatus==='Rejected' ) { %>
+                <% } else if (userData?.ApplicationStatus==='Rejected' ) { %>
                   <div class="status text-center p-3 border border-primary">
                     <div class="alert alert-danger" role="alert">
                       Sorry, your loan application has been rejected.
@@ -371,25 +371,25 @@
             <!-- Notifications -->
             <div class="content-section notification mt-50 mb-50" id="notification">
               <h2 class="text-center mt-50 mb-50">Notifications</h2>
-              <div class="d-flex flex-column gap-10">
-                <!-- Single Notification -->
-                <% user?.notifications?.forEach(notification=> { %>
-                  <div class="alert alert-secondary" role="alert">
-                    <h4 class="alert-heading">
-                      <%= notification.title %>
-                    </h4>
-                    <p>
-                      <%= notification.message %>
-                    </p>
+              <!-- Single Notification -->
+                <% if (Notifications){ %>
+                  <div class="d-flex flex-column gap-10">
+                    <% for( let index=0; index < Notifications.length; index++ ) { %>
+                      <div class="alert alert-secondary" role="alert">
+                          <h4 class="alert-heading">
+                            <%= Notifications[index]?.title %>
+                          </h4>
+                          <p>
+                            <%= Notifications[index]?.message %>
+                          </p>
+                      </div>
+                      <% } %>
                   </div>
-                  <% }) %>
-              </div>
             </div>
-
-            <!-- privacy-policy -->
-
+            <%}%>
           </div>
         </div>
+      </div>
       </div>
     </section>
   </main>
