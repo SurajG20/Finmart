@@ -21,7 +21,7 @@ const sendResetPasswordMail = async (name, email, token) => {
       from: process.env.AUTHUSER,
       to: email,
       subject: 'Reset Password',
-      html: `<h1>Hi ${name}</h1><br><h3>Please click on the link to reset your password</h3><br><a href="http://localhost:8000/reset-password?token=${token}">Reset Password</a>`,
+      html: `<h1>Hi ${name}</h1><br><h3>Please click on the link to reset your password</h3><br><a href="https://vinayakfinmart.com/reset-password?token=${token}">Reset Password</a>`,
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
@@ -37,8 +37,9 @@ const sendResetPasswordMail = async (name, email, token) => {
 module.exports.Login = (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) throw err;
-    if (!user) { return res.render('login', { error: 'Invalid username or password' }) }
-    else {
+    if (!user) {
+      return res.render('login', { error: 'Invalid username or password' });
+    } else {
       req.logIn(user, (err) => {
         if (err) throw err;
         if (user.isAdmin) {
