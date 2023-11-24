@@ -21,7 +21,7 @@ const sendResetPasswordMail = async (name, email, token) => {
       from: process.env.AUTHUSER,
       to: email,
       subject: 'Reset Password',
-      html: `<h1>Hi ${name}</h1><br><h3>Please click on the link to reset your password</h3><br><a href="https://vinayakfinmart.com/reset-password?token=${token}">Reset Password</a>`,
+      html: `<h1>Hi ${name}</h1><br><h3>Please click on the link to reset your password</h3><br><a href="http://localhost:3000/reset-password?token=${token}">Reset Password</a>`,
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
@@ -130,22 +130,29 @@ module.exports.ForgetPassword = async (req, res) => {
 
 module.exports.ResetPassword = async (req, res) => {
   try {
-    const { currentUser, password, confirmpassword } = req.body;
+    const { userId, email, password, confirmpassword } = req.body;
+    const currentUser = await UserModel.findById(userId);
     if (password !== confirmpassword) {
-      res.status(400).json({ success: false, message: 'Password not match' });
+      return res.render('reset-password', {
+        error: 'Passwords do not match',
+        currentUser,
+      });
     }
-    const ResetUser = await UserModel.findOne({ email: currentUser });
+    const ResetUser = await UserModel.findOne({ email: email });
     if (!ResetUser) {
-      res.status(400).json({ success: false, message: 'User not found' });
+      return res.render('reset-password', {
+        error: 'User with this email does not exist',
+        currentUser,
+      });
     } else {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
       await UserModel.updateOne(
-        { email: currentUser },
+        { email: email },
         { $set: { password: hashedPassword } }
       );
       return res.redirect('/login');
     }
   } catch (error) {
-    return res.redirect('/error');
+    return res.render('error', { error });
   }
 };

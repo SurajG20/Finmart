@@ -65,27 +65,27 @@ $(document).ready(function () {
 
 //****************************** job Toggler js start ******************************
 
-function JobHandler(){
-  document.addEventListener("DOMContentLoaded", function () {
-    const inputFile = document.querySelector("#job-picture__input");
-    const pictureImage = document.querySelector(".job-picture__image");
-    const pictureImageTxt = "Choose an image";
+function JobHandler() {
+  document.addEventListener('DOMContentLoaded', function () {
+    const inputFile = document.querySelector('#job-picture__input');
+    const pictureImage = document.querySelector('.job-picture__image');
+    const pictureImageTxt = 'Choose an image';
 
-    inputFile.addEventListener("change", function (e) {
+    inputFile.addEventListener('change', function (e) {
       const inputTarget = e.target;
       const file = inputTarget.files[0];
 
       if (file) {
         const reader = new FileReader();
 
-        reader.addEventListener("load", function (e) {
+        reader.addEventListener('load', function (e) {
           const readerTarget = e.target;
 
-          const img = document.createElement("img");
+          const img = document.createElement('img');
           img.src = readerTarget.result;
-          img.classList.add("blog-picture__img"); // Add appropriate CSS class
+          img.classList.add('blog-picture__img'); // Add appropriate CSS class
 
-          pictureImage.innerHTML = "";
+          pictureImage.innerHTML = '';
           pictureImage.appendChild(img);
         });
 
@@ -96,75 +96,72 @@ function JobHandler(){
     });
   });
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const jobFormContainer = document.getElementById("job_form");
-    const jobViewContainer = document.getElementById("job_view");
-    const jobApplicantContainer = document.getElementById("job_Applicant");
+  document.addEventListener('DOMContentLoaded', function () {
+    const jobFormContainer = document.getElementById('job_form');
+    const jobViewContainer = document.getElementById('job_view');
+    const jobApplicantContainer = document.getElementById('job_Applicant');
 
     // Initially, show job_view and hide job_form and job_Applicant
-    jobFormContainer.style.display = "none";
-    jobApplicantContainer.style.display = "none";
+    jobFormContainer.style.display = 'none';
+    jobApplicantContainer.style.display = 'none';
 
     // Show job_view and hide job_form and job_Applicant on dom load
-    jobViewContainer.style.display = "block";
+    jobViewContainer.style.display = 'block';
 
     // Update the buttons' event listeners
     const jobFormButton = document.querySelector('[for="job_form"]');
     const jobViewButton = document.querySelector('[for="job_view"]');
     const jobApplicantButton = document.querySelector('[for="job_Applicant"]');
 
-    jobFormButton.addEventListener("click", function () {
-      jobFormContainer.style.display = "block";
-      jobViewContainer.style.display = "none";
-      jobApplicantContainer.style.display = "none";
+    jobFormButton.addEventListener('click', function () {
+      jobFormContainer.style.display = 'block';
+      jobViewContainer.style.display = 'none';
+      jobApplicantContainer.style.display = 'none';
     });
 
-    jobViewButton.addEventListener("click", function () {
-      jobViewContainer.style.display = "block";
-      jobFormContainer.style.display = "none";
-      jobApplicantContainer.style.display = "none";
+    jobViewButton.addEventListener('click', function () {
+      jobViewContainer.style.display = 'block';
+      jobFormContainer.style.display = 'none';
+      jobApplicantContainer.style.display = 'none';
     });
 
-    jobApplicantButton.addEventListener("click", function () {
-      jobApplicantContainer.style.display = "block";
-      jobFormContainer.style.display = "none";
-      jobViewContainer.style.display = "none";
+    jobApplicantButton.addEventListener('click', function () {
+      jobApplicantContainer.style.display = 'block';
+      jobFormContainer.style.display = 'none';
+      jobViewContainer.style.display = 'none';
     });
   });
 }
 
 JobHandler();
 
-
-
 //************************************** */ Job Toogler js end *****************************************
 
 // Blog Toogler js
 
-
 //************************************** */ blog Toogler js start *****************************************
-function BlogHandler(){
+function BlogHandler() {
   // blog image handler
-  document.addEventListener("DOMContentLoaded", function () {
-    const inputFile = document.querySelector("#blog-picture__input");
-    const pictureImage = document.querySelector(".blog-picture__image");
-    const pictureImageTxt = "Choose an image";
+  document.addEventListener('DOMContentLoaded', function () {
+    const inputFile = document.querySelector('#blog-picture__input');
+    const pictureImage = document.querySelector('.blog-picture__image');
+    const pictureImageTxt = 'Choose an image';
 
-    inputFile.addEventListener("change", function (e) {
+    inputFile.addEventListener('change', function (e) {
       const inputTarget = e.target;
       const file = inputTarget.files[0];
 
       if (file) {
         const reader = new FileReader();
 
-        reader.addEventListener("load", function (e) {
+        reader.addEventListener('load', function (e) {
           const readerTarget = e.target;
 
-          const img = document.createElement("img");
+          const img = document.createElement('img');
           img.src = readerTarget.result;
-          img.classList.add("blog-picture__img"); // Add appropriate CSS class
+          img.classList.add('blog-picture__img'); // Add appropriate CSS class
 
-          pictureImage.innerHTML = "";
+          pictureImage.innerHTML = '';
           pictureImage.appendChild(img);
         });
 
@@ -176,69 +173,66 @@ function BlogHandler(){
   });
 
   // blog switch handler
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const jobFormButton = document.querySelector('[for="blog_form"]');
     const jobViewButton = document.querySelector('[for="blog_view"]');
-    const jobFormContainer = document.getElementById("blog_form");
-    const jobViewContainer = document.getElementById("blog_view");
-    jobFormContainer.style.display = "none";
+    const jobFormContainer = document.getElementById('blog_form');
+    const jobViewContainer = document.getElementById('blog_view');
+    jobFormContainer.style.display = 'none';
 
     // Show job_form and hide job_view when jobFormButton is clicked
-    jobFormButton.addEventListener("click", function () {
-      jobFormContainer.style.display = "block";
-      jobViewContainer.style.display = "none";
+    jobFormButton.addEventListener('click', function () {
+      jobFormContainer.style.display = 'block';
+      jobViewContainer.style.display = 'none';
     });
 
     // Show job_view and hide job_form when jobViewButton is clicked
-    jobViewButton.addEventListener("click", function () {
-      jobViewContainer.style.display = "block";
-      jobFormContainer.style.display = "none";
+    jobViewButton.addEventListener('click', function () {
+      jobViewContainer.style.display = 'block';
+      jobFormContainer.style.display = 'none';
     });
   });
 }
 
-BlogHandler()
-
-
-
+BlogHandler();
 
 //************************************** */ Blog js End *****************************************
 //************************************** */ faqs Toogler js start *****************************************
-function FAQ(){
+function FAQ() {
   // Faqswitch handler
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const faqsFormButton = document.querySelector('[for="faqs_form"]');
     const faqsViewButton = document.querySelector('[for="faqs_view"]');
-    const faqsFormContainer = document.getElementById("faqs_form");
-    const faqsViewContainer = document.getElementById("faqs_view");
-    faqsFormContainer.style.display = "none";
+    const faqsFormContainer = document.getElementById('faqs_form');
+    const faqsViewContainer = document.getElementById('faqs_view');
+    faqsFormContainer.style.display = 'none';
 
     // Show job_form and hide job_view when jobFormButton is clicked
-    faqsFormButton.addEventListener("click", function () {
-      faqsFormContainer.style.display = "block";
-      faqsViewContainer.style.display = "none";
+    faqsFormButton.addEventListener('click', function () {
+      faqsFormContainer.style.display = 'block';
+      faqsViewContainer.style.display = 'none';
     });
 
     // Show job_view and hide job_form when jobViewButton is clicked
-    faqsViewButton.addEventListener("click", function () {
-      faqsViewContainer.style.display = "block";
-      faqsFormContainer.style.display = "none";
+    faqsViewButton.addEventListener('click', function () {
+      faqsViewContainer.style.display = 'block';
+      faqsFormContainer.style.display = 'none';
     });
   });
 }
-FAQ()
+FAQ();
 
 //************************************** */ Blog js End *****************************************
 
 //************************************** */ Loan setting start *******************************************
-function LoanSettingHandler(){
-  document.addEventListener("DOMContentLoaded", function () {
-    const setting_FormContainer = document.getElementById("setting_form");
-    const setting_formViewContainer = document.getElementById("setting_view");
+function LoanSettingHandler() {
+  document.addEventListener('DOMContentLoaded', function () {
+    const setting_FormContainer = document.getElementById('setting_form');
+    const setting_formViewContainer = document.getElementById('setting_view');
 
     // Initially, show job_view and hide job_form and job_Applicant
-    setting_FormContainer.style.display = "none";
-    setting_formViewContainer.style.display = "block";
+    setting_FormContainer.style.display = 'none';
+    setting_formViewContainer.style.display = 'block';
 
     // Update the buttons' event listeners
     const setting_formFormButton = document.querySelector(
@@ -248,79 +242,74 @@ function LoanSettingHandler(){
       '[for="setting_view"]'
     );
 
-    setting_formFormButton.addEventListener("click", function () {
-      setting_FormContainer.style.display = "block";
-      setting_formViewContainer.style.display = "none";
+    setting_formFormButton.addEventListener('click', function () {
+      setting_FormContainer.style.display = 'block';
+      setting_formViewContainer.style.display = 'none';
     });
 
-    setting_formViewButton.addEventListener("click", function () {
-      setting_formViewContainer.style.display = "block";
-      setting_FormContainer.style.display = "none";
+    setting_formViewButton.addEventListener('click', function () {
+      setting_formViewContainer.style.display = 'block';
+      setting_FormContainer.style.display = 'none';
     });
   });
-
 }
-LoanSettingHandler()
-
-
+LoanSettingHandler();
 
 //************************************** */ Loan setting End *******************************************
 
 //************************************** */ User js start ***************************************
-function UserDetialHandler(){
-  document.addEventListener("DOMContentLoaded", function () {
+function UserDetialHandler() {
+  document.addEventListener('DOMContentLoaded', function () {
     // Get the buttons and corresponding divs by their IDs
-    var personalDetailBtn = document.getElementById("personalDetailBtn");
-    var loanDetailBtn = document.getElementById("loanDetailBtn");
-    var applicationDetailBtn = document.getElementById("applicationDetailBtn");
-    var documentDetailBtn = document.getElementById("documentDetailBtn");
+    var personalDetailBtn = document.getElementById('personalDetailBtn');
+    var loanDetailBtn = document.getElementById('loanDetailBtn');
+    var applicationDetailBtn = document.getElementById('applicationDetailBtn');
+    var documentDetailBtn = document.getElementById('documentDetailBtn');
 
-    var personalDetail = document.getElementById("personalDetail");
-    var loanDetail = document.getElementById("loanDetail");
-    var applicationDetail = document.getElementById("applicationDetail");
-    var documentDetail = document.getElementById("documentDetail");
+    var personalDetail = document.getElementById('personalDetail');
+    var loanDetail = document.getElementById('loanDetail');
+    var applicationDetail = document.getElementById('applicationDetail');
+    var documentDetail = document.getElementById('documentDetail');
 
     // Show personalDetail by default and hide others
     showDiv(personalDetail);
     hideOthers([loanDetail, applicationDetail, documentDetail]);
 
     // Add click event listeners to the buttons
-    personalDetailBtn.addEventListener("click", function () {
+    personalDetailBtn.addEventListener('click', function () {
       showDiv(personalDetail);
       hideOthers([loanDetail, applicationDetail, documentDetail]);
     });
 
-    loanDetailBtn.addEventListener("click", function () {
+    loanDetailBtn.addEventListener('click', function () {
       showDiv(loanDetail);
       hideOthers([personalDetail, applicationDetail, documentDetail]);
     });
 
-    applicationDetailBtn.addEventListener("click", function () {
+    applicationDetailBtn.addEventListener('click', function () {
       showDiv(applicationDetail);
       hideOthers([personalDetail, loanDetail, documentDetail]);
     });
 
-    documentDetailBtn.addEventListener("click", function () {
+    documentDetailBtn.addEventListener('click', function () {
       showDiv(documentDetail);
       hideOthers([personalDetail, loanDetail, applicationDetail]);
     });
 
     // Function to show a specific div
     function showDiv(div) {
-      div.style.display = "block";
+      div.style.display = 'block';
     }
 
     // Function to hide other divs
     function hideOthers(divs) {
       divs.forEach(function (div) {
-        div.style.display = "none";
+        div.style.display = 'none';
       });
     }
   });
-
 }
-UserDetialHandler()
-
+UserDetialHandler();
 
 // user personal detais js
 
@@ -363,8 +352,8 @@ userDoc();
 
 //********************* Notification  Toggler js start ******************************
 
-function NotificationHandler(){
-  document.addEventListener("DOMContentLoaded", function () {
+function NotificationHandler() {
+  document.addEventListener('DOMContentLoaded', function () {
     const notificationFormButton = document.querySelector(
       '[for="notification_form"]'
     );
@@ -372,46 +361,46 @@ function NotificationHandler(){
       '[for="notification_view"]'
     );
     const notification_sendBtn = document.getElementById(
-      "notification_sendBtn"
+      'notification_sendBtn'
     );
     const sendallnotification = document.getElementById(
-      "send-all-notification"
+      'send-all-notification'
     );
 
     const notificationFormContainer =
-      document.getElementById("notification_form");
+      document.getElementById('notification_form');
     const notificationViewContainer =
-      document.getElementById("notification_view");
-    notificationFormContainer.style.display = "none";
+      document.getElementById('notification_view');
+    notificationFormContainer.style.display = 'none';
 
     // Show job_form and hide job_view when jobFormButton is clicked
-    notificationFormButton.addEventListener("click", function () {
-      notificationFormContainer.style.display = "block";
-      notificationViewContainer.style.display = "none";
+    notificationFormButton.addEventListener('click', function () {
+      notificationFormContainer.style.display = 'block';
+      notificationViewContainer.style.display = 'none';
     });
 
     // Show job_view and hide job_form when jobViewButton is clicked
-    notificationViewButton.addEventListener("click", function () {
-      notificationViewContainer.style.display = "block";
-      notificationFormContainer.style.display = "none";
+    notificationViewButton.addEventListener('click', function () {
+      notificationViewContainer.style.display = 'block';
+      notificationFormContainer.style.display = 'none';
     });
 
-    notification_sendBtn.addEventListener("click", function () {
-      notificationViewContainer.style.display = "none";
-      notificationFormContainer.style.display = "block";
+    notification_sendBtn.addEventListener('click', function () {
+      notificationViewContainer.style.display = 'none';
+      notificationFormContainer.style.display = 'block';
     });
 
-    sendallnotification.addEventListener("click", function () {
-      notificationFormContainer.style.display = "block";
-      notificationViewContainer.style.display = "none";
+    sendallnotification.addEventListener('click', function () {
+      notificationFormContainer.style.display = 'block';
+      notificationViewContainer.style.display = 'none';
     });
   });
 
   // Notification seaching js
   $(document).ready(function () {
-    $("#notification_search").on("keyup", function () {
+    $('#notification_search').on('keyup', function () {
       var value = $(this).val().toLowerCase();
-      $(".notification_table tbody tr").filter(function () {
+      $('.notification_table tbody tr').filter(function () {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
       });
     });
@@ -420,15 +409,126 @@ function NotificationHandler(){
   // checkbox js
   $(document).ready(function () {
     // Check/uncheck all checkboxes when "Select All" checkbox is clicked
-    $("#notification_select_all_btn").change(function () {
-      var isChecked = $(this).prop("checked");
+    $('#notification_select_all_btn').change(function () {
+      var isChecked = $(this).prop('checked');
       $(".notification_table tbody input[type='checkbox']").prop(
-        "checked",
+        'checked',
         isChecked
       );
     });
   });
-
-
 }
-NotificationHandler()
+NotificationHandler();
+
+document
+  .getElementById('exportCsvBtnNewsletter')
+  .addEventListener('click', function () {
+    // Get table data
+    const tableNewsletter = document.getElementById('tableNewsletter');
+    const rowsNewsletter = tableNewsletter.querySelectorAll('tr');
+
+    // Create CSV content
+    let csvContentNewsletter = 'data:text/csv;charset=utf-8,';
+
+    rowsNewsletter.forEach((row) => {
+      const rowData = [];
+      row.querySelectorAll('td').forEach((cell) => {
+        rowData.push(cell.innerText.trim());
+      });
+      csvContentNewsletter += rowData.join(',') + '\n';
+    });
+
+    // Create a CSV file
+    const encodedUriNewsletter = encodeURI(csvContentNewsletter);
+    const linkNewsletter = document.createElement('a');
+    linkNewsletter.setAttribute('href', encodedUriNewsletter);
+    linkNewsletter.setAttribute('download', 'newsletter_data.csv');
+    document.body.appendChild(linkNewsletter);
+
+    // Trigger download
+    linkNewsletter.click();
+  });
+
+document.getElementById('exportCsvBtn').addEventListener('click', function () {
+  // Get table data
+  const table = document.getElementById('table');
+  const rows = table.querySelectorAll('tr');
+
+  // Create CSV content
+  let csvContent = 'data:text/csv;charset=utf-8,';
+
+  rows.forEach((row) => {
+    const rowData = [];
+    row.querySelectorAll('td').forEach((cell) => {
+      rowData.push(cell.innerText.trim());
+    });
+    csvContent += rowData.join(',') + '\n';
+  });
+
+  // Create a CSV file
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement('a');
+  link.setAttribute('href', encodedUri);
+  link.setAttribute('download', 'table_data.csv');
+  document.body.appendChild(link);
+
+  // Trigger download
+  link.click();
+});
+
+document
+  .getElementById('exportCsvBtnContacts')
+  .addEventListener('click', function () {
+    // Get table data
+    const tableContacts = document.getElementById('tableContacts');
+    const rowsContacts = tableContacts.querySelectorAll('tr');
+
+    // Create CSV content
+    let csvContentContacts = 'data:text/csv;charset=utf-8,';
+
+    rowsContacts.forEach((row) => {
+      const rowData = [];
+      row.querySelectorAll('td').forEach((cell) => {
+        rowData.push(cell.innerText.trim());
+      });
+      csvContentContacts += rowData.join(',') + '\n';
+    });
+
+    // Create a CSV file
+    const encodedUriContacts = encodeURI(csvContentContacts);
+    const linkContacts = document.createElement('a');
+    linkContacts.setAttribute('href', encodedUriContacts);
+    linkContacts.setAttribute('download', 'contacts_data.csv');
+    document.body.appendChild(linkContacts);
+
+    // Trigger download
+    linkContacts.click();
+  });
+
+const openModalButton = document.getElementById('openModalButton');
+const modal = document.getElementById('myModal');
+const closeModal = document.getElementById('closeModal');
+
+openModalButton.addEventListener('click', function () {
+  modal.style.display = 'block';
+});
+
+closeModal.addEventListener('click', function () {
+  modal.style.display = 'none';
+});
+
+// Close the modal when clicking outside the modal content
+window.addEventListener('click', function (event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});
+
+let sidebar = document.querySelector('.sidebar');
+let sidebarBtn = document.querySelector('.sidebarBtn');
+sidebarBtn.onclick = function () {
+  sidebar.classList.toggle('active');
+  if (sidebar.classList.contains('active')) {
+    sidebarBtn.classList.replace('bx-menu', 'bx-menu-alt-right');
+  } else sidebarBtn.classList.replace('bx-menu-alt-right', 'bx-menu');
+};

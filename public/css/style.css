@@ -10011,7 +10011,6 @@ header .header-top .header-info-right ul li i {
 
 .blog-widget-2 {
   border-radius: 10px;
-  height: 450px;
   overflow: hidden;
   background-color: var(--bs-white);
   box-shadow: var(--theme-dropshadow);

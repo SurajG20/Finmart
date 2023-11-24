@@ -18,6 +18,7 @@ const combinedDetailsSchema = new mongoose.Schema({
       loanAmount: String,
       financingType: String,
       bankService: String,
+      tenureUnit: String
     },
     required: true,
   },

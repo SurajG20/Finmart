@@ -16,10 +16,8 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const monthlyInterestRate = annualInterestRate / 12 / 100;
   const numberOfMonths = tenureInYears * 12;
   const emi =
-    (principal *
-      monthlyInterestRate *
-      Math.pow(1 + monthlyInterestRate, numberOfMonths)) /
-    (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+    (principal * monthlyInterestRate) /
+    (1 - Math.pow(1 + monthlyInterestRate, -numberOfMonths));
   return emi.toFixed(2);
 }
 
@@ -57,9 +55,16 @@ module.exports.userDetails = async (req, res) => {
   const user = await User.findOne({ _id: singleUserId });
   const allNotifications = user?.notifications;
   const principal = singleUserData?.loanDetails?.loanAmount;
-  const rate = singleUserData?.loanDetails?.rateOfInterest;
+  const loanType = singleUserData?.loanDetails?.['select-loan-type'];
+  const rateNew = await Loans.findOne({ category: loanType }).select(
+    'interest'
+  );
   const tenure = singleUserData?.loanDetails?.tenureDuration;
-  const emi = calculateEMI(principal, rate, tenure);
+  const tenureUnit = singleUserData?.loanDetails?.tenureUnit;
+  if (tenureUnit === 'month') {
+    tenure = tenure / 12;
+  }
+  const emi = calculateEMI(principal, rateNew?.interest, tenure);
   res.render('userDetails', { singleUserData, emi, allNotifications });
 };
 
@@ -82,13 +87,13 @@ module.exports.updateStatus = async (req, res) => {
 };
 module.exports.deleteFeedback = async (req, res) => {
   const { feedbackId } = req.params;
-  await Feedback.findByIdAndRemove(feedbackId);
+  await Feedback.findByIdAndDelete(feedbackId);
   res.redirect('/admin');
 };
 // delete feedback
 module.exports.deleteNewsletter = async (req, res) => {
   const { subsId } = req.params;
-  await Newsletter.findByIdAndRemove(subsId);
+  await Newsletter.findByIdAndDelete(subsId);
   res.redirect('/admin');
 };
 
@@ -201,7 +206,7 @@ module.exports.createFaq = async (req, res) => {
 module.exports.deleteFaq = async (req, res) => {
   const faqId = req.params.faqId;
   try {
-    await Frequently.findByIdAndRemove(faqId);
+    await Frequently.findByIdAndDelete(faqId);
     res.redirect('/admin');
   } catch (err) {
     res.redirect('error', { err });
@@ -211,9 +216,10 @@ module.exports.deleteFaq = async (req, res) => {
 // addNewBLog
 module.exports.addNewBlog = async (req, res) => {
   try {
-    const { title, description, author, category } = req.body;
-    if (title && description && author && category) {
-      const newBlog = { title, description, author, category };
+    const { title, description, author, category, tags } = req.body;
+    if (title && description && author && category && tags) {
+      const tagsArray = tags.split(',');
+      const newBlog = { title, description, author, category, tags: tagsArray };
       if (req.files) {
         newBlog.images = req.files.map((f) => {
           return {
@@ -222,6 +228,7 @@ module.exports.addNewBlog = async (req, res) => {
           };
         });
       }
+      console.log(newBlog)
       await Blogs.create(newBlog);
       res.redirect('/admin');
     }
@@ -236,13 +243,6 @@ module.exports.updateBlog = async (req, res) => {
     const { blogId } = req.params;
     const updateBlogData = req.body;
     const blog = await Blogs.findByIdAndUpdate(blogId, updateBlogData);
-    // if (req.file) {
-    //   images = {
-    //     url: req.file.path,
-    //     filename: req.file.filename,
-    //   };
-    //   blog.image = [...images];
-    // }
     await blog.save();
     res.status(200).json({ message: 'Blog updated successfully' });
     // res.redirect('/admin');

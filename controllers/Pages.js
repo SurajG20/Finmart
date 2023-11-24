@@ -8,6 +8,7 @@ const Newsletter = require('../models/Newsletter');
 const CombinedDetails = require('../models/CombinedDetails');
 const User = require('../models/User');
 // Function to calculate EMI
+
 function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const principal = parseFloat(principalStr);
   const annualInterestRate = parseFloat(annualInterestRateStr);
@@ -15,10 +16,8 @@ function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const monthlyInterestRate = annualInterestRate / 12 / 100;
   const numberOfMonths = tenureInYears * 12;
   const emi =
-    (principal *
-      monthlyInterestRate *
-      Math.pow(1 + monthlyInterestRate, numberOfMonths)) /
-    (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+    (principal * monthlyInterestRate) /
+    (1 - Math.pow(1 + monthlyInterestRate, -numberOfMonths));
   return emi.toFixed(2);
 }
 
@@ -47,6 +46,10 @@ module.exports.user = async (req, res) => {
   const notifications = await User.findById(user._id).select('notifications');
   const principal = userData?.loanDetails?.loanAmount;
   const tenure = userData?.loanDetails?.tenureDuration;
+  const tenureUnit = userData?.loanDetails?.tenureUnit;
+  if (tenureUnit === 'month') {
+    tenure = tenure / 12;
+  }
   const emi = calculateEMI(principal, rateNew?.interest, tenure);
   const Notifications = notifications?.notifications;
   res.render('user', { user, userData, emi, Notifications });
