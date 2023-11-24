@@ -249,13 +249,6 @@
                       >
                         Export to CSV
                       </button>
-                      <button
-                        id="exportXlsxBtnContacts"
-                        style="white-space: nowrap"
-                        class="btn btn-primary"
-                      >
-                        Export to XLSX
-                      </button>
                     </div>
                   </div>
                   <!-- <form id="notification_form" action=""> -->
@@ -1392,37 +1385,6 @@
         </div>
       </section>
     </main>
-    <script>
-      document
-        .getElementById('exportXlsxBtnContacts')
-        .addEventListener('click', function () {
-          // Get table data
-          const table = document.getElementById('tableContacts');
-          console.log(table);
-          const data = XLSX.utils.table_to_sheet(table);
-
-          // Create a blob from the data
-          const blob = XLSX.write(data, {
-            bookType: 'xlsx',
-            bookSST: true,
-            mimeType:
-              'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-          });
-
-          // Create a download link and trigger a click to download the file
-          const link = document.createElement('a');
-          link.href = URL.createObjectURL(
-            new Blob([blob], {
-              type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            })
-          );
-          link.download = 'contacts.xlsx';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
-    </script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
