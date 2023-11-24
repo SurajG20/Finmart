@@ -21,7 +21,7 @@ const sendResetPasswordMail = async (name, email, token) => {
       from: process.env.AUTHUSER,
       to: email,
       subject: 'Reset Password',
-      html: `<h1>Hi ${name}</h1><br><h3>Please click on the link to reset your password</h3><br><a href="http://localhost:3000/reset-password?token=${token}">Reset Password</a>`,
+      html: `<h1>Hi ${name}</h1><br><h3>Please click on the link to reset your password</h3><br><a href="https://vinayakfinmart.com/reset-password?token=${token}">Reset Password</a>`,
     };
     transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
