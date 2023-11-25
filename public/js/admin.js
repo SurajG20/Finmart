@@ -420,91 +420,6 @@ function NotificationHandler() {
 }
 NotificationHandler();
 
-document
-  .getElementById('exportCsvBtnNewsletter')
-  .addEventListener('click', function () {
-    // Get table data
-    const tableNewsletter = document.getElementById('tableNewsletter');
-    const rowsNewsletter = tableNewsletter.querySelectorAll('tr');
-
-    // Create CSV content
-    let csvContentNewsletter = 'data:text/csv;charset=utf-8,';
-
-    rowsNewsletter.forEach((row) => {
-      const rowData = [];
-      row.querySelectorAll('td').forEach((cell) => {
-        rowData.push(cell.innerText.trim());
-      });
-      csvContentNewsletter += rowData.join(',') + '\n';
-    });
-
-    // Create a CSV file
-    const encodedUriNewsletter = encodeURI(csvContentNewsletter);
-    const linkNewsletter = document.createElement('a');
-    linkNewsletter.setAttribute('href', encodedUriNewsletter);
-    linkNewsletter.setAttribute('download', 'newsletter_data.csv');
-    document.body.appendChild(linkNewsletter);
-
-    // Trigger download
-    linkNewsletter.click();
-  });
-
-document.getElementById('exportCsvBtn').addEventListener('click', function () {
-  // Get table data
-  const table = document.getElementById('table');
-  const rows = table.querySelectorAll('tr');
-
-  // Create CSV content
-  let csvContent = 'data:text/csv;charset=utf-8,';
-
-  rows.forEach((row) => {
-    const rowData = [];
-    row.querySelectorAll('td').forEach((cell) => {
-      rowData.push(cell.innerText.trim());
-    });
-    csvContent += rowData.join(',') + '\n';
-  });
-
-  // Create a CSV file
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement('a');
-  link.setAttribute('href', encodedUri);
-  link.setAttribute('download', 'table_data.csv');
-  document.body.appendChild(link);
-
-  // Trigger download
-  link.click();
-});
-
-document
-  .getElementById('exportCsvBtnContacts')
-  .addEventListener('click', function () {
-    // Get table data
-    const tableContacts = document.getElementById('tableContacts');
-    const rowsContacts = tableContacts.querySelectorAll('tr');
-
-    // Create CSV content
-    let csvContentContacts = 'data:text/csv;charset=utf-8,';
-
-    rowsContacts.forEach((row) => {
-      const rowData = [];
-      row.querySelectorAll('td').forEach((cell) => {
-        rowData.push(cell.innerText.trim());
-      });
-      csvContentContacts += rowData.join(',') + '\n';
-    });
-
-    // Create a CSV file
-    const encodedUriContacts = encodeURI(csvContentContacts);
-    const linkContacts = document.createElement('a');
-    linkContacts.setAttribute('href', encodedUriContacts);
-    linkContacts.setAttribute('download', 'contacts_data.csv');
-    document.body.appendChild(linkContacts);
-
-    // Trigger download
-    linkContacts.click();
-  });
-
 const openModalButton = document.getElementById('openModalButton');
 const modal = document.getElementById('myModal');
 const closeModal = document.getElementById('closeModal');
@@ -532,3 +447,9 @@ sidebarBtn.onclick = function () {
     sidebarBtn.classList.replace('bx-menu', 'bx-menu-alt-right');
   } else sidebarBtn.classList.replace('bx-menu-alt-right', 'bx-menu');
 };
+
+// Export Csv contacts
+
+// Export Csv newsletter
+
+
