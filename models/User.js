@@ -19,12 +19,20 @@ const UserSchema = new Schema(
   {
     username: {
       type: String,
-      required: true,
+      required: [true, 'Please provide name'],
+      maxlength: 50,
+      minlength: 3,
     },
     email: {
       type: String,
-      required: true,
+      minlength: 5,
+      maxlength: 255,
       unique: true,
+      required: [true, 'Please provide email'],
+      match: [
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        'Please provide a valid email',
+      ],
     },
     phoneNumber: {
       type: String,
@@ -32,6 +40,7 @@ const UserSchema = new Schema(
     },
     password: {
       type: String,
+      minlength: 5,
     },
     googleId: {
       type: String,
@@ -46,10 +55,10 @@ const UserSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    token:{
-      type:String,
-      default:''
-    }
+    token: {
+      type: String,
+      default: '',
+    },
   },
   { timestamps: true }
 );
