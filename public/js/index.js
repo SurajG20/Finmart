@@ -27,18 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
   const typeOfLoanSelect = document.getElementById('loandetails');
   const rateOfInterestInput = document.getElementById('rate-interest');
 
-  const interestRates = {
-    'Debt-Financing': 5.5, // Set the rate of interest for Debt Loan
-    'Housing-Finance': 4.0, // Set the rate of interest for Housing Loan
-    'Education-Finance': 6.5, // Set the rate of interest for Education Loan
-    'Car-Finance': 5.0, // Set the rate of interest for Car Loan
-    'Business-Finance': 7.0, // Set the rate of interest for Business Loan
-    Other: 5.0, // Set a default rate of interest for "Other" type
-  };
+  const response = await fetch('/loan-data');
+  const loanData = await response.json();
+
+  const interestRates = {};
+  loanData.forEach((loan) => {
+    interestRates[loan.category] = parseFloat(loan.interest);
+  });
 
   typeOfLoanSelect.addEventListener('change', function () {
     const selectedLoanType = typeOfLoanSelect.value;

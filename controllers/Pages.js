@@ -7,6 +7,7 @@ const Loans = require('../models/LoanType');
 const Newsletter = require('../models/Newsletter');
 const CombinedDetails = require('../models/CombinedDetails');
 const User = require('../models/User');
+const LoanModel = require('../models/LoanType');
 // Function to calculate EMI
 
 function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
@@ -28,7 +29,8 @@ module.exports.home = async (req, res) => {
   const frequently = await Frequently.find();
   const feedbacks = await Feedback.find();
 
-  res.render('index', { blogs, frequently, feedbacks, user });
+  const loanCategories = await Loans.find().distinct('category');
+  res.render('index', { blogs, frequently, feedbacks, user, loanCategories });
 };
 
 // about page
@@ -377,5 +379,15 @@ module.exports.submitDocumentUpload = async (req, res) => {
     }
   } catch (error) {
     res.render('error', { error });
+  }
+};
+
+module.exports.loanData = async (req, res) => {
+  try {
+    const loans = await LoanModel.find({});
+    res.status(200).json(loans);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };

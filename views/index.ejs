@@ -235,11 +235,9 @@
                   <select class="w-100" id="loandetails" required>
                     <option value="">Types of Loan</option>
                     <!-- <option value="Debt-Financing">Debt Loan</option> -->
-                    <option value="Housing-Finance">Housing Loan</option>
-                    <option value="Education-Finance">Education Loan</option>
-                    <option value="Car-Finance">Car Loan</option>
-                    <option value="Business-Finance">Business Loan</option>
-                    <option value="Other">Other</option>
+                    <% loanCategories.forEach(element => { %>
+                      <option value="<%= element %>"><%= element %></option>
+                    <% }) %>
                   </select>
                 </div>
                 <div class="mb-3">

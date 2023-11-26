@@ -24,6 +24,7 @@ const {
   privacyPolicy,
   forgetPassword,
   resetPassword,
+  loanData,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
 const {
@@ -74,6 +75,7 @@ router.route('/feedback').post(upload.none(), feedback);
 router.route('/contact').post(upload.none(), contactus);
 
 router.route('/newsletter').post(upload.none(), newsletter);
+router.route('/loan-data').get(loanData);
 
 router.route('/applyToJob').post(upload.single('resume'), applyToJob);
 
