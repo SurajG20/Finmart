@@ -15,7 +15,7 @@ module.exports = function (passport) {
         }
 
         if (!user) {
-          return done(null, false); 
+          return done(null, false);
         }
 
         const passwordMatch = await bcrypt.compare(password, user.password);
@@ -35,7 +35,7 @@ module.exports = function (passport) {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: 'https://finmart.onrender.com/google/callback',
+        callbackURL: 'https://vinayakfinmart.com/google/callback',
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
