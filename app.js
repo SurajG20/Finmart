@@ -31,7 +31,7 @@ app.use(
     store: MongoStore.create({
       mongoUrl: dbUrl,
       dbName: 'finmart',
-      ttl: 14 * 24 * 60 * 60,
+      ttl: 12 * 60 * 60,
       autoRemove: 'native',
     }),
   })
@@ -48,7 +48,7 @@ app.use('*', (req, res) => {
   res.render('error');
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 7000;
 
 const start = async () => {
   try {
