@@ -128,7 +128,6 @@ module.exports.blog = async (req, res) => {
   const blogs = await Blogs.find();
   const allCategories = await Blogs.find().distinct('category');
   const allTags = await Blogs.find().distinct('tags');
-  console.log(allTags);
   const user = req.session?.passport?.user;
   if (req.query.search) {
     const searchBlogs = await Blogs.find({

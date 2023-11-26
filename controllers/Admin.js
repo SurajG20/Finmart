@@ -228,7 +228,6 @@ module.exports.addNewBlog = async (req, res) => {
           };
         });
       }
-      console.log(newBlog)
       await Blogs.create(newBlog);
       res.redirect('/admin');
     }
