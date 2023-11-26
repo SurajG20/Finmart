@@ -1321,6 +1321,7 @@ header .header-top .header-info-right ul li i {
 .header-menu.navbar_fixed.header-menu-1 .theme-btn,
 .header-menu.navbar_fixed.header-menu-3 .theme-btn,
 .header-menu.navbar_fixed.header-menu-4 .theme-btn {
+
   background-color: var(--theme-color);
   color: #fff;
 }
@@ -1504,6 +1505,7 @@ header .header-top .header-info-right ul li i {
 .header-menu .menu>.nav-item.submenu .dropdown-menu.dropdown_menu_two .nav-item .nav-link {
   display: flex;
   align-items: center;
+  
 }
 
 .header-menu .menu>.nav-item.submenu .dropdown-menu.dropdown_menu_two .nav-item .nav-link:before {
@@ -1684,6 +1686,7 @@ header .header-top .header-info-right ul li i {
   position: relative;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+ 
 }
 
 .header-menu .menu>.nav-item.submenu.mega_menu .dropdown-menu .tabContent .tab-pane .tab_list li a:before {
@@ -1740,7 +1743,10 @@ header .header-top .header-info-right ul li i {
 }
 
 .header-menu.header-menu-2 .menu>.nav-item>.nav-link {
-  color: #6a737c;
+  color: #6a737c;  
+}
+.header-menu.header-menu-2 .menu .nav-item .nav-link:hover {
+  color: blue;
 }
 
 .header-menu.header-menu-2 .menu>.nav-item>.nav-link.active {
@@ -12200,6 +12206,10 @@ body.body_dark .services-area table tbody tr:nth-child(even)>*:nth-child(even) {
 
 body.body_dark .header-menu.header-menu-2 .menu>.nav-item>.nav-link {
   color: #ffffff;
+  
+}
+body.body_dark .header-menu.header-menu-2 .menu>.nav-item>.nav-link:hover{
+  color: blue;
 }
 
 .js-darkmode-btn {
