@@ -228,6 +228,11 @@
   }
 }
 
+.navbar .navbar-brand {
+  height: 100px;
+  width: 125px;
+}
+
 @media (max-width: 991px) {
   .navbar .navbar-brand {
     padding-top: 12px;
@@ -980,6 +985,9 @@
     display: none;
   }
 }
+
+
+
 @media (max-width: 575px) {
   .section-title h1,
   .faq-area-3 h1 {
