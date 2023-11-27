@@ -8,6 +8,39 @@ const CombinedDetails = require('../models/CombinedDetails');
 const Jobs = require('../models/Jobs');
 const Newsletter = require('../models/Newsletter');
 
+const nodeMailer = require('nodemailer');
+
+const SendNotificationMail = async (name, email, title, message) => {
+  try {
+    const transporter = nodeMailer.createTransport({
+      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      requireTLS: true,
+      auth: {
+        user: process.env.AUTHUSER,
+        pass: process.env.AUTHPASS,
+      },
+    });
+    const mailOptions = {
+      from: process.env.AUTHUSER,
+      to: email,
+      subject: title,
+      html: `<h1>Hi ${name}</h1><p>${message}</p><p>Thank you for using our service!</p>`,
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // Function to calculate EMI
 function calculateEMI(principalStr, annualInterestRateStr, tenureInYearsStr) {
   const principal = parseFloat(principalStr);
@@ -295,9 +328,10 @@ module.exports.sendNotificationToUser = async (req, res) => {
         .json({ message: `User with ID ${userId} not found` });
     }
 
+    console.log(user)
     user.notifications.push({ title, message });
     await user.save();
-
+    await SendNotificationMail(user.username, user.email, title, message);
     res.redirect('/admin/user-details/' + userId);
   } catch (err) {
     res.redirect('error', { err });
