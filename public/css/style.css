@@ -2402,7 +2402,8 @@ header .header-top .header-info-right ul li i {
 /*        New Version
 /*----------------------------------------*/
 .banner-area-5 {
-  background-color: var(--brand_color);
+  /* background-color: var(--brand_color); */
+  background-color: #4077bb;
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -5017,14 +5018,15 @@ header .header-top .header-info-right ul li i {
   margin-bottom: 16px;
 }
 
-.about-tab-area .tab-content .img-container{
+.about-tab-area .tab-content .img-container {
   height: 100%;
   text-align: center;
-  
-  
-  
+
+
+
 }
-.about-tab-area .tab-content .img-container img{
+
+.about-tab-area .tab-content .img-container img {
   height: 100%;
   border-radius: 20px;
   object-fit: cover;
@@ -11949,7 +11951,7 @@ blockquote .author span {
 }
 
 .footer.footer-3 {
-  background-color: var(--brand_color);
+  background-color: #4077bb;
 }
 
 .footer.footer-3 .footer-top .footer-text {

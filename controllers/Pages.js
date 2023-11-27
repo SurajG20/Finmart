@@ -354,7 +354,7 @@ module.exports.submitDocumentUpload = async (req, res) => {
       const documents = req.files.map((f) => {
         return {
           url: f.path,
-          filename: f.filename,
+          filename: f.originalname,
         };
       });
 

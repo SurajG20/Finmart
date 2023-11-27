@@ -231,6 +231,10 @@
 .navbar .navbar-brand {
   height: 100px;
   width: 125px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 991px) {
