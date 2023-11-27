@@ -1505,7 +1505,7 @@ header .header-top .header-info-right ul li i {
 .header-menu .menu>.nav-item.submenu .dropdown-menu.dropdown_menu_two .nav-item .nav-link {
   display: flex;
   align-items: center;
-  
+
 }
 
 .header-menu .menu>.nav-item.submenu .dropdown-menu.dropdown_menu_two .nav-item .nav-link:before {
@@ -1686,7 +1686,7 @@ header .header-top .header-info-right ul li i {
   position: relative;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
- 
+
 }
 
 .header-menu .menu>.nav-item.submenu.mega_menu .dropdown-menu .tabContent .tab-pane .tab_list li a:before {
@@ -1743,10 +1743,11 @@ header .header-top .header-info-right ul li i {
 }
 
 .header-menu.header-menu-2 .menu>.nav-item>.nav-link {
-  color: #6a737c;  
+  color: #6a737c;
 }
+
 .header-menu.header-menu-2 .menu .nav-item .nav-link:hover {
-  color: blue;
+  color: var(--brand_color)
 }
 
 .header-menu.header-menu-2 .menu>.nav-item>.nav-link.active {
@@ -2401,7 +2402,7 @@ header .header-top .header-info-right ul li i {
 /*        New Version
 /*----------------------------------------*/
 .banner-area-5 {
-  background-color: #101010;
+  background-color: var(--brand_color);
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -11314,7 +11315,7 @@ blockquote .author span {
 /* Error Area CSS
 /*----------------------------------------*/
 
-.error-page{
+.error-page {
   height: 100vh !important;
   width: 100vw;
   overflow-y: hidden;
@@ -11328,8 +11329,8 @@ blockquote .author span {
   min-height: 620px;
 } */
 
-@media(max-width:586px){
-  .error_area{
+@media(max-width:586px) {
+  .error_area {
     width: 100vw;
     margin-top: 150px;
     padding: auto 0px !important;
@@ -11390,12 +11391,12 @@ blockquote .author span {
   margin-bottom: 15px;
 }
 
-@media(max-width:586px){
+@media(max-width:586px) {
   .error_content_two h2 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
 
 }
 
@@ -11698,7 +11699,7 @@ blockquote .author span {
 .footer {
   background-position: center;
   background-size: cover;
-  background-color: #0f1123;
+  /* background-color: #0f1123; */
   /* copyright*/
 }
 
@@ -11922,7 +11923,7 @@ blockquote .author span {
 }
 
 .footer.footer-3 {
-  background-color: #171d24;
+  background-color: var(--brand_color);
 }
 
 .footer.footer-3 .footer-top .footer-text {
@@ -12206,9 +12207,10 @@ body.body_dark .services-area table tbody tr:nth-child(even)>*:nth-child(even) {
 
 body.body_dark .header-menu.header-menu-2 .menu>.nav-item>.nav-link {
   color: #ffffff;
-  
+
 }
-body.body_dark .header-menu.header-menu-2 .menu>.nav-item>.nav-link:hover{
+
+body.body_dark .header-menu.header-menu-2 .menu>.nav-item>.nav-link:hover {
   color: blue;
 }
 
@@ -12285,10 +12287,13 @@ body {
   display: flex;
   justify-content: center;
   margin: 0;
-  padding: 0;
+  padding-right: 0;
+  padding-left: 0;
+  padding-top: 50px;
+  padding-bottom: 50px;
   width: 100%;
-  /* background-color: white; */
-  background-color: var(--bs-white);
+  background-color: white;
+  /* background-color: var(--bs-white); */
 
 }
 
@@ -12304,7 +12309,7 @@ body {
 
 .partners .slider {
   /* background: white; */
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  /* box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125); */
   height: min-content;
   margin: auto;
   overflow: hidden;
@@ -12352,6 +12357,7 @@ body {
   align-items: center;
   margin: 0px 20px;
 }
+
 .partners .slide:hover {
   background-color: var(--brand_color);
   transition: all 0.3s ease-in-out;

@@ -10,6 +10,7 @@ const path = require('path');
 const passport = require('passport');
 const userRoute = require('./routes/UserRoutes');
 const adminRoute = require('./routes/AdminRoutes');
+const morgan = require('morgan');
 // const dbUrl = 'mongodb://127.0.0.1:27017/finmart'; //FOR DEVELOPMENT MODE
 const dbUrl = process.env.DBURL; //FOR PRODUCTION MODE
 
@@ -20,7 +21,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-
+app.use(morgan('dev'))
 // const secret = process.env.SECRET;
 const secret = 'finmart';
 app.use(

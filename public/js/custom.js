@@ -790,8 +790,6 @@
         }
       }
 
-      
-
       var TotalRateOfInterest = SelectedRoi
         ? SelectedRoi / 100
         : (RateOfInterestAmount + RateOfInterestTime) / 100;
@@ -884,18 +882,18 @@
       window.matchMedia('(prefers-color-scheme: dark)').matches;
     var selectedNightTheme = readCookie('body_dark');
 
-    if (
-      selectedNightTheme == 'true' ||
-      (selectedNightTheme === null && prefersDark)
-    ) {
-      applyNight();
-      $('.dark_mode_switcher').prop('checked', true);
-      changeNavbarLogo('dark');
-    } else {
-      applyDay();
-      $('.dark_mode_switcher').prop('checked', false);
-      changeNavbarLogo('light');
-    }
+    // if (
+    //   selectedNightTheme == 'true' ||
+    //   (selectedNightTheme === null && prefersDark)
+    // ) {
+    // applyNight();
+    // $('.dark_mode_switcher').prop('checked', true);
+    // changeNavbarLogo('dark');
+    // } else {
+    applyDay();
+    $('.dark_mode_switcher').prop('checked', false);
+    changeNavbarLogo('light');
+    // }
     function changeNavbarLogo(mode) {
       var navbarLogo = $('#navbar-logo');
       if (mode === 'dark') {
