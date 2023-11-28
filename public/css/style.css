@@ -4866,14 +4866,33 @@ header .header-top .header-info-right ul li i {
 /*----------------------------------------*/
 .description-widget .desc-title {
   border-radius: 5px;
+  padding: 30px 20px 30px 20px;
+}
+
+
+
+.description-widget .desc-title {
+  border-radius: 5px;
   padding: 38px 38px 42px 42px;
+  margin: 20px auto;
 }
 
 .description-widget .desc-title h2 {
-  font-size: 36px;
+  font-size: 32px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: #fff;
+  text-align: center;
+}
+
+@media (min-width: 767px) {
+  .description-widget .desc-title h2 {
+      font-size: 36px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #fff;
+      text-align: right;
+    }
 }
 
 .description-widget .desc-text p {
@@ -4882,6 +4901,19 @@ header .header-top .header-info-right ul li i {
   font-weight: 400;
   color: var(--p_color);
   line-height: 30px;
+  margin: 20px auto;
+}
+
+
+@media (max-width: 596px) {
+  .description-widget .desc-text p {
+      font-size: 18px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: var(--p_color);
+      line-height: 30px;
+      text-align: justify;
+    }
 }
 
 /*----------------------------------------*/
