@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 // const secret = process.env.SECRET;
 const secret = 'finmart';
 app.use(
@@ -49,7 +49,7 @@ app.use('*', (req, res) => {
   res.render('error');
 });
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 8000;
 
 const start = async () => {
   try {

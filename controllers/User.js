@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const randomString = require('randomstring');
 const nodeMailer = require('nodemailer');
+const fast2sms = require('fast-two-sms');
 
 const sendResetPasswordMail = async (name, email, token) => {
   try {
@@ -64,14 +65,22 @@ module.exports.Register = async (req, res) => {
     } else {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-      const newUser = new UserModel({
-        username: req.body.username,
-        email: req.body.email,
-        phoneNumber: req.body.phoneNumber,
-        password: hashedPassword,
-      });
-      await newUser.save();
-      res.redirect('/login');
+      const options = {
+        authorization:
+          'fHom1jzgEiFN3uPXpZBGw79dTAeCWDJVa2tQLb8S6cROnrY4kszUFHTilE3G1AsWInZoLPRujCBKd95t',
+        message: 'YOUR_MESSAGE_HERE',
+        numbers: ['9691414058'],
+      };
+      fast2sms.sendMessage(options);
+
+      // const newUser = new UserModel({
+      //   username: req.body.username,
+      //   email: req.body.email,
+      //   phoneNumber: req.body.phoneNumber,
+      //   password: hashedPassword,
+      // });
+      // await newUser.save();
+      // res.redirect('/login');
     }
   } catch (err) {
     res.redirect('/error', { message: 'Something went wrong' });
