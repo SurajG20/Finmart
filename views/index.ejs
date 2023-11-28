@@ -698,20 +698,20 @@
             <div class="col-lg-7 d-flex justify-content-center">
               <div
                 class="cash-img"
-                style="border-radius: 15px;
-                object-fit: cover;
-                overflow: hidden;
-                height:100%;
-                width: 500px;
+                style="
+                  border-radius: 15px;
+                  object-fit: cover;
+                  overflow: hidden;
+                  height: 100%;
+                  width: 500px;
                 "
-                
               >
                 <img
                   style="
                     border-radius: 15px;
                     object-fit: cover;
                     overflow: hidden;
-                    height:100%;
+                    height: 100%;
                     width: 100%;
                     margin: auto;
                   "
@@ -839,12 +839,15 @@
                   </div>
                 </div>
                 <div class="col-lg-7 d-flex justify-content-center">
-                  <div class="img-container " style="width:31.25rem; height: 25rem; margin: auto;">
-                  <img
-                    class="img-fluid"
-                    src="img/poster/poster_2.png"
-                    alt="House Loan-Image"
-                  />
+                  <div
+                    class="img-container"
+                    style="width: 31.25rem; height: 25rem; margin: auto"
+                  >
+                    <img
+                      class="img-fluid"
+                      src="img/poster/poster_2.png"
+                      alt="House Loan-Image"
+                    />
                   </div>
                 </div>
               </div>
@@ -875,12 +878,15 @@
                   </div>
                 </div>
                 <div class="col-lg-7 d-flex justify-content-center">
-                  <div class="img-container" style="width:31.25rem; height: 25rem; margin: auto;">
-                  <img
-                    class="img-fluid"
-                    src="img/poster/educationLoan.png"
-                    alt="Education-Loan"
-                  />
+                  <div
+                    class="img-container"
+                    style="width: 31.25rem; height: 25rem; margin: auto"
+                  >
+                    <img
+                      class="img-fluid"
+                      src="img/poster/educationLoan.png"
+                      alt="Education-Loan"
+                    />
                   </div>
                 </div>
               </div>
@@ -908,12 +914,15 @@
                   </div>
                 </div>
                 <div class="col-lg-7 d-flex justify-content-center">
-                  <div class="img-container" style="width:31.25rem; height: 25rem; margin: auto;">
-                  <img
-                    class="img-fluid"
-                    src="img/poster/carLoan_3.png"
-                    alt="Car-Loan"
-                  />
+                  <div
+                    class="img-container"
+                    style="width: 31.25rem; height: 25rem; margin: auto"
+                  >
+                    <img
+                      class="img-fluid"
+                      src="img/poster/carLoan_3.png"
+                      alt="Car-Loan"
+                    />
                   </div>
                 </div>
               </div>
@@ -943,12 +952,15 @@
                   </div>
                 </div>
                 <div class="col-lg-7 d-flex justify-content-center">
-                  <div class="img-container" style="width:31.25rem; height: 25rem; margin: auto;">
-                  <img
-                    class="img-fluid"
-                    src="img/poster/bussLoan_1.png"
-                    alt="Bussiness-Loan"
-                  />
+                  <div
+                    class="img-container"
+                    style="width: 31.25rem; height: 25rem; margin: auto"
+                  >
+                    <img
+                      class="img-fluid"
+                      src="img/poster/bussLoan_1.png"
+                      alt="Bussiness-Loan"
+                    />
                   </div>
                 </div>
               </div>
@@ -1311,7 +1323,7 @@
             <% blogs.forEach(blog=> { %>
             <div class="col-lg-4 col-md-6">
               <div class="blog-widget-2 wow fadeInUp" data-wow-delay="0.1s">
-                <a href="#" class="blog-img d-block">
+                <a href="blog-details/<%= blog._id %>" class="blog-img d-block">
                   <img src="<%= blog.images?.[0]?.url %>" alt="blog-img" />
                   <div class="catagory yellow-bg"><%= blog.category %></div>
                 </a>

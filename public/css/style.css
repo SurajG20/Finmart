@@ -7858,12 +7858,12 @@ header .header-top .header-info-right ul li i {
 }
 
 .img-uploader-application-modal {
-  color: #fffbf2;
+  color: #000;
   z-index: 9999;
 }
 
 .img-uploader-application-modal :focus {
-  color: #fffbf2;
+  color: #000;
 }
 
 .img-uploader-application-modal .modal-dialog {
@@ -7882,11 +7882,11 @@ header .header-top .header-info-right ul li i {
 }
 
 .img-uploader-application-modal .modal-dialog .modal-content .modal-body .theme-btn {
-  color: var(--p_color);
+  color: var(--black_700);
 }
 
 .img-uploader-application-modal .modal-dialog .modal-content .modal-body .theme-btn:hover {
-  color: #fff;
+  color: #000;
 }
 
 .img-uploader-application-modal .modal-dialog .dropzone {
