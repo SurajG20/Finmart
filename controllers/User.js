@@ -144,7 +144,6 @@ module.exports.Register = async (req, res) => {
         lowerCaseAlphabets: false,
       });
 
-      console.log(otp);
       newUser.otp = otp;
       await sendVerificationOtp(newUser.firstname, newUser.email, otp);
       res.render('verify', {

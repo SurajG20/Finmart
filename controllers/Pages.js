@@ -187,7 +187,6 @@ module.exports.renderJobPost = async (req, res) => {
   res.render('job-post', { jobs, user, search: '' });
 };
 
-// rendering job application page for user to apply
 module.exports.addJobApplication = async (req, res) => {
   try {
     const { jobId } = req.params;
@@ -279,6 +278,7 @@ module.exports.renderDocumentUpload = async (req, res) => {
 
 module.exports.submitLoanDetails = async (req, res) => {
   try {
+    console.log(req.body);
     const loanDetails = req.body;
 
     const userId = req.session.passport.user._id;
