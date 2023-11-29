@@ -12403,7 +12403,7 @@ body {
 .partners .slide-track {
   animation: scroll 40s linear infinite;
   display: flex;
-  width: calc(250px * 14);
+  width: calc(250px * 18);
 }
 
 .partners .slide {
