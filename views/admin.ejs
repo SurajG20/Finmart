@@ -408,9 +408,8 @@
                         class="d-flex flex-column"
                         style="overflow-y: scroll"
                       >
-                        <% allUsers.forEach(user=> { %>
-
-                        <h5><%= user.username %></h5>
+                        <% allUsers.forEach(user=> { %> <% console.log(user) %>
+                        <h5><%= `${user?.firstname} ${user?.lastname}` %></h5>
                         <% user.notifications.forEach(notification=> { %>
                         <div
                           class="p-3 rounded text-sm d-flex justify-content-between mb-2"
@@ -737,7 +736,7 @@
                           </td>
                           <td>
                             <a
-                            target="_blank"
+                              target="_blank"
                               href="<%= applicant?.attachment[0]?.url %>"
                               class="fw-normal mb-1"
                               >Resume</a

@@ -256,6 +256,7 @@ module.exports.renderLoanDetails = async (req, res) => {
 
 module.exports.renderPersonalDetails = async (req, res) => {
   const user = req.session?.passport?.user;
+  console.log(user);
   res.render('personal-details', { user });
 };
 

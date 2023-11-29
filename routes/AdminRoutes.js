@@ -21,6 +21,7 @@ const {
   sendNotificationToAll,
   deleteNotification,
   deleteNotificationAdmin,
+  deleteDocument,
 } = require('../controllers/Admin');
 
 const multer = require('multer');
@@ -34,6 +35,9 @@ router
 router
   .route('/user-details/updateStatus/:singleUserId')
   .post(isAdminLoggedIn, updateStatus);
+router
+  .route('/user-details/deleteDocument/:singleUserId/:documentId/delete')
+  .delete(isAdminLoggedIn, deleteDocument);
 
 router
   .route('/add-job')

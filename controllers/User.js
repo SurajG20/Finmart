@@ -84,7 +84,6 @@ module.exports.sendOtp = (req, res) => {
   });
 };
 
-
 module.exports.Register = async (req, res) => {
   try {
     const existingUser = await UserModel.findOne({
@@ -97,7 +96,8 @@ module.exports.Register = async (req, res) => {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
       const newUser = new UserModel({
-        username: req.body.username,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
         password: hashedPassword,
@@ -106,7 +106,8 @@ module.exports.Register = async (req, res) => {
       res.redirect('/login');
     }
   } catch (err) {
-    res.redirect('/error', { message: 'Something went wrong' });
+    console.log(err);
+    res.render('error', { message: 'Something went wrong' });
   }
 };
 
@@ -156,7 +157,7 @@ module.exports.ForgetPassword = async (req, res) => {
       });
     }
   } catch (error) {
-    res.redirect('/error', { message: 'Something went wrong' });
+    res.render('/error', { message: 'Something went wrong' });
   }
 };
 

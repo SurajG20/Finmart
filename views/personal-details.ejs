@@ -337,6 +337,7 @@
                         class="form-control"
                         type="text"
                         name="firstName"
+                        value="<%= user?.firstname %>"
                         required
                       />
                     </div>
@@ -348,6 +349,7 @@
                         class="form-control"
                         type="text"
                         name="lastName"
+                        value="<%= user?.lastname %>"
                         required
                       />
                     </div>
@@ -502,6 +504,7 @@
                         type="email"
                         id="emailName"
                         placeholder="examplename@example.com"
+                        value="<%= user?.email %>"
                         name="email"
                         required
                       />
@@ -527,6 +530,7 @@
                           name="mobileNumber"
                           minlength="10"
                           maxlength="10"
+                          value="<%= user?.phoneNumber %>"
                           required
                           placeholder="+91 96XXXXXXXX"
                         />

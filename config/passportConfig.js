@@ -43,7 +43,7 @@ module.exports = function (passport) {
 
           if (!user) {
             const newUser = new UserModel({
-              username: profile.displayName,
+              firstname: profile.displayName,
               email: profile.emails[0].value,
               phoneNumber: '',
               googleId: profile.id,

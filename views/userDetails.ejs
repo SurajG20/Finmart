@@ -378,21 +378,30 @@
                   <div class="document" id="documentDetail">
                     <div class="images d-flex gap-5 flex-wrap bg-light">
                       <% singleUserData?.documentUploads?.forEach(element=> { %>
-                      <div class="item">
-                        <div
-                          style="height: 100px; width: 100px"
-                          class="object-fit-cover"
-                        >
-                          <a href="<%= element?.url  %>" target="_blank">
-                            <img
-                              height="100%"
-                              width="100%"
-                              src="https://cdn-icons-png.flaticon.com/128/8760/8760611.png"
-                              alt="folder image"
-                            />
-                          </a>
+                      <div class="item" style="display: flex">
+                        <div>
+                          <div
+                            style="height: 100px; width: 100px"
+                            class="object-fit-cover"
+                          >
+                            <a href="<%= element?.url  %>" target="_blank">
+                              <img
+                                height="100%"
+                                width="100%"
+                                src="/img/document.png"
+                                alt="folder image"
+                              />
+                            </a>
+                          </div>
+                          <p class="text-center"><%= element?.filename %></p>
                         </div>
-                        <p class="text-center"><%= element?.filename %></p>
+
+                        <form
+                          action="/admin/user-details/deleteDocument/<%= singleUserData.userId %>/<%= element._id %>/delete?_method=DELETE"
+                          method="post"
+                        >
+                          <button class="btn btn-warning">Delete</button>
+                        </form>
                       </div>
                       <% }) %>
                     </div>

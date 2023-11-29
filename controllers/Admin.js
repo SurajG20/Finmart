@@ -101,6 +101,22 @@ module.exports.userDetails = async (req, res) => {
   res.render('userDetails', { singleUserData, emi, allNotifications });
 };
 
+module.exports.deleteDocument = async (req, res) => {
+  try {
+    const { singleUserId, documentId } = req.params;
+    const singleUserData = await CombinedDetails.findOne({
+      userId: singleUserId,
+    });
+    singleUserData.documentUploads = singleUserData?.documentUploads?.filter(
+      (doc) => doc._id != documentId
+    );
+    await singleUserData.save();
+    res.redirect('/admin/user-details/' + singleUserId);
+  } catch (error) {
+    res.render('error', { error });
+  }
+};
+
 module.exports.updateStatus = async (req, res) => {
   const singleUserId = req.params.singleUserId;
   const newLoanStatus = req.body.loanStatus;
@@ -330,10 +346,10 @@ module.exports.sendNotificationToUser = async (req, res) => {
 
     user.notifications.push({ title, message });
     await user.save();
-    await SendNotificationMail(user.username, user.email, title, message);
+    await SendNotificationMail(user.firstname, user.email, title, message);
     res.redirect('/admin/user-details/' + userId);
   } catch (err) {
-    res.redirect('error', { err });
+    res.render('error', { err });
   }
 };
 
@@ -347,7 +363,7 @@ module.exports.sendNotificationToAll = async (req, res) => {
     }
     res.redirect('/admin');
   } catch (err) {
-    res.redirect('error', { err });
+    res.render('error', { err });
   }
 };
 
