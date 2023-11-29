@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Vinayak Finmart Pvt. Ltd.</title>
     <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
-
+ <link
+      rel="shortcut icon"
+      href="/img/Vinayak/10.png"
+      type="image/x-icon"
+    />
     <!-- CSS here -->
     <link
       rel="stylesheet"
@@ -267,7 +271,11 @@
       <section class="breadcrumb-area" id="banner_animation2">
         <div
           class="breadcrumb-widget breadcrumb-widget-2 pt-200 pb-145"
-          style="background-image: url(img/breadcrumb/bg-3.jpg)"
+          style="
+            background-size: cover;
+            background-position: center;
+            background-image: url(/img/poster/blog.png);
+          "
         >
           <div class="shapes">
             <div
@@ -296,7 +304,7 @@
                     <div class="date">
                       <img src="/img/blog/calendar-outline.png" alt="icon" />
                       <span>
-                        <%= singleBlog?.postingDate.toLocaleString() %>
+                        <%= singleBlog?.postingDate?.toLocaleDateString() %>
                       </span>
                     </div>
                   </div>

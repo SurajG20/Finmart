@@ -12363,7 +12363,7 @@ body {
   }
 
   100% {
-    transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 16));
   }
 }
 
@@ -12401,9 +12401,9 @@ body {
 }
 
 .partners .slide-track {
-  animation: scroll 40s linear infinite;
+  animation: scroll 80s linear infinite;
   display: flex;
-  width: calc(250px * 18);
+  width: calc(250px * 16);
 }
 
 .partners .slide {
