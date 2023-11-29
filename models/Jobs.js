@@ -1,19 +1,12 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const FileSchema = new Schema({
-  url: String,
-  filename: String,
-});
 
 const ImageSchema = new Schema({
   url: String,
   filename: String,
 });
 
-ImageSchema.virtual('thumbnail').get(function () {
-  return this.url.replace('/upload', '/upload/h_200,w_200');
-});
 
 const opts = { toJSON: { virtuals: true } };
 
@@ -66,7 +59,7 @@ const JobSchema = new Schema(
         message: { type: String, required: true },
         email: { type: String, required: true },
         phone: { type: String, required: true },
-        attachment: FileSchema,
+        attachment: [ImageSchema],
       },
     ],
   },

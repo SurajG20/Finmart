@@ -702,7 +702,6 @@
                       <tbody>
                         <% jobs.forEach(element=> { %> <%
                         element.applications.forEach(applicant=> { %>
-
                         <div id="myModal" class="modal-message">
                           <div class="modal-content-message">
                             <span class="close-message" id="closeModal"
@@ -710,7 +709,7 @@
                             >
                             <!-- Content of the modal -->
                             <h2>Message</h2>
-                            <p><%= applicant.message %></p>
+                            <p><%= applicant?.message %></p>
                           </div>
                         </div>
                         <tr>
@@ -718,23 +717,28 @@
                             <div class="d-flex align-items-center">
                               <div class="ms-3">
                                 <p class="fw-bold mb-1">
-                                  <%= applicant.fullname %>
+                                  <%= applicant?.fullname %>
                                 </p>
                               </div>
                             </div>
                           </td>
                           <td>
-                            <p class="fw-normal mb-1"><%= applicant.email %></p>
+                            <p class="fw-normal mb-1">
+                              <%= applicant?.email %>
+                            </p>
                           </td>
                           <td>
-                            <p class="fw-normal mb-1"><%= applicant.phone %></p>
+                            <p class="fw-normal mb-1">
+                              <%= applicant?.phone %>
+                            </p>
                           </td>
                           <td>
                             <button id="openModalButton">Message</button>
                           </td>
                           <td>
                             <a
-                              href="<%= applicant.attachment %>"
+                            target="_blank"
+                              href="<%= applicant?.attachment[0]?.url %>"
                               class="fw-normal mb-1"
                               >Resume</a
                             >

@@ -328,7 +328,6 @@ module.exports.sendNotificationToUser = async (req, res) => {
         .json({ message: `User with ID ${userId} not found` });
     }
 
-    console.log(user)
     user.notifications.push({ title, message });
     await user.save();
     await SendNotificationMail(user.username, user.email, title, message);

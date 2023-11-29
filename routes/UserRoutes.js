@@ -68,7 +68,10 @@ router.route('/privacy-policy').get(privacyPolicy);
 
 router.route('/contact').get(contact);
 
-router.route('/job-application/:jobId').get(addJobApplication);
+router
+  .route('/job-application/:jobId')
+  .get(addJobApplication)
+  .post(upload.array('resume'), applyToJob);
 router.route('/job-post').get(renderJobPost);
 
 router.route('/feedback').post(upload.none(), feedback);
@@ -77,7 +80,6 @@ router.route('/contact').post(upload.none(), contactus);
 router.route('/newsletter').post(upload.none(), newsletter);
 router.route('/loan-data').get(loanData);
 
-router.route('/applyToJob').post(upload.single('resume'), applyToJob);
 
 router
   .route('/personal-details')

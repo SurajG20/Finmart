@@ -199,27 +199,30 @@ module.exports.addJobApplication = async (req, res) => {
 // apply to job for user
 module.exports.applyToJob = async (req, res) => {
   try {
-    const { jobId, fullname, message, email, phone } = req.body;
+    const jobId = req.params.jobId;
+    const { fullname, message, email, phone } = req.body;
     const application = {
       fullname,
       message,
       email,
       phone,
     };
-    if (req.file) {
-      const attachment = {
-        url: req.file.path,
-        filename: req.file.originalname,
-      };
-      application.attachment = attachment;
-    }
 
+    if (req.files) {
+      application.attachment = req.files.map((f) => {
+        return {
+          url: f.path,
+          filename: f.filename,
+        };
+      });
+    }
     const job = await Jobs.findById(jobId);
     job.applications.push(application);
     await job.save();
     res.redirect('/job-post');
   } catch (err) {
-    res.redirect('error', { err });
+    console.log(err);
+    res.render('error', { err });
   }
 };
 
