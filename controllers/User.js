@@ -3,7 +3,9 @@ const bcrypt = require('bcrypt');
 const passport = require('passport');
 const randomString = require('randomstring');
 const nodeMailer = require('nodemailer');
-const fast2sms = require('fast-two-sms');
+const unirest = require('unirest');
+const request = unirest('POST', 'https://www.fast2sms.com/dev/bulkV2');
+const otpGenerator = require('otp-generator');
 
 const sendResetPasswordMail = async (name, email, token) => {
   try {
@@ -54,6 +56,35 @@ module.exports.Login = (req, res, next) => {
   })(req, res, next);
 };
 
+module.exports.sendOtp = (req, res) => {
+  const OTP = otpGenerator.generate(6, {
+    upperCaseAlphabets: false,
+    specialChars: false,
+    lowerCaseAlphabets: false,
+  });
+
+  request.headers({
+    authorization: process.env.FAST2SMS_API_KEY,
+  });
+  request.form({
+    sender_id: 'Vinayak Finmart',
+    route: 'otp',
+    variables_values: OTP,
+    numbers: req.body.number,
+  });
+
+  request.end(function (res) {
+    if (res.error) console.log('error at otp');
+
+    console.log(res.body);
+  });
+  res.send({
+    Number: req.params.number,
+    OTP: OTP,
+  });
+};
+
+
 module.exports.Register = async (req, res) => {
   try {
     const existingUser = await UserModel.findOne({
@@ -65,22 +96,14 @@ module.exports.Register = async (req, res) => {
     } else {
       const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-      const options = {
-        authorization:
-          'fHom1jzgEiFN3uPXpZBGw79dTAeCWDJVa2tQLb8S6cROnrY4kszUFHTilE3G1AsWInZoLPRujCBKd95t',
-        message: 'YOUR_MESSAGE_HERE',
-        numbers: ['9691414058'],
-      };
-      fast2sms.sendMessage(options);
-
-      // const newUser = new UserModel({
-      //   username: req.body.username,
-      //   email: req.body.email,
-      //   phoneNumber: req.body.phoneNumber,
-      //   password: hashedPassword,
-      // });
-      // await newUser.save();
-      // res.redirect('/login');
+      const newUser = new UserModel({
+        username: req.body.username,
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+        password: hashedPassword,
+      });
+      await newUser.save();
+      res.redirect('/login');
     }
   } catch (err) {
     res.redirect('/error', { message: 'Something went wrong' });

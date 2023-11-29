@@ -35,6 +35,7 @@ const {
   GoogleCallback,
   ForgetPassword,
   ResetPassword,
+  sendOtp,
 } = require('../controllers/User');
 const passport = require('passport');
 const multer = require('multer');
@@ -79,7 +80,7 @@ router.route('/contact').post(upload.none(), contactus);
 
 router.route('/newsletter').post(upload.none(), newsletter);
 router.route('/loan-data').get(loanData);
-
+router.route('/send-otp').post(sendOtp);
 
 router
   .route('/personal-details')
@@ -91,6 +92,8 @@ router
   .get(renderLoanDetails)
   .post(isLoggedIn, upload.none(), submitLoanDetails);
 
+
+  
 router
   .route('/document-upload')
   .get(renderDocumentUpload)
