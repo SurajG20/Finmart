@@ -232,7 +232,7 @@
           <div class="col-lg-9">
             <div class="loan-details-widget">
               <form action="/loan-details" method="post" enctype="multipart/form-data">
-                <div class="row mb-35 gy-4">
+                <!-- <div class="row mb-35 gy-4">
                   <% loans.forEach(element=> { %>
                     <div class="col-lg-3 col-md-6">
                       <input class="select-loan-type-radio" name="select-loan-type" required type="radio"
@@ -244,9 +244,25 @@
                       </label>
                     </div>
                     <% }) %>
-                </div>
+                </div> -->
+
+                <!-- new Code start-->
                 <div class="row gy-4">
-                  <div class="col-md-6">
+                    <label class="label" for="loandetails00">Choose your Loan Type*</label>
+                  <div class="col-md-6 ">
+                    <select class="w-100 nice-select text-secondary" id="loandetails00" name="loantype" required>
+                      <option class="current text-secondary" value="">Select Loan Type</option>
+                      <option class="current" value="Select your Loan Type">Home Loan</option>
+                      <option class="list" value="Select your Loan Type">Education Loan</option>
+                      <option class="list" value="Select your Loan Type">Car Loan</option>
+                      
+                    </select>
+                  </div>
+                
+
+                <!-- new Code end  -->
+                <div class="row gy-4 ">
+                  <div class="col-md-6 ">
                     <label class="label" for="loandetails01">Choose your Profession*</label>
                     <select class="w-100" id="loandetails01" name="financingType" required>
                       <option value="Working Professional">Working Professional</option>
@@ -401,6 +417,12 @@
   <a id="back-to-top" title="Back to Top"></a>
 
   <!-- JS here -->
+
+  <!-- form js start -->
+<!-- Add this script in your HTML file -->
+
+
+  <!-- form js end -->
   <script type="text/javascript" src="/js/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="/js/preloader.js"></script>
   <script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>

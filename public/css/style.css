@@ -6564,12 +6564,12 @@ header .header-top .header-info-right ul li i {
 }
 
 .loan-details-widget .loan-type {
-  background-color: rgba(0, 80, 178, 0.05);
-  border-radius: 5px;
-  text-align: center;
-  padding: 20px;
-  transition: all 0.3s ease-out;
+  font-size: 16px;
+  color: var(--secondary_color);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   display: block;
+  margin-bottom: 12px;
 }
 
 .loan-details-widget .loan-type:hover {
