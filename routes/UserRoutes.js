@@ -25,6 +25,7 @@ const {
   forgetPassword,
   resetPassword,
   loanData,
+  verifyOtp,
 } = require('../controllers/Pages');
 const { isLoggedIn } = require('../middlewares/Middlewares');
 const {
@@ -36,6 +37,7 @@ const {
   ForgetPassword,
   ResetPassword,
   sendOtp,
+  VerifyOtp,
 } = require('../controllers/User');
 const passport = require('passport');
 const multer = require('multer');
@@ -80,8 +82,7 @@ router.route('/contact').post(upload.none(), contactus);
 
 router.route('/newsletter').post(upload.none(), newsletter);
 router.route('/loan-data').get(loanData);
-router.route('/send-otp').post(sendOtp);
-
+router.route('/verify').get(verifyOtp).post(VerifyOtp);
 router
   .route('/personal-details')
   .get(renderPersonalDetails)
@@ -92,8 +93,6 @@ router
   .get(renderLoanDetails)
   .post(isLoggedIn, upload.none(), submitLoanDetails);
 
-
-  
 router
   .route('/document-upload')
   .get(renderDocumentUpload)

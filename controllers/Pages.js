@@ -66,6 +66,9 @@ module.exports.register = (req, res) => {
 module.exports.forgetPassword = (req, res) => {
   res.render('forget-password');
 };
+module.exports.verifyOtp = async (req, res) => {
+  res.render('verify');
+};
 module.exports.resetPassword = async (req, res) => {
   const token = req.query.token;
   const currentUser = await User.findOne({ token: token });
