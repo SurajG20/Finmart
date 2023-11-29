@@ -251,7 +251,7 @@
                         Export to CSV
                       </button>
                       <button
-                        id="exportBtn"
+                        id="exportExcelBtnDashboard"
                         style="white-space: nowrap"
                         class="btn btn-primary"
                       >
@@ -408,7 +408,7 @@
                         class="d-flex flex-column"
                         style="overflow-y: scroll"
                       >
-                        <% allUsers.forEach(user=> { %> <% console.log(user) %>
+                        <% allUsers.forEach(user=> { %>
                         <h5><%= `${user?.firstname} ${user?.lastname}` %></h5>
                         <% user.notifications.forEach(notification=> { %>
                         <div
@@ -1351,7 +1351,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Setting  Loan content -->
                   <div class="container" id="setting_view">
                     <table class="table align-middle mb-0 bg-white">
                       <thead class="bg-light">
@@ -1410,26 +1409,25 @@
 
     <script>
       document
-        .getElementById('exportBtn')
+        .getElementById('exportExcelBtnDashboard')
         .addEventListener('click', function () {
-          exportToExcel();
+          exportToExcelDashboard();
         });
 
-      function exportToExcel() {
-        const table = document.getElementById('dashboard');
+      function exportToExcelDashboard() {
+        const table = document.getElementById('dashboard_table');
         const wb = XLSX.utils.table_to_book(table, { sheet: 'Sheet 1' });
         XLSX.writeFile(wb, 'user_details.xlsx');
       }
     </script>
-    // Export to Excel Newsletter
     <script>
       document
         .getElementById('exportExcelBtnNewsletter')
         .addEventListener('click', function () {
-          exportToExcel('tableNewsletter', 'newsletter_data');
+          exportToExcelNewsletter('tableNewsletter', 'newsletter_data');
         });
 
-      function exportToExcel(tableId, fileName) {
+      function exportToExcelNewsletter(tableId, fileName) {
         const table = document.getElementById(tableId);
         const ws = XLSX.utils.table_to_sheet(table);
         const wb = XLSX.utils.book_new();
@@ -1440,9 +1438,9 @@
     <script>
       document
         .getElementById('exportExcelBtnContacts')
-        .addEventListener('click', exportToExcel);
+        .addEventListener('click', exportToExcelContacts);
 
-      function exportToExcel() {
+      function exportToExcelContacts() {
         // Get the table HTML element
         var table = document.getElementById('tableContacts');
 
@@ -1460,7 +1458,6 @@
       }
     </script>
 
-    // Export to CSV
     <script>
       document
         .getElementById('exportCsvBtnDashboard')
