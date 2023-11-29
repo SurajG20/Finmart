@@ -341,10 +341,10 @@
 
                   <!-- new Code start-->
                   <div class="row gy-4">
-                    <label class="label" for="loandetails00"
-                      >Choose your Loan Type*</label
-                    >
                     <div class="col-md-6">
+                      <label class="label" for="loandetails00"
+                        >Choose your Loan Type*</label
+                      >
                       <select
                         class="w-100 nice-select text-secondary"
                         id="loandetails00"
@@ -364,82 +364,80 @@
                         <% }) %>
                       </select>
                     </div>
-
-                    <!-- new Code end  -->
-                    <div class="row gy-4">
-                      <div class="col-md-6">
-                        <label class="label" for="loandetails01"
-                          >Choose your Profession*</label
-                        >
-                        <select
-                          class="w-100"
-                          id="loandetails01"
-                          name="financingType"
+                    <div class="col-md-6">
+                      <label
+                        class="label"
+                        for="loandetails01"
+                        style="padding: 0"
+                        >Choose your Profession*</label
+                      >
+                      <select
+                        class="w-100"
+                        id="loandetails01"
+                        name="financingType"
+                        required
+                      >
+                        <option value="Working Professional">
+                          Working Professional
+                        </option>
+                        <option value="Self Employed">Self Employed</option>
+                        <option value="Student">Student</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label" for="loandetails02"
+                        >Choose your preferred bank service*
+                      </label>
+                      <select
+                        class="w-100"
+                        id="loandetails02"
+                        name="bankService"
+                        required
+                      >
+                        <option value="Private-Sector-Banks">
+                          Private Sector Banks
+                        </option>
+                        <option value="PSU-Banks">PSU Banks</option>
+                        <option value="NBFC">NBFC</option>
+                        <!-- <option value="Loans">Loans</option> -->
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="label" for="loan-amount"
+                        >Your loan amount*</label
+                      >
+                      <div class="input-field">
+                        <span>₹</span>
+                        <input
+                          type="number"
+                          id="loan-amount"
+                          name="loanAmount"
+                          class="form-control"
                           required
-                        >
-                          <option value="Working Professional">
-                            Working Professional
-                          </option>
-                          <option value="Self Employed">Self Employed</option>
-                          <option value="Student">Student</option>
-                        </select>
+                        />
                       </div>
-                      <div class="col-md-6">
-                        <label class="label" for="loandetails02"
-                          >Choose your preferred bank service*
-                        </label>
-                        <select
-                          class="w-100"
-                          id="loandetails02"
-                          name="bankService"
+                    </div>
+                    <div class="col-md-12">
+                      <label for="loandetails" class="label mb-4"
+                        >Loan duration*</label
+                      >
+                      <div class="">
+                        <input
                           required
+                          name="tenureDuration"
+                          type="number"
+                          id="loan-time"
+                          placeholder="Tenure Period"
+                          class="nice-select input-field"
+                        />
+                        <select
+                          class="nice-select"
+                          id="loandetails"
+                          name="tenureUnit"
                         >
-                          <option value="Private-Sector-Banks">
-                            Private Sector Banks
-                          </option>
-                          <option value="PSU-Banks">PSU Banks</option>
-                          <option value="NBFC">NBFC</option>
-                          <!-- <option value="Loans">Loans</option> -->
+                          <option value="year">Year</option>
+                          <option value="month">Month</option>
                         </select>
-                      </div>
-                      <div class="col-md-6">
-                        <label class="label" for="loan-amount"
-                          >Your loan amount*</label
-                        >
-                        <div class="input-field">
-                          <span>₹</span>
-                          <input
-                            type="number"
-                            id="loan-amount"
-                            name="loanAmount"
-                            class="form-control"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div class="col-md-12">
-                        <label for="loandetails" class="label mb-4"
-                          >Loan duration*</label
-                        >
-                        <div class="">
-                          <input
-                            required
-                            name="tenureDuration"
-                            type="number"
-                            id="loan-time"
-                            placeholder="Tenure Period"
-                            class="nice-select input-field"
-                          />
-                          <select
-                            class="nice-select"
-                            id="loandetails"
-                            name="tenureUnit"
-                          >
-                            <option value="year">Year</option>
-                            <option value="month">Month</option>
-                          </select>
-                        </div>
                       </div>
                     </div>
                   </div>
