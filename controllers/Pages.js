@@ -278,7 +278,6 @@ module.exports.renderDocumentUpload = async (req, res) => {
 
 module.exports.submitLoanDetails = async (req, res) => {
   try {
-    console.log(req.body);
     const loanDetails = req.body;
 
     const userId = req.session.passport.user._id;
