@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
       targetSection.style.display = 'block';
     });
   });
+  var defaultSection = document.getElementById('dashboard');
+  defaultSection.style.display = 'block';
 });
 
 // dashboard;
@@ -451,5 +453,3 @@ sidebarBtn.onclick = function () {
 // Export Csv contacts
 
 // Export Csv newsletter
-
-
