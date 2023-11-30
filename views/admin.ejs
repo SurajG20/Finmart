@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Vinayak Finmart Pvt. Ltd.</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
- <link
-      rel="shortcut icon"
-      href="/img/Vinayak/10.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/img/Vinayak/10.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -181,51 +177,40 @@
               </a>
             </li>
             <!-- button  -->
-            <li
-              class="log_out d-flex justify-content-between align-items-center text-center frame"
-            >
-              <form clas class="m-auto" action="/logout" method="get">
-                <button
-                  class="d-flex justify-content-between align-items-center gap-2 custom-btn btn-1"
-                >
-                  LOGOUT
-                </button>
-              </form>
-            </li>
           </ul>
         </nav>
       </div>
       <section class="home-section">
-        <nav>
+        <div
+          class="top-nav"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
           <div class="sidebar-button">
-            <i class="bx bx-menu sidebarBtn"></i>
-            <span class="dashboard">Admin Dashboard</span>
+            <span class="dashboard"> Dashboard</span>
           </div>
-          <!-- <div class="search-box">
-            <input type="text" placeholder="Search..." />
-            <i class="bx bx-search"
-              ><iconify-icon icon="bx:search"></iconify-icon
-            ></i>
-          </div> -->
-          <div class="profile-details">
-            <span class="admin_name">Admin</span>
+          <div
+            class="logout-button "
+          >
+            <form class="m-auto" action="/logout" method="get">
+              <button
+                class="btn btn-primary "
+              >
+                LOGOUT
+              </button>
+            </form>
           </div>
-          <div class="navbar-btn">
-            <iconify-icon
-              icon="ci:hamburger-md"
-              width="36"
-              height="36"
-            ></iconify-icon>
-          </div>
-        </nav>
-
+        </div>
         <div class="home-content admin">
           <div class="sales-boxes">
             <div class="recent-sales box">
               <div class="sales-details d-block">
                 <!-- Home Dashboard section-->
                 <div
-                  class="content-section active container-fluid dashboard "
+                  class="content-section active container-fluid dashboard"
                   id="dashboard"
                 >
                   <div

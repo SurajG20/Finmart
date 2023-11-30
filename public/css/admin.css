@@ -87,7 +87,8 @@
     bottom: 0;
     width: 100%;
 }
-.sidebar .nav-links .log_out button{
+
+.sidebar .nav-links .log_out button {
     margin: 0px auto;
 }
 
@@ -102,7 +103,6 @@
 
 @media (max-width: 986px) {
     .home-section {
-        /* position: relative; */
         background: #f5f5f5;
         min-height: 100vh;
         width: 100%;
@@ -115,7 +115,7 @@
     left: 60px;
 }
 
-.home-section nav {
+.home-section .top-nav {
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -131,91 +131,20 @@
     transition: all 0.5s ease;
 }
 
-.sidebar.active~.home-section nav {
+.sidebar.active~.home-section .top-nav {
     left: 60px;
     width: calc(100% - 60px);
 }
 
-.home-section nav .sidebar-button {
+.home-section .top-nav .sidebar-button {
     display: flex;
     align-items: center;
-    font-size: 24px;
-    font-weight: 500;
-}
-
-nav .sidebar-button i {
-    font-size: 35px;
-    margin-right: 10px;
-}
-
-.home-section nav .search-box {
-    position: relative;
-    height: 50px;
-    max-width: 550px;
-    width: 100%;
-    margin: 0 20px;
-}
-
-nav .search-box input {
-    height: 100%;
-    width: 100%;
-    outline: none;
-    background: #F5F6FA;
-    border: 2px solid #EFEEF1;
-    border-radius: 6px;
-    font-size: 18px;
-    padding: 0 15px;
-}
-
-nav .search-box .bx-search {
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    background: #2697FF;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-radius: 4px;
-    line-height: 40px;
-    text-align: center;
-    color: #fff;
-    font-size: 22px;
-    transition: all 0.4 ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.home-section nav .profile-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #F5F6FA;
-    border: 2px solid #EFEEF1;
-    border-radius: 6px;
-    height: 50px;
-    min-width: 190px;
-    padding: 0 15px 0 2px;
-
-}
-
-
-nav .profile-details .admin_name {
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
-    margin: 0 10px;
+    font-size: 28px;
     white-space: nowrap;
-    font-size: large;
-    font-weight: bold;
-    color: gray;
+    font-weight: 600;
 }
 
-nav .profile-details i {
-    font-size: 25px;
-    color: #333;
-}
-
+/* d-flex justify-content-between align-items-center text-center frame */
 @media (max-width: 786px) {
     .home-section .profile-details {
         display: none !important;
@@ -672,9 +601,9 @@ nav .profile-details i {
 }
 
 
-.notification-form-widget{
-    margin: 1.5rem auto ;
-    border: 1px solid lightgray ;
+.notification-form-widget {
+    margin: 1.5rem auto;
+    border: 1px solid lightgray;
     border-radius: 10px;
     padding: 25px;
 }
@@ -728,9 +657,9 @@ nav .profile-details i {
 
 /* Job section css end  */
 /* job section css start  */
-.job-form-widget{
-    margin: 1.5rem auto ;
-    border: 1px solid lightgray ;
+.job-form-widget {
+    margin: 1.5rem auto;
+    border: 1px solid lightgray;
     border-radius: 10px;
     padding: 25px;
 }
@@ -788,9 +717,9 @@ nav .profile-details i {
 
 /* blog form  Admin  */
 
-.blog-form-widget{
-    margin: 1.5rem auto ;
-    border: 1px solid lightgray ;
+.blog-form-widget {
+    margin: 1.5rem auto;
+    border: 1px solid lightgray;
     border-radius: 10px;
     padding: 25px;
 }
@@ -849,7 +778,7 @@ nav .profile-details i {
     object-fit: cover;
 }
 
-.blog .blog-picture__img{
+.blog .blog-picture__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -858,9 +787,9 @@ nav .profile-details i {
 
 /* Faqs form  Admin  */
 
-.faqs-form-widget{
-    margin: 1.5rem auto ;
-    border: 1px solid lightgray ;
+.faqs-form-widget {
+    margin: 1.5rem auto;
+    border: 1px solid lightgray;
     border-radius: 10px;
     padding: 25px;
 }
@@ -923,41 +852,44 @@ nav .profile-details i {
 /* button css  */
 
 .admin .frame {
-  width: 90%;
-  margin: 40px auto;
-  text-align: center;
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
 }
+
 .admin .frame button {
-  margin: 20px;
+    margin: 20px;
 }
+
 .admin .frame .custom-btn {
-  width: 130px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
+    outline: none;
 }
 
 /* 1 */
 .admin .frame .btn-1 {
-  background: rgb(6,14,131);
-  background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
-  border: none;
+    background: rgb(6, 14, 131);
+    background: linear-gradient(0deg, rgba(6, 14, 131, 1) 0%, rgba(12, 25, 180, 1) 100%);
+    border: none;
 }
+
 .admin .frame .btn-1:hover {
-   background: rgb(0,3,255);
-background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+    background: rgb(0, 3, 255);
+    background: linear-gradient(0deg, rgba(0, 3, 255, 1) 0%, rgba(2, 126, 251, 1) 100%);
 }
 
 .userDetail .personaldetail {
