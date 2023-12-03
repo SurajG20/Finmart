@@ -6,11 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Vinayak Finmart Pvt. Ltd.</title>
     <!-- <link rel="shortcut icon" href="#" type="image/x-icon"> -->
- <link
-      rel="shortcut icon"
-      href="/img/Vinayak/10.png"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="/img/Vinayak/10.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -139,7 +135,7 @@
       </nav>
     </div>
     <section class="home-section">
-      <nav>
+      <div class="top-nav">
         <div class="d-flex justify-content-end align-items-center gap-5">
           <div class="btn-group" role="group" aria-label="Basic example">
             <button
@@ -181,7 +177,7 @@
             ${singleUserData?.personalDetails?.lastName}`%>
           </span>
         </div>
-      </nav>
+      </div>
 
       <div class="home-content admin">
         <div class="sales-boxes">
@@ -232,18 +228,32 @@
                             </div>
                           </div>
                           <div class="col-md-6">
+                            <label class="label" for="fName"
+                              >Marital Status</label
+                            >
+                            <div
+                              id="fName"
+                              class="form-control d-flex align-items-center text-secondary"
+                              style="cursor: default"
+                              type="text"
+                              name="firstName"
+                              required
+                            >
+                              <%= singleUserData?.personalDetails?.MaritalStatus
+                              %>
+                            </div>
+                          </div>
+                          <!-- <div class="col-md-6">
                             <label class="label mb-4">Marital Status</label>
                             <div class="form-check form-check-inline me-5">
                               <label
                                 class="form-check-label text-dark fw-bold"
                                 for="married"
                               >
-                                <%=
-                                singleUserData?.personalDetails?.MaritalStatus
-                                %>
+                                
                               </label>
                             </div>
-                          </div>
+                          </div> -->
                           <div class="col-md-6">
                             <label class="label" for="fName"
                               >Email Address</label
@@ -297,83 +307,100 @@
                   <!-- Loan Details  -->
                   <div class="loandetail" id="loanDetail">
                     <div class="loan-details-widget">
-                      <div enctype="multipart/form-data">
-                        <div class="row mb-35 gy-4">
-                          <div class="col-lg-3 col-md-6">
-                            <label for="Personal_loan" class="loan-type">
-                              <%=
-                              singleUserData?.loanDetails?.['select-loan-type']
-                              %>
-                              <span> </span>
-                            </label>
+                      <div class="row gy-4">
+                        <div class="col-md-6">
+                          <label class="label" for="loandetails01"
+                            >Loan Type</label
+                          >
+                          <div
+                            id="loandetails01"
+                            class="form-control d-flex align-items-center text-secondary"
+                            style="cursor: default"
+                            type="text"
+                            name="firstName"
+                            required
+                          >
+                            <%=
+                            singleUserData?.loanDetails?.['select-loan-type'] %>
                           </div>
                         </div>
-                        <div class="row gy-4">
-                          <div class="col-md-6">
-                            <label class="label" for="loandetails01"
-                              >Profession</label
-                            >
-                            <div
-                              id="loandetails01"
-                              class="form-control d-flex align-items-center text-secondary"
-                              style="cursor: default"
-                              type="text"
-                              name="firstName"
-                              required
-                            >
-                              <%= singleUserData?.loanDetails?.financingType %>
-                            </div>
-                          </div>
-
-                          <!-- bank type  -->
-                          <div class="col-md-6">
-                            <label class="label" for="loandetails02"
-                              >Bank Service</label
-                            >
-                            <div
-                              id="loandetails02"
-                              class="form-control d-flex align-items-center text-secondary"
-                              style="cursor: default"
-                              type="text"
-                              name="firstName"
-                              required
-                            >
-                              <%= singleUserData?.loanDetails?.bankService %>
-                            </div>
-                          </div>
-
-                          <!-- loan Amount -->
-                          <div class="col-md-6">
-                            <label class="label" for="loandetails03"
-                              >Yout loan amount</label
-                            >
-                            <div
-                              id="loandetails03"
-                              class="form-control d-flex align-items-center text-secondary"
-                              style="cursor: default"
-                              type="text"
-                              name="firstName"
-                              required
-                            >
-                              ₹ <%= singleUserData?.loanDetails?.loanAmount %>
-                            </div>
-                          </div>
-
-                          <div class="col-md-12">
-                            <label class="label mb-4">Loan duration</label>
-
-                            <div class="form-check form-check-inline mr-30">
-                              <label
-                                class="form-check-label"
-                                for="inlineRadio1"
-                              >
-                                <%= singleUserData?.loanDetails?.tenureDuration
-                                %> <%= singleUserData?.loanDetails?.tenureUnit
-                                %></label
-                              >
-                            </div>
+                        <div class="col-md-6">
+                          <label class="label" for="loandetails01"
+                            >Profession</label
+                          >
+                          <div
+                            id="loandetails01"
+                            class="form-control d-flex align-items-center text-secondary"
+                            style="cursor: default"
+                            type="text"
+                            name="firstName"
+                            required
+                          >
+                            <%= singleUserData?.loanDetails?.financingType %>
                           </div>
                         </div>
+
+                        <!-- bank type  -->
+                        <div class="col-md-6">
+                          <label class="label" for="loandetails02"
+                            >Bank Service</label
+                          >
+                          <div
+                            id="loandetails02"
+                            class="form-control d-flex align-items-center text-secondary"
+                            style="cursor: default"
+                            type="text"
+                            name="firstName"
+                            required
+                          >
+                            <%= singleUserData?.loanDetails?.bankService %>
+                          </div>
+                        </div>
+
+                        <!-- loan Amount -->
+                        <div class="col-md-6">
+                          <label class="label" for="loandetails03"
+                            >Loan amount</label
+                          >
+                          <div
+                            id="loandetails03"
+                            class="form-control d-flex align-items-center text-secondary"
+                            style="cursor: default"
+                            type="text"
+                            name="firstName"
+                            required
+                          >
+                            ₹ <%= singleUserData?.loanDetails?.loanAmount %>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="label" for="loandetails03"
+                            >Loan duration</label
+                          >
+                          <div
+                            id="loandetails03"
+                            class="form-control d-flex align-items-center text-secondary"
+                            style="cursor: default"
+                            type="text"
+                            name="firstName"
+                            required
+                          >
+                            <%= singleUserData?.loanDetails?.tenureDuration %>
+                            <%= singleUserData?.loanDetails?.tenureUnit %>
+                          </div>
+                        </div>
+
+                        <!-- <div class="col-md-6">
+                          <label class="label mb-4">Loan duration</label>
+
+                          <div class="form-check form-check-inline mr-30">
+                            <label class="form-check-label" for="inlineRadio1">
+                              <%= singleUserData?.loanDetails?.tenureDuration %>
+                              <%= singleUserData?.loanDetails?.tenureUnit
+                              %></label
+                            >
+                          </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -392,7 +419,7 @@
                               <img
                                 height="100%"
                                 width="100%"
-                                src="/img/document.png"
+                                src=" /img/document.png"
                                 alt="folder image"
                               />
                             </a>
@@ -425,7 +452,9 @@
                             <div class="ml-auto">
                               <!-- Replace the dropdown with a select input -->
                               <select class="form-select" name="loanStatus">
-                                <option value="" selected>Select Status</option>
+                                <option value="" selected>
+                                  <%= singleUserData?.ApplicationStatus %>
+                                </option>
                                 <option value="Approved">Approved</option>
                                 <option value="Pending">Pending</option>
                                 <option value="Rejected">Rejected</option>

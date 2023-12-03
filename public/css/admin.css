@@ -282,7 +282,30 @@
 
 
 
+.home-section .top-nav .profile-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5F6FA;
+    border: 2px solid #EFEEF1;
+    border-radius: 6px;
+    height: 50px;
+    min-width: 190px;
+    padding: 0 15px 0 2px;
 
+}
+
+
+.top-nav .profile-details .admin_name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+    white-space: nowrap;
+    font-size: large;
+    font-weight: bold;
+    color: gray;
+}
 
 
 
